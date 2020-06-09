@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const token = 'NzEwNDIwMzM1NTA5NTA0MDEy.XtyXpw.9JzvSnL0gUjbKHaZApoXb9xRzIM';
 const colors = require("./colors.json");
 const PREFIX = 'e!';
 const { Client, MessageEmbed } = require('discord.js');
@@ -345,11 +346,13 @@ bot.on('message' , async msg=>{
             .setColor(0x119e32);
             msg.channel.send(Hembed)
             break;
-        case 'candy':
-            msg.channel.send('Shut the fuck up candy')
-            msg.delete()
-            break;          
-
+        case 'spambot':
+            const SBembed = new Discord.MessageEmbed()
+            .setTitle('Spam bot info')
+            .setDescription('Command - e!send [Your message]')
+            .setFooter('This will DM everyone in the server BTW');
+            msg.channel.send(SBembed)
+            break;
             
             
 
@@ -359,5 +362,5 @@ bot.on('message' , async msg=>{
     }
 });
 
-bot.login(process.env.token);
+bot.login(token);
 
