@@ -357,7 +357,8 @@ bot.on('message' , async msg=>{
         case 'help':
             const HPembed = new Discord.MessageEmbed()
             .setTitle('Command Help')
-            .addField('How to use' , 'Type e!help [command] to get help on specific command!');
+            .addField('How to use' , 'Type e!help [command] to get help on specific command!')
+            .setColor(0x34cceb);
             msg.channel.send(HPembed)
             break;
 
