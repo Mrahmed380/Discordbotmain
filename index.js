@@ -345,7 +345,7 @@ bot.on('message' , async msg=>{
             .setColor(0x119e32);
             msg.channel.send(Hembed)
             break;
-        case 'spambot':
+        case 'notibot':
             const SBembed = new Discord.MessageEmbed()
             .setTitle('Spam bot info')
             .setDescription('Command - e!send [Your message]')
