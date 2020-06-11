@@ -4,7 +4,16 @@ const colors = require("./colors.json");
 const PREFIX = 'e!';
 const { Client, MessageEmbed } = require('discord.js');
 const suggestionID = Math.floor(Math.random() * 10000000 + 21);
+const fs = require('fs');
+bot.commands = new Discord.Collection();
 
+const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+for(const file of commandFiles){
+    const command = require(`./commands/${file}`)
+
+    bot.commands.set(command.name, command);
+
+}
 
 
 
@@ -217,7 +226,8 @@ bot.on('message' , async msg=>{
             msg.reply(twitch)
             break;
         case 'ping':
-            msg.reply('pong! This command is still under development!')
+            bot.commands.get('ping').execute(message, args);
+            //msg.reply('pong! This command is still under development!')
             break;
         case 'cracked':
             msg.reply('Always up to no good... dont tell anyone I gave you these. ' + CACC + '  Now dont expect them all to work.')
