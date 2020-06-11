@@ -354,6 +354,13 @@ bot.on('message' , async msg=>{
             .setFooter('This will DM everyone in the server BTW');
             msg.channel.send(SBembed)
             break;
+        case 'help':
+            const HPembed = new Discord.MessageEmbed()
+            .setTitle('Command Help')
+            .addField('How to use' , 'Type e!help [command] to get help on specific command!');
+            msg.channel.send(HPembed)
+            break;
+
             
             
 
