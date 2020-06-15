@@ -1,19 +1,11 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const colors = require("./colors.json");
+const botsettings = require('./botsettings.json');
 const PREFIX = 'e!';
 const { Client, MessageEmbed } = require('discord.js');
 const suggestionID = Math.floor(Math.random() * 10000000 + 21);
-const fs = require('fs');
-bot.commands = new Discord.Collection();
+require("./util/eventHandler")(bot)
 
-const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
-for(const file of commandFiles){
-    const command = require(`./commands/${file}`)
-
-    bot.commands.set(command.name, command);
-
-}
 
 
 
@@ -54,7 +46,7 @@ bot.on('message', (message) => {
     .addField('status' , 'Your suggestion has been approved!✅ Thanks for sharing!')
     .setColor(0x119e32)
     .setFooter(message.content.slice (32));
-
+``
     const Rembed = new Discord.MessageEmbed()
     .setTitle('Suggestion')
     .addField('status' , 'Your suggestion has been rejected😢:(')
@@ -92,6 +84,7 @@ const mention = message.mentions.users.first();
         //message.author.send("Message was sent to ");
         //message.author.send(message.mentions.users.first().tag)
     };
+
 
 });
 
@@ -147,19 +140,18 @@ bot.on('message' , async msg=>{
 
 
 
+    if (msg.content.toLowerCase().startsWith("e!prune")) {
+        if (!msg.member.hasPermission("ADMINISTRATOR")) return msg.channel.send("You dont have permissions to use this command :(")
+        if (isNaN(args[0])) return msg.channel.send("Please input a valid number.")
+        if (args[0] > 100) return msg.channel.send("Please use a number less than a 100")
+        if (args[0] <= 2) return msg.channel.send("You should know better, please use a number above 1!")
+        
+        msg.delete()
+        msg.channel.bulkDelete(args[0])
+        .then(messages => msg.channel.send(`Delted ${messages.size}/$args[0]} messages`)).then(d => d.delete({timeout: 10000}))
+        .catch(() => msg.channel.send("Something went wrong deleting all the messages."))
 
-
-
-
-
-
-
-    
-    
-    
-    
-
-
+    }
 
 
 
@@ -379,6 +371,14 @@ bot.on('message' , async msg=>{
 
         
     }
+
+
+
+
 });
+
+
+
+
 
 bot.login(process.env.token);
