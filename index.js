@@ -362,4 +362,4 @@ bot.on('message' , async msg=>{
     }
 });
 
-bot.login(token);
+bot.login(process.env.token);
