@@ -73,14 +73,6 @@ const mention = message.mentions.users.first();
         message.channel.send('Message Sent!')
         console.log('Message rejected');
     };
-    if (msg.startsWith (PREFIX + "message")) {
-        if (msgmention == null) { return; }
-        message.delete();
-        const mentionmsg = message.content.slice (1);
-        msgmention.send(MSGembed);
-        message.author.send("Message was sent to ");
-        message.author.send(message.mentions.users.first().tag)
-    };
 
 });
 
@@ -367,10 +359,12 @@ bot.on('message' , async msg=>{
             break;
         case 'smsg':
             msg.channel.send("```" + msg.content.slice (6) + "```")
+            const Smention = msg.mentions.users.first();
             const SDembed = new Discord.MessageEmbed()
             .setTitle("Message from " + msg.author.tag)
             .addField("Message" , "```" + msg.content.slice (6));
             msg.channel.send(SDembed)
+            Smention.send(SDembed)
             break;
 
             
