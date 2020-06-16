@@ -1,9 +1,0 @@
-case 'test':
-            let Embed = new Discord.MessageEmbed()
-            .setColor(colors.blue)
-            .setTitle('Idek this is test')
-            .addField("Guild Name", `${message.guild.name}` , true)
-            .addField("Guild Owner", `${message.guild.owner}` , true)
-            .addField("Member Count" , `${message.guild.memberCount}` , true)
-            .addField("Guild Name" , `${message.guild.name}` , true)
-            break;

@@ -344,14 +344,7 @@ bot.on('message' , async msg=>{
             .addField('Total members' , msg.guild.members.cache.filter(member => !member.user.bot).size)
             .setColor(0x119e32);
             msg.channel.send(Hembed)
-            break;
-        case 'help':
-            const HPembed = new Discord.MessageEmbed()
-            .setTitle('Command Help')
-            .addField('How to use' , 'Type e!help [command] to get help on specific command!')
-            .setColor(0x34cceb);
-            msg.channel.send(HPembed)
-            break;
+            break;         
 
             
             
