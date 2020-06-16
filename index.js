@@ -242,6 +242,7 @@ bot.on('message' , async msg=>{
             .addField('Mod commands' , '[e!reject @user (Suggestion ID: 1234)], [e!approve @user (Suggestion ID: 1234)]')
             .setThumbnail(msg.author.displayAvatarURL())
             .addField('Information' , botinfo)
+            .addField('Command Help', 'Use e!help to get help on any command!')
             .addField('Dedicated Server' , 'ERGs Recoverys')
             .setColor(0x119e32)            
             msg.channel.send(embed);
