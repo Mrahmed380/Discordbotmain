@@ -367,6 +367,10 @@ bot.on('message' , async msg=>{
             break;
         case 'smsg':
             msg.channel.send("```" + msg.content.slice (6) + "```")
+            const SDembed = new Discord.MessageEmbed()
+            .setTitle("Message from " + msg.author.tag)
+            .addField("Message" , "```" + msg.content.slice (6));
+            msg.channel.send(SDembed)
             break;
 
             
