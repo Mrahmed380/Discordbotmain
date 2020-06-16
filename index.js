@@ -142,7 +142,7 @@ bot.on('message' , async msg=>{
         if (args[0] <= 2) return msg.channel.send("You should know better, please use a number above 1!")
         
         msg.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
-            msg.channel.send(`Deleted ${args[0]} messages!`);
+            msg.channel.send(`Deleted ${args[0]} messages!`).then(msgd => msgd.delete({timeout: 300}));
         }).catch((err) => {
             return msg.reply("There was a problem deleting all the messages, I may not have admin permissions.");
         })
