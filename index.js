@@ -358,6 +358,7 @@ bot.on('message' , async msg=>{
             msg.channel.send(HPembed)
             break;
         case 'smsg':
+            msg.delete()
             const Smention = msg.mentions.users.first();
             const SDembed = new Discord.MessageEmbed()
             .setTitle("Message from " + msg.author.tag)
