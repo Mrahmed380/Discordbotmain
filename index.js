@@ -137,11 +137,10 @@ bot.on('message' , async msg=>{
     };
 
     if (msg.content.toLowerCase().startsWith("e!purge")) {
-        if(!msg.member.hasPermission("ADMINISTRATOR")) return msg.channel.send("You dont have permissions to use this command!")
-        if(!args[0]) return msg.reply("How many messages would you like to delete?")
-        if(parseInt(args[0]) > 99) return msg.channel.send("Please use a number less than a 100")
-        if(args[0] <= 2) return msg.channel.send("You should know better, please use a number above 1!")
-        
+        if(!msg.member.hasPermission("ADMINISTRATOR")) return msg.channel.send("You dont have permissions to use this command!");
+        if(!args[0]) return msg.reply("How many messages would you like to delete?");
+        if(parseInt(args[0]) > 99) return msg.channel.send("Please use a number less than a 100");
+
         msg.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
             msg.channel.send(`Deleted ${args[0]} messages!`).then(msgd => msgd.delete({timeout: 300}));
         }).catch((err) => {
