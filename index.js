@@ -136,16 +136,16 @@ bot.on('message' , async msg=>{
         msg.guild.owner.send('Your clients ticket was closed hopefully this helped them!😊')
     };
 
-    if (msg.content.toLowerCase().startsWith("e!purge")) {
-        if(!msg.member.hasPermission("ADMINISTRATOR")) return msg.channel.send("You dont have permissions to use this command!");
-        if(!args[0]) return msg.reply("How many messages would you like to delete?");
-        if(parseInt(args[0]) > 99) return msg.channel.send("Please use a number less than a 100");
+    //if (msg.content.toLowerCase().startsWith("e!purge")) {
+        //if(!msg.member.hasPermission("ADMINISTRATOR")) return msg.channel.send("You dont have permissions to use this command!");
+        //if(!args[0]) return msg.reply("How many messages would you like to delete?");
+        //if(parseInt(args[0]) > 99) return msg.channel.send("Please use a number less than a 100");
 
-        msg.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
-            msg.channel.send(`Deleted ${args[0]} messages!`).then(msgd => msgd.delete({timeout: 300}));
-        }).catch((err) => {
-            return msg.reply("There was a problem deleting all the messages, I may not have admin permissions.");
-        })
+        //msg.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
+            //msg.channel.send(`Deleted ${args[0]} messages!`).then(msgd => msgd.delete({timeout: 300}));
+        //}).catch((err) => {
+            //return msg.reply("There was a problem deleting all the messages, I may not have admin permissions.");
+        //})
 
 
 
@@ -373,6 +373,6 @@ bot.on('message' , async msg=>{
 
         
     }
-}});
-
+});
+//PUT A CURLY BRACKET BETWEEN THE NORMAL BRACKET AND PERENTHISIS ABOVE ME WHEN U FIX PURGE COMMAND 
 bot.login(process.env.token);
