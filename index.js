@@ -136,7 +136,7 @@ bot.on('message' , async msg=>{
         msg.guild.owner.send('Your clients ticket was closed hopefully this helped them!😊')
     };
 
-    if (msg.content.toLowerCase().startsWith("e!prune")) {
+    if (msg.content.toLowerCase().startsWith("e!purge")) {
         if (!msg.member.hasPermission("ADMINISTRATOR")) return msg.channel.send("You dont have permissions to use this command!")
         if (isNaN(args[0])) return msg.channel.send("Please input a valid number.")
         if (args[0] > 100) return msg.channel.send("Please use a number less than a 100")
