@@ -138,15 +138,14 @@ bot.on('message' , async msg=>{
 
     if (msg.content.toLowerCase().startsWith("e!purge")) {
         if (!msg.member.hasPermission("ADMINISTRATOR")) return msg.channel.send("You dont have permissions to use this command!")
-        if (isNaN(args[0])) return msg.channel.send("Please input a valid number.")
         if (args[0] > 100) return msg.channel.send("Please use a number less than a 100")
         if (args[0] <= 2) return msg.channel.send("You should know better, please use a number above 1!")
         
-        msg.channel.bulkDelete(args[0])
-        .then(messages => msg.channel.send(`Deleted ${messages.size}/$args[0]} messages`)).then(msgd => msgd.delete({timeout: 10000}))
-        .catch((err) => {
-            msg.reply("Something went wrong deleting all the messages.");
-    })};
+        msg.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
+            msg.channel.send(`Deleted ${args[0]} messages!`);
+        }).catch((err) => {
+            return msg.reply("There was a problem deleting all the messages, I may not have admin permissions.");
+        })
 
 
 
@@ -374,6 +373,6 @@ bot.on('message' , async msg=>{
 
         
     }
-});
+}});
 
 bot.login(process.env.token);
