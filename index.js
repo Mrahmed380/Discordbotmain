@@ -137,7 +137,7 @@ bot.on('message' , async msg=>{
     };
 
     if (msg.content.toLowerCase().startsWith("e!purge")) {
-        if (!msg.member.hasPermission("ADMINISTRATOR")) return msg.channel.send("You dont have permissions to use this command!")
+        if (!msg.author.hasPermission("ADMINISTRATOR")) return msg.channel.send("You dont have permissions to use this command!")
         if (isNaN(args[0])) return msg.channel.send("Please input a valid number.")
         if (args[0] > 100) return msg.channel.send("Please use a number less than a 100")
         if (args[0] <= 2) return msg.channel.send("You should know better, please use a number above 1!")
