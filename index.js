@@ -362,7 +362,7 @@ bot.on('message' , async msg=>{
             const Smention = msg.mentions.users.first();
             const SDembed = new Discord.MessageEmbed()
             .setTitle("Message from " + msg.author.tag)
-            .addField("Message" , "```" + msg.content.slice (6));
+            .addField("Message" , "```" + msg.content.slice (6) + "```");
             msg.channel.send(SDembed)
             Smention.send(SDembed)
             break;
