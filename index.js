@@ -366,8 +366,7 @@ bot.on('message' , async msg=>{
             msg.channel.send(HPembed)
             break;
         case 'smsg':
-            msg.channel.send("Note: if you didnt include a message nothing will be sent")
-            msg.channel.send("```js" + msg.content.slice (6) )
+            msg.channel.send("```js" + msg.content.slice (6) + "```")
             break;
 
             
