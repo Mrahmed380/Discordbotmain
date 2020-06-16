@@ -358,12 +358,10 @@ bot.on('message' , async msg=>{
             msg.channel.send(HPembed)
             break;
         case 'smsg':
-            msg.channel.send("```" + msg.content.slice (6) + "```")
             const Smention = msg.mentions.users.first();
             const SDembed = new Discord.MessageEmbed()
             .setTitle("Message from " + msg.author.tag)
-            .addField("Message" , "```" + msg.content.slice (6) + "```");
-            msg.channel.send(SDembed)
+            .addField("Message" , "```" + msg.content.slice (24) + "```");
             Smention.send(SDembed)
             break;
 
