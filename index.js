@@ -365,6 +365,10 @@ bot.on('message' , async msg=>{
             .setColor(0x34cceb);
             msg.channel.send(HPembed)
             break;
+        case 'smsg':
+            msg.channel.send("Note: if you didnt include a message nothing will be sent")
+            msg.channel.send("```js" + msg.content.slice (6) )
+            break;
 
             
             
