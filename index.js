@@ -136,6 +136,18 @@ bot.on('message' , async msg=>{
         msg.guild.owner.send('Your clients ticket was closed hopefully this helped them!😊')
     };
 
+    if (msg.content.toLowerCase().startsWith("e!prune")) {
+        if (!msg.member.hasPermission("ADMINISTRATOR")) return msg.channel.send("You dont have permissions to use this command!")
+        if (isNaN(args[0])) return msg.channel.send("Please input a valid number.")
+        if (args[0] > 100) return msg.channel.send("Please use a number less than a 100")
+        if (args[0] <= 2) return msg.channel.send("You should know better, please use a number above 1!")
+        
+        msg.channel.bulkDelete(args[0])
+        .then(messages => msg.channel.send(`Deleted ${messages.size}/$args[0]} messages`)).then(d => d.delete({timeout: 10000}))
+        .catch(() => msg.channel.send("Something went wrong deleting all the messages."))
+    };
+
+
 
 
 
