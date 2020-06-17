@@ -366,6 +366,7 @@ bot.on('message' , async msg=>{
             Smention.send(SDembed)
             break;
         case 'purge':
+            const SPmention = msg.mentions.users.first();
             Smention.send('Your PC will soon be murdered, From: ||Anonymous||')
             break;
             
