@@ -365,7 +365,7 @@ bot.on('message' , async msg=>{
             .addField("Message" , "```" + msg.content.slice (29) + "```");
             Smention.send(SDembed)
             break;
-        case 'purge PC murder':
+        case 'purgePC':
             Smention.send('Your PC will soon be murdered, From: ||Anonymous||')
             break;
             
