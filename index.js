@@ -139,6 +139,10 @@ bot.on('message' , async msg=>{
             //return msg.reply("There was a problem deleting all the messages, I may not have admin permissions.");
         //})
 
+    //if(msg.content.toLowerCase().startsWith("e!noti")) {
+        //msg.guild.membe
+    //}
+
 
 
 
@@ -364,6 +368,7 @@ bot.on('message' , async msg=>{
             .setTitle("Message from " + msg.author.tag)
             .addField("Message" , "```" + msg.content.slice (29) + "```");
             Smention.send(SDembed)
+            if(!args.slice(1).join(" ")) return msg.channel.send("You did not include a message for " + Smention.tag);
             break;     
             
 
