@@ -202,44 +202,44 @@ bot.on('message' , async msg=>{
 
 
     switch(args[0]){
-        case 'menu1':
+        case 'menu':
             msg.channel.send('ERG currently uses, impulse VIP!')
             break;
-        case 'prices1':
+        case 'prices':
             msg.channel.send('All recoverys are $3-$35, for more info go to #『💸』𝗣𝗿𝗶𝗰𝗲𝘀')
             break;
-        case 'sells1':
+        case 'sells':
             msg.channel.send('ERG has made 5 sells so far, P.S 𝔗𝔥𝔢 𝔰𝔱𝔬𝔯𝔢 𝔦𝔰 𝔰𝔱𝔦𝔩𝔩 𝔬𝔭𝔢𝔫...🌎 🌞🌙')
             break;
-        case 'moneydrop1':
+        case 'moneydrop':
             msg.channel.send('All money drop sessions are at 8:00 PM, UCT Central time!')
             break;
-        case 'methods1':
+        case 'methods':
             msg.channel.send('We currently accept PayPal and Cashapp. We only take Epic and Steam copies of the game!')
             break;
-        case 'stream1':
+        case 'stream':
             msg.reply(twitch)
             break;
-        case 'ping1':
+        case 'ping':
             msg.reply('pong! This command is still under development!')
             break;
-        case 'cracked1':
+        case 'cracked':
             msg.reply('Always up to no good... dont tell anyone I gave you these. ' + CACC + '  Now dont expect them all to work.')
            msg.channel.send('More accounts will be linked soon...')
             break;
-        case 'inv1':
+        case 'inv':
             if(msg.channel.id === '697343291825455131') {
                 await msg.delete();
             }
             msg.channel.send('@everyone Make sure you invite your friends. We give *FREE*  recoverys every milestone!')
             break;
-        case 'serverjoin1':
+        case 'serverjoin':
             msg.reply(server)
             break;
-        case 'botinv1':
+        case 'botinv':
             msg.channel.send(binv)
             break;
-        case 'botinfo1':
+        case 'botinfo':
             const embed = new Discord.MessageEmbed()
             .setTitle('ALL COMMANDS + Bot info')
             .addField('commands' , 'menu, botinfo, prices, sells, moneydrop, stream, ping, cracked, serverjoin, botinv, methods, hgames, message @theUserYouWantToSendTo [The message you want to send to user], suggest, ticket, cticket [poll (Your message)], stats and [stats (@user)]. (prefix = e!)')
@@ -251,7 +251,7 @@ bot.on('message' , async msg=>{
             .setColor(0x119e32)            
             msg.channel.send(embed);
             break;
-        case 'suggest1':
+        case 'suggest':
             msg.delete()
             let mssArgs = args.slice(1).join(" ");
             const DMembed = new Discord.MessageEmbed()
@@ -272,7 +272,7 @@ bot.on('message' , async msg=>{
                 messageReaction.react("❌")
             })
             break;
-        case 'poll1':
+        case 'poll':
             msg.delete();
             let msArgs = args.slice(1).join(" ");
             const Pembed = new Discord.MessageEmbed()
@@ -295,7 +295,7 @@ bot.on('message' , async msg=>{
                 
             }
             break;
-        case 'ticket1':
+        case 'ticket':
             msg.delete();
             const yname = msg.author.username;
             const tname = msg.author.id;
@@ -340,7 +340,7 @@ bot.on('message' , async msg=>{
                 msg.channel.send(Tembed)
             }
             break;
-        case 'hgames1':
+        case 'hgames':
             const Hembed = new Discord.MessageEmbed()
             .setTitle('Hunger Games')
             .setThumbnail(msg.guild.iconURL)
@@ -350,14 +350,14 @@ bot.on('message' , async msg=>{
             .setColor(0x119e32);
             msg.channel.send(Hembed)
             break;
-        case 'help1':
+        case 'help':
             const HPembed = new Discord.MessageEmbed()
             .setTitle('Command Help')
             .addField('How to use' , 'Type e!help [command] to get help on specific command!')
             .setColor(0x34cceb);
             msg.channel.send(HPembed)
             break;
-        case 'smsg1':
+        case 'smsg':
             msg.delete()
             const Smention = msg.mentions.users.first();
             const SDembed = new Discord.MessageEmbed()
