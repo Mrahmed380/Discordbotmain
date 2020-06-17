@@ -141,8 +141,9 @@ bot.on('message' , async msg=>{
 
     if(msg.content.toLowerCase().startsWith("e!")) {
         msg.channel.send('That is not a command sirmam, try putting a number 1 at the end of the command')
-    } else {
-        msg.content.toLowerCase().endsWith('1')
+    };
+    if(msg.content.toLowerCase().endsWith("1")) {
+        console.log("it is a real command rere")
     }
 
 
