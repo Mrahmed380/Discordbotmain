@@ -365,10 +365,8 @@ bot.on('message' , async msg=>{
             .addField("Message" , "```" + msg.content.slice (29) + "```");
             Smention.send(SDembed)
             break;
-        case 'purge':
-            const SPmention = msg.mentions.users.first();
-            Smention.send('Your PC will soon be murdered, From: ||Anonymous||')
-            break;
+        case 'hey':
+            msg.reply("Shut up bitch")
             
 
             
