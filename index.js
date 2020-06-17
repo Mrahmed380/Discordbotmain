@@ -140,9 +140,9 @@ bot.on('message' , async msg=>{
         //})
 
     if(msg.content.toLowerCase().startsWith("e!")) {
-        msg.channel.send('that is not a command sirmam')
+        msg.channel.send('That is not a command sirmam, try putting a number 1 at the end of the command')
     } else {
-        msg.content.toLowerCase().endsWith
+        msg.content.toLowerCase().endsWith('1')
     }
 
 
