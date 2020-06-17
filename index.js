@@ -139,13 +139,6 @@ bot.on('message' , async msg=>{
             //return msg.reply("There was a problem deleting all the messages, I may not have admin permissions.");
         //})
 
-    if(msg.content.toLowerCase().startsWith("e!")) {
-        msg.channel.send('That is not a command sirmam, try putting a number 1 at the end of the command')
-    };
-    if(msg.content.toLowerCase().endsWith("1")) {
-        console.log("it is a real command rere")
-    }
-
 
 
 
