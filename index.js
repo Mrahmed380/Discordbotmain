@@ -206,7 +206,7 @@ bot.on('message' , async msg=>{
         .setDescription('Im sorry to say but you have recieved a warning, three warnings and your out.')
         .setColor(0xb8b8db)
         .setThumbnail(msg.author.displayAvatarURL())
-        .setFooter("Warning " + Math.floor(Math.random() * 0 + 1));
+        .setFooter("Warning " + Math.floor(Math.random() * 0 + 1) + "/3");
         msg.channel.send(SWembed)
     }
     
