@@ -7,7 +7,6 @@ const { Client, MessageEmbed } = require('discord.js');
 const suggestionID = Math.floor(Math.random() * 10000000 + 21);
 
 
-
 var botinfo = 'Version 1.4.6, Created by ERG#1703 (bot is updated once a week)'
 var twitch = 'Hey, heres a link to ERG//s twitch channel! https://www.twitch.tv/supremeerg'
 var money = 'Hey, I would appreciate if you gave me all your money.😁 PayPal.Me/717163'
@@ -102,7 +101,7 @@ bot.on('message' , async msg=>{
             .setThumbnail(msg.author.displayAvatarURL())
             .setColor(0x119e32);
             msg.author.send(Vembed);
-            if(msg.guild.channels.cache.find(ch => ch.name == 'verification-log')) {
+            if(msg.guild.channels.cache.find(x => x.name == 'verifylog')) {
                 msg.channel.send(msg.author.tag + ' was succesfully verified!');
             }
             
