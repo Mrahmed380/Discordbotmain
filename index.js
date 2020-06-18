@@ -205,7 +205,8 @@ bot.on('message' , async msg=>{
         .setTitle('Racial slurs are not allowed!')
         .setDescription('Im sorry to say but you have recieved a warning, three warnings and your out.')
         .setColor(0xb8b8db)
-        .setThumbnail(msg.author.displayAvatarURL());
+        .setThumbnail(msg.author.displayAvatarURL())
+        .setFooter("Warning " + Math.floor(Math.random() * 0 + 1));
         msg.channel.send(SWembed)
     }
     
