@@ -101,10 +101,11 @@ bot.on('message' , async msg=>{
             .setFooter(msg.author.tag)
             .setThumbnail(msg.author.displayAvatarURL())
             .setColor(0x119e32);
-            msg.author.send(Vembed)
-            msg.guild.channels.cache.find('723153779297615953'); {
-                msg.channel.send(msg.author.tag + "has verified!!")
+            msg.author.send(Vembed);
+            if(msg.guild.channels.cache.find(ch => ch.name == 'verification-log')) {
+                msg.channel.send(msg.author.tag + ' was succesfully verified!');
             }
+            
         } else {
             msg.author.send('There was a error verifying you in ERGs Recoverys')
         }
