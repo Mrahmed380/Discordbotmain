@@ -5,7 +5,7 @@ const colors = require("./colors.json");
 const PREFIX = 'e!';
 const { Client, MessageEmbed } = require('discord.js');
 const suggestionID = Math.floor(Math.random() * 10000000 + 21);
-const Muser = msg.mentions.members.first()
+const Muser = msg.mentions.members.first();
 
 
 var botinfo = 'Version 1.4.6, Created by ERG#1703 (bot is updated once a week)'
