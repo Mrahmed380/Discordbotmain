@@ -90,6 +90,7 @@ bot.on('message' , async msg=>{
     if(msg.content.toLowerCase() === 'e!verify' && msg.channel.id === '714428169691725915')
     {
         const role = msg.guild.roles.cache.get('697343291825455124');
+        let verifyCH = (msg.guild.channels.cache.get('723153779297615953'))
         if (role) {
             msg.delete();
             msg.member.roles.add(role);
@@ -101,9 +102,12 @@ bot.on('message' , async msg=>{
             .setThumbnail(msg.author.displayAvatarURL())
             .setColor(0x119e32);
             msg.author.send(Vembed);
-            if(msg.guild.channels.cache.find(x => x.id == '723153779297615953')) {
-                msg.channel.send(msg.author.tag + ' was succesfully verified!');
+            if(verifyCH) {
+                msg.channel.send('ok')
             }
+            //if(msg.guild.channels.cache.find(x => x.id == '723153779297615953')) {
+                //msg.channel.send(msg.author.tag + ' was succesfully verified!');
+            //}
             
         } else {
             msg.author.send('There was a error verifying you in ERGs Recoverys')
