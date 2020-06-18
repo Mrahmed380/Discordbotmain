@@ -197,6 +197,10 @@ bot.on('message' , async msg=>{
             }
 
         }
+    const swearwords = ['nigga' , 'nigger']
+    if(swearwords.some(word => msg.content.includes(word)) ) {
+        msg.channel.send("That is a no no word! You have recieved a warning")
+    }
     
     
     
