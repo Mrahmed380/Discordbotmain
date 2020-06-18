@@ -199,7 +199,13 @@ bot.on('message' , async msg=>{
         }
     const swearwords = ['nigga' , 'nigger']
     if(swearwords.some(word => msg.content.includes(word)) ) {
-        msg.channel.send("That is a no no word! You have recieved a warning")
+        msg.delete();
+        msg.channel.send("That is a no no word! You have recieved a warning");
+        const SWembed = new Discord.MessageEmbed()
+        .setTitle('Racial slurs are not allowed!')
+        .setDescription('Im sorry to say but you have recieved a warning, three warnings and your out.')
+        .setColor(0xb8b8db);
+        msg.channel.send(SWembed)
     }
     
     
