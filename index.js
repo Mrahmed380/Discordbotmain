@@ -101,7 +101,7 @@ bot.on('message' , async msg=>{
             .setThumbnail(msg.author.displayAvatarURL())
             .setColor(0x119e32);
             msg.author.send(Vembed);
-            if(msg.guild.channels.cache.find(x => x.name == 'verifylog')) {
+            if(msg.guild.channels.cache.find(x => x.id == '723153779297615953')) {
                 msg.channel.send(msg.author.tag + ' was succesfully verified!');
             }
             
