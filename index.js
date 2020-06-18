@@ -5,6 +5,7 @@ const colors = require("./colors.json");
 const PREFIX = 'e!';
 const { Client, MessageEmbed } = require('discord.js');
 const suggestionID = Math.floor(Math.random() * 10000000 + 21);
+const Muser = msg.mentions.members.first()
 
 
 var botinfo = 'Version 1.4.6, Created by ERG#1703 (bot is updated once a week)'
@@ -99,8 +100,11 @@ bot.on('message' , async msg=>{
             .addField('Status' , 'You were succesfully verified in ERGs Recoverys')
             .setFooter(msg.author.tag)
             .setThumbnail(msg.author.displayAvatarURL())
-            .setColor(0x119e32)
+            .setColor(0x119e32);
             msg.author.send(Vembed)
+            msg.guild.channels.cache.find('723153779297615953'); {
+                msg.channel.send(msg.author.tag + "has verified!!")
+            }
         } else {
             msg.author.send('There was a error verifying you in ERGs Recoverys')
         }
@@ -200,7 +204,6 @@ bot.on('message' , async msg=>{
     const swearwords = ['nigga' , 'nigger']
     if(swearwords.some(word => msg.content.includes(word)) ) {
         msg.delete();
-        msg.channel.send("That is a no no word! You have recieved a warning");
         const SWembed = new Discord.MessageEmbed()
         .setTitle('Racial slurs are not allowed!')
         .setDescription('Im sorry to say but you have recieved a warning, three warnings and your out.')
@@ -209,6 +212,7 @@ bot.on('message' , async msg=>{
         .setFooter("Warning " + Math.floor(Math.random() * 0 + 1) + "/3");
         msg.channel.send(SWembed)
     }
+    
     
     
     

@@ -20,25 +20,23 @@ if (msg.content.toLowerCase().startsWith("e!prune")) {
 
 
 
+if(msg.content.toLowerCase().startsWith('e!warn')) {
+        if(!msg.member.hasPermission("ADMINISTRATOR")){
+            return msg.channel.send("You need Admin to warn people!")
+        }
+        if(!Muser) {
+            return msg.channel.send("Please mention the user you would like to warn, format it like this- warn @user <reason>")
+        }
 
+        if(msg.mentions.users.first().bot) {
+            return msg.channel.send("You can not warn bots rere!")
+        }
 
+        const reason = args.slice(1).join(" ")
 
+        if(!reason) {
+            return msg.channel.send("Please give me a reason to warn the user.")
+        }
 
-
-
-
-
-                case 'notibot':
-            const SBembed = new Discord.MessageEmbed()
-            .setTitle('Spam bot info')
-            .setDescription('Command - e!send [Your message]')
-            .setFooter('This will DM everyone in the server BTW');
-            msg.channel.send(SBembed)
-            break;
-        case 'help':
-            const HPembed = new Discord.MessageEmbed()
-            .setTitle('Command Help')
-            .addField('How to use' , 'Type e!help [command] to get help on specific command!')
-            .setColor(0x34cceb);
-            msg.channel.send(HPembed)
-            break;
+        let warnings =
+    }
