@@ -103,7 +103,7 @@ bot.on('message' , async msg=>{
             msg.author.send(Vembed);
             const VCHember = new Discord.MessageEmbed()
             .setTitle('Verification')
-            .addField('Succesful Verification', msg.author.username + ' has succesfully verified!')
+            .addField('Succesful Verification', `${msg.author}` + ' has succesfully verified!')
             .setColor(0x824673);
             bot.channels.cache.get('723153779297615953').send(VCHember);           
         } else {
