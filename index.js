@@ -172,7 +172,7 @@ bot.on('message' , async msg=>{
         const args = msg.content.split(' ');
         console.log(args);
         if(args.length > 2) {
-            msg.channel.send('Incorrect Usage: e!stat | e!stats @User');
+            msg.channel.send('Incorrect Usage: e!stats | e!stats @User | e!stats self');
         } else if(args.length === 2) {
             const memberM = msg.mentions.members.first();
             const STembed = new MessageEmbed()
@@ -202,6 +202,26 @@ bot.on('message' , async msg=>{
             }
 
         }
+        if(msg.content.toLowerCase().startsWith('e!stats self')) {
+            const args = msg.content.split(' ');
+        console.log(args);
+        if(args.length > 2) {
+            msg.channel.send('Incorrect Usage: e!stats | e!stats @User | e!stats self');
+        } else if(args.length === 2) {
+            const STSembed = new MessageEmbed()
+            .setAuthor(`${msg.author.tag} (${msg.author.tag.id})`, msg.author.displayAvatarURL())
+            .setThumbnail(msg.author.user.displayAvatarURL())
+            .addField('Created on' , msg.author.createdAt.toLocaleString(), true)
+            .addField('Joined Server on' , msg.author.joinedAt, true)
+            .addField('Player is Kickable' , msg.author.kickable , false)
+            .addField('Player is Banable' , msg.author.bannable, false)
+            .addField('Prescence' , msg.author.presence.status, false)
+            .setDescription(`${msg.author.roles.cache.map(role => role.toString()).join(' ')}`)
+            msg.channel.send(STSembed);
+        }}
+
+
+
     const swearwords = ['nigga' , 'nigger']
     if(swearwords.some(word => msg.content.includes(word)) ) {
         msg.delete();
