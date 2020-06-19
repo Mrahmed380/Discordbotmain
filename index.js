@@ -102,6 +102,11 @@ bot.on('message' , async msg=>{
             .setColor(0x119e32);
             msg.author.send(Vembed);
             bot.channels.cache.get('723153779297615953').send(msg.author.tag + ' succesfully verified!');
+            const VCHember = new Discord.MessageEmbed()
+            .setAuthor(`msg.author.tag msg.author.id`)
+            .setTitle('Verification')
+            .addField('Succesful Verification', msg.author.tag + ' has succesfully verified in #verify !')
+            .setColor(0x119e32);
             
         } else {
             msg.author.send('There was a error verifying you in ERGs Recoverys')
