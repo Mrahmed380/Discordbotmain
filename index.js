@@ -202,7 +202,7 @@ bot.on('message' , async msg=>{
             }
 
         }
-        if(msg.content.toLowerCase().startsWith('e!stats self')) {
+        if(msg.content.toLowerCase().startsWith('e!statsme')) {
             const args = msg.content.split(' ');
         console.log(args);
         if(args.length > 2) {
