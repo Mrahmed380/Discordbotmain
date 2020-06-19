@@ -101,7 +101,7 @@ bot.on('message' , async msg=>{
             .setThumbnail(msg.author.displayAvatarURL())
             .setColor(0x119e32);
             msg.author.send(Vembed);
-            bot.channels.cache.get('723153779297615953').send(msg.author.tag + ' succesfully verified!');
+            bot.channels.cache.get('723153779297615953').send(VCHember);
             const VCHember = new Discord.MessageEmbed()
             .setAuthor(`msg.author.tag msg.author.id`)
             .setTitle('Verification')
