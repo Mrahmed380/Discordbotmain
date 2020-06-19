@@ -30,11 +30,10 @@ bot.on('guildMemberAdd' , member =>{
     .addField('ERGs Recoverys' , `Welcome to ERGs Recoverys, ${member}`)
     .addField('Verification' , 'Please Verify your self to get accest to the rest of the channel.')
     .setFooter('Make your self at home!')
+    .setThumbnail(`${member.user.displayAvatarURL()}`)
     .setColor(0xba0de0);
-    channel.send(Wembed)
-
-
-
+    channel.send(Wembed);
+    
 });
 
 
