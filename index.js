@@ -101,13 +101,11 @@ bot.on('message' , async msg=>{
             .setThumbnail(msg.author.displayAvatarURL())
             .setColor(0x119e32);
             msg.author.send(Vembed);
-            bot.channels.cache.get('723153779297615953').send(VCHember);
             const VCHember = new Discord.MessageEmbed()
-            .setThumbnail(msg.author.displayAvatarURL())
             .setTitle('Verification')
             .addField('Succesful Verification', msg.author.tag + ' has succesfully verified in #verify !')
-            .setColor(0x119e32);
-            
+            .setColor(0x824673);
+            bot.channels.cache.get('723153779297615953').send(VCHember);           
         } else {
             msg.author.send('There was a error verifying you in ERGs Recoverys')
         }
