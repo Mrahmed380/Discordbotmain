@@ -131,22 +131,52 @@ bot.on('message' , async msg=>{
         msg.author.send('Your ticket was succesfully deleted. Thanks for contacting staff!')
         msg.guild.owner.send('Your clients ticket was closed hopefully this helped them!😊')
     };
+    const args = msg.content.split(' ');
+    const Mention = msg.mentions.members.first();
+    const ID = msg.content.slice(7);
 
-    //if (msg.content.toLowerCase().startsWith("e!purge")) {
-        //if(!msg.member.hasPermission("ADMINISTRATOR")) return msg.channel.send("You dont have permissions to use this command!");
-        //if(!args[0]) return msg.reply("How many messages would you like to delete?");
-        //if(parseInt(args[0]) > 99) return msg.channel.send("Please use a number less than a 100");
 
-        //msg.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
-            //msg.channel.send(`Deleted ${args[0]} messages!`).then(msgd => msgd.delete({timeout: 300}));
-        //}).catch((err) => {
-            //return msg.reply("There was a problem deleting all the messages, I may not have admin permissions.");
-        //})
 
-    //if(msg.content.toLowerCase().startsWith("e!noti")) {
-        //msg.guild.membe
-    //}
 
+
+    if(msg.content.toLowerCase().startsWith('e!ban')) {
+        if(!msg.member.hasPermission('ADMINISTRATOR')) {
+            msg.channel.send('You dont have permission to use this command');
+        }
+        if(!Mention.bannable) {
+            msg.channel.send('You can not ban this user!') 
+        } else {
+            const Bembed = new Discord.MessageEmbed()
+            .setTitle('Ban Hammer')
+            .setDescription(`${msg.author} just banned yo ass!`)
+            .addField('Reason' , msg.content.slice(26))
+            .setThumbnail(msg.guild.iconURL())
+            .setColor(0xd5eb34)
+            .setFooter(msg.guild.name);
+            Mention.send(Bembed);
+            Mention.ban();
+            msg.channel.send(`${Mention} was banned!`)
+            
+        }
+    }
+    if(msg.content.toLowerCase().startsWith('e!unban')) {
+        if(!msg.member.hasPermission('ADMINISTRATOR')) {
+            msg.channel.send('You dont have permission to unban people!')
+        } else {
+            msg.guild.members.unban(ID)
+            msg.channel.send(`The user was unbanned!`)
+        }
+    }
+    if(msg.content.toLowerCase().startsWith('e!kick')) {
+        if(!msg.member.hasPermission('ADMINISTRATOR')) {
+            msg.reply('You need administrator to use this command!')
+        } else {
+            Mention.send('You have been kicked from ' + (msg.guild.name))
+            Mention.kick();
+            msg.channel.send(`${Mention} was kicked from the server!`)
+        }
+    }
+})
 
 
 
