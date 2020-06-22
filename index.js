@@ -169,6 +169,9 @@ bot.on('message' , async msg=>{
     if(msg.content.toLowerCase().startsWith('e!kick')) {
         if(!msg.member.hasPermission('ADMINISTRATOR')) {
             msg.reply('You need administrator to use this command!')
+        }
+        if(!msg.content.includes(Mention)) {
+            msg.channel.send('You must mention someone to kick durdur goofy')
         } else {
             Mention.send('You have been kicked from ' + (msg.guild.name))
             Mention.kick();
