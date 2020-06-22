@@ -140,10 +140,10 @@ bot.on('message' , async msg=>{
 
     if(msg.content.toLowerCase().startsWith('e!ban')) {
         if(!msg.member.hasPermission('ADMINISTRATOR')) {
-            msg.channel.send('You dont have permission to use this command');
+            msg.channel.send('You need administrator to ban people!!')
         }
         if(!Mention.bannable) {
-            msg.channel.send('You can not ban this user!') 
+            msg.channel.send('You cannot ban this user!!!')
         } else {
             const Bembed = new Discord.MessageEmbed()
             .setTitle('Ban Hammer')
@@ -154,8 +154,8 @@ bot.on('message' , async msg=>{
             .setFooter(msg.guild.name);
             Mention.send(Bembed);
             Mention.ban();
-            msg.channel.send(`${Mention} was banned!`)  
-        }    
+            msg.channel.send(`${Mention} was banned!`)
+        }
     }
     if(msg.content.toLowerCase().startsWith('e!unban')) {
         if(!msg.member.hasPermission('ADMINISTRATOR')) {
