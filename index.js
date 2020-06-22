@@ -177,7 +177,7 @@ bot.on('message' , async msg=>{
     }
     if(msg.content.toLowerCase().startsWith('e!helpc')) {
         const commandc = ['ban' , 'unban'];
-        if(!swearwords.some(word => msg.content.includes(word))) {
+        if(!swearwords.some(cword => msg.content.includes(cword))) {
             msg.channel.send('Please include the command you need assistance with! Do not include the prefix')
         } else {
             msg.channel.send('You a dumb nigger')
