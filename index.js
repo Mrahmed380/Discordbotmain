@@ -175,15 +175,14 @@ bot.on('message' , async msg=>{
             msg.channel.send(`${Mention} was kicked from the server!`)
         }
     }
-    if(msg.content.toLowerCase().startsWith('helpc')) {
-        const commandc = ['ban' , 'unban']
+    if(msg.content.toLowerCase().startsWith('e!helpc')) {
+        const commandc = ['ban' , 'unban'];
         if(!msg.content.includes(commandc)) {
             msg.channel.send('Please include the command you need assistance with! Do not include the prefix')
         } else {
             msg.channel.send('You a dumb nigger')
         }
     }
-
 
 
 
