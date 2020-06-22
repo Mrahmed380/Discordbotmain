@@ -158,31 +158,31 @@ bot.on('message' , async msg=>{
             
         }
     }
-    if(msg.content.toLowerCase().startsWith('e!unban')) {
-        if(!msg.member.hasPermission('ADMINISTRATOR')) {
-            msg.channel.send('You dont have permission to unban people!')
-        } else {
-            msg.guild.members.unban(ID)
-            msg.channel.send(`The user was unbanned!`)
-        }
-    }
-    if(msg.content.toLowerCase().startsWith('e!kick')) {
-        if(!msg.member.hasPermission('ADMINISTRATOR')) {
-            msg.reply('You need administrator to use this command!')
-        } else {
-            Mention.send('You have been kicked from ' + (msg.guild.name))
-            Mention.kick();
-            msg.channel.send(`${Mention} was kicked from the server!`)
-        }
-    }
-    if(msg.content.toLowerCase().startsWith('e!helpc')) {
-        const commandc = ['ban' , 'unban'];
-        if(!swearwords.some(cword => msg.content.includes(cword))) {
-            msg.channel.send('Please include the command you need assistance with! Do not include the prefix')
-        } else {
-            msg.channel.send('You a dumb nigger')
-        }
-    }
+    // if(msg.content.toLowerCase().startsWith('e!unban')) {
+    //     if(!msg.member.hasPermission('ADMINISTRATOR')) {
+    //         msg.channel.send('You dont have permission to unban people!')
+    //     } else {
+    //         msg.guild.members.unban(ID)
+    //         msg.channel.send(`The user was unbanned!`)
+    //     }
+    // }
+    // if(msg.content.toLowerCase().startsWith('e!kick')) {
+    //     if(!msg.member.hasPermission('ADMINISTRATOR')) {
+    //         msg.reply('You need administrator to use this command!')
+    //     } else {
+    //         Mention.send('You have been kicked from ' + (msg.guild.name))
+    //         Mention.kick();
+    //         msg.channel.send(`${Mention} was kicked from the server!`)
+    //     }
+    // }
+    // if(msg.content.toLowerCase().startsWith('e!helpc')) {
+    //     const commandc = ['ban' , 'unban'];
+    //     if(!swearwords.some(cword => msg.content.includes(cword))) {
+    //         msg.channel.send('Please include the command you need assistance with! Do not include the prefix')
+    //     } else {
+    //         msg.channel.send('You a dumb nigger')
+    //     }
+    // }
 
 
 
