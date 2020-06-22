@@ -17,6 +17,65 @@ if (msg.content.toLowerCase().startsWith("e!prune")) {
 
 
 
+***RN***
+
+if(!Mention.bannable) {
+             msg.channel.send('You can not ban this user!') 
+        } else {
+            const Bembed = new Discord.MessageEmbed()
+            .setTitle('Ban Hammer')
+            .setDescription(`${msg.author} just banned yo ass!`)
+            .addField('Reason' , msg.content.slice(26))
+            .setThumbnail(msg.guild.iconURL())
+            .setColor(0xd5eb34)
+            .setFooter(msg.guild.name);
+            Mention.send(Bembed);
+            Mention.ban();
+            msg.channel.send(`${Mention} was banned!`)
+            
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 *****YOU MANAGED TO BE DUMB IN TEXAS SO NOW YOU HAVE TO DO THIS WHEN YOU GET BACK TO MISOURRI***
     const args = msg.content.split(' ');
     const Mention = msg.mentions.members.first();
