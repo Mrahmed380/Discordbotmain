@@ -138,51 +138,51 @@ bot.on('message' , async msg=>{
 
 
 
-    // if(msg.content.toLowerCase().startsWith('e!ban')) {
-    //     if(!msg.member.hasPermission('ADMINISTRATOR')) {
-    //         msg.channel.send('You dont have permission to use this command');
-    //     }
-    //     if(!Mention.bannable) {
-    //         msg.channel.send('You can not ban this user!') 
-    //     } else {
-    //         const Bembed = new Discord.MessageEmbed()
-    //         .setTitle('Ban Hammer')
-    //         .setDescription(`${msg.author} just banned yo ass!`)
-    //         .addField('Reason' , msg.content.slice(26))
-    //         .setThumbnail(msg.guild.iconURL())
-    //         .setColor(0xd5eb34)
-    //         .setFooter(msg.guild.name);
-    //         Mention.send(Bembed);
-    //         Mention.ban();
-    //         msg.channel.send(`${Mention} was banned!`)
+    if(msg.content.toLowerCase().startsWith('e!ban')) {
+        if(!msg.member.hasPermission('ADMINISTRATOR')) {
+             msg.channel.send('You dont have permission to use this command');
+        }
+        if(!Mention.bannable) {
+             msg.channel.send('You can not ban this user!') 
+        } else {
+            const Bembed = new Discord.MessageEmbed()
+            .setTitle('Ban Hammer')
+            .setDescription(`${msg.author} just banned yo ass!`)
+            .addField('Reason' , msg.content.slice(26))
+            .setThumbnail(msg.guild.iconURL())
+            .setColor(0xd5eb34)
+            .setFooter(msg.guild.name);
+            Mention.send(Bembed);
+            Mention.ban();
+            msg.channel.send(`${Mention} was banned!`)
             
-    //     }
-    // }
-    // if(msg.content.toLowerCase().startsWith('e!unban')) {
-    //     if(!msg.member.hasPermission('ADMINISTRATOR')) {
-    //         msg.channel.send('You dont have permission to unban people!')
-    //     } else {
-    //         msg.guild.members.unban(ID)
-    //         msg.channel.send(`The user was unbanned!`)
-    //     }
-    // }
-    // if(msg.content.toLowerCase().startsWith('e!kick')) {
-    //     if(!msg.member.hasPermission('ADMINISTRATOR')) {
-    //         msg.reply('You need administrator to use this command!')
-    //     } else {
-    //         Mention.send('You have been kicked from ' + (msg.guild.name))
-    //         Mention.kick();
-    //         msg.channel.send(`${Mention} was kicked from the server!`)
-    //     }
-    // }
-    // if(msg.content.toLowerCase().startsWith('e!helpc')) {
-    //     const commandc = ['ban' , 'unban'];
-    //     if(!swearwords.some(cword => msg.content.includes(cword))) {
-    //         msg.channel.send('Please include the command you need assistance with! Do not include the prefix')
-    //     } else {
-    //         msg.channel.send('You a dumb nigger')
-    //     }
-    // }
+        }
+    }
+    if(msg.content.toLowerCase().startsWith('e!unban')) {
+        if(!msg.member.hasPermission('ADMINISTRATOR')) {
+             msg.channel.send('You dont have permission to unban people!')
+        } else {
+            msg.guild.members.unban(ID)
+            msg.channel.send(`The user was unbanned!`)
+        }
+    }
+    if(msg.content.toLowerCase().startsWith('e!kick')) {
+        if(!msg.member.hasPermission('ADMINISTRATOR')) {
+            msg.reply('You need administrator to use this command!')
+        } else {
+            Mention.send('You have been kicked from ' + (msg.guild.name))
+            Mention.kick();
+            msg.channel.send(`${Mention} was kicked from the server!`)
+        }
+    }
+    if(msg.content.toLowerCase().startsWith('e!helpc')) {
+        const commandc = ['ban' , 'unban'];
+        if(!swearwords.some(cword => msg.content.includes(cword))) {
+            msg.channel.send('Please include the command you need assistance with! Do not include the prefix')
+        } else {
+            msg.channel.send('You a dumb nigger')
+        }
+    }
 
 
 
