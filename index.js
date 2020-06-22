@@ -172,6 +172,9 @@ bot.on('message' , async msg=>{
         }
         if(!msg.content.includes(Mention)) {
             msg.channel.send('You must mention someone to kick durdur goofy')
+        }
+        if(!Mention.kickable) {
+            msg.channel.send('You cannot kick this person')
         } else {
             Mention.send('You have been kicked from ' + (msg.guild.name))
             Mention.kick();
