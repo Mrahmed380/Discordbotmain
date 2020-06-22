@@ -138,23 +138,12 @@ bot.on('message' , async msg=>{
 
 
 
-
-
-
-
-
-
-
-
     if(msg.content.toLowerCase().startsWith('e!ban')) {
         if(!msg.member.hasPermission('ADMINISTRATOR')) {
             msg.channel.send('You dont have permission to use this command');
         }
         if(!Mention.bannable) {
             msg.channel.send('You can not ban this user!') 
-        }
-        if(msg.content.toLowerCase().endsWith('e!ban')) {
-            msg.channel.send('To ban someone format the command like this; e!ban <@user> <reason>')
         } else {
             const Bembed = new Discord.MessageEmbed()
             .setTitle('Ban Hammer')
@@ -444,7 +433,9 @@ bot.on('message' , async msg=>{
             .addField("Message" , "```" + msg.content.slice (29) + "```");
             Smention.send(SDembed)
             //if(!args.slice(1).join(" ")) return msg.channel.send("You did not include a message for the user");
-            break;     
+            break;
+        case 'help ban':
+            msg.channel.send('To ban a user in the server format the ban command like this; e!ban <@user> <reason>')  
             
 
 
