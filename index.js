@@ -142,9 +142,6 @@ bot.on('message' , async msg=>{
         if(!msg.member.hasPermission('ADMINISTRATOR')) {
             msg.channel.send('You dont have permission to use this command');
         }
-        if(!msg.content.includes('@')) {
-            msg.channel.send('You must mention someone durdur')
-        }
         if(!Mention.bannable) {
             msg.channel.send('You can not ban this user!') 
         } else {
