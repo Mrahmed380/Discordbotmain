@@ -176,11 +176,12 @@ bot.on('message' , async msg=>{
         }
     }
     if(msg.content.toLowerCase().startsWith('e!helpc')) {
-        const commandc = ['ban' , 'unban'];
+        const commandBC = ['ban' , 'kick'];
         if(!commandc.some(cword => msg.content.includes(cword))) {
             msg.channel.send('Please include the command you need assistance with! Do not include the prefix')
         } else {
-            msg.channel.send('You a dumb nigger')
+            msg.channel.send('To ban someone format the command like this; e!ban <@user> <reason>')
+            msg.channel.send('To kick someone format the command like this; e!kick <@user>')
         }
     }
 
