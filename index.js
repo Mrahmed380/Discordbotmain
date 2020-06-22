@@ -144,22 +144,21 @@ bot.on('message' , async msg=>{
         }
         if(!msg.content.includes('@')) {
             msg.channel.send('You must mention someone durdur')
-        } else {
-            if(!Mention.bannable) {
-                msg.channel.send('You can not ban this user!') 
-            } else {
-               const Bembed = new Discord.MessageEmbed()
-               .setTitle('Ban Hammer')
-               .setDescription(`${msg.author} just banned yo ass!`)
-               .addField('Reason' , msg.content.slice(26))
-               .setThumbnail(msg.guild.iconURL())
-               .setColor(0xd5eb34)
-               .setFooter(msg.guild.name);
-               Mention.send(Bembed);
-               Mention.ban();
-               msg.channel.send(`${Mention} was banned!`)  
-            }
         }
+        if(!Mention.bannable) {
+            msg.channel.send('You can not ban this user!') 
+        } else {
+            const Bembed = new Discord.MessageEmbed()
+            .setTitle('Ban Hammer')
+            .setDescription(`${msg.author} just banned yo ass!`)
+            .addField('Reason' , msg.content.slice(26))
+            .setThumbnail(msg.guild.iconURL())
+            .setColor(0xd5eb34)
+            .setFooter(msg.guild.name);
+            Mention.send(Bembed);
+            Mention.ban();
+            msg.channel.send(`${Mention} was banned!`)  
+        }    
     }
     if(msg.content.toLowerCase().startsWith('e!unban')) {
         if(!msg.member.hasPermission('ADMINISTRATOR')) {
