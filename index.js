@@ -152,6 +152,9 @@ bot.on('message' , async msg=>{
         }
         if(!Mention.bannable) {
             msg.channel.send('You can not ban this user!') 
+        }
+        if(msg.content.toLowerCase().endsWith('e!ban')) {
+            msg.channel.send('To ban someone format the command like this; e!ban <@user> <reason>')
         } else {
             const Bembed = new Discord.MessageEmbed()
             .setTitle('Ban Hammer')
