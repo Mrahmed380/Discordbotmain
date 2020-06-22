@@ -131,7 +131,7 @@ bot.on('message' , async msg=>{
         msg.author.send('Your ticket was succesfully deleted. Thanks for contacting staff!')
         msg.guild.owner.send('Your clients ticket was closed hopefully this helped them!😊')
     };
-    const args = msg.content.split(' ');
+    const args2 = msg.content.split(' ');
     const Mention = msg.mentions.members.first();
     const ID = msg.content.slice(7);
 
