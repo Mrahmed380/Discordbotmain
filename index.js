@@ -175,6 +175,10 @@ bot.on('message' , async msg=>{
             msg.channel.send(`${Mention} was kicked from the server!`)
         }
     }
+    if(msg.content.toLowerCase().startsWith('helpc')) {
+        const commandc = ['ban' , 'unban']
+        msg.channel.send('hi bastard daddy')
+    }
 
 
 
