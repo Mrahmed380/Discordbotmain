@@ -421,7 +421,7 @@ bot.on('message' , async msg=>{
         case 'help':
             const HPembed = new Discord.MessageEmbed()
             .setTitle('Command Help')
-            .addField('How to use' , 'Type e!help [command] to get help on specific command!')
+            .addField('How to use' , 'Type e!helpc [command] to get help on specific command!')
             .setColor(0x34cceb);
             msg.channel.send(HPembed)
             break;
@@ -434,7 +434,7 @@ bot.on('message' , async msg=>{
             Smention.send(SDembed)
             //if(!args.slice(1).join(" ")) return msg.channel.send("You did not include a message for the user");
             break;
-        case 'help ban':
+        case 'helpc ban':
             msg.channel.send('To ban a user in the server format the ban command like this; e!ban <@user> <reason>')  
             
 
