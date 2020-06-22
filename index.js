@@ -139,27 +139,6 @@ bot.on('message' , async msg=>{
 
 
 
-    if(msg.content.toLowerCase().startsWith('e!ban')) {
-        if(!msg.member.hasPermission('ADMINISTRATOR')) {
-            msg.channel.send('You dont have permission to use this command');
-        }
-        if(!Mention.bannable) {
-            msg.channel.send('You can not ban this user!') 
-        } else {
-            const Bembed = new Discord.MessageEmbed()
-            .setTitle('Ban Hammer')
-            .setDescription(`${msg.author} just banned yo ass!`)
-            .addField('Reason' , msg.content.slice(26))
-            .setThumbnail(msg.guild.iconURL())
-            .setColor(0xd5eb34)
-            .setFooter(msg.guild.name);
-            Mention.send(Bembed);
-            Mention.ban();
-            msg.channel.send(`${Mention} was banned!`)
-            
-        }
-    }
-
 
 
 
