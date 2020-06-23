@@ -19,21 +19,27 @@ if (msg.content.toLowerCase().startsWith("e!prune")) {
 
 ***RN***
 
-if(!Mention.bannable) {
-             msg.channel.send('You can not ban this user!') 
-        } else {
-            const Bembed = new Discord.MessageEmbed()
-            .setTitle('Ban Hammer')
-            .setDescription(`${msg.author} just banned yo ass!`)
-            .addField('Reason' , msg.content.slice(26))
-            .setThumbnail(msg.guild.iconURL())
-            .setColor(0xd5eb34)
-            .setFooter(msg.guild.name);
-            Mention.send(Bembed);
-            Mention.ban();
-            msg.channel.send(`${Mention} was banned!`)
-            
-        }
+case 'suggest':
+            msg.delete()
+            let mssArgs = args.slice(1).join(" ");
+            const DMembed = new Discord.MessageEmbed()
+            .setTitle('Suggestion')
+            .addField('Suggestion Info' , 'Your suggestion has been submitted! In order for your suggestion to be accepted it must have more ✅ votes and then checked by a mod or admin.')
+            .setFooter(msg.author.tag)
+            .setColor(0xead611)
+            msg.author.send(DMembed)
+            const sembed = new Discord.MessageEmbed()
+            .setTitle('Suggestion')
+            .addField('New Suggestion from:', msg.author.tag)
+            .setColor(0x119e32)
+            .addField('Suggestion' , mssArgs)
+            .addField('suggestion ID' , Math.floor(Math.random() * 10000000 + 5))
+            .setFooter('Please wait while a moderator or admin rejects or accepts your suggestion. (note check your DMs.)')
+            msg.channel.send(sembed).then(messageReaction => {
+                messageReaction.react("✅")
+                messageReaction.react("❌")
+            })
+            break;
 
 
 
