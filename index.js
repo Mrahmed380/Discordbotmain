@@ -5,6 +5,14 @@ const colors = require("./colors.json");
 const PREFIX = 'e!';
 const { Client, MessageEmbed } = require('discord.js');
 const suggestionID = Math.floor(Math.random() * 10000000 + 21);
+const fs = require('fs');
+const { measureMemory } = require('vm');
+bot.commands = new Discord.Collection();
+bot.aliases = new Discord.Collection();
+bot.categories = fs.readdirSync("./commands/");
+["command"].forEach(handler=>{
+    require(`./handler/${handler}`)(bot);
+})
 
 
 var botinfo = 'Version 1.4.6, Created by ERG#1703 (bot is updated once a week)'
@@ -74,6 +82,20 @@ const mention = message.mentions.users.first();
     };
 
 });
+
+
+bot.on('message' , async message=>{
+    if(message.author.bot) return;
+    if(!message.content.startsWith(PREFIX)) return;
+    if(!message.guild) return;
+    if(!message.member) message.member = await message.guild.fetchMember(message);
+    const args = message.content.slice(PREFIX.length).trim().split(/ +/g);
+    const cmd = args.shift().toLowerCase();
+    if(cmd.length == 0 ) return;
+    const command = bot.commands.get(cmd)
+    if(!command) command = bot.commands.get(bot.aliases.get(cmd));
+    if(command) command.run(bot,message,args)
+})
 
 
 
@@ -447,8 +469,6 @@ bot.on('message' , async msg=>{
             Smention.send(SDembed)
             //if(!args.slice(1).join(" ")) return msg.channel.send("You did not include a message for the user");
             break;
-        case 'helpc ban':
-            msg.channel.send('To ban a user in the server format the ban command like this; e!ban <@user> <reason>')  
             
 
 
