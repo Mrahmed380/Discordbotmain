@@ -9,6 +9,6 @@ module.exports={
             .setTitle('Command help')
             .setDescription('To get help on any command type "e!help [command]')
             .setColor('RANDOM');
-            msg.channel.send(HELPbed)
+            message.channel.send(HELPbed)
     }
 }
