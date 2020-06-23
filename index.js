@@ -323,9 +323,6 @@ bot.on('message' , async msg=>{
         case 'stream':
             msg.reply(twitch)
             break;
-        case 'ping':
-            msg.reply('pong! This command is still under development!')
-            break;
         case 'cracked':
             msg.reply('Always up to no good... dont tell anyone I gave you these. ' + CACC + '  Now dont expect them all to work.')
            msg.channel.send('More accounts will be linked soon...')
