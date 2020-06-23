@@ -31,7 +31,7 @@ function getCMD(bot,message,input){
     if(!cmd)return message.channel.send(CMDembed.setColor('RANDOM').setDescription(info));
     if(cmd.name) info = `**Command name**: ${cmd.name}`
     if(cmd.description) info += `\n**Descripstion**: ${cmd.description}`
-    if(cmd.aliases) info += `\n**Aliases**: ${cmd.aliases.map(a=>`\`${a}\``).join(", ")}`
-    if(cmd.usage) info += `\n**Usage**: ${cmd.usage}`; CMDembed.setFooter(`Syntax: <> = required, [] = optional`)
+    if(cmd.aliases) info += `\n**Aliases**: ${cmd.aliases.map(a=>`\`${a}\``).join(", ")}`; CMDembed.setDescription(info)
+    if(cmd.usage) info += `\n**Usage**: ${cmd.usage}`; CMDembed.setFooter(`Syntax: <> = required, [] = optional`);
     message.channel.send(CMDembed)
 }
