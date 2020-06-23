@@ -1,7 +1,6 @@
 const { Client , MessageEmbed } = require('discord.js');
 const { category } = require('./help.js');
 const { stripIndent, stripIndents } = require('common-tags');
-const ms = require('ms');
 module.exports={
     name: 'help',
     category: 'info',
