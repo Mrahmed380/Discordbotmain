@@ -7,7 +7,7 @@ module.exports={
         const msg = await message.channel.send('Pinging ...')
         const PONGembed = new MessageEmbed()
         .setTitle('Pong!')
-        .setDescription(`Latency is ${msg.createdtimestamp - message.createdtimestamp}ms | API latency is ${Math.round(bot.ws.ping)}ms`);
+        .setDescription(`Latency is ${msg.CreatedTimeStamp - message.CreatedTimeStamp}ms | API latency is ${Math.round(bot.ws.ping)}ms`);
         msg.edit(PONGembed)
     }
 }
