@@ -5,8 +5,10 @@ const colors = require("./colors.json");
 const PREFIX = 'e!';
 const { Client, MessageEmbed } = require('discord.js');
 const suggestionID = Math.floor(Math.random() * 10000000 + 21);
+const balance = require('./balance.json')
 const fs = require('fs');
 const { measureMemory } = require('vm');
+const { contains } = require('cheerio');
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.categories = fs.readdirSync("./commands/");
@@ -95,6 +97,25 @@ bot.on('message' , async message=>{
     const command = bot.commands.get(cmd)
     if(!command) command = bot.commands.get(bot.aliases.get(cmd));
     if(command) command.run(bot,message,args)
+
+
+    if(!balance[message.author.id]){
+        balance[message.author.id] = {
+            balance: 0
+        }
+    }
+
+    let balanceAmt = Math.floor(Math.random() * 15) +1;
+    let baseAmt = Math.floor(Math.random() * 15) +1;
+
+    if(balanceAmt === baseAmt){
+        balance[message.author.id] = {
+            balance: balance[message.author.id].balance + balanceAmt
+        }
+        fs.writeFile("./balance.json", JSON.stringify(balance), (err) => {
+            if(err) console.log(err)
+        })
+    }
 })
 
 
