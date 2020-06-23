@@ -153,32 +153,32 @@ bot.on('message' , async msg=>{
         msg.author.send('Your ticket was succesfully deleted. Thanks for contacting staff!')
         msg.guild.owner.send('Your clients ticket was closed hopefully this helped them!😊')
     };
-    const args2 = msg.content.split(' ');
-    const Mention = msg.mentions.members.first();
-    const ID = msg.content.slice(7);
+    // const args2 = msg.content.split(' ');
+    // const Mention = msg.mentions.members.first();
+    // const ID = msg.content.slice(7);
 
 
 
 
-    if(msg.content.toLowerCase().startsWith('e!ban')) {
-        if(!msg.member.hasPermission('ADMINISTRATOR')) {
-            msg.channel.send('You need administrator to ban people!!')
-        }
-        if(!Mention.bannable) {
-            msg.channel.send('You cannot ban this user!!!')
-        } else {
-            const Bembed = new Discord.MessageEmbed()
-            .setTitle('Ban Hammer')
-            .setDescription(`${msg.author} just banned yo ass!`)
-            .addField('Reason' , msg.content.slice(26))
-            .setThumbnail(msg.guild.iconURL())
-            .setColor(0xd5eb34)
-            .setFooter(msg.guild.name);
-            Mention.send(Bembed);
-            Mention.ban();
-            msg.channel.send(`${Mention} was banned!`)
-        }
-    }
+    // if(msg.content.toLowerCase().startsWith('e!ban')) {
+    //     if(!msg.member.hasPermission('ADMINISTRATOR')) {
+    //         msg.channel.send('You need administrator to ban people!!')
+    //     }
+    //     if(!Mention.bannable) {
+    //         msg.channel.send('You cannot ban this user!!!')
+    //     } else {
+    //         const Bembed = new Discord.MessageEmbed()
+    //         .setTitle('Ban Hammer')
+    //         .setDescription(`${msg.author} just banned yo ass!`)
+    //         .addField('Reason' , msg.content.slice(26))
+    //         .setThumbnail(msg.guild.iconURL())
+    //         .setColor(0xd5eb34)
+    //         .setFooter(msg.guild.name);
+    //         Mention.send(Bembed);
+    //         Mention.ban();
+    //         msg.channel.send(`${Mention} was banned!`)
+    //     }
+    // }
     if(msg.content.toLowerCase().startsWith('e!unban')) {
         if(!msg.member.hasPermission('ADMINISTRATOR')) {
              msg.channel.send('You dont have permission to unban people!')
