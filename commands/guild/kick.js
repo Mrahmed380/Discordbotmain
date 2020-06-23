@@ -3,6 +3,7 @@ module.exports={
     name: 'kick',
     category: 'guild',
     description: 'Kicks the mentioned user',
+    usage: 'e!kick <@user>',
     run: async(bot,message,args)=>{
         if(message.content.toLowerCase().startsWith('e!kick')) {
             if(!message.member.hasPermission('ADMINISTRATOR')) {

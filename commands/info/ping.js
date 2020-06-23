@@ -3,6 +3,7 @@ module.exports={
     name: 'ping',
     category: 'info',
     description: 'Returns latency and API ping',
+    usage: 'e!ping',
     run: async(bot,message,args)=>{
         const msg = await message.channel.send('Pinging ...')
         const PONGembed = new MessageEmbed()
