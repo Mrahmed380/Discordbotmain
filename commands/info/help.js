@@ -1,16 +1,38 @@
 const { Client , MessageEmbed } = require('discord.js');
 const { category } = require('../guild/unban');
+const { stripIndent, stripIndents } = require('common-tags');
+const ms = require('ms');
 module.exports={
     name: 'help',
     category: 'info',
     description: 'Shows you how to use a command and what it does!',
+    usage: 'e!help <command>',
     run: async(bot,message,args)=>{
-        if(bot.commands.has(command)) {
-            command = bot.commands.get(command)
-            const HELPembed = new MessageEmbed()
-            .setTitle('Command help')
-            .setDescription(`Prefix: e!\n**Command:** ${command.config.name}`)
-            message.channel.send(HELPembed)
+        if(args[0]){
+            return getCMD(bot,message,args[0])
+        } else {
+            return getAll(bot,message)
         }
     }
+}
+function getAll(bot,message){
+    const HELPembed = new MessageEmbed()
+    .setColor('RANDOM')
+    const commands = (category) =>{
+        return bot.commands.filter(cmd=>cmd.category===category).map(cmd=>`- \`${command.name}\``).join(" ");
+        const info = bot.categories.map(cat=>stripIndents`**${cat[0].toUppercase()+cat.slice(1)}\n${commands(cat)}`).reduce((string,category) => string+"\n"+category)
+        return message.channel.send(HELPembed.setDescription(info),HELPembed.setFooter(`There are ${bot.commands.size} commands!`))
+
+    }
+}
+function getCMD(bot,message,input){
+    const CMDembed = new MessageEmbed()
+    const cmd = bot.commands.get(input.toLowerCase() || bot.commands.get(bot.aliases.get(input.toLowerCase())));
+    let info = ` No information found for**${input.toLowerCase()}**`
+    if(!cmd)return message.channel.send(CMDembed.setColor('RANDOM').setDescription(info));
+    if(cmd.name) info = `**Command name**: ${cmd.name}`
+    if(cmd.description) info += `\n**Descripstion**: ${cmd.description}`
+    if(cmd.aliases) info += `\n**Aliases**: ${cmd.aliases.map(a=>`\`${a}\``).join(", ")}`
+    if(cmd.usage) info += `\n**Usage**: ${cmd.usage}`; CMDembed.setFooter(`Syntax: <> = required, [] = optional`)
+    message.channel.send(CMDembed)
 }
