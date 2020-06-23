@@ -1,5 +1,5 @@
 const { CLient, MessageEmbed } = require('discord.js');
-const { category } = require('../info/ping');
+const { category } = require('../info/guild');
 module.exports={
     name: 'suggestion',
     category: 'guild',
