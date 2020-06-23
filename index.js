@@ -155,21 +155,6 @@ bot.on('message' , async msg=>{
     };
     
     
-    if(msg.content.toLowerCase().startsWith('e!kick')) {
-        if(!msg.member.hasPermission('ADMINISTRATOR')) {
-            msg.reply('You need administrator to use this command!')
-        }
-        if(!msg.content.includes('@')) {
-            msg.channel.send('You must mention someone to kick durdur goofy')
-        }
-        if(!Mention.kickable) {
-            msg.channel.send('You cannot kick this person')
-        } else {
-            Mention.send('You have been kicked from ' + (msg.guild.name))
-            Mention.kick();
-            msg.channel.send(`${Mention} was kicked from the server!`)
-        }
-    }
     if(msg.content.toLowerCase().startsWith('e!helpc')) {
         const commandBC = ['ban' , 'kick'];
         if(!commandBC.some(cword => msg.content.includes(cword))) {
