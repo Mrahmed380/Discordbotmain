@@ -10,6 +10,7 @@ module.exports={
             const HELPembed = new MessageEmbed()
             .setTitle('Command help')
             .setDescription(`Prefix: e!\n**Command:** ${command.config.name}`)
+            message.channel.send(HELPembed)
         }
     }
 }
