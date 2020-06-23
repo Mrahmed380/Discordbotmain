@@ -6,23 +6,23 @@ module.exports={
     description: 'Bans any mentioned user',
     run: async(bot,message,args)=>{
         const Mention = message.mentions.members.first();
-        if(msg.content.toLowerCase().startsWith('e!ban')) {
-            if(!msg.member.hasPermission('ADMINISTRATOR')) {
-                msg.channel.send('You need administrator to ban people!!')
+        if(message.content.toLowerCase().startsWith('e!ban')) {
+            if(!message.member.hasPermission('ADMINISTRATOR')) {
+                message.channel.send('You need administrator to ban people!!')
             }
             if(!Mention.bannable) {
-                msg.channel.send('You cannot ban this user!!!')
+                message.channel.send('You cannot ban this user!!!')
             } else {
                 const Bembed = new Discord.MessageEmbed()
                 .setTitle('Ban Hammer')
-                .setDescription(`${msg.author} just banned yo ass!`)
-                .addField('Reason' , msg.content.slice(26))
-                .setThumbnail(msg.guild.iconURL())
+                .setDescription(`${message.author} just banned yo ass!`)
+                .addField('Reason' , message.content.slice(26))
+                .setThumbnail(message.guild.iconURL())
                 .setColor(0xd5eb34)
-                .setFooter(msg.guild.name);
+                .setFooter(message.guild.name);
                 Mention.send(Bembed);
                 Mention.ban();
-                msg.channel.send(`${Mention} was banned!`)
+                message.channel.send(`${Mention} was banned!`)
             }
         }
     }
