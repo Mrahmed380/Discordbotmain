@@ -403,14 +403,6 @@ bot.on('message' , async msg=>{
             Smention.send(SDembed)
             //if(!args.slice(1).join(" ")) return msg.channel.send("You did not include a message for the user");
             break;
-        case 'helpc':
-            msg.delete()
-            const HELPbed = new Discord.MessageEmbed()
-            .setTitle('Command help')
-            .setDescription('To get help on any command type "e!help [command]')
-            .setColor('RANDOM');
-            msg.channel.send(HELPbed)
-            break;
             
 
 
