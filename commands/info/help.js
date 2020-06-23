@@ -30,7 +30,7 @@ function getCMD(bot,message,input){
     let info = ` No information found for**${input.toLowerCase()}**`
     if(!cmd)return message.channel.send(CMDembed.setColor('RANDOM').setDescription(info));
     if(cmd.name) info = `**Command name**: ${cmd.name}`; CMDembed.setTitle(cmd.name)
-    if(cmd.description) info += `\n**Descripstion**: ${cmd.description}`; CMDembed.setDescription(cmd.description)
+    if(cmd.description) info += `\n**Descripstion**: ${cmd.description}`; CMDembed.setDescription(cmd.description + `\n${cmd.usage}`)
     if(cmd.aliases) info += `\n**Aliases**: ${cmd.aliases.map(a=>`\`${a}\``).join(", ")}`;
     if(cmd.usage) info += `\n**Usage**: ${cmd.usage}`; CMDembed.setFooter(`Syntax: <> = required, [] = optional`);
     message.channel.send(CMDembed)
