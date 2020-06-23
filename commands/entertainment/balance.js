@@ -1,0 +1,11 @@
+const { Client , MessageEmbed } = require('discord.js');
+const { usage } = require('../info/helpc');
+module.exports={
+    name: 'balance',
+    category: 'entertainment',
+    description: 'Balance/Currency system for GTA V Recoverys',
+    usage: 'e!balance',
+    run: async(bot,message,args)=>{
+        
+    }
+}
