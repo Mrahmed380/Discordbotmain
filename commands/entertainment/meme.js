@@ -19,7 +19,8 @@ module.exports={
         const Membed = new MessageEmbed()
         .setTitle('Subreddit Meme')
         .setURL(`https://reddit.com/r/${subreddit}`)
-        .setColor('RANDOM');
+        .setColor('RANDOM')
+        .setImage(img)
         message.channel.send(Membed)
     }
 }
