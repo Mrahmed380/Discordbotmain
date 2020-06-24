@@ -1,4 +1,5 @@
 const { Client , MessageEmbed  } = require('discord.js');
+const ID = message.content.slice(7);
 module.exports={
     name: 'unban',
     category: 'guild',
