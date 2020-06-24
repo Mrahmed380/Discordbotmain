@@ -1,4 +1,4 @@
-const { CLient, MessageEmbed, BaseManager, Guild } = require('discord.js');
+const { CLient , MessageEmbed } = require('discord.js');
 const { category } = require('./ban');
 module.exports={
     name: 'ban',
@@ -14,7 +14,7 @@ module.exports={
             if(!Mention.bannable) {
                 message.channel.send('You cannot ban this user!!!')
             } else {
-                const Bembed = new Discord.MessageEmbed()
+                const Bembed = new MessageEmbed()
                 .setTitle('Ban Hammer')
                 .setDescription(`${message.author} just banned yo ass!`)
                 .addField('Reason' , message.content.slice(26))
