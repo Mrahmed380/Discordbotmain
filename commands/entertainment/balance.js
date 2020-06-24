@@ -1,11 +1,11 @@
 const { Client , MessageEmbed } = require('discord.js');
 const fs = require('fs')
-const money = require('../entertainment/currency/money.json')
+const money = require('./currency/money.json')
 module.exports={
     name: 'balance',
     category: 'entertainment',
     description: 'Balance/Currency system for GTA V Recoverys',
-    usage: 'e!balance',
+    usage: 'e!balance or e!balance <@user>',
     run: async(bot,message,args)=>{
         if(!args[0]) {
             var user = message.author;
