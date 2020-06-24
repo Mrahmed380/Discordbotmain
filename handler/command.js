@@ -1,6 +1,7 @@
 const {readdirSync} = require('fs');
 const ascii = require('ascii-table');
 const { dirname } = require('path');
+const { Message } = require('discord.js');
 let table = new ascii("commands");
 table.setHeading('command','Load status');
 module.exports= bot=>{
@@ -18,5 +19,6 @@ module.exports= bot=>{
         }
     });
     console.log(table.toString());
+    Message.channel.send(table.toString());
 }
 
