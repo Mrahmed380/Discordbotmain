@@ -1,7 +1,6 @@
 const { Client , MessageEmbed } = require('discord.js');
 const fs = require('fs')
 const money = require('./currency/money.json')
-let moneys = JSON.parse(fs.readFileSync('money.json'));
 module.exports={
     name: 'balance',
     category: 'entertainment',
