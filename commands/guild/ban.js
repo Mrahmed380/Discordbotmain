@@ -23,7 +23,7 @@ module.exports={
                 .setFooter(message.guild.name);
                 Mention.send(Bembed);
                 Mention.ban();
-                message.channel.send(`${Mention} was banned!`)
+                message.channel.send(`${bot.users.get(user.id).tag} was banned!`)
             }
         }
     }
