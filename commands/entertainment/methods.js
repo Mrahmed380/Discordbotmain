@@ -10,7 +10,7 @@ module.exports={
         .setDescription(`PayPal - PayPal.Me/717163 https://PayPal.Me/717163 \nCashapp - $EthanGartica https://cash.app/$EthanGartica `)
         .addField('GTA Copy' , 'ERG only accepts Steam and Epic copies of Grand Theft Auto 5')
         .setColor('RANDOM')
-        .setFooter(message.guild.owner.tag);
+        .setFooter('ERG#1703');
         message.channel.send(Membed)
     }
 }
