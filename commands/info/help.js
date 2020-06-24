@@ -31,7 +31,7 @@ function getAll(bot,message){
 function getCMD(bot,message,input){
     const CMDembed = new MessageEmbed()
     const cmd = bot.commands.get(input.toLowerCase() || bot.commands.get(bot.aliases.get(input.toLowerCase())));
-    let info = ` No information found for **${input.toLowerCase()}**`
+    let info = ` No information found for **${input.toLowerCase()}**  \nIt may not be a command`
     if(!cmd)return message.channel.send(CMDembed.setColor('RANDOM').setDescription(info));
     if(cmd.name) info = `**Command name**: ${cmd.name}`; CMDembed.setTitle(cmd.name)
     if(cmd.description) info += `\n**Descripstion**: ${cmd.description}`; CMDembed.setDescription(`**Description: ${cmd.description}**` + `\n**How to use: ${cmd.usage}**` + `\n**Category: ${cmd.category}**`)
