@@ -98,24 +98,6 @@ bot.on('message' , async message=>{
     if(!command) command = bot.commands.get(bot.aliases.get(cmd));
     if(command) command.run(bot,message,args)
 
-
-    if(!balance[message.author.id]){
-        balance[message.author.id] = {
-            balance: 0
-        }
-    }
-
-    let balanceAmt = Math.floor(Math.random() * 15) +1;
-    let baseAmt = Math.floor(Math.random() * 15) +1;
-
-    if(balanceAmt === baseAmt){
-        balance[message.author.id] = {
-            balance: balance[message.author.id].balance + balanceAmt
-        }
-        fs.writeFile("./balance.json", JSON.stringify(balance), (err) => {
-            if(err) console.log(err)
-        })
-    }
 })
 
 
