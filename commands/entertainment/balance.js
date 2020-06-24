@@ -1,6 +1,6 @@
 const { Client , MessageEmbed } = require('discord.js');
 const fs = require('fs')
-const money = require('../money.json');
+const money = require('/Users/Asus/Documents/GitHub/Discordbotmain/money.json');
 module.exports={
     name: 'balance',
     category: 'entertainment',
