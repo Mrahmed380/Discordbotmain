@@ -13,7 +13,8 @@ module.exports={
             const Embed = new MessageEmbed()
             .setTitle(`Image from r/${Subreddit}`)
             .setColor('RANDOM')
-            .setImage(img)
+            .setURL(`https://reddit.com/r/${Subreddit}`)
+            .setImage(img);
             message.channel.send(Embed)
         } catch(err){
             return message.channel.send(err)
