@@ -17,7 +17,7 @@ module.exports={
                 name: bot.users.get(user.id).tag,
                 money: 0
             }
-            fs.writeFile("../money.json", JSON.stringify(money), (err) => {
+            fs.writeFile("/Users/Asus/Documents/Github/Discordbotmain/currency/money.json", JSON.stringify(money), (err) => {
                 if(err) console.log(err);
             })
 
