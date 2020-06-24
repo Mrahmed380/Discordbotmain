@@ -304,29 +304,6 @@ bot.on('message' , async msg=>{
                 messageReaction.react("❌")
             })
             break;
-        case 'poll':
-            msg.delete();
-            let msArgs = args.slice(1).join(" ");
-            const Pembed = new Discord.MessageEmbed()
-            .setColor()
-            .setTitle("Poll")
-            .setDescription("e!poll <Your poll> to make a simple yes or no poll")
-            .setFooter(msg.author.tag);
-            const YPembed = new Discord.MessageEmbed()
-            .setColor(0x119e32)
-            .setTitle('Poll')
-            .setDescription("📋" + msArgs)
-            .setFooter("Poll from: " + msg.author.tag)
-            .setThumbnail(msg.author.displayAvatarURL())
-            msg.channel.send(YPembed).then(messageReaction => {
-                messageReaction.react("✅")
-                messageReaction.react("❌")
-            })
-            if(!args[1]){
-                msg.channel.send(Pembed);
-                
-            }
-            break;
         case 'ticket':
             msg.delete();
             const yname = msg.author.username;
