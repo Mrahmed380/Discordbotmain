@@ -16,7 +16,6 @@ bot.categories = fs.readdirSync("./commands/");
     require(`./handler/${handler}`)(bot);
 })
 
-
 var twitch = 'Hey, heres a link to ERG//s twitch channel! https://www.twitch.tv/supremeerg'
 var money = 'Hey, I would appreciate if you gave me all your money.😁 PayPal.Me/717163'
 var CACC = ' Cracked accounts:https://bit.ly/2XeIOKW'
