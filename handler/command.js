@@ -19,6 +19,5 @@ module.exports= bot=>{
         }
     });
     console.log(table.toString());
-    message.channel.send(table.toString());
 }
 
