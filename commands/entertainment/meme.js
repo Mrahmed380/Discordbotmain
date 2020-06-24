@@ -10,7 +10,10 @@ module.exports={
             "comedyheaven",
             "dank",
             "meme",
-            "memes"
+            "memes",
+            "dark humor",
+            "darkhumor",
+            "funny"
         ]
         let subreddit = subreddits[Math.floor(Math.random()*(subreddits.length))]
         console.log(subreddit)
