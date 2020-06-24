@@ -17,7 +17,7 @@ module.exports={
                 name: bot.users.cache.get(user.id).tag,
                 money: 0
             }
-            fs.writeFile("../../money.json", JSON.stringify(money), (err) => {
+            fs.writeFile("././money.json", JSON.stringify(money), (err) => {
                 if(err) console.log(err);
             })
 
