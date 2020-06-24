@@ -1,6 +1,6 @@
 const { Client , MessageEmbed } = require('discord.js');
 const fs = require('fs')
-const money = require('../entertainment/currency/money.json');
+const money = require('../entertainment/currency/money.json')
 module.exports={
     name: 'balance',
     category: 'entertainment',
@@ -17,7 +17,7 @@ module.exports={
                 name: bot.users.cache.get(user.id).tag,
                 money: 0
             }
-            fs.writeFile("./commands/entertainment/currency/money.json", JSON.stringify(money), (err) => {
+            fs.writeFile("../commands/entertainment/currency/money.json", JSON.stringify(money), (err) => {
                 if(err) console.log(err);
             })
 
