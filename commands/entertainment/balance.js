@@ -18,7 +18,7 @@ module.exports={
                 money: 0
             }
             fs.writeFile("././money", JSON.stringify(money), (err) => {
-                if(err) console.log(err);
+                if(err) console.log('bruh it need milk');
             })
             
         }
