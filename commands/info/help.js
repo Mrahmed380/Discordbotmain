@@ -17,16 +17,13 @@ module.exports={
 function getAll(bot,message){
     const HELPembed = new MessageEmbed()
     .setColor('RANDOM')
-    .setDescription('ayy yuh')
     const commands = (category) =>{
         return bot.commands.filter(cmd=>cmd.category===category).map(cmd=>`- \`${cmd.name}\``).join(" ");
+    }
         const info = bot.categories.map(cat=>stripIndents`**${cat[0].toUppercase()+cat.slice(1)}\n${commands(cat)}`).reduce((string,category) => string+"\n"+category)
-        
-        return HELPembed.setFooter(`There are ${bot.commands.size} commands!`)
+        HELPembed.setFooter(`There are ${bot.commands.size} commands!`)
         HELPembed.setDescription(info)
         message.channel.send(HELPembed)
-
-    }
 }
 function getCMD(bot,message,input){
     const CMDembed = new MessageEmbed()
