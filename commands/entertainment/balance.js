@@ -14,14 +14,14 @@ module.exports={
         }
         if(!money[user.id]) {
             money[user.id] = {
-                name: bot.users.get(user.id).tag,
+                name: bot.users.cache.get(user.id).tag,
                 money: 0
             }
             fs.writeFile('../entertainment/currency/money.json'), JSON.stringify(money), (err) => {
                 if(err) console.log(err);
             }
 
-            return message.channel.send(`${bot.users.get(user.id).username} has $${money[user.id].money}`);
+            return message.channel.send(`${bot.users.cache.get(user.id).username} has $${money[user.id].money}`);
 
         }
     }
