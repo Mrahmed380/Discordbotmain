@@ -10,7 +10,7 @@ module.exports={
             .setTitle('All Commands + Bot info')
             .addField('commands' , 'menu, botinfo, prices, sells, moneydrop, stream, ping, cracked, serverjoin, botinv, methods, hgames, message @theUserYouWantToSendTo [The message you want to send to user], suggest, ticket, cticket [poll (Your message)], stats and [stats (@user)]. (prefix = e!)')
             .addField('Mod commands' , '[e!reject @user (Suggestion ID: 1234)], [e!approve @user (Suggestion ID: 1234)]')
-            .setThumbnail(guild.iconURL())
+            .setThumbnail(message.guild.iconURL())
             .addField('Information' , botinfo)
             .addField('Command Help', 'Use e!help to get help on any command!')
             .addField('Dedicated Server' , 'ERGs Recoverys')
