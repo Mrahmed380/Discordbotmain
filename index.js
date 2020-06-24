@@ -261,9 +261,6 @@ bot.on('message' , async msg=>{
         case 'moneydrop':
             msg.channel.send('All money drop sessions are at 8:00 PM, UCT Central time!')
             break;
-        case 'methods':
-            msg.channel.send('We currently accept PayPal and Cashapp. We only take Epic and Steam copies of the game!')
-            break;
         case 'stream':
             msg.reply(twitch)
             break;
