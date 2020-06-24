@@ -5,7 +5,7 @@ module.exports={
     description: 'Shows bot information ; version, commands, author',
     usage: 'e!botinfo',
     run: async(bot,message,args)=>{
-        var botinfo = 'Version 1.4.6, Created by ERG#1703 (bot is updated once a week)'
+        var botinfo = 'Version 1.5.7, Created by ERG#1703 (bot is updated once a week)'
         const INFOembed = new MessageEmbed()
             .setTitle('All Commands + Bot info')
             .addField('commands' , 'menu, botinfo, prices, sells, moneydrop, stream, ping, cracked, serverjoin, botinv, methods, hgames, message @theUserYouWantToSendTo [The message you want to send to user], suggest, ticket, cticket [poll (Your message)], stats and [stats (@user)]. (prefix = e!)')
