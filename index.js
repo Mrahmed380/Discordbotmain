@@ -9,6 +9,7 @@ const fs = require('fs');
 const { measureMemory } = require('vm');
 const { contains } = require('cheerio');
 const { id } = require('common-tags');
+const ms = require('ms');
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.categories = fs.readdirSync("./commands/");
@@ -96,10 +97,10 @@ bot.on('message' , async message=>{
     if(!command) command = bot.commands.get(bot.aliases.get(cmd));
     if(command) command.run(bot,message,args)
     const mongoose = require('mongoose');
-    mongoose.connect(process.env.MONGODB_URI,{
-        useUnifiedTopology: true,
-        useNewUrlParser: true,
-    })
+    // mongoose.connect(process.env.MONGODB_URI,{
+    //     useUnifiedTopology: true,
+    //     useNewUrlParser: true,
+    // })
 })
 
 
@@ -143,7 +144,6 @@ bot.on('message' , async msg=>{
     .setFooter('Note: if you dont see the channel scroll up...')
     .setAuthor(msg.author.tag , msg.author.displayAvatarURL);
     const channame = "ticket-" + `${msg.author.username}`;
-
 
 
     const tname = msg.author.id;

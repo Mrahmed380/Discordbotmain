@@ -9,7 +9,7 @@ module.exports={
     run: async(bot,message,args)=>{
         const Uembed = new MessageEmbed()
         .setTitle('Uptime')
-        .setDescription(`My uptime is \`${ms(this.bot.uptime, { long: true})}\``)
+        .setDescription(`My uptime is \`${ms(bot.uptime, { long: true})}\``)
         .setColor('RANDOM');
         message.channel.send(Uembed);
     }
