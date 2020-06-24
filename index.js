@@ -96,7 +96,7 @@ bot.on('message' , async message=>{
     if(!command) command = bot.commands.get(bot.aliases.get(cmd));
     if(command) command.run(bot,message,args)
     const mongoose = require('mongoose');
-    mongoose.connect("mongodb+srv://SupremeERG:Ethang0508@supremeerg-tcd25.mongodb.net/Data",{
+    mongoose.connect("mongodb://Supreme:SupremeERG@ds023000.mlab.com:23000/heroku_bf3q3z2b",{
         useUnifiedTopology: true,
         useNewUrlParser: true,
     })
