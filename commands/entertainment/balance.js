@@ -20,9 +20,9 @@ module.exports={
             fs.writeFile("././money.json", JSON.stringify(money), (err) => {
                 if(err) console.log(err);
             })
+            
+        }
 
             return message.channel.send(`${bot.users.cache.get(user.id).username} has $${money[user.id].money}`);
-
-        }
     }
 }
