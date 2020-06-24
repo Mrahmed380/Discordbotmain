@@ -21,7 +21,7 @@ function getAll(bot,message){
         return bot.commands.filter(cmd=>cmd.category===category).map(cmd=>`- \`${cmd.name}\``).join(" ");
     }
         const info = bot.categories.map(cat=>stripIndents`**${cat[0].toUpperCase()+cat.slice(1)}**\n${commands(cat)}`).reduce((string,category) => string+"\n"+category)
-        HELPembed.setFooter(`There are ${bot.commands.size} commands!`)
+        HELPembed.setFooter(`There are ${bot.commands.size} commands! || e!help [command] for info on command`)
         HELPembed.setDescription(info)
         message.channel.send(HELPembed)
 }
