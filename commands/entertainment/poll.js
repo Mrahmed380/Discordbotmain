@@ -8,7 +8,7 @@ module.exports={
         message.delete();
         let msArgs = args.slice(1).join(" ");
         const Pembed = new MessageEmbed()
-        const YPembed = MessageEmbed()
+        const YPembed =  new MessageEmbed()
         .setColor(0x119e32)
         .setTitle('Poll')
         .setDescription("📋" + msArgs)
