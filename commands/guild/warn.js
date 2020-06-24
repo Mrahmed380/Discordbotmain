@@ -5,7 +5,7 @@ module.exports={
     name: 'warn',
     description: 'Warns a user',
     category: 'guild',
-    usage: 'e!warn <@user> <reason>',
+    usage: 'dont use under development',
     run: async(bot,message,args)=>{
         let user = message.mentions.users.first()
         if(!user) return message.channel.send('You did not mention a user!')
