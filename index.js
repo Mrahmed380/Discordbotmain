@@ -61,7 +61,6 @@ bot.on('message', (message) => {
     .setColor(0xfc0303);
 
 const msg = message.content.toLowerCase();
-bot.users.cache.get(id).tag
 
     if (message.author.bot) return;
 
