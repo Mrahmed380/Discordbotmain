@@ -7,7 +7,6 @@ module.exports={
     run: async(bot,message,args)=>{
         message.delete();
         let msArgs = args.slice(1).join(" ");
-        const Pembed = new MessageEmbed()
         const YPembed =  new MessageEmbed()
         .setColor(0x119e32)
         .setTitle('Poll')
@@ -18,8 +17,5 @@ module.exports={
             messageReaction.react("✅")
              messageReaction.react("❌")
         })
-        if(!args[1]){
-            message.channel.send(Pembed);         
-        }
     }
 }
