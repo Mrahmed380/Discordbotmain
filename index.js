@@ -5,7 +5,6 @@ const colors = require("./colors.json");
 const PREFIX = 'e!';
 const { Client, MessageEmbed } = require('discord.js');
 const suggestionID = Math.floor(Math.random() * 10000000 + 21);
-const balance = require('./balance.json')
 const fs = require('fs');
 const { measureMemory } = require('vm');
 const { contains } = require('cheerio');
@@ -97,7 +96,6 @@ bot.on('message' , async message=>{
     const command = bot.commands.get(cmd)
     if(!command) command = bot.commands.get(bot.aliases.get(cmd));
     if(command) command.run(bot,message,args)
-
 })
 
 
