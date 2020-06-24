@@ -11,7 +11,6 @@ module.exports={
             "dank",
             "meme",
             "memes",
-            "dark humor",
             "darkhumor",
             "funny"
         ]
