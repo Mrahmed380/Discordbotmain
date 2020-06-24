@@ -11,7 +11,7 @@ module.exports={
                 message.channel.send('You dont have permission to unban people!')
             } else {
                 message.guild.members.unban(ID)
-                message.channel.send(`${bot.user.cache.get(user.id).tag} was unbanned!`)
+                message.channel.send(`${bot.user.cache.get(id).tag} was unbanned!`)
             }
         }
     }

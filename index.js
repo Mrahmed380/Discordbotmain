@@ -8,6 +8,7 @@ const suggestionID = Math.floor(Math.random() * 10000000 + 21);
 const fs = require('fs');
 const { measureMemory } = require('vm');
 const { contains } = require('cheerio');
+const { id } = require('common-tags');
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.categories = fs.readdirSync("./commands/");
@@ -60,6 +61,7 @@ bot.on('message', (message) => {
     .setColor(0xfc0303);
 
 const msg = message.content.toLowerCase();
+bot.users.cache.get(id).tag
 
     if (message.author.bot) return;
 
