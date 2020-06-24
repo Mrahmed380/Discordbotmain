@@ -35,7 +35,7 @@ function getCMD(bot,message,input){
     if(!cmd)return message.channel.send(CMDembed.setColor('RANDOM').setDescription(info));
     if(cmd.name) info = `**Command name**: ${cmd.name}`; CMDembed.setTitle(cmd.name)
     if(cmd.description) info += `\n**Descripstion**: ${cmd.description}`; CMDembed.setDescription(`**Description: ${cmd.description}**` + `\n**How to use: ${cmd.usage}**` + `\n**Category: ${cmd.category}**`)
-    if(cmd.category) info += `\n**Category: ${cmd.category}`; 
+    if(cmd.category) info += `\n**Category: ${cmd.category}`; CMDembed.setColor('RANDOM') 
     if(cmd.aliases) info += `\n**Aliases**: ${cmd.aliases.map(a=>`\`${a}\``).join(", ")}`;
     if(cmd.usage) info += `\n**Usage**: ${cmd.usage}`; CMDembed.setFooter(`Syntax: <> = required, [] = optional`);
     message.channel.send(CMDembed)
