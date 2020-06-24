@@ -5,6 +5,6 @@ module.exports={
     description: 'Balance/Currency system for GTA V Recoverys',
     usage: 'e!balance',
     run: async(bot,message,args)=>{
-        message.channle.send('The currency system is under development')
+        message.channel.send('The currency system is under development')
     }
 }
