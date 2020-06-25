@@ -5,16 +5,16 @@ module.exports={
     category: 'guild',
     usage: 'e!ticket',
     run: async(bot,message,args)=>{
-        msg.delete();
+        message.delete();
             const yname = msg.author.username;
             const tname = msg.author.id;
             const ctname = "t-" + tname;
-            if(msg.guild.channels.cache.find(ch => ch.name == ctname)) {
-                msg.author.send('You alredy have a ticket open, go to your ticket channel and type e!cticket to close your current ticket!')
+            if(message.guild.channels.cache.find(ch => ch.name == ctname)) {
+                message.author.send('You alredy have a ticket open, go to your ticket channel and type e!cticket to close your current ticket!')
             }
             else{
-                msg.guild.owner.send('Someone just made a ticket. Go respond!')
-                msg.guild.channels.create(ctname , {
+                message.guild.owner.send('Someone just made a ticket. Go respond!')
+                message.guild.channels.create(ctname , {
                     type: 'text' ,
                     permissionOverwrites: [
                         {
@@ -51,7 +51,7 @@ module.exports={
                 .setDescription('You have created a support ticket!')
                 .setColor('RANDOM')
                 .setFooter('Scroll up if you dont see the ticket channel')
-                msg.channel.send(Tembed)
+                message.channel.send(Tembed)
             }
     }
 }
