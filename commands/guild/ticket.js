@@ -46,6 +46,11 @@ module.exports={
                     ]
                 })
                 console.log('ticket created.')
+                const Tembed = new MessageEmbed()
+                .setTitle('Support ticket')
+                .setDescription('You have created a support ticket!')
+                .setColor('RANDOM')
+                .setFooter('Scroll up if you dont see the ticket channel')
                 msg.channel.send(Tembed)
             }
     }
