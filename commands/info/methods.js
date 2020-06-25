@@ -4,6 +4,7 @@ module.exports={
     description: 'Payment methods for Recovery Service',
     category: 'info',
     usage: 'e!methods',
+    perms: 'Send Messages',
     run: async(bot,message,args)=>{
         let PayApp = [
             "#18f051",
