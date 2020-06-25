@@ -1,5 +1,5 @@
 const { Client , MessageEmbed } = require('discord.js');
-const api = require("imageapi.js"
+const api = require("imageapi.js")
 module.exports={
     name: 'reddit',
     description: 'Get a meme from a specific subreddit',
