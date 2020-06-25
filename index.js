@@ -134,9 +134,6 @@ bot.on('message' , async message=>{
 
 
 
-
-
-
 bot.on('message' , async msg=>{
     if(msg.channel.id === '714428169691725915') {
         await msg.delete();
