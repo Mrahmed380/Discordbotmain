@@ -12,7 +12,7 @@ module.exports={
             "nudesfeed"
         ]
         try{
-            let img = await api(Subreddit)
+            let img = await api("https://www.reddit.com/r/nudesfeed/")
             const Embed = new MessageEmbed()
             .setTitle(`Image from r/${Subreddit}`)
             .setColor('RANDOM')
