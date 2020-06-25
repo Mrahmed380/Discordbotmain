@@ -6,8 +6,8 @@ module.exports={
     usage: 'e!ticket',
     run: async(bot,message,args)=>{
         message.delete();
-            const yname = msg.author.username;
-            const tname = msg.author.id;
+            const yname = message.author.username;
+            const tname = message.author.id;
             const ctname = "t-" + tname;
             if(message.guild.channels.cache.find(ch => ch.name == ctname)) {
                 message.author.send('You alredy have a ticket open, go to your ticket channel and type e!cticket to close your current ticket!')
