@@ -1,10 +1,10 @@
 const { Client , MessageEmbed } = require('discord.js');
 const api = require("imageapi.js")
 module.exports={
-    name: 'reddit',
+    name: 'ureddit',
     description: 'Get a image from a specific subreddit',
     category: 'entertainment',
-    usage: 'e!reddit <subreddit>',
+    usage: 'e!ureddit <subreddit>',
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
         let Subreddit =  message.content.slice(9)
@@ -12,9 +12,9 @@ module.exports={
         try{
             let img = await api(Subreddit)
             const Embed = new MessageEmbed()
-            .setTitle(`Image from r/${Subreddit}`)
+            .setTitle(`Image from u/${Subreddit}`)
             .setColor('RANDOM')
-            .setURL(`https://reddit.com/r/${Subreddit}`)
+            .setURL(`https://reddit.com/u/${Subreddit}`)
             .setImage(img);
             message.channel.send(Embed)
         } catch(err){
