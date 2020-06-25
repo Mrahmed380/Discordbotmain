@@ -19,27 +19,27 @@ module.exports={
                     permissionOverwrites: [
                         {
                             allow: 'VIEW_CHANNEL',
-                            id: msg.author.id
+                            id: message.author.id
                         },
                         {
                             deny: 'VIEW_CHANNEL',
-                            id: msg.guild.id
+                            id: message.guild.id
                         },
                         {
                             allow: 'VIEW_CHANNEL',
-                            id: msg.guild.roles.cache.get('713914961285349397')
+                            id: message.guild.roles.cache.get('713914961285349397')
                         },
                         {
                             allow: 'READ_MESSAGE_HISTORY',
-                            id: msg.guild.roles.cache.get('713914961285349397')
+                            id: message.guild.roles.cache.get('713914961285349397')
                         },
                         {
                             allow: 'SEND_MESSAGES',
-                            id: msg.guild.roles.cache.get('713914961285349397')
+                            id: message.guild.roles.cache.get('713914961285349397')
                         },
                         {
                             allow: 'SEND_MESSAGES',
-                            id: msg.guild.roles.cache.get('697343291825455124')
+                            id: message.guild.roles.cache.get('697343291825455124')
                         }
     
                         
