@@ -54,7 +54,6 @@ bot.on('guildMemberRemove' , member =>{
     ]
     let colors = [
         "#e05819",
-        "#006eff",
         "#f51b1b",
         "#f5601b",
         "#b33900"
@@ -62,7 +61,7 @@ bot.on('guildMemberRemove' , member =>{
     let ColerWheel = colors[Math.floor(Math.random()*(colors.length))]
     let WordWheel = Gootby[Math.floor(Math.random()*(Gootby.length))]
     const Lembed = new Discord.MessageEmbed()
-    .setTitle('Good bye')
+    .setTitle(`Good bye ${member.user.tag}`)
     .addField('ERG Recoverys' , WordWheel)
     .setThumbnail(`${member.user.displayAvatarURL()}`)
     .setColor(ColerWheel)
