@@ -120,11 +120,11 @@ bot.on('message' , async message=>{
     const command = bot.commands.get(cmd)
     if(!command) command = bot.commands.get(bot.aliases.get(cmd));
     if(command) command.run(bot,message,args)
-//    const mongoose = require('mongoose');
-    // mongoose.connect(process.env.MONGODB_URI,{
-    //     useUnifiedTopology: true,
-    //     useNewUrlParser: true,
-    // })
+    const mongoose = require('mongoose');
+    mongoose.connect("mongodb+srv://SupremeERG:Ethang0508@supremeerg-tcd25.mongodb.net/Data?retryWrites=true&w=majority",{
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+    })
 })
 
 
