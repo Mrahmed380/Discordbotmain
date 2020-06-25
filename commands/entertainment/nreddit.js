@@ -1,20 +1,22 @@
 const { Client , MessageEmbed } = require('discord.js');
 const api = require("imageapi.js")
 module.exports={
-    name: 'ureddit',
-    description: 'Get a image from a specific subreddit',
+    name: 'nreddit',
+    description: 'Get a NSFW/Nude image from a subreddit',
     category: 'entertainment',
-    usage: 'e!ureddit <subreddit>',
+    usage: 'e!nreddit',
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
-        let Subreddit =  message.content.slice(9)
-        if(!Subreddit)return message.channel.send('You did not specify the subreddit!')
+        let Subreddit = [
+            "nudesfeed",
+            "nudesfeed"
+        ]
         try{
             let img = await api(Subreddit)
             const Embed = new MessageEmbed()
-            .setTitle(`Image from u/${Subreddit}`)
+            .setTitle(`Image from r/${Subreddit}`)
             .setColor('RANDOM')
-            .setURL(`https://reddit.com/u/${Subreddit}`)
+            .setURL(`https://reddit.com/r/nudesfeed`)
             .setImage(img);
             message.channel.send(Embed)
         } catch(err){
