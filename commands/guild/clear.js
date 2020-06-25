@@ -2,7 +2,7 @@ const { Client , MessageEmbed } = require('discord.js');
 module.exports={
     name: 'clear',
     category: 'guild',
-    description: 'Deletes specific amount of messages ****Messages can only be deleted within 14 days**',
+    description: 'Deletes specific amount of messages `Messages can only be deleted within 14 days`',
     usage: 'e!clear <amt of msgs>',
     run: async(bot,message,args)=>{
         message.delete();
