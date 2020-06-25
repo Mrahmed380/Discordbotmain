@@ -18,7 +18,7 @@ module.exports={
             .setImage(img);
             message.channel.send(Embed)
         } catch(err){
-            message.channel.send('There was a error the subreddit may not exist')
+            message.channel.send('There was a error! The subreddit may not exist.')
             console.log('Bruh there was a error the subreddit probably doesnt exist')
         }
         
