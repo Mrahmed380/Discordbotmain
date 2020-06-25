@@ -50,7 +50,7 @@ bot.on('guildMemberRemove' , member =>{
     let Gootby= [
         "Another day another lost soldier...",
         "And this server was just starting to get fun",
-        "I guess hes not a fan of a lot of money in GTA"
+        "I guess hes not a fan of a lot of money in GTA",
     ]
     let colors = [
         "#e05819",
@@ -66,6 +66,7 @@ bot.on('guildMemberRemove' , member =>{
     .addField('ERG Recoverys' , WordWheel)
     .setThumbnail(`${member.user.displayAvatarURL()}`)
     .setColor(ColerWheel)
+    .setFooter(`${member}`)
     channel.send(Lembed)
 })
 
