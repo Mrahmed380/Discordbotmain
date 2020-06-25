@@ -19,6 +19,7 @@ module.exports={
             message.channel.send(Embed)
         } catch(err){
             return message.channel.send(err)
+            console.log('Bruh there was a error the subreddit probably doesnt exist')
         }
         
     }
