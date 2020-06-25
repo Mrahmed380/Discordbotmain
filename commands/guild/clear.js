@@ -21,6 +21,7 @@ module.exports={
             deleteAmount = parseInt(args[0]);
         }
 
+        message.channel.send('Deleting messages!').then(m => m.delete(10000));
         message.channel.bulkDelete(deleteAmount, true)
         .catch(err => message.reply(`Something went wrong... ${err}`));
     }
