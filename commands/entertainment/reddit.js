@@ -7,8 +7,15 @@ module.exports={
     usage: 'e!reddit <subreddit>',
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
+        let imgp = await api(Subreddit)
+        const Sembed = new MessageEmbed()
+        .setTitle('Porno from reddit')
+        .setColor('RANDOM')
+        .setURL(`https://reddit.com/r/${Subreddit}`)
+        .setImage(imgp);
         let Subreddit =  message.content.slice(9)
         if(!Subreddit)return message.channel.send('You did not specify the subreddit!')
+        if(message.content.includes("Nude")) return message.channel.send(Sembed)
         try{
             let img = await api(Subreddit)
             const Embed = new MessageEmbed()
