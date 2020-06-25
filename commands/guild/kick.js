@@ -5,6 +5,7 @@ module.exports={
     description: 'Kicks the mentioned user',
     usage: 'e!kick <@user>',
     run: async(bot,message,args)=>{
+        const Mention = message.mentions.members.first()
         if(message.content.toLowerCase().startsWith('e!kick')) {
             if(!message.member.hasPermission('ADMINISTRATOR')) {
                 message.reply('You need administrator to use this command!')
