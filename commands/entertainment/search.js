@@ -18,7 +18,7 @@ module.exports={
             var search = parts.slice(1).join(" "); // Slices of the command part of the array ["!image", "cute", "dog"] ---> ["cute", "dog"] ---> "cute dog"
          
             var options = {
-                url: "http://results.dogpile.com/serp?qc=images&q=" + search,
+                url: "https://www.google.com/search?q=" + search + "&rlz=1C1CHBF_enUS862US870&sxsrf=ALeKk02a_FPLHKpcizMPZZzw6SP0SBPIwA:1593118670496&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjfgcLD7Z3qAhUHpp4KHdzLBa4Q_AUoAXoECBkQAw&biw=1920&bih=969",
                 method: "GET",
                 headers: {
                     "Accept": "text/html",
