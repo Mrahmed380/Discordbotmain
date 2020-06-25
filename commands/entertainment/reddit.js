@@ -5,6 +5,7 @@ module.exports={
     description: 'Get a meme from a specific subreddit',
     category: 'entertainment',
     usage: 'e!reddit <subreddit>',
+    perm: 'Send Messages',
     run: async(bot,message,args)=>{
         let Subreddit =  message.content.slice(9)
         if(!Subreddit)return message.channel.send('You did not specify the subreddit!')

@@ -4,6 +4,7 @@ module.exports={
     category: 'guild',
     description: 'unbans anyone whos ID is listed',
     usage: 'e!unban <usersID>',
+    perms: 'Send Messages',
     run: async(bot,message,args)=>{
         const ID = message.content.slice(7);
         if(message.content.toLowerCase().startsWith('e!unban')) {

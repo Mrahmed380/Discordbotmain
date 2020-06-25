@@ -4,6 +4,7 @@ module.exports={
     description: 'Creates a support ticket',
     category: 'guild',
     usage: 'e!ticket',
+    perms: 'Send Messages',
     run: async(bot,message,args)=>{
         message.delete();
             const yname = message.author.username;

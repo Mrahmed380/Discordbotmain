@@ -4,6 +4,7 @@ module.exports={
     category: 'info',
     description: 'Shows bot information ; version, commands, author',
     usage: 'e!botinfo',
+    perms: 'Send Messages',
     run: async(bot,message,args)=>{
         var botinfo = 'Version 1.5.7, Created by ERG#1703 (bot is updated once a week)'
         const INFOembed = new MessageEmbed()

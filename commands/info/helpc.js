@@ -4,6 +4,7 @@ module.exports={
     category: 'info',
     description: 'shows you how to get info on commands',
     usage: 'e!helpc',
+    perms: 'Send Messages',
     run: async(bot,message,args)=>{
         const HELPbed = new MessageEmbed()
             .setTitle('Command help')

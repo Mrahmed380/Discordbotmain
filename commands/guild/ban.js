@@ -5,6 +5,7 @@ module.exports={
     category: 'guild',
     description: 'Bans any mentioned user',
     usage: 'e!ban <@user>',
+    perms: 'Administrator',
     run: async(bot,message,args)=>{
         const Mention = message.mentions.members.first();
         if(message.content.toLowerCase().startsWith('e!ban')) {

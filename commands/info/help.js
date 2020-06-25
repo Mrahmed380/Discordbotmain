@@ -6,6 +6,7 @@ module.exports={
     category: 'info',
     description: 'Shows you how to use a command and what it does!',
     usage: 'e!help <command>',
+    perms: 'Send Messages',
     run: async(bot,message,args)=>{
         if(args[0]){
             return getCMD(bot,message,args[0])

@@ -6,6 +6,7 @@ module.exports={
     category: 'entertainment',
     description: 'Balance/Currency system for GTA V Recoverys',
     usage: 'e!balance or e!balance <@user>',
+    perms: 'Send Messages',
     run: async(bot,message,args)=>{
         if(!args[0]) {
             var user = message.author;

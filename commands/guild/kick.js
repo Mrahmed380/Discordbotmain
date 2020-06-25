@@ -4,6 +4,7 @@ module.exports={
     category: 'guild',
     description: 'Kicks the mentioned user',
     usage: 'e!kick <@user>',
+    perms: 'Administrator',
     run: async(bot,message,args)=>{
         const Mention = message.mentions.members.first()
         if(message.content.toLowerCase().startsWith('e!kick')) {
