@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const token = 'NzEwNDIwMzM1NTA5NTA0MDEy.XtyXpw.9JzvSnL0gUjbKHaZApoXb9xRzIM';
-const colors = require("./colors.json");
 const PREFIX = 'e!';
 const { Client, MessageEmbed } = require('discord.js');
 const suggestionID = Math.floor(Math.random() * 10000000 + 21);
