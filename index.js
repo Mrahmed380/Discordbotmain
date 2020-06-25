@@ -44,6 +44,30 @@ bot.on('guildMemberAdd' , member =>{
     channel.send(Wembed);
     
 });
+bot.on('guildMemberRemove' , member =>{
+    const channel = member.guild.channels.cache.find(channel => channel.name === "『😭』good-bye");
+    if(!channel) return
+    let Gootby= [
+        "Another day another lost soldier...",
+        "And this server was just starting to get fun",
+        "I guess hes not a fan of a lot of money in GTA"
+    ]
+    let colors = [
+        "#e05819",
+        "#006eff",
+        "#f51b1b",
+        "#f5601b",
+        "#b33900"
+    ]
+    let ColerWheel = colors[Math.floor(Math.random()*(colors.length))]
+    let WordWheel = Gootby[Math.floor(Math.random()*(Gootby.length))]
+    const Lembed = new Discord.MessageEmbed()
+    .setTitle('Good bye')
+    .addField('ERG Recoverys' , WordWheel)
+    .setThumbnail(`${member.user.displayAvatarURL()}`)
+    .setColor(ColerWheel)
+    channel.send(Lembed)
+})
 
 
 bot.on('message', (message) => {
