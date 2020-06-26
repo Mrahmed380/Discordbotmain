@@ -127,7 +127,6 @@ bot.on('message' , async message=>{
     // mongoose.connection.on('connected', () => {
     //     console.log('mongoose is connected bruh');
     // });
-
 })
 
 
