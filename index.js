@@ -121,7 +121,7 @@ bot.on('message' , async message=>{
     if(command) command.run(bot,message,args)
     const mongoose = require('mongoose');
     mongoose.connect('mongodb+srv://SupremeERG:Ethang0508@supremeerg-tcd25.mongodb.net/Data?retryWrites=true&w=majority',{
-        useUnifiedTopology: true,
+        useUnifiedTopology: false,
         useNewUrlParser: true,
     })
     mongoose.connection.on('connected', () => {
