@@ -1,4 +1,4 @@
-const { Client , MessageEmbed } = require(;djkd;fjka'discord.js')
+const { Client , MessageEmbed } = require('discord.js')
 const moneys = require('../../models/money')
 module.exports={
     name: 'balance',
