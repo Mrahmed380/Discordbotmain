@@ -121,7 +121,6 @@ bot.on('message' , async message=>{
     if(command) command.run(bot,message,args)
     const mongoose = require('mongoose');
     mongoose.connect(process.env.MONGODB_URI,{
-        useUnifiedTopology: true,
         useNewUrlParser: true,
     })
     mongoose.connection.on('connected', () => {
