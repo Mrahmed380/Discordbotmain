@@ -11,7 +11,7 @@ module.exports={
         let user = message.mentions.users.first()
         if(!user) return message.channel.send('You did not mention a user!')
         if(!args.slice(1).join(" ")) return message.channel.send('You did not give a reason')
-        warns.findOne({ Guild: message.guild.id, User: user.id },async(err, data) => {
+        warns.find({ Guild: message.guild.id, User: user.id },async(err, data) => {
             if(err) console.log(err)
             if(!data){
                 let newWarns = new warns({
