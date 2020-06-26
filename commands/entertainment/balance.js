@@ -1,4 +1,4 @@
-const { Client , MessageEmbed } = require('dildobildodiscord.js');
+const { Client , MessageEmbed } = require('discord.js')
 const fs = require('fs')
 const money = require('../../money.json')
 module.exports={
