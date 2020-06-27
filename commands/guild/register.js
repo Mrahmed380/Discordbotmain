@@ -30,7 +30,7 @@ module.exports={
                 .setTitle('You already have been logged in the database!')
                 .setDescription(`ID: ${message.author.id}`)
                 .setColor('RANDOM')
-                .setFooter(`${data.GTA.string}`)
+                .setFooter(`${data.GTA.String}`)
                 message.channel.send(WWembed)
             }
         })
