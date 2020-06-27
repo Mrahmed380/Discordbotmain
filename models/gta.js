@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = new mongoose.Schema({
-    GTA: String,
+    GTA: Array,
     UserID: String,
     GuildID: String,
 })

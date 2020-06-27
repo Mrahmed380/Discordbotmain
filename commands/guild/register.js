@@ -14,7 +14,11 @@ module.exports={
             if(err) console.log(err)
             if(!data){
                 let newGta = new gtas({
-                    GTA: SC,
+                    GTA:[
+                        {
+                            SocialClub: SC
+                        }
+                    ],
                     UserID: message.author.id,
                     GuildID: message.guild.id,
                 })
@@ -28,9 +32,11 @@ module.exports={
             }else{
                 const WWembed = new MessageEmbed()
                 .setTitle('You already have been logged in the database!')
-                .setDescription(`ID: ${message.author.id}`)
+                .setDescription(data.map(d=>{
+                    return d.GTA.map(w=>`\nSocial Club: ${w.GTA}\ne!dregistry if that is not your Social Club username`)
+                }))
                 .setColor('RANDOM')
-                .setFooter(`${data.GTA.String}`)
+                .setFooter(`Author ID: ${message.author.id}`)
                 message.channel.send(WWembed)
             }
         })
