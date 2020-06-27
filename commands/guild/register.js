@@ -1,6 +1,6 @@
 const { Client , MessageEmbed } = require('discord.js');
 const gtas = require('../../models/gta');
-
+const mongoose = require('mongoose')
 module.exports={
     name: 'register',
     description: 'Sets gta username in a data base so admins can access info',
