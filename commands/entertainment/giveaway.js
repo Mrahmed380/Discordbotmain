@@ -19,7 +19,7 @@ module.exports={
         const Gembed = new MessageEmbed()
         .setTitle(`Giveaway from ${message.author.tag}`)
         .setColor(0x006eff)
-        .setDescription(`Prize: ${prize}\nTime: ${Date.now()+(args[0])}\nWinners: 1\n**React to enter giveaway**\n**Winners are chose randomly**`)
+        .setDescription(`Prize: ${prize}\nTime: ${Date.now()} ${ms(args[0])}\nWinners: 1\n**React to enter giveaway**\n**Winners are chose randomly**`)
         let m = await gchannel.send(Gembed)
         m.react("✅")
         setTimeout(() => {
