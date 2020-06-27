@@ -33,7 +33,7 @@ module.exports={
                 const WWembed = new MessageEmbed()
                 .setTitle('You already have been logged in the database!')
                 .setDescription(data.map(d=>{
-                    return d.GTA.map(w=>`\nSocial Club: ${w.GTA}\ne!dregistry if that is not your Social Club username`)
+                    return d.GTA.map(w=>`\nSocial Club: ${w.SocialClub}\ne!dregistry if that is not your Social Club username`)
                 }))
                 .setColor('RANDOM')
                 .setFooter(`Author ID: ${message.author.id}`)
