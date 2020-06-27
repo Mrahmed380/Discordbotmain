@@ -10,7 +10,7 @@ module.exports={
     run: async(bot,message,args)=>{
         let SC = message.content.slice(11)
         if(!SC) return message.channel.send('Please give us your Social Club username!')
-        gtas.findOne({ UserID: user.id, GuildID: message.guild.id },async(err, data) => {
+        gtas.findOne({ UserID: message.author.id, GuildID: message.guild.id },async(err, data) => {
             if(err) console.log(err)
             if(!data){
                 let newGta = new gtas({
@@ -28,7 +28,7 @@ module.exports={
             }else{
                 const WWembed = new MessageEmbed()
                 .setTitle('You already have been logged in the database!')
-                .setDescription(`${user.tag} has been warned for ${args.slice(1).join(" ")}.`)
+                .setDescription(`ID: ${message.author.id}`)
                 .setColor('RANDOM')
                 .setFooter(`${data.GTA.length}`)
                 message.channel.send(WWembed)
