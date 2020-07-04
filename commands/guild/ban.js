@@ -9,9 +9,8 @@ module.exports={
     run: async(bot,message,args)=>{
         const Mention = message.mentions.members.first();
         if(message.content.toLowerCase().startsWith('e!ban')) {
-            if(!message.member.hasPermission('ADMINISTRATOR')) {
-                message.channel.send('You need administrator to ban people!!')
-            }
+            if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You need administrator to use this command!')
+            if(!Mention) return message.channel.send('You did not specify the user')
             if(!Mention.bannable) {
                 message.channel.send('You cannot ban this user!!!')
             } else {
