@@ -27,7 +27,6 @@ var usertickets = new Map();
 bot.on('ready', () =>{
     console.log('This bot is online!');
     bot.user.setActivity('e!botinfo');
-    
 })
 
 bot.on('guildMemberAdd' , member =>{
