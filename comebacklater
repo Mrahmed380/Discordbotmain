@@ -17,26 +17,187 @@ if (msg.content.toLowerCase().startsWith("e!prune")) {
 
 
 
+***RN***
+
+    const args2 = msg.content.split(' ');
+    const Mention = msg.mentions.members.first();
+    const ID = msg.content.slice(7);
 
 
 
-if(msg.content.toLowerCase().startsWith('e!warn')) {
-        if(!msg.member.hasPermission("ADMINISTRATOR")){
-            return msg.channel.send("You need Admin to warn people!")
+
+    if(msg.content.toLowerCase().startsWith('e!ban')) {
+        if(!msg.member.hasPermission('ADMINISTRATOR')) {
+            msg.channel.send('You need administrator to ban people!!')
         }
-        if(!Muser) {
-            return msg.channel.send("Please mention the user you would like to warn, format it like this- warn @user <reason>")
+        if(!Mention.bannable) {
+            msg.channel.send('You cannot ban this user!!!')
+        } else {
+            const Bembed = new Discord.MessageEmbed()
+            .setTitle('Ban Hammer')
+            .setDescription(`${msg.author} just banned yo ass!`)
+            .addField('Reason' , msg.content.slice(26))
+            .setThumbnail(msg.guild.iconURL())
+            .setColor(0xd5eb34)
+            .setFooter(msg.guild.name);
+            Mention.send(Bembed);
+            Mention.ban();
+            msg.channel.send(`${Mention} was banned!`)
         }
-
-        if(msg.mentions.users.first().bot) {
-            return msg.channel.send("You can not warn bots rere!")
-        }
-
-        const reason = args.slice(1).join(" ")
-
-        if(!reason) {
-            return msg.channel.send("Please give me a reason to warn the user.")
-        }
-
-        let warnings =
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*****YOU MANAGED TO BE DUMB IN TEXAS SO NOW YOU HAVE TO DO THIS WHEN YOU GET BACK TO MISOURRI***
+    const args = msg.content.split(' ');
+    const Mention = msg.mentions.members.first();
+    const ID = msg.content.slice(7);
+
+
+
+
+
+    if(msg.content.toLowerCase().startsWith('e!ban')) {
+        if(!msg.member.hasPermission('ADMINISTRATOR')) {
+            msg.channel.send('You dont have permission to use this command');
+        }
+        if(!Mention.bannable) {
+            msg.channel.send('You can not ban this user!') 
+        } else {
+            const Bembed = new Discord.MessageEmbed()
+            .setTitle('Ban Hammer')
+            .setDescription(`${msg.author} just banned yo ass!`)
+            .addField('Reason' , msg.content.slice(26))
+            .setThumbnail(msg.guild.iconURL())
+            .setColor(0xd5eb34)
+            .setFooter(msg.guild.name);
+            Mention.send(Bembed);
+            Mention.ban();
+            msg.channel.send(`${Mention} was banned!`)
+            
+        }
+    }
+    if(msg.content.toLowerCase().startsWith('e!unban')) {
+        if(!msg.member.hasPermission('ADMINISTRATOR')) {
+            msg.channel.send('You dont have permission to unban people!')
+        } else {
+            msg.guild.members.unban(ID)
+            msg.channel.send(`The user was unbanned!`)
+        }
+    }
+    if(msg.content.toLowerCase().startsWith('e!kick')) {
+        if(!msg.member.hasPermission('ADMINISTRATOR')) {
+            msg.reply('You need administrator to use this command!')
+        } else {
+            Mention.send('You have been kicked from ' + (msg.guild.name))
+            Mention.kick();
+            msg.channel.send(`${Mention} was kicked from the server!`)
+        }
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AND THIS
+
+
+
+
+
+
+
+
+
+    const swearwords = ['nigga' , 'nigger']
+    if(swearwords.some(word => msg.content.includes(word)) ) {
+        msg.delete();
+        const SWembed = new Discord.MessageEmbed()
+        .setTitle('Racial slurs are not allowed!')
+        .setDescription('Im sorry to say but you have recieved a warning, three warnings and your out.')
+        .setColor(0xb8b8db)
+        .setThumbnail(msg.author.displayAvatarURL())
+        .setFooter("Warning " + Math.floor(Math.random() * 0 + 1) + "/3");
+        msg.channel.send(SWembed)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AND ADd THIS TO THE WELCOME EMBED
+
+    .setThumbnail(`${member.user.displayAvatarURL()}`)
