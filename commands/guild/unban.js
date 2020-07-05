@@ -11,7 +11,7 @@ module.exports={
             if(!message.member.hasPermission('ADMINISTRATOR')) {
                 message.channel.send('You dont have permission to unban people!')
             } else {
-                const ID = message.content.slice(7);
+                const ID = message.content.slice(8);
                 message.guild.members.unban(ID)
                 message.channel.send(`The <@${ID}> was unbanned!`)
             }
