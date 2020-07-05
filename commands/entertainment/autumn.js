@@ -7,11 +7,11 @@ module.exports={
     usage: 'e!autumn',
     perms: 'Send Messages',
     run: async (message,bot,args)=>{
-        const embed = new MessageEmbed()
+        const ddembed = new MessageEmbed()
         .setTitle(`Autumns dick`)
         .setColor('RANDOM')
         .setDescription(`8==D`)
-        .setFooter('His snap chat is "Crip- ERG IUseMints" if you want his nudes')
-        message.channel.send(embed)
+        .setFooter('His snap chat is "Crip- ERG IUseMints" if you want his nudes');
+        message.channel.send(ddembed)
     }
 }
