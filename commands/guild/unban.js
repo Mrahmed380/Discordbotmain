@@ -13,7 +13,7 @@ module.exports={
             } else {
                 const ID = message.content.slice(8);
                 message.guild.members.unban(ID)
-                message.channel.send(`The <@${ID}> was unbanned!`)
+                message.channel.send(`<@${ID}> was unbanned!`)
             }
         }
     }
