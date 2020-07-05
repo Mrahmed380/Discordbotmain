@@ -31,7 +31,7 @@ module.exports={
         const ddembed = new MessageEmbed()
         .setTitle(`${message.author.tag}\'s peen`)
         .setColor('RANDOM')
-        .setDescription(`8${dickwheel}D`)
+        .setDescription(`${dickwheel}`)
         .setFooter('His snap chat is "Crip- ERG IUseMints" if you want his nudes');
         message.channel.send(ddembed)
     }
