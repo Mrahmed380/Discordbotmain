@@ -11,7 +11,7 @@ module.exports={
         .setColor('RANDOM')
         .setDescription('8==D')
         .setFooter('His snap chat is "Crip- ERG IUseMints" if you want his nudes');
-        message.channel.send(ddembed)
+        //message.channel.send(ddembed)
         message.channel.send('Neggar')
     }
 }
