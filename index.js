@@ -63,7 +63,7 @@ bot.on('guildMemberRemove' , member =>{
     .addField('ERG Recoverys' , WordWheel)
     .setThumbnail(`${member.user.displayAvatarURL()}`)
     .setColor(ColerWheel)
-    .setFooter(`${member.user.discriminator}`)
+    .setFooter(`${member.guild.memberCount}`)
     channel.send(Lembed)
 })
 
