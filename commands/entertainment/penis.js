@@ -6,6 +6,11 @@ module.exports={
     usage: 'e!penis',
     perms: 'Send Messages',
     run: async (bot,message,args)=>{
+        const mdembed = new MessageEmbed()
+        .setTitle(`${Mention}\'s peen`)
+        .setColor('RANDOM')
+        .setDescription(`8${dickwheel}D`)
+        .setFooter('His snap chat is "Crip- ERG IUseMints" if you want his nudes');
         const Mention = message.mentions.members.first();
         if(Mention) return message.channel.send(mdembed)
         let peen = [
@@ -24,11 +29,5 @@ module.exports={
         .setDescription(`8${dickwheel}D`)
         .setFooter('His snap chat is "Crip- ERG IUseMints" if you want his nudes');
         message.channel.send(ddembed)
-        const mdembed = new MessageEmbed()
-        .setTitle(`${Mention}\'s peen`)
-        .setColor('RANDOM')
-        .setDescription(`8${dickwheel}D`)
-        .setFooter('His snap chat is "Crip- ERG IUseMints" if you want his nudes');
-
     }
 }
