@@ -18,7 +18,7 @@ module.exports={
         let dickwheel = peen[Math.floor(Math.random()*(peen.length))]
         const Mention = message.mentions.members.first();
         const mdembed = new MessageEmbed()
-        .setTitle(`${Mention.tag}\'s peen`)
+        .setTitle(`${Mention}\'s peen`)
         .setColor('RANDOM')
         .setDescription(`8${dickwheel}D`)
         .setFooter('His snap chat is "Crip- ERG IUseMints" if you want his nudes');
