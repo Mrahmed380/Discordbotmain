@@ -2,8 +2,8 @@ const { Client , MessageEmbed } = require('discord.js')
 module.exports={
     name: 'penis',
     category: 'entertainment',
-    description: 'shows how big <@719890899517046866>\'s dick is',
-    usage: 'e!penis',
+    description: 'shows how big a user\'s dick is',
+    usage: 'e!penis or e!penis [@user]',
     perms: 'Send Messages',
     run: async (bot,message,args)=>{
         let peen = [
