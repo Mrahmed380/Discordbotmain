@@ -6,13 +6,6 @@ module.exports={
     usage: 'e!penis',
     perms: 'Send Messages',
     run: async (bot,message,args)=>{
-        const Mention = message.mentions.members.first();
-        const mdembed = new MessageEmbed()
-        .setTitle(`${Mention}\'s peen`)
-        .setColor('RANDOM')
-        .setDescription(`8${dickwheel}D`)
-        .setFooter('His snap chat is "Crip- ERG IUseMints" if you want his nudes');
-        if(Mention) return message.channel.send(mdembed)
         let peen = [
             "=",
             "===",
@@ -23,6 +16,13 @@ module.exports={
             "========"
         ]
         let dickwheel = peen[Math.floor(Math.random()*(peen.length))]
+        const Mention = message.mentions.members.first();
+        const mdembed = new MessageEmbed()
+        .setTitle(`${Mention}\'s peen`)
+        .setColor('RANDOM')
+        .setDescription(`8${dickwheel}D`)
+        .setFooter('His snap chat is "Crip- ERG IUseMints" if you want his nudes');
+        if(Mention) return message.channel.send(mdembed)
         const ddembed = new MessageEmbed()
         .setTitle(`${message.author.tag}\'s peen`)
         .setColor('RANDOM')
