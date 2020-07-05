@@ -5,7 +5,7 @@ module.exports={
     description: 'shows how big <@719890899517046866>\'s dick is',
     usage: 'e!autumn',
     perms: 'Send Messages',
-    run: async (message,bot,args)=>{
+    run: async (bot,message,args)=>{
         const ddembed = new MessageEmbed()
         .setTitle('Autumns dick')
         .setColor('RANDOM')
