@@ -1,5 +1,4 @@
 const { Client , MessageEmbed } = require('discord.js')
-const moneys = require('../../models/money')
 module.exports={
     name: 'autumn',
     category: 'entertainment',
@@ -8,10 +7,11 @@ module.exports={
     perms: 'Send Messages',
     run: async (message,bot,args)=>{
         const ddembed = new MessageEmbed()
-        .setTitle(`Autumns dick`)
+        .setTitle('Autumns dick')
         .setColor('RANDOM')
-        .setDescription(`8==D`)
+        .setDescription('8==D')
         .setFooter('His snap chat is "Crip- ERG IUseMints" if you want his nudes');
         message.channel.send(ddembed)
+        message.channel.send('Neggar')
     }
 }
