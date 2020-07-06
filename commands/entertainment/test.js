@@ -7,7 +7,7 @@ module.exports={
     usage: 'e!test',
     perms: 'Send Messages',
     run: async (bot,message,args)=>{
-        message.channel.send(config.dad)
+        message.channel.send(config.d)
 
     }
 }
