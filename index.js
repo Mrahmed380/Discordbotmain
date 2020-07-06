@@ -392,7 +392,6 @@ bot.on('message' , async msg=>{
             Smention.send(SDembed)
             //if(!args.slice(1).join(" ")) return msg.channel.send("You did not include a message for the user");
             break;
-            
 
 
 
