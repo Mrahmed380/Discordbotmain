@@ -30,6 +30,7 @@ module.exports={
         .setTitle(`Egirl skill`)
         .setDescription(`**Egirl skill rating for ${Mention}**\n**Rate: ${egirlrate}**\n**Skill: ${skillselect}**`)
         .setColor('RANDOM')
+        .setFooter(config.loyal)
         .setThumbnail(Mention.displayAvatarURL)
         message.channel.send(embed)
         
