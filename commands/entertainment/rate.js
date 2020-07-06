@@ -14,7 +14,10 @@ module.exports={
             "Gaming",
             "Cooking",
             "Twerking",
-            "Clingyness"
+            "Clingyness",
+            "69 Position",
+            "Cowgirl Posistion",
+            "Mirror pics"
         ]
         let skillselect = skillrate[Math.floor(Math.random()*(skillrate.length))]
         const Mention = message.mentions.members.first();
