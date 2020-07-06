@@ -4,7 +4,7 @@ module.exports={
     name: 'rate',
     description: 'rate a egirl',
     category: 'entertainment',
-    usage: 'e!rate <@user>',
+    usage: 'e!rate <@user> <Rate/10>',
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
         let skillrate = [
