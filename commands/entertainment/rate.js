@@ -19,11 +19,12 @@ module.exports={
         const Mention = message.mentions.members.first();
         const egirlrate = message.content.slice(25)
         if(!Mention) return message.channel.send('You must mention the **egirl** you want to rate.')
-        // if(!egirlrate) return message.channel.send('You didnt give a rate')
-        //if(!message.mentions.members.first().hasPermission('PRIORITY_SPEAKER')) return message.channel.send('This user isnt a egirl stuped')
+         if(!egirlrate) return message.channel.send('You didnt give a rate')
+        if(!message.mentions.members.first().hasPermission('PRIORITY_SPEAKER')) return message.channel.send('This user isnt a egirl stuped')
         const embed = new MessageEmbed()
         .setTitle(`Egirl skill rating for ${Mention}`)
         .setDescription(`**Rate: ${egirlrate}\nSkill: ${skillselect}`)
+        message.channel.send(embed)
         
 
     }
