@@ -12,7 +12,6 @@ module.exports={
             "dank",
             "meme",
             "memes",
-            "DarkHumorAndMemes",
             "DarkHumorAndMemes"
         ]
         let subreddit = subreddits[Math.floor(Math.random()*(subreddits.length))]
