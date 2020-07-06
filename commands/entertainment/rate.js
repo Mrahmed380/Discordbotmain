@@ -21,6 +21,7 @@ module.exports={
         if(!Mention) return message.channel.send('You must mention the **egirl** you want to rate.')
          if(!egirlrate) return message.channel.send('You didnt give a rate')
         if(!message.mentions.members.first().hasPermission('PRIORITY_SPEAKER')) return message.channel.send('This user isnt a egirl stuped')
+        message.delete()
         const embed = new MessageEmbed()
         .setTitle(`Egirl skill`)
         .setDescription(`**Egirl skill rating for ${Mention}**\n**Rate: ${egirlrate}**\n**Skill: ${skillselect}**`)
