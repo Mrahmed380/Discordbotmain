@@ -1,5 +1,5 @@
 const { Client , MessageEmbed } = require('discord.js');
-const config = require('../../config')
+const config = require('../../config.json')
 module.exports={
     name: 'test',
     description: 'Get a dilf in your dms',
