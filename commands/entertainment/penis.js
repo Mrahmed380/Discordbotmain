@@ -3,7 +3,7 @@ module.exports={
     name: 'penis',
     category: 'entertainment',
     description: 'shows how big a user\'s dick is',
-    usage: 'e!penis or e!penis [@user]',
+    usage: 'e!penis [@user]',
     perms: 'Send Messages',
     run: async (bot,message,args)=>{
         let peen = [
