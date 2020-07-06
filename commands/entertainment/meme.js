@@ -11,6 +11,7 @@ module.exports={
             "comedyheaven",
             "dank",
             "meme",
+            "dankmemes",
             "memes",
             "DarkHumorAndMemes",
             "DarkHumorAndMemes"
