@@ -24,6 +24,8 @@ module.exports={
         const embed = new MessageEmbed()
         .setTitle(`Egirl skill`)
         .setDescription(`**Egirl skill rating for ${Mention}**\n**Rate: ${egirlrate}**\n**Skill: ${skillselect}**`)
+        .setColor('RANDOM')
+        .setThumbnail(Mention.displayAvatarURL)
         message.channel.send(embed)
         
 
