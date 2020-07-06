@@ -16,7 +16,7 @@ module.exports={
             "Twerking",
             "Clingyness",
             "69 Position",
-            "Cowgirl Posistion",
+            "Cowgirl Position",
             "Mirror pics"
         ]
         let skillselect = skillrate[Math.floor(Math.random()*(skillrate.length))]
