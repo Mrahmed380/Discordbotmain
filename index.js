@@ -255,7 +255,7 @@ bot.on('message' , async msg=>{
 
 
 
-    const swearwords = ['nigga' , 'nigger']
+    const swearwords = ['nigga' , 'nigger', 'Nigga', 'n i g g a']
     if(swearwords.some(word => msg.content.includes(word)) ) {
         msg.delete();
         const SWembed = new Discord.MessageEmbed()
