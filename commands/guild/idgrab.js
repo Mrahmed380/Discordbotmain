@@ -10,6 +10,7 @@ module.exports={
         const Mention = message.mentions.members.first();
         if(!Mention) return message.channel.send('You did not mention the user you want to resolve *goofy*')
         message.channel.send(`${Mention}\'s ID is \`${Mention.id}\``)
+        message.channel.send(config.mention)
         
     }
 }
