@@ -8,6 +8,7 @@ module.exports={
     usage: 'dont use under development',
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
+        if(!message.member.hasPermissions("ADMINISTRATOR")) return message.channel.send('You need admin to warn people')
         let user = message.mentions.users.first()
         if(!user) return message.channel.send('You did not mention a user!')
         if(!args.slice(1).join(" ")) return message.channel.send('You did not give a reason')
