@@ -13,7 +13,7 @@ module.exports={
         .setColor('RANDOM');
         setTimeout(() => {
             msg.edit(PONGembed)
-        }, 2500);
+        }, 1500);
         // const PONGembed = new MessageEmbed()
         // .setTitle('Pong!')
         // .setDescription(`\nLatency is ${Math.floor(msg.createdTimestamp - message.createdTimestamp)}ms \nAPI latency is ${Math.round(bot.ws.ping)}ms`)
