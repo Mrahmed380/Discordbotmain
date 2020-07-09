@@ -138,7 +138,7 @@ bot.on('message' , async msg=>{
     if(msg.author.bot) return;
     if(msg.content.toLowerCase() === 'e!verify' && msg.channel.id === '714428169691725915')
     {
-        const role = msg.guild.roles.cache.get('697343291825455124');
+        const role = msg.guild.roles.cache.get('730608207067742310');
         if (role) {
             msg.delete();
             msg.member.roles.add(role);
