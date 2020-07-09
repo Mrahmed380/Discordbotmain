@@ -21,7 +21,7 @@ module.exports={
         ]
         let skillselect = skillrate[Math.floor(Math.random()*(skillrate.length))]
         const Mention = message.mentions.members.first();
-        const egirlrate = message.content.slice(25)
+        const egirlrate = message.content.slice(28)
         if(isNaN(egirlrate)) return message.channel.send('That is not a number!')
         if(!Mention) return message.channel.send('You must mention the **egirl** you want to rate.')
          if(!egirlrate) return message.channel.send('You didnt give a rate')
