@@ -24,6 +24,7 @@ module.exports={
         const egirlrate = message.content.slice(29)
         if(!Mention) return message.channel.send('You must mention the **egirl** you want to rate.')
          if(!egirlrate) return message.channel.send('You didnt give a rate')
+         if(egirlrate.content.includes('/')) return message.channel.send('Rates are automatically out of 10! Choose a number 1-10')
         if(!message.mentions.members.first().hasPermission('PRIORITY_SPEAKER')) return message.channel.send(`This user isnt a egirl stuped; ${config.egirl} `)
         message.delete()
         const embed = new MessageEmbed()
