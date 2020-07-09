@@ -11,7 +11,7 @@ module.exports={
             "Head",
             "Loyalness",
             "Riding",
-            "Gaming",
+            "Glizzy gobbling",
             "Cooking",
             "Twerking",
             "Clingyness",
