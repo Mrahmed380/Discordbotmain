@@ -123,9 +123,6 @@ bot.on('message' , async message=>{
         useUnifiedTopology: true,
         useNewUrlParser: true,
     })
-    mongoose.connection.on('connected', () => {
-        console.log('mongoose is connected bruh');
-    });
 })
 
 
