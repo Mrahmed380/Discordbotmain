@@ -5,6 +5,6 @@ module.exports={
     usage: 'e!website',
     perms: 'Send Messages',
     run: async (bot,message,args)=>{
-        message.reply('heres a link to the website! https://website-recovery.herokuapp.com')
+        message.reply('heres a link to the website! https://gtarecov.herokuapp.com')
     }
 }
