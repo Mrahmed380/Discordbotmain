@@ -35,7 +35,7 @@ module.exports={
                             id: message.guild.roles.cache.get('713914961285349397')
                         },
                         {
-                            allow: 'SEND_MESSAGES',
+                            allow: 'VIEW_CHANNEL',
                             id: message.guild.roles.cache.get('713914961285349397')
                         },
                         {
