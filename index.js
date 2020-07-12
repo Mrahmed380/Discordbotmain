@@ -176,6 +176,13 @@ bot.on('message' , async msg=>{
         msg.channel.delete().then(console.log('Ticket closed and channel deleted'))
         msg.author.send('Your ticket was succesfully deleted. Thanks for contacting staff!')
         msg.guild.owner.send('Your clients ticket was closed hopefully this helped them!😊')
+        const fetchedmessages = await msg.channel.messages.fetch({ limit: 100 })
+        var formattedMsgs = fetchedmessages.map(m => `[${moment(m.createdAt).format()}] ${m.author.tag}: ${m.content}\n`)
+        hb(formattedMsgs.join(""), 'js').then(r => {
+            msg.author.send(`Succesfully closed ticket and archived messages: ${r} - chat transcript`) 
+        }).catch(e => {
+            if(e) return msg.channel.send('There was a error archiving the messages!')
+        })
     };
     
     
