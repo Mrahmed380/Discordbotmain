@@ -9,7 +9,7 @@ module.exports={
             const yname = message.author.username;
             const tname = message.author.id;
             const ctname = "t-" + tname;
-            if(message.guild.channels.cache.find(ch => ch.name == ctname)) return message.chanel.send('You alredy have a ticket open, go to your ticket channel and type e!cticket to close your current ticket!')
+            if(message.guild.channels.cache.find(ch => ch.name == ctname)) return message.channel.send('You alredy have a ticket open, go to your ticket channel and type e!cticket to close your current ticket!')
             message.guild.channels.create(ctname , {
                 type: 'text' ,
                 permissionOverwrites: [
