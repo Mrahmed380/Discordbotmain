@@ -40,7 +40,7 @@ module.exports={
                         },
                         {
                             allow: 'SEND_MESSAGES',
-                            id: message.guild.roles.cache.get('697343291825455124')
+                            id: message.guild.roles.cache.get('697343291825455127')
                         }
     
                         
