@@ -15,6 +15,8 @@ bot.categories = fs.readdirSync("./commands/");
 ["command"].forEach(handler=>{
     require(`./handler/${handler}`)(bot);
 })
+const moment = require('moment');
+const hb = require('hastebin-generator');
 
 var twitch = 'Hey, heres a link to ERG//s twitch channel! https://www.twitch.tv/supremeerg'
 var money = 'Hey, I would appreciate if you gave me all your money.😁 PayPal.Me/717163'
@@ -174,7 +176,6 @@ bot.on('message' , async msg=>{
     if(msg.content.toLowerCase().startsWith("e!cticket") && regex.test(channelName) && msg.member.hasPermission('VIEW_CHANNEL')) {
         console.log("Delete Channel");
         msg.channel.delete().then(console.log('Ticket closed and channel deleted'))
-        msg.author.send('Your ticket was succesfully deleted. Thanks for contacting staff!')
         msg.guild.owner.send('Your clients ticket was closed hopefully this helped them!😊')
         const fetchedmessages = await msg.channel.messages.fetch({ limit: 100 })
         var formattedMsgs = fetchedmessages.map(m => `[${moment(m.createdAt).format()}] ${m.author.tag}: ${m.content}\n`)
