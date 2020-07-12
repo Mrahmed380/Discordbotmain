@@ -6,7 +6,7 @@ module.exports={
     usage: 'e!ticket',
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
-            const yname = message.author.username;
+            const tickchan = message.guild.channels.cache.find(ch => ch.name == ctname)
             const tname = message.author.id;
             const ctname = "t-" + tname;
             if(message.guild.channels.cache.find(ch => ch.name == ctname)) return message.channel.send('You alredy have a ticket open, go to your ticket channel and type e!cticket to close your current ticket!')
@@ -48,7 +48,7 @@ module.exports={
             console.log('ticket created.')
             const Tembed = new MessageEmbed()
             .setTitle('Support ticket')
-            .setDescription('You have created a support ticket!')
+            .setDescription('You have created a support ticket!' + `<#${tickchan.id}`)
             .setColor('RANDOM')
             .setFooter('Scroll up if you dont see the ticket channel')
             message.channel.send(Tembed)
