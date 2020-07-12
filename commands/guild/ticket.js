@@ -48,7 +48,7 @@ module.exports={
             console.log('ticket created.')
             const Tembed = new MessageEmbed()
             .setTitle('Support ticket')
-            .setDescription('You have created a support ticket!' + `<#${tickchan.id}`)
+            .setDescription('You have created a support ticket!') //+ `<#${tickchan.id}>`)
             .setColor('RANDOM')
             .setFooter('Scroll up if you dont see the ticket channel')
             message.channel.send(Tembed)
