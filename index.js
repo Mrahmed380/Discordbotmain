@@ -172,7 +172,7 @@ bot.on('message' , async msg=>{
     let regex = new RegExp(/(t-[0-9]+)/);
     let channelName = msg.channel.name;
 
-    if(msg.content.toLowerCase().startsWith("e!cticket") && regex.test(channelName) && msg.member.hasPermission('VIEW_CHANNEL')) {
+    if(msg.content.toLowerCase().startsWith("e!cticket") && regex.test(channelName) && msg.member.roles.cache.has('730608207067742310')) {
         console.log("Delete Channel");
         msg.channel.delete().then(console.log('Ticket closed and channel deleted'))
         msg.guild.owner.send('Your clients ticket was closed hopefully this helped them!😊')
