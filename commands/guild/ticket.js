@@ -6,7 +6,6 @@ module.exports={
     usage: 'e!ticket',
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
-        message.delete();
             const yname = message.author.username;
             const tname = message.author.id;
             const ctname = "t-" + tname;
