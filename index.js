@@ -118,7 +118,6 @@ bot.on('message' , async message=>{
     const cmd = args.shift().toLowerCase();
     if(cmd.length == 0 ) return;
     const command = bot.commands.get(cmd)
-    if(!command) command = bot.commands.get(bot.aliases.get(cmd));
     if(command) command.run(bot,message,args)
     const mongoose = require('mongoose');
     mongoose.connect('mongodb+srv://SupremeERG:Ethang0508@supremeerg-tcd25.mongodb.net/Data?retryWrites=true&w=majority',{
