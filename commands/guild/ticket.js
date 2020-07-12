@@ -38,6 +38,10 @@ module.exports={
                     {
                         allow: 'SEND_MESSAGES',
                         id: message.guild.roles.cache.get('697343291825455127')
+                    },
+                    {
+                        allow: 'READ_MESSAGE_HISTORY',
+                        id: message.guild.roles.chache.get('730608207067742310')
                     }
     
                         
