@@ -40,7 +40,7 @@ module.exports={
                     },
                     {
                         allow: 'READ_MESSAGE_HISTORY',
-                        id: message.guild.roles.chache.get('730608207067742310')
+                        id: message.guild.roles.cache.get('730608207067742310')
                     }
     
                         
