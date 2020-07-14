@@ -357,8 +357,8 @@ bot.on('message' , async msg=>{
     }
 });
 bot.on('message', async message=>{
-    if(message.author.bot) return console.log('not deleted (author is bot)');
     if(message.channel.id === '702601747843252295') {
+        if(message.author.bot) return console.log('not deleted (author is bot)');
         message.delete({ timeout: 2000}), console.log('Message deleted')
     }
 })
