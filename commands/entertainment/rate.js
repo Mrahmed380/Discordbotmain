@@ -23,7 +23,7 @@ module.exports={
         const Mention = message.mentions.members.first();
         const egirlrate = message.content.slice(29)
         const erole = message.guild.roles.cache.find(r => r.name === 'egirls')
-        const formattedMsgs = erole.members.map(m => `${m.user.tag}`)
+        const formattedMsgs = erole.members.map(m => `${m.user} `)
         if(!Mention) return message.channel.send('You must mention the **egirl** you want to rate.')
          if(!egirlrate) return message.channel.send('You didnt give a rate')
          if(egirlrate > 10 ) return message.channel.send('Rates are out of 10, use a number 10 or below!')
