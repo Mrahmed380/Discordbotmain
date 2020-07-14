@@ -357,9 +357,9 @@ bot.on('message' , async msg=>{
     }
 });
 bot.on('message', async message=>{
-    if(message.author.bot) return;
+    if(message.author.bot) return console.log('not deleted (author is bot)');
     if(message.guild.channels.cache.get('702601747843252295')) {
-        message.delete({ timeout: 2000})
+        message.delete({ timeout: 2000}), console.log('Message deleted')
     }
 })
 //PUT A CURLY BRACKET BETWEEN THE NORMAL BRACKET AND PERENTHISIS ABOVE ME WHEN U FIX PURGE COMMAND 
