@@ -358,7 +358,7 @@ bot.on('message' , async msg=>{
 });
 bot.on('message', async message=>{
     if(message.author.bot) return console.log('not deleted (author is bot)');
-    if(message.guild.channels.cache.get('702601747843252295')) {
+    if(message.channel.id === '702601747843252295') {
         message.delete({ timeout: 2000}), console.log('Message deleted')
     }
 })
