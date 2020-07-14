@@ -28,7 +28,7 @@ module.exports={
          if(!egirlrate) return message.channel.send('You didnt give a rate')
          if(egirlrate > 10 ) return message.channel.send('Rates are out of 10, use a number 10 or below!')
          if(message.content.includes('/')) return message.channel.send('Rates are automatically out of 10! Choose a number 1-10')
-        if(!message.mentions.members.first().hasPermission('PRIORITY_SPEAKER')) return message.channel.send(`This user isnt a egirl stuped. Egirls that will ride for $$$$$$; ${formattedMsgs}. `)
+        if(!message.mentions.members.first().hasPermission('PRIORITY_SPEAKER')) return message.channel.send(`This user isnt a egirl stuped. Egirls that will ride for $$$$$$: ${formattedMsgs}. `)
         message.delete()
         const embed = new MessageEmbed()
         .setTitle(`Egirl skill`)
