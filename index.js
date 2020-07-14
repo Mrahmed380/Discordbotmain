@@ -403,9 +403,10 @@ bot.on('message' , async msg=>{
     }
 });
 bot.on('message', async message=>{
-    if(message.content.startsWith('e!suggest')) return;
+    if(!message.content.startsWith('e!suggest')) {
     if(message.channel.id === '702601747843252295') {
     await message.delete({timeout: 3000});
+    }
 }})
 //PUT A CURLY BRACKET BETWEEN THE NORMAL BRACKET AND PERENTHISIS ABOVE ME WHEN U FIX PURGE COMMAND 
 bot.login(process.env.token);
