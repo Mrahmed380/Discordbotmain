@@ -357,10 +357,10 @@ bot.on('message' , async msg=>{
     }
 });
 bot.on('message', async message=>{
-    if(!message.content.startsWith('e!suggest')) {
-    if(message.channel.id === '702601747843252295') {
-    await message.delete({timeout: 3000}), console.log('Message deleted in suggestion channel');
+    if(message.author.bot) return;
+    if(message.guild.channels.cache.get('702601747843252295')) {
+        message.delete({ timeout: 2000})
     }
-}})
+})
 //PUT A CURLY BRACKET BETWEEN THE NORMAL BRACKET AND PERENTHISIS ABOVE ME WHEN U FIX PURGE COMMAND 
 bot.login(process.env.token);
