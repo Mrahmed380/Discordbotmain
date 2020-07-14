@@ -403,6 +403,7 @@ bot.on('message' , async msg=>{
     }
 });
 bot.on('message', async message=>{
+    if(message.content.startsWith('e!suggest')) return;
     if(message.channel.id === '702601747843252295') {
     await message.delete({timeout: 3000});
 }})
