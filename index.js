@@ -312,7 +312,6 @@ bot.on('message' , async msg=>{
             msg.channel.send(binv)
             break;
         case 'suggest':
-            msg.delete()
             let mssArgs = args.slice(1).join(" ");
             const DMembed = new Discord.MessageEmbed()
             .setTitle('Suggestion')
@@ -332,51 +331,6 @@ bot.on('message' , async msg=>{
                 messageReaction.react("❌")
             })
             break;
-        //case 'ticket':
-            // msg.delete();
-            // const yname = msg.author.username;
-            // const tname = msg.author.id;
-            // const ctname = "t-" + tname;
-            // if(msg.guild.channels.cache.find(ch => ch.name == ctname)) {
-            //     msg.author.send('You alredy have a ticket open, go to your ticket channel and type e!cticket to close your current ticket!')
-            // }
-            // else{
-            //     msg.guild.owner.send('Someone just made a ticket. Go respond!')
-            //     msg.guild.channels.create(ctname , {
-            //         type: 'text' ,
-            //         permissionOverwrites: [
-            //             {
-            //                 allow: 'VIEW_CHANNEL',
-            //                 id: msg.author.id
-            //             },
-            //             {
-            //                 deny: 'VIEW_CHANNEL',
-            //                 id: msg.guild.id
-            //             },
-            //             {
-            //                 allow: 'VIEW_CHANNEL',
-            //                 id: msg.guild.roles.cache.get('713914961285349397')
-            //             },
-            //             {
-            //                 allow: 'READ_MESSAGE_HISTORY',
-            //                 id: msg.guild.roles.cache.get('713914961285349397')
-            //             },
-            //             {
-            //                 allow: 'SEND_MESSAGES',
-            //                 id: msg.guild.roles.cache.get('713914961285349397')
-            //             },
-            //             {
-            //                 allow: 'SEND_MESSAGES',
-            //                 id: msg.guild.roles.cache.get('697343291825455124')
-            //             }
-    
-                        
-            //         ]
-            //     })
-            //     console.log('ticket created.')
-            //     msg.channel.send(Tembed)
-            // }
-            // break;
         case 'hgames':
             const Hembed = new Discord.MessageEmbed()
             .setTitle('Hunger Games')
@@ -405,7 +359,7 @@ bot.on('message' , async msg=>{
 bot.on('message', async message=>{
     if(!message.content.startsWith('e!suggest')) {
     if(message.channel.id === '702601747843252295') {
-    await message.delete({timeout: 3000});
+    await message.delete({timeout: 3000}), console.log('Message deleted in suggestion channel');
     }
 }})
 //PUT A CURLY BRACKET BETWEEN THE NORMAL BRACKET AND PERENTHISIS ABOVE ME WHEN U FIX PURGE COMMAND 
