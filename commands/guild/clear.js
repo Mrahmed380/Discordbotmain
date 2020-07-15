@@ -12,7 +12,7 @@ module.exports={
         }
 
         if(isNaN(args[0]) || parseInt(args[0]) <= 0) {
-            return message.channel.send('This is not a number!').then(m => m.delete(6000));
+            return message.channel.send('This is not a number!').then(m => m.delete({ timeout: 5000}));
         }
 
         let deleteAmount;
