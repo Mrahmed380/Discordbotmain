@@ -30,7 +30,7 @@ module.exports={
                 .setTitle('Warning')
                 .setDescription(`${user.tag} has been warned for ${args.slice(1).join(" ")}.`)
                 .setColor('RANDOM')
-                .setFooter(`${user} has 1 warn.`)
+                .setFooter(`${user.username} has 1 warn.`)
                 message.channel.send(Wembed)
             }else{
                 data.Warns.unshift({
@@ -38,6 +38,7 @@ module.exports={
                     Reason: args.slice(1).join(" ")
                 })
                 data.save
+                console.log(data.Warns)
                 const WWembed = new MessageEmbed()
                 .setTitle('Warning')
                 .setDescription(`${user.tag} has been warned for ${args.slice(1).join(" ")}.`)
