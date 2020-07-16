@@ -246,7 +246,7 @@ bot.on('message' , async msg=>{
     const warns = require('./models/warns')
     if(swearwords.some(word => msg.content.includes(word)) ) {
         msg.delete();
-        warns.findOne({ Guild: msg.guild.id, User: user.id },async(err, data) => {
+        warns.findOne({ Guild: msg.guild.id, User: msg.author.id },async(err, data) => {
             if(err) console.log(err)
             if(!data){
                 let newWarns = new warns({
