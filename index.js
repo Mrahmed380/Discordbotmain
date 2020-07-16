@@ -243,6 +243,7 @@ bot.on('message' , async msg=>{
 
 
     const swearwords = ['nigga' , 'nigger', 'Nigga', 'n i g g a', 'NIGGA', 'n i g g e r']
+    const warns = require('./models/warns')
     if(swearwords.some(word => msg.content.includes(word)) ) {
         msg.delete();
         warns.findOne({ Guild: message.guild.id, User: user.id },async(err, data) => {
