@@ -246,15 +246,15 @@ bot.on('message' , async msg=>{
     const warns = require('./models/warns')
     if(swearwords.some(word => msg.content.includes(word)) ) {
         msg.delete();
-        warns.findOne({ Guild: message.guild.id, User: user.id },async(err, data) => {
+        warns.findOne({ Guild: msg.guild.id, User: user.id },async(err, data) => {
             if(err) console.log(err)
             if(!data){
                 let newWarns = new warns({
                     User: user.id,
-                    Guild: message.guild.id,
+                    Guild: msg.guild.id,
                     Warns:[
                         {
-                            Moderator: message.author.id,
+                            Moderator: msg.author.id,
                             Reason: args.slice(1).join(" ")
                         }
                     ]
@@ -269,7 +269,7 @@ bot.on('message' , async msg=>{
                 msg.channel.send(SWembed)
             }else{
                 data.Warns.unshift({
-                    Moderator: message.author.id,
+                    Moderator: msg.author.id,
                     Reason: args.slice(1).join(" ")
                 })
                 data.save()
@@ -282,12 +282,12 @@ bot.on('message' , async msg=>{
                 .setFooter("Warning " + data.Warns.length);
                 msg.channel.send(SWembed)
                 if(data.Warns.length >= 3) {
-                    const mention = message.mentions.members.first()
-                    message.channel.send(`${user} received 3 warnings or more, banned and has been deleted from the database`)
+                    const mention = msg.mentions.members.first()
+                    msg.channel.send(`${user} received 3 warnings or more, banned and has been deleted from the database`)
                     mention.ban({ reason: "Recieved 3 warnings"})
                     warns.findOneAndDelete({
                         User: user.id,
-                        Guild: message.guild.id
+                        Guild: msg.guild.id
                     }, (err, res) => {
                         if(err) console.log('Please check and make sure the data was deleted i recieved a error!')
                         console.log(`User with ID ${user.id} has been deleted from the Database`)
