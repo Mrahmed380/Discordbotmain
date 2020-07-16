@@ -273,7 +273,7 @@ bot.on('message' , async msg=>{
                 .setDescription('Im sorry to say but you have recieved a warning, three warnings and your out.')
                 .setColor(0xb8b8db)
                 .setThumbnail(msg.author.displayAvatarURL())
-                .setFooter("Warning " + data.Warns.length);
+                .setFooter("Warning " + Math.floor(data.Warns.length() * 0 + 1));
                 msg.channel.send(SWembed)
                 data.Warns.unshift({
                     Moderator: bot.user.id,
