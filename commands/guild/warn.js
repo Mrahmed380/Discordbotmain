@@ -46,8 +46,9 @@ module.exports={
                 .setFooter(`${user.username} has ${data.Warns.length} warns.`)
                 message.channel.send(WWembed)
                 if(data.Warns.length >= 3) {
+                    const user = message.mentions.members.first()
                     message.channel.send(`${user} received 3 warnings or more, banned and has been deleted from the database`)
-                    user.ban({reason: "Recieved 3 warnings"})
+                    user.ban({ reason: "Recieved 3 warnings"})
                     warns.findOneAndDelete({
                         User: user.id,
                         Guild: message.guild.id
