@@ -29,12 +29,20 @@ module.exports={
                 .setColor('RANDOM')
                 message.channel.send(Wembed)
             }else{
-                data.Money.unshift({
-                    Purchases: 1,
-                    Money: 100
+                
+                let newBalance = new moneys({
+                    UserID: user.id,
+                    GuildID: message.guild.id,
+                    Money:[
+                        {
+                            Purchases: 0,
+                            Money: 100
+                        }
+                    ]
                 })
+                newBalance.save()
                 data.save()
-                message.channel.send('You now have $100')
+                message.channel.send(`You now have ${data.Money[0].Money}`)
             }
         })
     }
