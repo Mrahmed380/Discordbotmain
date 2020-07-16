@@ -29,7 +29,7 @@ module.exports={
                 .setColor('RANDOM')
                 message.channel.send(Wembed)
             }else{
-                
+                data.deleteOne()
                 let newBalance = new moneys({
                     UserID: user.id,
                     GuildID: message.guild.id,
