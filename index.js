@@ -277,7 +277,7 @@ bot.on('message' , async msg=>{
                 if(data.Warns.length >= 3) {
                     const mention = msg.mentions.members.first()
                     msg.channel.send(`${msg.author} received 3 warnings or more, banned and has been deleted from the database`)
-                    mention.ban({ reason: "Recieved 3 warnings"})
+                    msg.author.ban({ reason: "Recieved 3 warnings"})
                     warns.findOneAndDelete({
                         User: msg.author.id,
                         Guild: msg.guild.id
