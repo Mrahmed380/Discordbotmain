@@ -2,7 +2,7 @@ const { Client , MessageEmbed } = require('discord.js')
 const moneys = require('../../models/money')
 module.exports={
     name: 'balance',
-    category: 'entertainment',
+    category: 'money',
     description: 'Balance/Currency system for GTA V Recoverys',
     usage: 'e!balance or e!balance <@user>',
     perms: 'Send Messages',
@@ -36,7 +36,7 @@ module.exports={
                     Money:[
                         {
                             Purchases: 0,
-                            Money: 100
+                            Money: 0
                         }
                     ]
                 })
