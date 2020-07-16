@@ -1,7 +1,6 @@
 const { Client , MessageEmbed } = require('discord.js');
 const gtas = require('../../models/gta');
 const mongoose = require('mongoose');
-const gta = require('../../models/gta');
 module.exports={
     name: 'dregister',
     description: 'Deletes gta information out of database',
@@ -14,7 +13,8 @@ module.exports={
             if(!data){
                 message.channel.send('You arent even in the database, e!register <SCName> to get logged')
             }else{
-                gtas.deleteOne
+                console.log(data)
+                gtas.deleteOne()
             }
         })
     }
