@@ -1,3 +1,8 @@
+const mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://SupremeERG:Ethang0508@supremeerg-tcd25.mongodb.net/Data?retryWrites=true&w=majority',{
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+});
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const token = 'NzEwNDIwMzM1NTA5NTA0MDEy.XtyXpw.9JzvSnL0gUjbKHaZApoXb9xRzIM';
@@ -119,11 +124,6 @@ bot.on('message' , async message=>{
     if(cmd.length == 0 ) return;
     const command = bot.commands.get(cmd)
     if(command) command.run(bot,message,args)
-    const mongoose = require('mongoose');
-    mongoose.connect('mongodb+srv://SupremeERG:Ethang0508@supremeerg-tcd25.mongodb.net/Data?retryWrites=true&w=majority',{
-        useUnifiedTopology: true,
-        useNewUrlParser: true,
-    })
 })
 
 
