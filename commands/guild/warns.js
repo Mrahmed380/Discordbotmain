@@ -14,9 +14,7 @@ module.exports={
             if(!data.length) return message.channel.send(`${user.user.tag} has not got any warns in this server`)
             let embed = new MessageEmbed()
             .setTitle(`${user.user.tag} warns in ${message.guild.name}.`)
-            .setDescription(data.map(d=>{
-                return d.Warns.map(w=>`\nModerator: ${message.guild.members.cache.get(w.Moderator).user.tag}\n Reason ${w.Reason}`)
-            }))
+            .setDescription(data.Warns.Moderator)
             .setColor('RANDOM');
             message.channel.send(embed)
         })
