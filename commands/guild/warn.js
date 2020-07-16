@@ -37,7 +37,7 @@ module.exports={
                     Moderator: message.author.id,
                     Reason: args.slice(1).join(" ")
                 })
-                data.Warns.save()
+                warns.save()
                 console.log(data.Warns)
                 const WWembed = new MessageEmbed()
                 .setTitle('Warning')
