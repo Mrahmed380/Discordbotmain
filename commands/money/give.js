@@ -9,8 +9,9 @@ module.exports={
     run: async(bot,message,args)=>{
         let user = message.mentions.users.first()
         if(!user) return message.channel.send('You did not mention a user!')
-        const Amt = message.content.slice(29)
+        const Amt = message.content.slice(30)
         if(!Amt)
+        if(!parseInt(Amt)) return console.log('no integer')
         moneys.findOne({ UserID: user.id, GuildID: message.guild.id },async(err, data) => {
             if(err) console.log(err)
             if(!data){
