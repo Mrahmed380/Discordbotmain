@@ -5,10 +5,11 @@ module.exports={
     name: 'warn',
     description: 'Warns a user',
     category: 'guild',
-    usage: 'dont use under development',
-    perms: 'Send Messages',
+    usage: 'e!warn <user> <reason>',
+    perms: 'Moderator role',
     run: async(bot,message,args)=>{
-        if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send('You need admin to warn people')
+        const modrole = message.guild.roles.cache.find(r => r.name === "Moderator")
+        if(!message.member.roles.cache.has(modrole.id)) return message.channel.send('You need admin to warn people')
         let user = message.mentions.users.first()
         if(!user) return message.channel.send('You did not mention a user!')
         if(!args.slice(1).join(" ")) return message.channel.send('You did not give a reason')
