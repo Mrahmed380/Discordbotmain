@@ -43,7 +43,7 @@ module.exports={
                 .setTitle('Warning')
                 .setDescription(`${user.tag} has been warned for ${args.slice(1).join(" ")}.`)
                 .setColor('RANDOM')
-                .setFooter(`${user} has ${data.Warns.length} warns.`)
+                .setFooter(`${user.username} has ${data.Warns.length} warns.`)
                 message.channel.send(WWembed)
                 if(data.Warns.length >= 3) {
                     message.channel.send(`e!ban ${user} received 3 warnings or more and has been deleted from the database`)
