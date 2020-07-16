@@ -14,7 +14,9 @@ module.exports={
                 message.channel.send('You arent even in the database, e!register <SCName> to get logged')
             }else{
                 console.log(data)
-                gtas.deleteOne()
+                console.log('Deleted data')
+                data.deleteOne()
+                message.channel.send('TEST worked')
             }
         })
     }
