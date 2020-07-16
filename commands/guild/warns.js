@@ -6,6 +6,7 @@ module.exports={
     category: 'guild',
     description: 'Shows how many warns a user has',
     usage: 'e!warns <@user>',
+    perms: 'Send Messages',
     run: async(bot,message,args)=>{
         let user = message.mentions.members.first();
         if(!user) return message.channel.send('Specify a user!')
