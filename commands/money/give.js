@@ -45,6 +45,7 @@ module.exports={
                 newBalance.save()
                 data.save()
                 message.channel.send(`You now have ${data.Money[0].Money}`)
+                console.log(Amt)
             }
         })
     }
