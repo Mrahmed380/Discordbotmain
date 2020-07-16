@@ -242,16 +242,60 @@ bot.on('message' , async msg=>{
 
 
 
-    const swearwords = ['nigga' , 'nigger', 'Nigga', 'n i g g a']
+    const swearwords = ['nigga' , 'nigger', 'Nigga', 'n i g g a', 'NIGGA', 'n i g g e r']
     if(swearwords.some(word => msg.content.includes(word)) ) {
         msg.delete();
-        const SWembed = new Discord.MessageEmbed()
-        .setTitle('Racial slurs are not allowed!')
-        .setDescription('Im sorry to say but you have recieved a warning, three warnings and your out.')
-        .setColor(0xb8b8db)
-        .setThumbnail(msg.author.displayAvatarURL())
-        .setFooter("Warning " + Math.floor(Math.random() * 0 + 1) + "/3");
-        msg.channel.send(SWembed)
+        warns.findOne({ Guild: message.guild.id, User: user.id },async(err, data) => {
+            if(err) console.log(err)
+            if(!data){
+                let newWarns = new warns({
+                    User: user.id,
+                    Guild: message.guild.id,
+                    Warns:[
+                        {
+                            Moderator: message.author.id,
+                            Reason: args.slice(1).join(" ")
+                        }
+                    ]
+                })
+                newWarns.save()
+                const SWembed = new Discord.MessageEmbed()
+                .setTitle('Racial slurs are not allowed!')
+                .setDescription('Im sorry to say but you have recieved a warning, three warnings and your out.')
+                .setColor(0xb8b8db)
+                .setThumbnail(msg.author.displayAvatarURL())
+                .setFooter("Warning " + Math.floor(Math.random() * 0 + 1) + "/3");
+                msg.channel.send(SWembed)
+            }else{
+                data.Warns.unshift({
+                    Moderator: message.author.id,
+                    Reason: args.slice(1).join(" ")
+                })
+                data.save()
+                console.log(data.Warns)
+                const SWembed = new Discord.MessageEmbed()
+                .setTitle('Racial slurs are not allowed!')
+                .setDescription('Im sorry to say but you have recieved a warning, three warnings and your out.')
+                .setColor(0xb8b8db)
+                .setThumbnail(msg.author.displayAvatarURL())
+                .setFooter("Warning " + data.Warns.length);
+                msg.channel.send(SWembed)
+                if(data.Warns.length >= 3) {
+                    const mention = message.mentions.members.first()
+                    message.channel.send(`${user} received 3 warnings or more, banned and has been deleted from the database`)
+                    mention.ban({ reason: "Recieved 3 warnings"})
+                    warns.findOneAndDelete({
+                        User: user.id,
+                        Guild: message.guild.id
+                    }, (err, res) => {
+                        if(err) console.log('Please check and make sure the data was deleted i recieved a error!')
+                        console.log(`User with ID ${user.id} has been deleted from the Database`)
+                    })
+                }
+            }
+        })
+        
+        
     }
     
     
