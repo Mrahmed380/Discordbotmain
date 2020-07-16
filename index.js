@@ -3,10 +3,9 @@ mongoose.connect('mongodb+srv://SupremeERG:Ethang0508@supremeerg-tcd25.mongodb.n
     useUnifiedTopology: true,
     useNewUrlParser: true,
 });
+const config = require('./config.json')
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const token = 'NzEwNDIwMzM1NTA5NTA0MDEy.XtyXpw.9JzvSnL0gUjbKHaZApoXb9xRzIM';
-const PREFIX = 'e!';
 const { Client, MessageEmbed } = require('discord.js');
 const suggestionID = Math.floor(Math.random() * 10000000 + 21);
 const fs = require('fs');
@@ -94,7 +93,7 @@ const msg = message.content.toLowerCase();
 
 const mention = message.mentions.users.first();
 
-    if (msg.startsWith (PREFIX + "approve")) {
+    if (msg.startsWith (config.prefix + "approve")) {
         if (mention == null) { return; }
         message.delete();
         const mentionMessage = message.content.slice (9);
@@ -102,7 +101,7 @@ const mention = message.mentions.users.first();
         message.channel.send('Message sent!')
         console.log('message approved');
     };
-    if (msg.startsWith (PREFIX + "reject")) {
+    if (msg.startsWith (config.prefix + "reject")) {
         if (mention == null) { return; }
         message.delete();
         const mentionMessage = message.content.slice (8);
@@ -116,10 +115,10 @@ const mention = message.mentions.users.first();
 
 bot.on('message' , async message=>{
     if(message.author.bot) return;
-    if(!message.content.startsWith(PREFIX)) return;
+    if(!message.content.startsWith(config.prefix)) return;
     if(!message.guild) return;
     if(!message.member) message.member = await message.guild.fetchMember(message);
-    const args = message.content.slice(PREFIX.length).trim().split(/ +/g);
+    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
     if(cmd.length == 0 ) return;
     const command = bot.commands.get(cmd)
@@ -303,7 +302,7 @@ bot.on('message' , async msg=>{
     
     
     
-    let args = msg.content.substring(PREFIX.length).split(" ");
+    let args = msg.content.substring(config.prefix.length).split(" ");
 
 
 
