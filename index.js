@@ -254,8 +254,8 @@ bot.on('message' , async msg=>{
                     Guild: msg.guild.id,
                     Warns:[
                         {
-                            Moderator: msg.author.id,
-                            Reason: args.slice(1).join(" ")
+                            Moderator: bot.user.id,
+                            Reason: "Using racial slurs"
                         }
                     ]
                 })
