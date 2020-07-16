@@ -17,6 +17,7 @@ module.exports={
                     Guild: message.guild.id,
                     Prefix: newpre
                 })
+                console.log(`New prefix ${newpre}`)
                 newPrefix.save()
                 message.channel.send(`prefix was changed from "e!" to ${newpre}`)
             }else{
