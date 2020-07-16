@@ -47,13 +47,13 @@ module.exports={
                 message.channel.send(WWembed)
                 if(data.Warns.length >= 3) {
                     message.channel.send(`e!ban ${user} received 3 warnings or more and has been deleted from the database`)
-                    warns.findOneAndDelete({
+                    /* warns.findOneAndDelete({
                         User: user.id,
                         Guild: message.guild.id
                     }, (err, res) => {
                         if(err) console.log('Please check and make sure the data was deleted i recieved a error!')
                         console.log(`User with ID ${user.id} has been deleted from the Database`)
-                    })
+                    })*/
                 }
             }
         })
