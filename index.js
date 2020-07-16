@@ -250,7 +250,7 @@ bot.on('message' , async msg=>{
             if(err) console.log(err)
             if(!data){
                 let newWarns = new warns({
-                    User: user.id,
+                    User: msg.author.id,
                     Guild: msg.guild.id,
                     Warns:[
                         {
