@@ -31,13 +31,9 @@ module.exports={
                 .setColor('RANDOM')
                 .setFooter(`new prefix ${data.Prefix}`)
                 message.channel.send(WWembed)
-                if(data.Warns.length >= 3) {
-                    const mention = message.mentions.members.first()
-                    message.channel.send(`${user} received 3 warnings or more, banned and has been deleted from the database`)
-                    mention.ban({ reason: "Recieved 3 warnings"})
                 }
             }
-        })
-    }
+        
+        )}
 
 }
