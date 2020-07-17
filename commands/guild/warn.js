@@ -1,6 +1,9 @@
 const { Client , MessageEmbed } = require('discord.js');
 const warns = require('../../models/warns')
-
+var d = new Date,
+dformat = [d.getMonth()+1,
+       d.getDate(),
+       d.getFullYear()].join('/')+' ';
 module.exports={
     name: 'warn',
     description: 'Warns a user',
@@ -36,7 +39,8 @@ module.exports={
             }else{
                 data.Warns.unshift({
                     Moderator: message.author.id,
-                    Reason: args.slice(1).join(" ")
+                    Reason: args.slice(1).join(" "),
+                    Date: dformat
                 })
                 data.save()
                 console.log(data.Warns)
