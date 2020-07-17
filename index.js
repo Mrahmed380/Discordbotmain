@@ -399,8 +399,9 @@ bot.on('message', async msg => {
     }
 })
 bot.on('message', async (message) => {
+    let findme = [ "Server_Prefix", "serverprefix", "ServerPrefix", "Server Prefix", "server prefix"]
     const prefix = require('./models/config')
-    if (message.content.startsWith("Server_Prefix")) {
+    if (message.content.includes(findme)) {
         prefix.findOne({ Guild: message.guild.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data) {
