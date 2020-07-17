@@ -134,15 +134,16 @@ bot.on('message', async message => {
             const command = bot.commands.get(cmd)
             //if (command) command.run(bot, message, args)
             if (command) {
+                let Timeout = new Map()
                 if (command.timeout) {
                     console.log(command.timeout)
-                    if (timeout.has(`${message.author.id}${command.name}`)) {
+                    if (Timeout.has(`${message.author.id}${command.name}`)) {
                         return message.reply(`You can only use this command  every ${ms(command.timeout)}!`)
                     } else {
                         console.log(command.timeout)
-                        timeout.add(`${message.author.id}${command.name}`)
+                        Timeout.add(`${message.author.id}${command.name}`)
                         setTimeout(() => {
-                            timeout.delete(`${message.author.id}${command.name}`)
+                            Timeout.delete(`${message.author.id}${command.name}`)
                         }, command.timeout);
                     }
                 }
