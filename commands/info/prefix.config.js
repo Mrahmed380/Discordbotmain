@@ -10,7 +10,7 @@ module.exports={
     run: async(bot,message,args)=>{
         let newpre = args[0]
         if(!newpre) return message.channel.send("You need to specify the new prefix!")
-        if(newpre.length >= 5) return message.channel.send('YOu are crazy nigg')
+        if(newpre.length > 5) return message.channel.send('Are you crazy!? Prefixes can only have 5 or less characters ')
         prefix.findOne({ Guild: message.guild.id },async(err, data) => {
             if(err) console.log(err)
             if(!data){
