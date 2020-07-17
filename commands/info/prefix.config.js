@@ -21,9 +21,7 @@ module.exports={
                 newPrefix.save()
                 message.channel.send(`prefix was changed from "e!" to ${newpre}`)
             }else{
-                data.Prefix({
-                    Prefix: newpre
-                })
+                data.Prefix = newpre
                 data.save()
                 console.log(data.Prefix)
                 const WWembed = new MessageEmbed()
