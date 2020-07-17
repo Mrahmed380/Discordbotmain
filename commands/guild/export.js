@@ -19,7 +19,7 @@ module.exports = {
                                 Date: `Created on, ${message.guild.createdAt}`,
                                 Owner: `Guild Owner, ${message.guild.owner.user.tag}`,
                                 Members: `Total Members, ${message.guild.members.cache.filter(member => !member.user.bot).size}`,
-                                Bots: `Total Bots, ${message.guilduild.members.cache.filter(member => member.user.bot).size}`,
+                                Bots: `Total Bots, ${message.guild.members.cache.filter(member => member.user.bot).size}`,
                                 Channels: `Total Channels, ${mesage.guild.channels.cache.size}`,
                                 Roles: (`${message.guild.roles.cache.map(role => role.name.toString()).join(' ')}`)
                             }]
