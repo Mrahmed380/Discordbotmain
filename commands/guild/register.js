@@ -8,7 +8,7 @@ module.exports={
     usage: 'e!register <SocialClubUsername>',
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
-        let SC = message.content.slice(11)
+        let SC = args[0]
         if(!SC) return message.channel.send('Please give us your Social Club username!')
         gtas.findOne({ UserID: message.author.id, GuildID: message.guild.id },async(err, data) => {
             if(err) console.log(err)
