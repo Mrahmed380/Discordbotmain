@@ -25,7 +25,8 @@ module.exports={
                     Warns:[
                         {
                             Moderator: message.author.id,
-                            Reason: args.slice(1).join(" ")
+                            Reason: args.slice(1).join(" "),
+                            Date: dformat
                         }
                     ]
                 })
