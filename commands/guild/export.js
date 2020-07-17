@@ -27,11 +27,14 @@ module.exports = {
                     ]
                 })
                 newServer.save()
-                console.log(data)
+                setTimeout(() => {
+                    console.log(data)
+                    console.log("after 7 seconds")
+                }, 7000);
                 setTimeout(() => {
                     data.deleteOne()
                     console.log('No more data')
-                }, 10000);
+                }, 20000);
             } else {
                 message.channel.send("Data already exists")
                 /*data.Warns.unshift({
