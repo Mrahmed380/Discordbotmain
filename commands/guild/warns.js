@@ -16,7 +16,7 @@ module.exports={
             let embed = new MessageEmbed()
             .setTitle(`${user.user.tag} warns in ${message.guild.name}.`)
             .setDescription(data.map(d=>{
-                return d.Warns.map(w=>`|Moderator: ${message.guild.members.cache.get(w.Moderator).user.tag}| Reason: ${w.Reason}| Date: ${w.Date}`).join("\n")}))
+                return d.Warns.map(w=>`| Moderator: ${message.guild.members.cache.get(w.Moderator).user.tag} | Reason: ${w.Reason} | Date: ${w.Date}`).join("\n")}))
             .setColor('RANDOM');
             message.channel.send(embed)
         })
