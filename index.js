@@ -115,6 +115,7 @@ bot.on('message', (message) => {
 bot.on('message', async message => {
     const prefix = require('./models/config')
     prefix.findOne({ Guild: message.guild.id }, async (err, data) => {
+        console.log(data)
         if (typeof (data.Prefix) !== "undefined") {
             if (err) console.log(err)
             if (message.author.bot) return;
