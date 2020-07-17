@@ -13,7 +13,6 @@ module.exports = {
     run: async (bot, message, args) => {
         let STL = args[0]
         if(!STL) return message.channel.send("You need to provide a server template link")
-        if(STL.startsWith !== "https://discord.new/") return message.channel.send('That is not a template link!')
         servers.findOne({ Guild: message.guild.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data) {
