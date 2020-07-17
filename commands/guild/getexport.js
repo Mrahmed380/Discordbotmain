@@ -14,7 +14,7 @@ module.exports = {
             } else {
                 message.channel.send("I found your server in the database!")
                 console.log(data.Server[0])
-                message.channel.send(data.Server[0].Owner)
+                message.channel.send(data.Server[0].ServerInfo[0].Owner)
                 /*data.Warns.unshift({
                     Moderator: message.author.id,
                     Reason: args.slice(1).join(" "),
