@@ -18,7 +18,6 @@ module.exports = {
                 message.channel.send(`${Mention.username} Social club is ${data.GTA[0].SocialClub}`)
             }
         })
-        message.channel.send(config.SC)
 
     }
 }
