@@ -9,7 +9,7 @@ module.exports={
     run: async(bot,message,args)=>{
         const banID = message.content.slice(6)
         const Mention = message.mentions.members.first()
-        const reason = args.slice(2)
+        const reason = args.slice(1).join(" ")
         if(message.content.endsWith('ban')) {
             if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You need administrator to use this command!')
             if(!Mention) return message.channel.send('You did not specify the user')
