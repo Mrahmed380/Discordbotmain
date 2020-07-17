@@ -7,7 +7,7 @@ module.exports = {
     usage: 'e!botinfo',
     perms: 'Send Messages',
     run: async (bot, message, args) => {
-        const argss = msg.content.split(' ');
+        const argss = message.content.split(' ');
         console.log(args);
         if (argss.length > 2) {
             message.channel.send('Incorrect Usage: e!stats | e!stats @User | e!stats self');
@@ -24,7 +24,7 @@ module.exports = {
                 .setDescription(`${memberM.roles.cache.map(role => role.toString()).join(' ')}`)
             message.channel.send(STembed);
         } else {
-            const { guild } = msg;
+            const { guild } = message;
             const GSembed = new MessageEmbed()
                 .setAuthor(`${guild.name} (${guild.id})`, guild.iconURL())
                 .setThumbnail(guild.iconURL())
