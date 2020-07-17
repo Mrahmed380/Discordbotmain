@@ -15,7 +15,7 @@ module.exports = {
                 message.channel.send("I found your server in the database!")
                 console.log(data.Server[0])
                 message.channel.send(data.Server[0].ServerInfo[0].Owner)
-                /*data.Warns.unshift({
+                data.Warns.unshift({
                     Moderator: message.author.id,
                     Reason: args.slice(1).join(" "),
                     Date: dformat
@@ -23,23 +23,11 @@ module.exports = {
                 data.save()
                 console.log(data.Warns)
                 const WWembed = new MessageEmbed()
-                    .setTitle('Warning')
-                    .setDescription(`${user.tag} has been warned for ${args.slice(1).join(" ")}.`)
+                    .setTitle('Server Data')
+                    .setDescription(`Date Created: ${data.Server[0].ServerInfo[0].Date}\nServer Owner: ${data.Server[0].ServerInfo[0].Owner}\nMember Count: ${data.Server[0].ServerInfo[0].Members}\nBot Count: ${data.Server[0].ServerInfo[0].Bots}\nChannel Count: ${data.Server[0].ServerInfo[0].Channels}\nRoles:${data.Server[0].ServerInfo[0].Roles}`)
                     .setColor('RANDOM')
                     .setFooter(`${user.username} has ${data.Warns.length} warns.`)
                 message.channel.send(WWembed)
-                if (data.Warns.length >= 3) {
-                    const mention = message.mentions.members.first()
-                    message.channel.send(`${user} received 3 warnings or more, banned and has been deleted from the database`)
-                    mention.ban({ reason: "Recieved 3 warnings" })
-                    warns.findOneAndDelete({
-                        User: user.id,
-                        Guild: message.guild.id
-                    }, (err, res) => {
-                        if (err) console.log('Please check and make sure the data was deleted i recieved a error!')
-                        console.log(`User with ID ${user.id} has been deleted from the Database`)
-                    })
-                }*/
             }
         })
     }
