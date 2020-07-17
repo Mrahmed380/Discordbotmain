@@ -35,7 +35,6 @@ module.exports = {
                 message.channel.send("Data exported to database")
             } else {
                 message.channel.send("Data already exists")
-                console.log(data.Server[0])
                 data.deleteOne()
                 let newServer = new servers({
                     Guild: message.guild.id,
@@ -55,6 +54,7 @@ module.exports = {
                     Date: dformat
                 })
                 newServer.save()
+                console.log("saved data")
                 
             }
         })
