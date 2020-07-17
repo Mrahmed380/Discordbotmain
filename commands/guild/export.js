@@ -11,7 +11,6 @@ module.exports = {
             if (err) console.log(err)
             if (!data) {
                 let newServer = new servers({
-                    User: user.id,
                     Guild: message.guild.id,
                     Server: [
                         {
