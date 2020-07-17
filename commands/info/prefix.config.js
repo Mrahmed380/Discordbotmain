@@ -6,7 +6,7 @@ module.exports={
     description: 'Changes the bot prefix',
     usage: `${config.prefix}prefix`,
     category: 'info',
-    timeout: 10000 * 60,
+    timeout: 60000,
     perms: `Send Messages`,
     run: async(bot,message,args)=>{
         let newpre = args[0]
