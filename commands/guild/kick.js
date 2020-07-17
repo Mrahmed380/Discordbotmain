@@ -7,7 +7,7 @@ module.exports={
     perms: 'Administrator',
     run: async(bot,message,args)=>{
         const Mention = message.mentions.members.first()
-        if(message.content.toLowerCase().startsWith('e!kick')) {
+        if(message.content.endsWith('kick')) {
             if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You need administrator to use this commmand')
             if(!message.content.includes('@')) return message.channel.send('You must mention someone to kick durdur goofy')
             if(!Mention.kickable) {
