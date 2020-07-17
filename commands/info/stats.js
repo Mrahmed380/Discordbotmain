@@ -7,11 +7,11 @@ module.exports = {
     usage: 'e!botinfo',
     perms: 'Send Messages',
     run: async (bot, message, args) => {
-        const args = msg.content.split(' ');
+        const argss = msg.content.split(' ');
         console.log(args);
-        if (args.length > 2) {
+        if (argss.length > 2) {
             message.channel.send('Incorrect Usage: e!stats | e!stats @User | e!stats self');
-        } else if (args.length === 2) {
+        } else if (argss.length === 2) {
             const memberM = message.mentions.members.first();
             const STembed = new MessageEmbed()
                 .setAuthor(`${memberM.user.tag} (${memberM.id})`, memberM.user.displayAvatarURL())
