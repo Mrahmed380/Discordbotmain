@@ -8,8 +8,8 @@ module.exports={
     timeout: 60000,
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
-        let title = args.slice(1).join(" ")
-        let content = args.slice(2).join(" ")
+        let title = args[0]
+        let content = args.slice(1).join(" ")
         if(!title) return message.channel.send("You need to specify the title")
         if(!content) return message.channel.send("You need to include content in the document!")
         bashes.findOne({ User: message.author.id, Title: title },async(err, data) => {
