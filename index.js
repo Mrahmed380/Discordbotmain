@@ -133,7 +133,7 @@ bot.on('message', async message => {
             const command = bot.commands.get(cmd)
             //if (command) command.run(bot, message, args)
             if (command) {
-                if (command.Timeout) {
+                if (!command.Timeout) {
                     console.log(Timeout)
                     console.log(command.Timeout)
                     if (Timeout.has(`${message.author.id}${command.name}`)) {
