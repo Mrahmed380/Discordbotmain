@@ -1,5 +1,6 @@
 const config = require('../../config.json')
 const prefix = require('../../models/config')
+const { MessageEmbed } = require('discord.js')
 module.exports={
     name: 'prefix',
     description: 'Changes the bot prefix',
