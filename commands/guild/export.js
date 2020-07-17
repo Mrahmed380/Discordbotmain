@@ -27,7 +27,7 @@ module.exports = {
                                 Members: `Total Members, ${message.guild.members.cache.filter(member => !member.user.bot).size}`,
                                 Bots: `Total Bots, ${message.guild.members.cache.filter(member => member.user.bot).size}`,
                                 Channels: `Total Channels, ${message.guild.channels.cache.size}`,
-                                Roles: (`${message.guild.roles.cache.map(role => role.name.toString()).join(' , ')}`)
+                                Roles: (`${message.guild.roles.cache.map(role => role.toString()).join(' , ')}`)
                             }]
                         }
                     ],
