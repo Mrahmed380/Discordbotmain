@@ -18,6 +18,7 @@ bot.categories = fs.readdirSync("./commands/");
 })
 const moment = require('moment');
 const hb = require('hastebin-generator');
+const { timeout } = require('./commands/info/prefix.config');
 var twitch = 'Hey, heres a link to ERG//s twitch channel! https://www.twitch.tv/supremeerg'
 var CACC = ' Cracked accounts:https://bit.ly/2XeIOKW'
 var server = 'Hey heres a invite to my recovery server! https://discord.gg/rVFJ3Vg For more details DM ERG#1703'
@@ -135,13 +136,13 @@ bot.on('message', async message => {
             if (command) {
                 if (command.timeout) {
                     console.log(command.timeout)
-                    if (Timeout.has(`${message.author.id}${command.name}`)) {
+                    if (command.timeout.has(`${message.author.id}${command.name}`)) {
                         return message.reply(`You can only use this command  every ${ms(command.timeout)}!`)
                     } else {
                         console.log(command.timeout)
-                        Timeout.add(`${message.author.id}${command.name}`)
+                        timeout.add(`${message.author.id}${command.name}`)
                         setTimeout(() => {
-                            Timeout.delete(`${message.author.id}${command.name}`)
+                            timeout.delete(`${message.author.id}${command.name}`)
                         }, command.timeout);
                     }
                 }
