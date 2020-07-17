@@ -32,7 +32,8 @@ module.exports = {
                             }]
                         }
                     ],
-                    Date: dformat
+                    Date: dformat,
+                    Template: STL
                 })
                 newServer.save()
                 message.channel.send("Data exported to database")
@@ -54,7 +55,8 @@ module.exports = {
                             }]
                         }
                     ],
-                    Date: dformat
+                    Date: dformat,
+                    Template: STL
                 })
                 newServer.save()
                 console.log("saved data")
