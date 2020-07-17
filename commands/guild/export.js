@@ -1,5 +1,9 @@
 const { Client, MessageEmbed } = require('discord.js');
 const servers = require('../../models/export')
+var d = new Date,
+dformat = [d.getMonth()+1,
+       d.getDate(),
+       d.getFullYear()].join('/')+' ';
 module.exports = {
     name: 'export',
     description: 'Exports all the server info to a document',
@@ -24,7 +28,8 @@ module.exports = {
                                 Roles: (`${message.guild.roles.cache.map(role => role.name.toString()).join(', ')}`)
                             }]
                         }
-                    ]
+                    ],
+                    Date: dformat
                 })
                 newServer.save()
                 message.channel.send("Data exported to database")
