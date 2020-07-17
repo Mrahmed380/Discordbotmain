@@ -201,23 +201,6 @@ bot.on('message', async msg => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     if (msg.author.bot) return;
     if (msg.content.toLowerCase().startsWith('e!stats')) {
         const args = msg.content.split(' ');
