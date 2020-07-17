@@ -18,7 +18,7 @@ module.exports={
                 let newBash = new bashes({
                     User: message.author.id,
                     Title: title,
-                    content: content
+                    Content: content
                 })
                 console.log(data)
                 newBash.save()
