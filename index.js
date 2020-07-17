@@ -157,6 +157,7 @@ bot.on('message', async message => {
                         Timeout.add(`${message.author.id}${command.name}`)
                         setTimeout(() => {
                             Timeout.delete(`${message.author.id}${command.name}`)
+                            console.log(`${message.author.id} was removed from timeout command name: ${command.name}`)
                         }, command.timeout);
                     }
                 }
