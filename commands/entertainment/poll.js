@@ -7,7 +7,7 @@ module.exports={
     perms: 'Manage Channels',
     run: async(bot,message,args)=>{
         if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send('You need "Manage channels" permission to make polls')
-        const pmsg = args.slice(1).join(" ")
+        const pmsg = args.slice(1).join("l")
         if(!pmsg) return message.channel.send('There was a error, probably because you can\'t include the actuall poll...')
         message.delete();
         const YPembed =  new MessageEmbed()
