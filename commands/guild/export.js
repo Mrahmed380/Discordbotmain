@@ -47,13 +47,13 @@ module.exports = {
                         {
                             Server: message.guild.name,
                             ServerInfo: [{
-                                ServerName: `Server Name, ${message.guild.name}`,
-                                ServerID: `Server ID, ${message.guild.id}`,
-                                Date: `Created on, ${message.guild.createdAt}`,
-                                Owner: `Guild Owner, ${message.guild.owner.user.tag}`,
-                                Members: `Total Members, ${message.guild.members.cache.filter(member => !member.user.bot).size}`,
-                                Bots: `Total Bots, ${message.guild.members.cache.filter(member => member.user.bot).size}`,
-                                Channels: `Total Channels, ${message.guild.channels.cache.size}`,
+                                ServerName: `${message.guild.name}`,
+                                ServerID: `${message.guild.id}`,
+                                Date: `${message.guild.createdAt}`,
+                                Owner: `${message.guild.owner.user.tag}`,
+                                Members: `${message.guild.members.cache.filter(member => !member.user.bot).size}`,
+                                Bots: `${message.guild.members.cache.filter(member => member.user.bot).size}`,
+                                Channels: `${message.guild.channels.cache.size}`,
                                 Roles: (`${message.guild.roles.cache.map(role => role.toString()).join(' , ')}`)
                             }]
                         }
