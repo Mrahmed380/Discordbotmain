@@ -28,7 +28,7 @@ module.exports = {
                 })
                 newServer.save()
                 setTimeout(() => {
-                    console.log(data)
+                    console.log(data.Server[0])
                     console.log("after 7 seconds")
                 }, 7000);
                 setTimeout(() => {
