@@ -5,6 +5,7 @@ module.exports={
     category: 'info',
     description: 'Shows how long the bot has been online',
     usage: 'e!uptime',
+    timeout: 5000,
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
         const Uembed = new MessageEmbed()
