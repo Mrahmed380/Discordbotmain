@@ -143,6 +143,7 @@ bot.on('message', async message => {
                         }, command.timeout);
                     }
                 }
+                command.run(bot,message,args)
             }
         }
     })
