@@ -21,7 +21,7 @@ module.exports={
                 newPrefix.save()
                 message.channel.send(`prefix was changed from "e!" to ${newpre}`)
             }else{
-                data.Prefix.unshift({
+                data.Prefix({
                     Prefix: newpre
                 })
                 data.save()
