@@ -4,7 +4,7 @@ module.exports={
     name: 'reddit',
     description: 'Get a image from a specific subreddit',
     category: 'entertainment',
-    usage: 'e!reddit <subreddit>',
+    usage: 'reddit <subreddit>',
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
         let Subreddit =  args[0]

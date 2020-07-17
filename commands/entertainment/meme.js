@@ -4,7 +4,7 @@ module.exports={
     name: 'meme',
     description: 'Sends random reddit memes',
     category: 'entertainment',
-    usage: 'e!meme',
+    usage: 'meme',
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
         let subreddits = [

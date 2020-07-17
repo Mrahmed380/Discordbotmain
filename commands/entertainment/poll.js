@@ -3,7 +3,7 @@ module.exports={
     name: 'poll',
     description: 'Sends a poll for the guild to react to',
     category: 'entertainment',
-    usage: 'e!poll <Your poll>',
+    usage: 'poll <Your poll>',
     perms: 'Manage Channels',
     run: async(bot,message,args)=>{
         if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send('You need "Manage channels" permission to make polls')

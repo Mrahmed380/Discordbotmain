@@ -4,7 +4,7 @@ module.exports={
     name: 'giveaway',
     category: 'entertainment',
     description: 'creates a custom giveaway',
-    usage: 'e!giveaway <time> <channel> <prize>',
+    usage: 'giveaway <time> <channel> <prize>',
     perms: 'Administrator',
     run: async(bot,message,args)=>{
         if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You need administrator to create giveaways")

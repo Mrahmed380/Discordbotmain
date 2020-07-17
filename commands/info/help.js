@@ -5,7 +5,7 @@ module.exports={
     name: 'help',
     category: 'info',
     description: 'Shows you how to use a command and what it does!',
-    usage: 'e!help <command>',
+    usage: 'help [command]',
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
         if(args[0]){
