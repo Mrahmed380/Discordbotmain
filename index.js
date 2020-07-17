@@ -136,8 +136,8 @@ bot.on('message', async message => {
             if (command) {
                 if (command.timeout) {
                     if(Timeout.has(`${message.author.id}${command.name}`)) {
-                        console.log(`User put in time out for ${command.timeout}`)
-                        return message.reply(`You can only use this command  every ${ms(command.timeout)}!`)
+                        console.log(`User put in time out for ${command.name}`)
+                        return message.reply(`You can only use this command  every ${ms(command.timeout)}\n *every time you use the command before the timer ends it resets*!`)
                     } else {
                         console.log("put in time out")
                         Timeout.add(`${message.author.id}${command.name}`)
