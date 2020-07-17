@@ -141,7 +141,7 @@ bot.on('message', async message => {
                         return message.reply(`You can only use this command  every ${ms(command.timeout)}!`)
                     } else {
                         console.log(command.timeout)
-                        Timeout.set(`${message.author.id}${command.name}`)
+                        Timeout.set(message.author.id,command.name)
                         setTimeout(() => {
                             Timeout.delete(`${message.author.id}${command.name}`)
                         }, command.timeout);
