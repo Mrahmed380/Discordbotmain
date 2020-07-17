@@ -16,7 +16,7 @@ module.exports={
                 console.log(data)
                 console.log('Deleted data')
                 data.deleteOne()
-                message.channel.send('TEST worked')
+                message.channel.send('Name deleted out of data')
             }
         })
     }
