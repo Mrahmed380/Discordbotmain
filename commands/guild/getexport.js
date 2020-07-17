@@ -19,7 +19,7 @@ module.exports = {
                 const WWembed = new MessageEmbed()
                     .setTitle('Server Data')
                     .setDescription(`Date Created: ${data.Server[0].ServerInfo[0].Date}\nServer Owner: ${data.Server[0].ServerInfo[0].Owner}\nMember Count: ${data.Server[0].ServerInfo[0].Members}\nBot Count: ${data.Server[0].ServerInfo[0].Bots}\nChannel Count: ${data.Server[0].ServerInfo[0].Channels}\nRoles:${data.Server[0].ServerInfo[0].Roles}`)
-                    .setColor('RANDOM')
+                    .setColor(0x000000)
                     .setFooter(`Date data was exported: ${data.Date }`)
                 message.channel.send(WWembed)
             }
