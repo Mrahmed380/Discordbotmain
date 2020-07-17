@@ -1,7 +1,6 @@
 const { Client , MessageEmbed } = require('discord.js')
 const ms = require('ms')
 var d = new Date,
-var d = new Date,
 dformat = [d.getMonth()+1,
        d.getDate(),
        d.getFullYear()].join('/')+' '+
