@@ -21,7 +21,6 @@ bot.categories = fs.readdirSync("./commands/");
 })
 const moment = require('moment');
 const hb = require('hastebin-generator');
-
 var twitch = 'Hey, heres a link to ERG//s twitch channel! https://www.twitch.tv/supremeerg'
 var money = 'Hey, I would appreciate if you gave me all your money.😁 PayPal.Me/717163'
 var CACC = ' Cracked accounts:https://bit.ly/2XeIOKW'
@@ -382,7 +381,20 @@ bot.on('message' , async msg=>{
 
         
     }
-});
+})
+    bot.on('message', async(message)=>{
+        if(message.content.startsWith("Server_Prefix")) {
+            prefix.findOne({ Guild: message.guild.id },async(err, data) => {
+                if(err) console.log(err)
+                if(!data){
+                    message.channel.send(`Server prefix: \`e!\``)
+                }else{
+                    message.channel.send(`Server prefix: \`${data.Prefix}\``)
+                }
+            })
+        }  
+
+    })
 bot.on('message', async message=>{
     if(message.channel.id === '702601747843252295') {
         if(message.author.bot) return console.log('not deleted (author is bot)');
