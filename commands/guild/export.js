@@ -27,7 +27,6 @@ module.exports = {
                     ]
                 })
                 newServer.save()
-                message.channel.send(data)
                 console.log(data)
                 setTimeout(() => {
                     data.deleteOne()
