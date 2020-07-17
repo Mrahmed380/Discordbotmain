@@ -1,5 +1,12 @@
 const { Client , MessageEmbed } = require('discord.js')
 const ms = require('ms')
+var d = new Date,
+var d = new Date,
+dformat = [d.getMonth()+1,
+       d.getDate(),
+       d.getFullYear()].join('/')+' '+
+      [d.getHours(),
+       d.getMinutes()]
 module.exports={
     name: 'giveaway',
     category: 'entertainment',
@@ -19,7 +26,7 @@ module.exports={
         const Gembed = new MessageEmbed()
         .setTitle(`Giveaway from ${message.author.tag}`)
         .setColor(0x006eff)
-        .setDescription(`Prize: ${prize}\nTime: ${Date.now()} ${ms(args[0])}\nWinners: 1\n**React to enter giveaway**\n**Winners are chose randomly**`)
+        .setDescription(`Prize: ${prize}\nDate Start: ${dformat}\nTime until ending: ${ms(args[0])}\nWinners: 1\n**React to enter giveaway**\n**Winners are chose randomly**`)
         let m = await gchannel.send(Gembed)
         m.react("✅")
         setTimeout(() => {
