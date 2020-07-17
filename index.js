@@ -383,6 +383,7 @@ bot.on('message' , async msg=>{
     }
 })
     bot.on('message', async(message)=>{
+        const prefix = require('./models/config')
         if(message.content.startsWith("Server_Prefix")) {
             prefix.findOne({ Guild: message.guild.id },async(err, data) => {
                 if(err) console.log(err)
