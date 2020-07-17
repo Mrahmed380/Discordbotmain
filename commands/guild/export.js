@@ -24,7 +24,7 @@ module.exports = {
                             ServerInfo: [{
                                 ServerName: `Server Name, ${message.guild.name}`,
                                 ServerID: `Server ID, ${message.guild.id}`,
-                                Date: `Created on, ${message.guild.createdAt}`,
+                                Date: `Created on, ${message.guild.createdAt.toLocaleString(), true}`,
                                 Owner: `Guild Owner, ${message.guild.owner.user.tag}`,
                                 Members: `Total Members, ${message.guild.members.cache.filter(member => !member.user.bot).size}`,
                                 Bots: `Total Bots, ${message.guild.members.cache.filter(member => member.user.bot).size}`,
@@ -49,7 +49,7 @@ module.exports = {
                             ServerInfo: [{
                                 ServerName: `${message.guild.name}`,
                                 ServerID: `${message.guild.id}`,
-                                Date: `${(message.guild.createdAt.toLocaleString(), true)}`,
+                                Date: `${message.guild.createdAt.toLocaleString(), true}`,
                                 Owner: `${message.guild.owner.user.tag}`,
                                 Members: `${message.guild.members.cache.filter(member => !member.user.bot).size}`,
                                 Bots: `${message.guild.members.cache.filter(member => member.user.bot).size}`,
