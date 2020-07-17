@@ -3,7 +3,7 @@ module.exports = {
     name: 'kick',
     category: 'guild',
     description: 'Kicks the mentioned user',
-    usage: 'e!kick <@user>',
+    usage: 'kick <@user>',
     perms: 'Administrator',
     run: async (bot, message, args) => {
         const Mention = message.mentions.members.first()
