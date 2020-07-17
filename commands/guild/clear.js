@@ -3,7 +3,7 @@ module.exports={
     name: 'clear',
     category: 'guild',
     description: 'Deletes specific amount of messages `Messages can only be deleted within 14 days`',
-    usage: 'e!clear <amt of msgs>',
+    usage: 'clear <amt of msgs>',
     perms: 'Administrator',
     run: async(bot,message,args)=>{
         message.delete();

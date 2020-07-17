@@ -5,7 +5,7 @@ module.exports={
     name: 'register',
     description: 'Sets gta username in a data base so admins can access info',
     category: 'guild',
-    usage: 'e!register <SocialClubUsername>',
+    usage: 'register <SocialClubUsername>',
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
         let SC = args[0]
