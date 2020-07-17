@@ -49,7 +49,7 @@ module.exports = {
                             ServerInfo: [{
                                 ServerName: `${message.guild.name}`,
                                 ServerID: `${message.guild.id}`,
-                                Date: `${message.guild.createdAt.toLocaleString(), true}`,
+                                Date: `${(message.guild.createdAt.toLocaleString(), true)}`,
                                 Owner: `${message.guild.owner.user.tag}`,
                                 Members: `${message.guild.members.cache.filter(member => !member.user.bot).size}`,
                                 Bots: `${message.guild.members.cache.filter(member => member.user.bot).size}`,
