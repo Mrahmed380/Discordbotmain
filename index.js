@@ -21,6 +21,7 @@ bot.categories = fs.readdirSync("./commands/");
 })
 const moment = require('moment');
 const hb = require('hastebin-generator');
+const { type } = require('os');
 var twitch = 'Hey, heres a link to ERG//s twitch channel! https://www.twitch.tv/supremeerg'
 var money = 'Hey, I would appreciate if you gave me all your money.😁 PayPal.Me/717163'
 var CACC = ' Cracked accounts:https://bit.ly/2XeIOKW'
@@ -114,16 +115,29 @@ bot.on('message', (message) => {
 bot.on('message', async message => {
     const prefix = require('./models/config')
     prefix.findOne({ Guild: message.guild.id }, async (err, data) => {
-        if (err) console.log(err)
-        if (message.author.bot) return;
-        if (!message.content.startsWith(data.Prefix)) return;
-        if (!message.guild) return;
-        if (!message.member) message.member = await message.guild.fetchMember(message);
-        const args = message.content.slice(data.Prefix.length).trim().split(/ +/g);
-        const cmd = args.shift().toLowerCase();
-        if (cmd.length == 0) return;
-        const command = bot.commands.get(cmd)
-        if (command) command.run(bot, message, args)
+        if (typeof (data.Prefix) !== "undefined") {
+            if (err) console.log(err)
+            if (message.author.bot) return;
+            if (!message.content.startsWith(data.Prefix)) return;
+            if (!message.guild) return;
+            if (!message.member) message.member = await message.guild.fetchMember(message);
+            const args = message.content.slice(data.Prefix.length).trim().split(/ +/g);
+            const cmd = args.shift().toLowerCase();
+            if (cmd.length == 0) return;
+            const command = bot.commands.get(cmd)
+            if (command) command.run(bot, message, args)
+        }else{
+            if (err) console.log(err)
+            if (message.author.bot) return;
+            if (!message.content.startsWith(config.prefix)) return;
+            if (!message.guild) return;
+            if (!message.member) message.member = await message.guild.fetchMember(message);
+            const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+            const cmd = args.shift().toLowerCase();
+            if (cmd.length == 0) return;
+            const command = bot.commands.get(cmd)
+            if (command) command.run(bot, message, args)
+        }
     })
 })
 
