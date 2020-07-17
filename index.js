@@ -10,6 +10,7 @@ const { Client, MessageEmbed } = require('discord.js');
 const suggestionID = Math.floor(Math.random() * 10000000 + 21);
 const fs = require('fs');
 const ms = require('ms');
+const Timeout = new Set()
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.categories = fs.readdirSync("./commands/");
@@ -18,7 +19,6 @@ bot.categories = fs.readdirSync("./commands/");
 })
 const moment = require('moment');
 const hb = require('hastebin-generator');
-const { timeout } = require('./commands/info/prefix.config');
 var twitch = 'Hey, heres a link to ERG//s twitch channel! https://www.twitch.tv/supremeerg'
 var CACC = ' Cracked accounts:https://bit.ly/2XeIOKW'
 var server = 'Hey heres a invite to my recovery server! https://discord.gg/rVFJ3Vg For more details DM ERG#1703'
@@ -134,14 +134,13 @@ bot.on('message', async message => {
             const command = bot.commands.get(cmd)
             //if (command) command.run(bot, message, args)
             if (command) {
-                let Timeout = new Map()
                 if (command.timeout) {
                     if(Timeout.has(message.author.id)) {
-                        console.log(command.timeout)
+                        console.log(`User put in time out for ${command.timeout}`)
                         return message.reply(`You can only use this command  every ${ms(command.timeout)}!`)
                     } else {
                         console.log("put in time out")
-                        Timeout.set(message.author.id,command.name)
+                        Timeout.set(`${message.author.id}${command.name}`)
                         setTimeout(() => {
                             Timeout.delete(`${message.author.id}${command.name}`)
                         }, command.timeout);
