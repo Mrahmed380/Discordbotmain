@@ -133,12 +133,11 @@ bot.on('message', async message => {
             const command = bot.commands.get(cmd)
             //if (command) command.run(bot, message, args)
             if (command) {
-                if (!command.Timeout) {
+                if (command.timeout) {
                     console.log(command.timeout)
                     if (Timeout.has(`${message.author.id}${command.name}`)) {
                         return message.reply(`You can only use this command  every ${ms(command.timeout)}!`)
                     } else {
-                        console.log(Timeout)
                         console.log(command.timeout)
                         Timeout.add(`${message.author.id}${command.name}`)
                         setTimeout(() => {
