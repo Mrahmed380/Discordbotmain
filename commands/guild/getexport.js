@@ -1,36 +1,20 @@
 const { Client, MessageEmbed } = require('discord.js');
 const servers = require('../../models/export')
 module.exports = {
-    name: 'export',
-    description: 'Exports all the server info to a document',
+    name: 'getexport',
+    description: 'Shows all the server info',
     category: 'guild',
-    usage: 'export',
+    usage: 'getexport',
     perms: 'Send Messages',
     run: async (bot, message, args) => {
         servers.findOne({ Guild: message.guild.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data) {
-                let newServer = new servers({
-                    Guild: message.guild.id,
-                    Server: [
-                        {
-                            Server: message.guild.name,
-                            ServerInfo: [{
-                                Date: `Created on, ${message.guild.createdAt}`,
-                                Owner: `Guild Owner, ${message.guild.owner.user.tag}`,
-                                Members: `Total Members, ${message.guild.members.cache.filter(member => !member.user.bot).size}`,
-                                Bots: `Total Bots, ${message.guild.members.cache.filter(member => member.user.bot).size}`,
-                                Channels: `Total Channels, ${message.guild.channels.cache.size}`,
-                                Roles: (`${message.guild.roles.cache.map(role => role.name.toString()).join(' ')}`)
-                            }]
-                        }
-                    ]
-                })
-                newServer.save()
-                message.channel.send("Data exported to database")
+                message.channel.send("This server was never saved in the database use the export command to save all info")
             } else {
-                message.channel.send("Data already exists")
+                message.channel.send("I found your server in the database!")
                 console.log(data.Server[0])
+                message.channel.send(data.Server[0].Owner)
                 /*data.Warns.unshift({
                     Moderator: message.author.id,
                     Reason: args.slice(1).join(" "),
