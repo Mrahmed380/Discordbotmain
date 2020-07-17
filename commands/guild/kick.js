@@ -1,22 +1,21 @@
-const { Client , MessageEmbed } = require('discord.js');
-module.exports={
+const { Client, MessageEmbed } = require('discord.js');
+module.exports = {
     name: 'kick',
     category: 'guild',
     description: 'Kicks the mentioned user',
     usage: 'e!kick <@user>',
     perms: 'Administrator',
-    run: async(bot,message,args)=>{
+    run: async (bot, message, args) => {
         const Mention = message.mentions.members.first()
-        if(message.content.endsWith('kick')) {
-            if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You need administrator to use this commmand')
-            if(!message.content.includes('@')) return message.channel.send('You must mention someone to kick durdur goofy')
-            if(!Mention.kickable) {
-                message.channel.send('You cannot kick this person')
-            } else {
-                Mention.send('You have been kicked from ' + (message.guild.name))
-                Mention.kick();
-                message.channel.send(`${Mention} was kicked from the server!`)
-            }
+        if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You need administrator to use this commmand')
+        if (!message.content.includes('@')) return message.channel.send('You must mention someone to kick durdur goofy')
+        if (!Mention.kickable) {
+            return message.channel.send('You cannot kick this person')
         }
+        Mention.send('You have been kicked from ' + (message.guild.name))
+        Mention.kick();
+        message.channel.send(`${Mention} was kicked from the server!`)
+
+
     }
 }
