@@ -116,13 +116,13 @@ bot.on('message', async message => {
     const prefix = require('./models/config')
     prefix.findOne({ Guild: message.guild.id }, async (err, data) => {
         console.log(data)
-        if (typeof (data.Prefix) !== "undefined") {
+        if (!data.Prefix) {
             if (err) console.log(err)
             if (message.author.bot) return;
-            if (!message.content.startsWith(data.Prefix)) return;
+            if (!message.content.startsWith(config.prefix)) return;
             if (!message.guild) return;
             if (!message.member) message.member = await message.guild.fetchMember(message);
-            const args = message.content.slice(data.Prefix.length).trim().split(/ +/g);
+            const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
             const cmd = args.shift().toLowerCase();
             if (cmd.length == 0) return;
             const command = bot.commands.get(cmd)
@@ -130,10 +130,10 @@ bot.on('message', async message => {
         }else{
             if (err) console.log(err)
             if (message.author.bot) return;
-            if (!message.content.startsWith(config.prefix)) return;
+            if (!message.content.startsWith(data.Prefix)) return;
             if (!message.guild) return;
             if (!message.member) message.member = await message.guild.fetchMember(message);
-            const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+            const args = message.content.slice(data.Prefix.length).trim().split(/ +/g);
             const cmd = args.shift().toLowerCase();
             if (cmd.length == 0) return;
             const command = bot.commands.get(cmd)
