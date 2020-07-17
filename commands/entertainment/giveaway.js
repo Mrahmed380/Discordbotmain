@@ -3,9 +3,7 @@ const ms = require('ms')
 var d = new Date,
 dformat = [d.getMonth()+1,
        d.getDate(),
-       d.getFullYear()].join('/')+' '+
-      [d.getHours(),
-       ":" + d.getMinutes()]
+       d.getFullYear()].join('/')+' ';
 module.exports={
     name: 'giveaway',
     category: 'entertainment',
