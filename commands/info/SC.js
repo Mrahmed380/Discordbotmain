@@ -9,7 +9,7 @@ module.exports = {
     run: async (bot,message,args) => {
         let Mention = message.mentions.members.first();
         if (!Mention) return message.channel.send("So you going to tell me who you want to find?")
-        gtas.findOne({ UserID: Mention.id, GuildID: message.guild.id }, async (err, data) => {
+        gtas.findOne({ UserID: Mention.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data) {
                 message.channel.send("This user isnt even in the database")
