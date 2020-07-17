@@ -7,7 +7,7 @@ module.exports={
     usage: 'e!reddit <subreddit>',
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
-        let Subreddit =  message.content.slice(9)
+        let Subreddit =  args[0]
         if(!Subreddit)return message.channel.send('You did not specify the subreddit!')
         try{
             let img = await api(Subreddit)
