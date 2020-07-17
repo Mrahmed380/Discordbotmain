@@ -19,7 +19,7 @@ module.exports={
                 })
                 console.log(`New prefix \`${newpre}\``)
                 newPrefix.save()
-                message.channel.send(`prefix was changed from \`"e!" to ${newpre}\``)
+                message.channel.send(`prefix was changed from \`"e!"\` to \`${newpre}\``)
             }else{
                 data.Prefix = newpre
                 data.save()
