@@ -15,7 +15,7 @@ module.exports = {
                 message.channel.send("This user isnt even in the database")
             } else {
                 console.log(data)
-                message.channel.send(`${Mention.username} Social club is ${data.GTA[0].SocialClub}`)
+                message.channel.send(`${Mention.user.username} Social club is **${data.GTA[0].SocialClub}**`)
             }
         })
 
