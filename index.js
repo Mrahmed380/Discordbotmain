@@ -9,9 +9,6 @@ const bot = new Discord.Client();
 const { Client, MessageEmbed } = require('discord.js');
 const suggestionID = Math.floor(Math.random() * 10000000 + 21);
 const fs = require('fs');
-const { measureMemory } = require('vm');
-const { contains } = require('cheerio');
-const { id } = require('common-tags');
 const ms = require('ms');
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
@@ -21,9 +18,7 @@ bot.categories = fs.readdirSync("./commands/");
 })
 const moment = require('moment');
 const hb = require('hastebin-generator');
-const { type } = require('os');
 var twitch = 'Hey, heres a link to ERG//s twitch channel! https://www.twitch.tv/supremeerg'
-var money = 'Hey, I would appreciate if you gave me all your money.😁 PayPal.Me/717163'
 var CACC = ' Cracked accounts:https://bit.ly/2XeIOKW'
 var server = 'Hey heres a invite to my recovery server! https://discord.gg/rVFJ3Vg For more details DM ERG#1703'
 var binv = 'https://discord.com/api/oauth2/authorize?client_id=710420335509504012&permissions=8&scope=bot'
@@ -126,7 +121,7 @@ bot.on('message', async message => {
             if (cmd.length == 0) return;
             const command = bot.commands.get(cmd)
             if (command) command.run(bot, message, args)
-        }else{
+        } else {
             if (err) console.log(err)
             if (message.author.bot) return;
             if (!message.content.startsWith(data.Prefix)) return;
@@ -137,6 +132,18 @@ bot.on('message', async message => {
             if (cmd.length == 0) return;
             const command = bot.commands.get(cmd)
             if (command) command.run(bot, message, args)
+            if (command) {
+                if (command.Timeout) {
+                    if (Timeout.has(`${message.author.id}${command.name}`)) {
+                        return message.reply(`You can only use this command  every ${ms(command.timeout)}!`)
+                    } else {
+                        Timeout.add(`${message.author.id}${command.name}`)
+                        setTimeout(() => {
+                            Timeout.delete(`${message.author.id}${command.name}`)
+                        }, command.timeout);
+                    }
+                }
+            }
         }
     })
 })
@@ -382,9 +389,9 @@ bot.on('message', async msg => {
     }
 })
 bot.on('message', async (message) => {
-    let findme = [ "Server_Prefix", "serverprefix", "ServerPrefix", "Server Prefix", "server prefix"]
+    let findme = ["Server_Prefix", "serverprefix", "ServerPrefix", "Server Prefix", "server prefix"]
     const prefix = require('./models/config')
-    if (findme.some(word=>message.content.includes(word))) {
+    if (findme.some(word => message.content.includes(word))) {
         prefix.findOne({ Guild: message.guild.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data) {
