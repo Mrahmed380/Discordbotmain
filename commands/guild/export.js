@@ -7,7 +7,7 @@ module.exports = {
     usage: 'e!warn <user> <reason>',
     perms: 'Moderator role',
     run: async (bot, message, args) => {
-        servers.findOne({ Guild: message.guild.id, User: user.id }, async (err, data) => {
+        servers.findOne({ Guild: message.guild.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data) {
                 let newServer = new servers({
