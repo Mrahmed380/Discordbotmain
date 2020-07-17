@@ -3,7 +3,7 @@ module.exports={
     name: 'ticket',
     description: 'Creates a support ticket',
     category: 'guild',
-    usage: 'e!ticket',
+    usage: 'ticket',
     perms: 'Send Messages',
     run: async(bot,message,args)=>{
             const tname = message.author.id;

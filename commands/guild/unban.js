@@ -3,7 +3,7 @@ module.exports = {
     name: 'unban',
     category: 'guild',
     description: 'unbans anyone whos ID is listed',
-    usage: 'e!unban <usersID>',
+    usage: 'unban <usersID>',
     perms: 'Send Messages',
     run: async (bot, message, args) => {
         const ID = message.content.slice(7);
