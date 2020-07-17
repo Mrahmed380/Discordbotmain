@@ -26,9 +26,9 @@ module.exports={
                 console.log(data.Prefix)
                 const WWembed = new MessageEmbed()
                 .setTitle('Prefix change')
-                .setDescription(`Prefix changed from \`${data.Prefix}\` to \`${newpre}\` `)
+                .setDescription(`Prefix changed to \`${newpre}\` `)
                 .setColor('RANDOM')
-                .setFooter(`\`${data.Prefix}prefix\` <newPrefix> for new custom prefix`)
+                .setFooter(`${data.Prefix}prefix <newPrefix> for new custom prefix`)
                 message.channel.send(WWembed)
                 }
             }
