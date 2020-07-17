@@ -136,8 +136,8 @@ bot.on('message', async message => {
             if (command) {
                 let Timeout = new Map()
                 if (command.timeout) {
-                    console.log(command.timeout)
                     if (Timeout.has(message.author.id,command.name)) {
+                        console.log(command.timeout)
                         return message.reply(`You can only use this command  every ${ms(command.timeout)}!`)
                     } else {
                         console.log("put in time out")
