@@ -4,7 +4,7 @@ const { MessageEmbed } = require('discord.js')
 module.exports={
     name: 'prefix',
     description: 'Changes the bot prefix',
-    usage: `${config.prefix}prefix`,
+    usage: `prefix`,
     category: 'info',
     timeout: 10000,
     perms: `Send Messages`,
