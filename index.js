@@ -120,7 +120,7 @@ bot.on('message', async message => {
             const cmd = args.shift().toLowerCase();
             if (cmd.length == 0) return;
             const command = bot.commands.get(cmd)
-            if (command) command.run(bot, message, args)
+            if (command) command.run(bot,message,args)
         } else {
             if (err) console.log(err)
             if (message.author.bot) return;
@@ -141,7 +141,7 @@ bot.on('message', async message => {
                         setTimeout(() => {
                             Timeout.delete(`${message.author.id}${command.name}`)
                         }, command.timeout);
-                    }
+                    }    
                 }
                 command.run(bot,message,args)
             }
