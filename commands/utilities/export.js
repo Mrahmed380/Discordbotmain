@@ -7,7 +7,7 @@ dformat = [d.getMonth()+1,
 module.exports = {
     name: 'export',
     description: 'Exports all the server info to a document',
-    category: 'guild',
+    category: 'utilities',
     usage: 'export <ServerTemplateLink>',
     perms: 'Send Messages',
     run: async (bot, message, args) => {

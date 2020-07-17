@@ -3,7 +3,7 @@ const servers = require('../../models/export')
 module.exports = {
     name: 'getexport',
     description: 'Shows all the server info',
-    category: 'guild',
+    category: 'utilities',
     usage: 'getexport',
     perms: 'Send Messages',
     run: async (bot, message, args) => {
