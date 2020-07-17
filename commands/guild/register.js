@@ -10,7 +10,7 @@ module.exports={
     run: async(bot,message,args)=>{
         let SC = args[0]
         if(!SC) return message.channel.send('Please give us your Social Club username!')
-        gtas.findOne({ UserID: message.author.id, GuildID: message.guild.id },async(err, data) => {
+        gtas.findOne({ UserID: message.author.id },async(err, data) => {
             if(err) console.log(err)
             if(!data){
                 let newGta = new gtas({
@@ -20,7 +20,6 @@ module.exports={
                         }
                     ],
                     UserID: message.author.id,
-                    GuildID: message.guild.id,
                 })
                 newGta.save()
                 const Wembed = new MessageEmbed()
