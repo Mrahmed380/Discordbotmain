@@ -35,9 +35,9 @@ module.exports = {
                     Template: STL
                 })
                 newServer.save()
-                message.channel.send("Data exported to database")
+                message.channel.send("Data exported to database `getexport` to get the data")
             } else {
-                message.channel.send("Data already exists")
+                message.channel.send("Data already exists, so it was updated! `getexport` to get the data")
                 data.deleteOne()
                 let newServer = new servers({
                     Guild: message.guild.id,
