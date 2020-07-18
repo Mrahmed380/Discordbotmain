@@ -13,12 +13,8 @@ module.exports = {
             if (!data) {
                 let newMoney = new moneys({
                     User: message.author.id,
-                    Money: [
-                        {
-                            Purchases: 0,
-                            Money: 0,
-                        }
-                    ]
+                    Money: 0,
+                    Purchases: 0,
                 })
                 newMoney.save()
                 console.log(`New money created Could not console log for dumb reason idk`)
@@ -28,10 +24,10 @@ module.exports = {
                     .setColor('RANDOM')
                 message.channel.send(embed)
             } else {
-                console.log(data.Money[0])
+                console.log(data)
                 const WWembed = new MessageEmbed()
                     .setTitle('Coins')
-                    .setDescription(`You have $${data.Money[0].Money} coins!\nUse the (not set) command for things you can spend your money on!`)
+                    .setDescription(`You have $${data.Money} coins!\nUse the (not set) command for things you can spend your money on!`)
                     .setColor('RANDOM')
                     .setFooter(`Use the redeem command if you havent already...`)
                 message.channel.send(WWembed)

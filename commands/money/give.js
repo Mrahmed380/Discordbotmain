@@ -18,12 +18,8 @@ module.exports = {
             if (!data) {
                 let newMoney = new moneys({
                     User: Mention.id,
-                    Money: [
-                        {
-                            Purchases: 0,
-                            Money: amt,
-                        }
-                    ]
+                    Money: 0,
+                    Purchases: 0,
                 })
                 newMoney.save()
                 console.log(`New money created Could not console log for dumb reason idk`)
@@ -33,14 +29,14 @@ module.exports = {
                     .setColor('RANDOM')
                 message.channel.send(embed)
             } else {
-                let moneyamt = data.Money[0].Money
+                let moneyamt = data.Money
                 let newMoneyAdd = parseInt(moneyamt) + parseInt(amt);
-                data.Money[0].Money = newMoneyAdd
+                data.Money = newMoneyAdd
                 data.save()
                 console.log(data.Money[0])
                 const WWembed = new MessageEmbed()
                     .setTitle('Coins')
-                    .setDescription(`You just gave $${amt} to ${Mention}, the user now has $${data.Money[0].Money}`)
+                    .setDescription(`You just gave $${amt} to ${Mention}, the user now has $${data.Money}`)
                     .setColor('RANDOM')
                     .setFooter(`Use coins command for your coins!`)
                 message.channel.send(WWembed)
