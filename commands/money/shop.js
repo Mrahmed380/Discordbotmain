@@ -2,9 +2,9 @@ const moneys = require('../../models/money')
 const { MessageEmbed } = require('discord.js')
 const shop = require('../../models/money')
 module.exports = {
-    name: 'coins',
-    description: 'Shows how many coins you have',
-    usage: 'coins [user]',
+    name: 'shop',
+    description: 'Shows the shop',
+    usage: 'shop',
     category: 'money',
     timeout: 5000,
     perms: 'Send Messages',
