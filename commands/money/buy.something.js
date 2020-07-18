@@ -26,6 +26,9 @@ module.exports = {
                 let newPurchaseAdd = parseInt(nowpurchase) + parseInt(1)
                 data.Purchases = newPurchaseAdd
                 data.save()
+                console.log('saving data...')
+                console.log("data was saved")
+                console.log(data)
                 const WWembed = new MessageEmbed()
                     .setTitle(`Shop`)
                     .setDescription(`you just bought ${item}!\nYou now have $${data.Money} and ${data.Purchases} purchases`)
