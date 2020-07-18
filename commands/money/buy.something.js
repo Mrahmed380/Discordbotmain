@@ -20,7 +20,7 @@ module.exports = {
                     console.log(data)
                 const WWembed = new MessageEmbed()
                     .setTitle(`Shop`)
-                    .setDescription(`\n\n${Object.keys(data.shop).map(e => `\`${e}\`: ${data.shop[e]} Coins`).join("\n")}`)
+                    .setDescription(`you just bought ${item}`)
                     .setColor('RANDOM')
                 message.channel.send(WWembed)
             }
