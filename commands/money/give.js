@@ -34,8 +34,7 @@ module.exports = {
             } else {
                 let moneyamt = data.Money[0].Money
                 let newMoneyAdd = moneyamt + amt
-                data.Money[0].Money.set(newMoneyAdd)
-                
+                data.Money[0].Money.replaceOne(newMoneyAdd)
                 console.log(data.Money[0])
                 const WWembed = new MessageEmbed()
                     .setTitle('Coins')
