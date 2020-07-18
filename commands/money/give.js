@@ -12,7 +12,7 @@ module.exports = {
         let amt = args.slice(1).join(" ")
         if(!Mention) return message.channel.send('You need to specify who you want to give to!')
         if(!amt) return message.channel.send('You need to include the amount that you want to give!')
-        if(!isNaN(amt)) return message.channel.send(`bruh you want me to give him "${amt}"? please speak numbers`)
+        if(isNaN(amt)) return message.channel.send(`bruh you want me to give him "${amt}"? please speak numbers`)
         moneys.findOne({ User: Mention.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data) {
