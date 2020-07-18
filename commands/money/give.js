@@ -9,7 +9,7 @@ module.exports = {
     perms: 'Admin',
     run: async (bot, message, args) => {
         let adrole = message.guild.roles.cache.find(r => r.name === "Admin")
-        if(message.member.roles.cache.has(adrole.id)) return message.channel.send('You need to admin to give a user money')
+        if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You need to admin to give a user money')
         const Mention = message.mentions.members.first()
         let amt = args.slice(1).join(" ")
         if(!Mention) return message.channel.send('You need to specify who you want to give to!')
