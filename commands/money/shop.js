@@ -1,6 +1,6 @@
 const moneys = require('../../models/money')
 const { MessageEmbed } = require('discord.js')
-const shop = require('../../models/shop')
+const shop = require('../../models/money')
 module.exports = {
     name: 'coins',
     description: 'Shows how many coins you have',
