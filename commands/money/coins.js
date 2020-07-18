@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js')
 module.exports = {
     name: 'coins',
     description: 'Shows how many coins you have',
-    usage: 'coins',
+    usage: 'coins [user]',
     category: 'money',
     timeout: 5000,
     perms: 'Send Messages',
