@@ -24,6 +24,7 @@ module.exports = {
                 data.Money = newMoneyAdd
                 let nowpurchase = data.Purchases;
                 let newPurchaseAdd = parseInt(nowpurchase) + parseInt(1)
+                data.Purchases = newPurchaseAdd
                 data.save()
                 const WWembed = new MessageEmbed()
                     .setTitle(`Shop`)
