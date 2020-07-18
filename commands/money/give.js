@@ -18,7 +18,7 @@ module.exports = {
             if (!data) {
                 let newMoney = new moneys({
                     User: Mention.id,
-                    Money: 0,
+                    Money: amt,
                     Purchases: 0,
                 })
                 newMoney.save()
