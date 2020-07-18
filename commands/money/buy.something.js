@@ -22,10 +22,12 @@ module.exports = {
                 let moneyamt = data.Money
                 let newMoneyAdd = parseInt(moneyamt) - parseInt(data.shop[item]);
                 data.Money = newMoneyAdd
+                let nowpurchase = data.Purchases;
+                let newPurchaseAdd = parseInt(nowpurchase) + parseInt(1)
                 data.save()
                 const WWembed = new MessageEmbed()
                     .setTitle(`Shop`)
-                    .setDescription(`you just bought ${item}!\nYou now have ${data.Purchases}`)
+                    .setDescription(`you just bought ${item}!\nYou now have $${data.Money} and ${data.Purchases} purchases`)
                     .setColor('RANDOM')
                 message.channel.send(WWembed)
             }
