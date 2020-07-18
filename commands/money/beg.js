@@ -42,7 +42,7 @@ module.exports = {
                 data.save()
                 const WWembed = new MessageEmbed()
                     .setTitle('Coins')
-                    .setDescription(`**Recovery Servant just gave you $${newBeg}!`)
+                    .setDescription(`**Recovery Servant just gave you $${Math.round(newBeg)}!**`)
                     .setColor('RANDOM')
                 message.channel.send(WWembed)
             }
