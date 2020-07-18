@@ -31,7 +31,7 @@ module.exports = {
                 console.log(`New money created Could not console log for dumb reason idk`)
                 const embed = new MessageEmbed()
                 .setTitle('Coins')
-                .setDescription(`**Recovery Servant just gave you $${newBeg}**`)
+                .setDescription(`**Recovery Servant just gave you $${Math.round(newBeg)}**`)
                 .setColor('RANDOM')
                 message.channel.send(embed)
             } else {
