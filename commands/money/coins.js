@@ -21,7 +21,7 @@ module.exports = {
                     ]
                 })
                 newMoney.save()
-                console.log(`New money created ${data.Money}`)
+                console.log(`New money created`)
                 let embed = new MessageEmbed()
                     .setTitle('Coins')
                     .setDescription(`You have $${data.Money[0].Money} coins!\nSince your bank account was just created here are some ways you can make money! ***I gave you 5000 use the redeem command to get it!***\n1. Coming to money drop sessions\n2. Being a moderator or admin (weekly paycheck of $500 coins)\n\nUse the (not set) command for things you can buy with your coins!`)
