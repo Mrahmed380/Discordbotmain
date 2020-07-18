@@ -21,6 +21,9 @@ module.exports = {
                     User: Mention.id,
                     Money: amt,
                     Purchases: 0,
+                    inventory:{
+                        
+                    }
                 })
                 newMoney.save()
                 console.log(`New money created Could not console log for dumb reason idk`)
