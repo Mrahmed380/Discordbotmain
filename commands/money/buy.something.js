@@ -12,7 +12,7 @@ module.exports = {
         moneys.findOne({ User: message.author.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data) {
-                message.channel.send('You have dont even have a bank account how are you going to buy anything... "n*ggas look around the store but never cop sh*t" - lil yachty 🙃')
+                message.channel.send('You have dont even have a bank account how are you going to buy anything... "niggas look around the store but never cop shit" - lil yachty 🙃')
                 message.channel.send('You can use the coins command to make a account ')
             } else {
                 if (!item) return message.channel.send('so you going to tell me what you want to buy or nah?')
