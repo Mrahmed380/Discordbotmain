@@ -21,14 +21,12 @@ module.exports = {
                     ]
                 })
                 newMoney.save()
-                setTimeout(() => {
-                    console.log(`New money created ${data.Money[0]}`)
-                    const embed = new MessageEmbed()
-                        .setTitle('Coins')
-                        .setDescription(`You have $${data.Money[0].Money} coins!\nSince your bank account was just created here are some ways you can make money! ***I gave you 5000 use the redeem command to get it!***\n1. Coming to money drop sessions\n2. Being a moderator or admin (weekly paycheck of $500 coins)\n\nUse the (not set) command for things you can buy with your coins!`)
-                        .setColor('RANDOM')
-                    message.channel.send(embed)
-                }, 1000);
+                console.log(`New money created ${data}`)
+                const embed = new MessageEmbed()
+                    .setTitle('Coins')
+                    .setDescription(`You have $${data.Money[0].Money} coins!\nSince your bank account was just created here are some ways you can make money! ***I gave you 5000 use the redeem command to get it!***\n1. Coming to money drop sessions\n2. Being a moderator or admin (weekly paycheck of $500 coins)\n\nUse the (not set) command for things you can buy with your coins!`)
+                    .setColor('RANDOM')
+                message.channel.send(embed)
             } else {
                 console.log(data.Money[0])
                 const WWembed = new MessageEmbed()
