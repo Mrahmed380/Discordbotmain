@@ -20,7 +20,7 @@ module.exports = {
                         }
                     ]
                 })
-                newMoney.save()
+                newMoney.save().then(console.log(data))
                 console.log(`New money created ${data}`)
                 const embed = new MessageEmbed()
                     .setTitle('Coins')
