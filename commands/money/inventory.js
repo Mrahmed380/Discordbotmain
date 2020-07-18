@@ -47,7 +47,7 @@ module.exports = {
                     console.log(data)
                     const WWembed = new MessageEmbed()
                         .setTitle('Inventory')
-                        .setDescription(`Items\n\n${JSON.stringify(data.inventory)}\n`)
+                        .setDescription(`\n\n${JSON.stringify(data.inventory).join("\n")}`)
                         .setColor('RANDOM')
                     message.channel.send(WWembed)
                 }
