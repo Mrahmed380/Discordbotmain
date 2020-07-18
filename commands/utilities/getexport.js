@@ -7,6 +7,7 @@ module.exports = {
     usage: 'getexport',
     perms: 'Send Messages',
     run: async (bot, message, args) => {
+        if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You need admin to get all the server data!")
         servers.findOne({ Guild: message.guild.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data) {
@@ -15,7 +16,6 @@ module.exports = {
                 message.channel.send("I found your server in the database!")
                 console.log(data.Server[0])
                 data.save()
-                console.log(data.Warns)
                 const WWembed = new MessageEmbed()
                     .setTitle('Server Data')
                     .setDescription(`Server Name: ${data.Server[0].ServerInfo[0].ServerName}\nServer ID: ${data.Server[0].ServerInfo[0].ServerID}\nDate Created: ${data.Server[0].ServerInfo[0].Date}\nServer Owner: ${data.Server[0].ServerInfo[0].Owner}\nMember Count: ${data.Server[0].ServerInfo[0].Members}\nBot Count: ${data.Server[0].ServerInfo[0].Bots}\nChannel Count: ${data.Server[0].ServerInfo[0].Channels}\nRoles:${data.Server[0].ServerInfo[0].Roles}\nTemplate Link: ${data.Template}`)
