@@ -326,7 +326,7 @@ bot.on('message', async msg => {
         case 'botinv':
             msg.channel.send(binv)
             break;
-        case 'suggest':
+        /*case 'suggest':
             let mssArgs = args.slice(1).join(" ");
             const DMembed = new Discord.MessageEmbed()
                 .setTitle('Suggestion')
@@ -345,7 +345,7 @@ bot.on('message', async msg => {
                 messageReaction.react("✅")
                 messageReaction.react("❌")
             })
-            break;
+            break;*/
         case 'hgames':
             const Hembed = new Discord.MessageEmbed()
                 .setTitle('Hunger Games')
