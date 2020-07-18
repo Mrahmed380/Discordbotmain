@@ -16,7 +16,7 @@ module.exports = {
                 message.channel.send('You can use the coins command to make a account ')
             } else {
                 if (!item) return message.channel.send('so you going to tell me what you want to buy or nah?')
-                if (item !== Object.keys(data.shop)) return message.channel.send('That is not a item in the shop...'), console.log(item + data.shop)
+                if (item !== "dad") return message.channel.send('That is not a item in the shop...'), console.log(`Item: ${item} Items available ${JSON.stringify(data.shop)}`)
                     console.log(data)
                 const WWembed = new MessageEmbed()
                     .setTitle(`Shop`)
