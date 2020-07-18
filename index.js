@@ -326,26 +326,6 @@ bot.on('message', async msg => {
         case 'botinv':
             msg.channel.send(binv)
             break;
-        /*case 'suggest':
-            let mssArgs = args.slice(1).join(" ");
-            const DMembed = new Discord.MessageEmbed()
-                .setTitle('Suggestion')
-                .addField('Suggestion Info', 'Your suggestion has been submitted! In order for your suggestion to be accepted it must have more ✅ votes and then checked by a mod or admin.')
-                .setFooter(msg.author.tag)
-                .setColor(0xead611)
-            msg.author.send(DMembed)
-            const sembed = new Discord.MessageEmbed()
-                .setTitle('Suggestion')
-                .addField('New Suggestion from:', msg.author.tag)
-                .setColor(0x119e32)
-                .addField('Suggestion', mssArgs)
-                .addField('suggestion ID', Math.floor(Math.random() * 10000000 + 5))
-                .setFooter('Please wait while a moderator or admin rejects or accepts your suggestion. (note check your DMs.)')
-            msg.channel.send(sembed).then(messageReaction => {
-                messageReaction.react("✅")
-                messageReaction.react("❌")
-            })
-            break;*/
         case 'hgames':
             const Hembed = new Discord.MessageEmbed()
                 .setTitle('Hunger Games')
