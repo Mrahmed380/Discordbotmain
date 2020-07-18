@@ -34,7 +34,7 @@ module.exports = {
                 message.channel.send(embed)
             } else {
                 let moneyamt = data.Money[0].Money
-                let newMoneyAdd = Math.floor(moneyamt) + amt;
+                let newMoneyAdd = parseInt(moneyamt) + parseInt(amt);
                 data.Money[0].Money = newMoneyAdd
                 data.save()
                 console.log(data.Money[0])
