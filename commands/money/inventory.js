@@ -32,8 +32,14 @@ module.exports = {
                         User: message.author.id,
                         Money: 0,
                         Purchases: 0,
-                        inventory:{
-                            item: "big item"
+                        inventory: {
+                            CoinCard: 0
+                        },
+                        shop: {
+                            BasicRecovery: 75000,
+                            StandardRecovery: 100000,
+                            PremiumRecovery: 150000,
+                            PlatinumRecovery: 200000,
                         }
                     })
                     newMoney.save()
@@ -47,7 +53,7 @@ module.exports = {
                     console.log(data)
                     const WWembed = new MessageEmbed()
                         .setTitle('Inventory')
-                        .setDescription(`\n\n${Object.keys(data.inventory).map(e=>`${e}: ${data.inventory[e]}`).join("\n")}`)
+                        .setDescription(`\n\n${Object.keys(data.inventory).map(e => `\`${e}\`: ${data.inventory[e]}`).join("\n")}`)
                         .setColor('RANDOM')
                     message.channel.send(WWembed)
                 }

@@ -4,5 +4,6 @@ const Schema = new mongoose.Schema({
     Purchases: Number,
     User: String,
     inventory: Object,
+    shop: Object,
 })
 module.exports = mongoose.model("coins", Schema)

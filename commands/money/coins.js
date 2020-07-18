@@ -32,11 +32,15 @@ module.exports = {
                         User: message.author.id,
                         Money: 0,
                         Purchases: 0,
-                        Inventory:[
-                            {
-                                
-                            }
-                        ]
+                        inventory: {
+                            CoinCard: 0
+                        },
+                        shop: {
+                            BasicRecovery: 75000,
+                            StandardRecovery: 100000,
+                            PremiumRecovery: 150000,
+                            PlatinumRecovery: 200000,
+                        }
                     })
                     newMoney.save()
                     console.log(`New money created Could not console log for dumb reason idk`)
