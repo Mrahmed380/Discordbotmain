@@ -33,7 +33,7 @@ module.exports = {
                         Money: 0,
                         Purchases: 0,
                         inventory:{
-                             
+                            item: "big item"
                         }
                     })
                     newMoney.save()
