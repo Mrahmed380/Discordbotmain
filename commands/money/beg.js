@@ -15,7 +15,7 @@ module.exports = {
             if (!data) {
                 let newMoney = new moneys({
                     User: message.author.id,
-                    Money: newBeg,
+                    Money: Math.round(newBeg),
                     Purchases: 0,
                     inventory: {
                         CoinCard: 0
