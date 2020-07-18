@@ -1,3 +1,4 @@
+const { MessageEmbed } = require('discord.js')
 module.exports = {
     name: 'suggest',
     description: 'Makes a suggestion for moderators or admins to consider',
@@ -7,13 +8,13 @@ module.exports = {
     category: 'guild',
     run: async (bot, message, args) => {
         let mssArgs = args.slice(1).join(" ");
-        const DMembed = new Discord.MessageEmbed()
+        const DMembed = new MessageEmbed()
             .setTitle('Suggestion')
             .addField('Suggestion Info', 'Your suggestion has been submitted! In order for your suggestion to be accepted it must have more ✅ votes and then checked by a mod or admin.')
             .setFooter(message.author.tag)
             .setColor(0xead611)
         message.author.send(DMembed)
-        const sembed = new Discord.MessageEmbed()
+        const sembed = new MessageEmbed()
             .setTitle('Suggestion')
             .addField('New Suggestion from:', message.author.tag)
             .setColor(0x119e32)
