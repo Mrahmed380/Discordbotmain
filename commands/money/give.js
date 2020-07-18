@@ -34,7 +34,7 @@ module.exports = {
             } else {
                 let moneyamt = data.Money[0].Money
                 let newMoneyAdd = moneyamt + amt
-                data.Money = newMoneyAdd
+                data.Money[0].Money = newMoneyAdd
                 data.save()
                 //data.Money[0].Money.update(newMoneyAdd)
                 console.log(data.Money[0])
