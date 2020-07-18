@@ -9,7 +9,7 @@ module.exports = {
     perms: 'Admin',
     run: async (bot, message, args) => {
         const Mention = message.mentions.members.first()
-        let amt = args.slice(2).join(" ")
+        let amt = args.slice(1).join(" ")
         if(!Mention) return message.channel.send('You need to specify who you want to give to!')
         if(!amt) return message.channel.send('You need to include the amount that you want to give!')
         moneys.findOne({ User: Mention.id }, async (err, data) => {
