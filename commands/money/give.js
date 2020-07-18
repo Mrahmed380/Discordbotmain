@@ -38,7 +38,7 @@ module.exports = {
                 let newMoneyAdd = parseInt(moneyamt) + parseInt(amt);
                 data.Money = newMoneyAdd
                 data.save()
-                console.log(data.Money[0])
+                console.log(data.Money)
                 const WWembed = new MessageEmbed()
                     .setTitle('Coins')
                     .setDescription(`You just gave $${amt} to ${Mention}, the user now has $${data.Money}`)
