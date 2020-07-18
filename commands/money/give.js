@@ -1,12 +1,11 @@
 const moneys = require('../../models/money')
 const { MessageEmbed } = require('discord.js')
-const { trimResultTransformer } = require('common-tags')
 module.exports = {
     name: 'give',
     description: 'Gives a user a number of coins',
     usage: 'give <user> <amt of coins>',
     category: 'money',
-    timeout: 10000,
+    timeout: 5000,
     perms: 'Admin',
     run: async (bot, message, args) => {
         const Mention = message.mentions.members.first()
