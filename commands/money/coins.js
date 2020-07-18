@@ -46,7 +46,7 @@ module.exports = {
                     console.log(`New money created Could not console log for dumb reason idk`)
                     const embed = new MessageEmbed()
                         .setTitle('Coins')
-                        .setDescription(`You have $0 coins!\nSince your bank account was just created here are some ways you can make money!***\n1. Coming to money drop sessions\n2. Being a moderator or admin (weekly paycheck of $500 coins)\n\nUse the (not set) command for things you can buy with your coins!`)
+                        .setDescription(`You have $0 coins!\nSince your bank account was just created here are some ways you can make money!\n1. Coming to money drop sessions\n2. Being a moderator or admin (weekly paycheck of $500 coins)\n\nUse the (not set) command for things you can buy with your coins!`)
                         .setColor('RANDOM')
                     message.channel.send(embed)
                 } else {
