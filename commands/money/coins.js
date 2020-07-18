@@ -20,11 +20,11 @@ module.exports = {
                         }
                     ]
                 })
-                newMoney.save().then(console.log(data))
-                console.log(`New money created ${data}`)
+                newMoney.save()
+                console.log(`New money created Could not console log for dumb reason idk`)
                 const embed = new MessageEmbed()
                     .setTitle('Coins')
-                    .setDescription(`You have $${data.Money[0].Money} coins!\nSince your bank account was just created here are some ways you can make money! ***I gave you 5000 use the redeem command to get it!***\n1. Coming to money drop sessions\n2. Being a moderator or admin (weekly paycheck of $500 coins)\n\nUse the (not set) command for things you can buy with your coins!`)
+                    .setDescription(`You have $0 coins!\nSince your bank account was just created here are some ways you can make money! ***I gave you 5000 use the redeem command to get it!***\n1. Coming to money drop sessions\n2. Being a moderator or admin (weekly paycheck of $500 coins)\n\nUse the (not set) command for things you can buy with your coins!`)
                     .setColor('RANDOM')
                 message.channel.send(embed)
             } else {
