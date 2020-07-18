@@ -13,15 +13,15 @@ module.exports = {
             if (!data) {
                 let newMoney = new moneys({
                     User: message.author.id,
-                    Money: [
+                    Money:[
                         {
                             Purchases: 0,
                             Money: 0,
                         }
                     ]
                 })
-                console.log(`New money created ${data.Money[0]}`)
                 newMoney.save()
+                console.log(`New money created ${data.Money[0]}`)
                 let embed = new MessageEmbed()
                     .setTitle('Coins')
                     .setDescription(`You have $${data.Money[0].Money} coins!\nSince your bank account was just created here are some ways you can make money! ***I gave you 5000 use the redeem command to get it!***\n1. Coming to money drop sessions\n2. Being a moderator or admin (weekly paycheck of $500 coins)\n\nUse the (not set) command for things you can buy with your coins!`)
