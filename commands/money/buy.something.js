@@ -17,10 +17,15 @@ module.exports = {
             } else {
                 if (!item) return message.channel.send('so you going to tell me what you want to buy or nah?')
                 if (!data.shop[item]) return message.channel.send('That is not a item in the shop...'), console.log(`Item: ${item} Items available ${JSON.stringify(data.shop)}`)
-                    console.log(data)
+                if(data.Money < data.shop[item]) return message.channel.send("Did you just try to buy something with out enough money? I should smack fire out of you for thinking I'd give it to you")
+                console.log(data)
+                let moneyamt = data.Money
+                let newMoneyAdd = parseInt(moneyamt) - parseInt(data.shop[item]);
+                data.Money = newMoneyAdd
+                data.save()
                 const WWembed = new MessageEmbed()
                     .setTitle(`Shop`)
-                    .setDescription(`you just bought ${item}`)
+                    .setDescription(`you just bought ${item}!\nYou now have ${data.Purchases}`)
                     .setColor('RANDOM')
                 message.channel.send(WWembed)
             }
