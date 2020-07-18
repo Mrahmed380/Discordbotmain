@@ -46,8 +46,8 @@ module.exports = {
                 } else {
                     console.log(data)
                     const WWembed = new MessageEmbed()
-                        .setTitle('Coins')
-                        .setDescription(` ${data.inventory}\nUse the (not set) command for things you can spend your money on!`)
+                        .setTitle('Inventory')
+                        .setDescription(`Items\n\n${JSON.stringify(data.inventory)}\n`)
                         .setColor('RANDOM')
                     message.channel.send(WWembed)
                 }
