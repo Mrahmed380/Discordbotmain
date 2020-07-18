@@ -4,7 +4,7 @@ module.exports = {
     name: 'beg',
     description: 'Gives a random amount of money',
     usage: 'beg',
-    timeout: 100000,
+    timeout: 600000,
     category: 'money',
     perms: 'Send Messages',
     run: async (bot, message, args) => {
