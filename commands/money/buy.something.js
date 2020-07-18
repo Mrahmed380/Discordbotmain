@@ -17,7 +17,7 @@ module.exports = {
             } else {
                 if (!item) return message.channel.send('so you going to tell me what you want to buy or nah?')
                 if (!data.shop[item]) return message.channel.send('That is not a item in the shop...'), console.log(`Item: ${item} Items available ${JSON.stringify(data.shop)}`)
-                if(data.Money < data.shop[item]) return message.channel.send("Did you just try to buy something with out enough money? I sHoUlD sMaCk FiRe oUt Of yoU lIkE DeAdAsS")
+                if (data.Money < data.shop[item]) return message.channel.send("Did you just try to buy something with out enough money? I sHoUlD sMaCk FiRe oUt Of yoU lIkE DeAdAsS")
                 console.log(data)
                 let moneyamt = data.Money
                 let newMoneyAdd = parseInt(moneyamt) - parseInt(data.shop[item]);
@@ -25,7 +25,7 @@ module.exports = {
                 let nowpurchase = data.Purchases;
                 let newPurchaseAdd = parseInt(nowpurchase) + parseInt(1)
                 data.Purchases = newPurchaseAdd
-                data.insertOne(item, "test")
+                data.inventory.insertOne({ item: "test" })
                 data.save()
                 const WWembed = new MessageEmbed()
                     .setTitle(`Shop`)
