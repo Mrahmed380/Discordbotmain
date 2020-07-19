@@ -11,7 +11,7 @@ module.exports={
             return message.reply("You need administrator to delete messages").then(m => m.delete(5000));
         }
 
-        if(isNaN(args[0]) || parseInt(args[0]) <= 0 || (args[0] = "max")) {
+        if(isNaN(args[0]) || parseInt(args[0]) <= 0 || (args[0] !== "max")) {
             return message.channel.send('This is not a number!').then(m => m.delete({ timeout: 5000}));
         }
 
