@@ -23,7 +23,13 @@ module.exports = {
                     Money: amt,
                     Purchases: 0,
                     inventory:{
-
+                        Coins: [0]
+                    },
+                    shop: {
+                        BasicRecovery: 75000,
+                        StandardRecovery: 100000,
+                        PremiumRecovery: 150000,
+                        PlatinumRecovery: 200000,
                     }
                 })
                 newMoney.save()
