@@ -17,7 +17,7 @@ module.exports = {
                 } else {
                     console.log(data)
                     const WWembed = new MessageEmbed()
-                        .setTitle('Coins')
+                        .setTitle('Inventory')
                         .setDescription(`\n\n${Object.keys(data.inventory).map(e => `\`${e}\`: ${data.inventory[e]}`).join("\n")}`)
                         .setColor('RANDOM')
                     message.channel.send(WWembed)
@@ -33,7 +33,7 @@ module.exports = {
                         Money: 0,
                         Purchases: 0,
                         inventory: {
-                            CoinCard: 0
+                            GTA: "null"
                         },
                         shop: {
                             BasicRecovery: 75000,
