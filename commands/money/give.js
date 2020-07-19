@@ -23,7 +23,7 @@ module.exports = {
                     Money: amt,
                     Purchases: 0,
                     inventory:{
-                        Coins: [0]
+                        GTA: "Online"
                     },
                     shop: {
                         BasicRecovery: 75000,
