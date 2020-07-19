@@ -302,7 +302,7 @@ bot.on('message', async msg => {
             msg.channel.send('All recoverys are $3-$35, for more info go to #『💸』𝗣𝗿𝗶𝗰𝗲𝘀')
             break;
         case 'sells':
-            msg.channel.send('ERG has made 5 sells so far, P.S 𝔗𝔥𝔢 𝔰𝔱𝔬𝔯𝔢 𝔦𝔰 𝔰𝔱𝔦𝔩𝔩 𝔬𝔭𝔢𝔫...🌎 🌞🌙')
+            msg.channel.send('ERG has made 6 sells so far, P.S 𝔗𝔥𝔢 𝔰𝔱𝔬𝔯𝔢 𝔦𝔰 𝔰𝔱𝔦𝔩𝔩 𝔬𝔭𝔢𝔫...🌎 🌞🌙')
             break;
         case 'moneydrop':
             msg.channel.send('All money drop sessions are at 8:00 PM, UCT Central time!')
