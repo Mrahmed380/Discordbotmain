@@ -135,7 +135,7 @@ bot.on('message', async message => {
                         }, command.timeout);
                     }
                 }
-                if(command.status == 'false') return console.log('command off');
+                if(command.status == false) return console.log('command off');
                 command.run(bot, message, args)
             }
         } else {
@@ -163,7 +163,7 @@ bot.on('message', async message => {
                         }, command.timeout);
                     }
                 }
-                if(command.status == 'false') return console.log('command off')
+                if(command.status == false) return console.log('command off')
                 command.run(bot, message, args)
             }
         }
