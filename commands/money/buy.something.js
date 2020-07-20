@@ -28,7 +28,7 @@ module.exports = {
                 let newPurchaseAdd = parseInt(nowpurchase) + parseInt(1)
                 data.Purchases = newPurchaseAdd
                 //data.inventory[0].insertOne({item: 0})
-                let newInv = new data.inventory({
+                let newInv = new moneys.inventory({
                     item: 0
                 })
                 data.save()
