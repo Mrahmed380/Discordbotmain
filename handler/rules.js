@@ -2,7 +2,7 @@ const {readdirSync} = require('fs');
 const ascii = require('ascii-table');
 const { dirname } = require('path');
 const { Message } = require('discord.js');
-let table = new ascii("commands");
+let table = new ascii("rules");
 table.setHeading('rule','Load status');
 module.exports= bot=>{
     readdirSync('./rules/').forEach(dir=>{
