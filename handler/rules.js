@@ -12,6 +12,7 @@ module.exports= bot=>{
             if(pull.name){
                 bot.rules.set(pull.name, pull);
                 table.addRow(file, 'succeded')
+                console.log(file)
             } else {
                 table.addRow(file,`failed missing a help.name or help.name is not a string`)
                 continue;
