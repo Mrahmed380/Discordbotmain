@@ -2,6 +2,7 @@ const moneys = require('../../models/money')
 const { MessageEmbed } = require('discord.js')
 const shop = require('../../models/money')
 module.exports = {
+    status: false,
     name: 'buy',
     description: 'buy something or else',
     usage: 'buy <item>',
@@ -25,6 +26,7 @@ module.exports = {
                 let nowpurchase = data.Purchases;
                 let newPurchaseAdd = parseInt(nowpurchase) + parseInt(1)
                 data.Purchases = newPurchaseAdd
+                data.inventory.insertOne({item: 0})
                 data.save()
                 console.log('saving data...')
                 console.log("data was saved")
