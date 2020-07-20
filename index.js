@@ -12,6 +12,7 @@ const fs = require('fs');
 const ms = require('ms');
 const Timeout = new Set()
 bot.commands = new Discord.Collection();
+bot.rules = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.categories = fs.readdirSync("./commands/");
 ["command"].forEach(handler => {
