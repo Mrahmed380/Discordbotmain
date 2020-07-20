@@ -1,8 +1,6 @@
-const { run } = require("../commands/guild/rules.1-11");
-
-module.exports={
-    name: '1',
-    run: async(bot,message,args)=>{
-        message.channel.send(`1. No backstage recruiting, this = permanent ban`)
-    }
-}
+const { MessageEmbed, Message } = require('discord.js')
+let embed = new MessageEmbed()
+    .setTitle('Rule 1')
+    .setDescription('1. No backstage Recruiting = Instant ban')
+    .setFooter('DM mods and admins for rule suggestions')
+message.channel.send(embed)

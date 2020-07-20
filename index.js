@@ -18,9 +18,9 @@ bot.categories = fs.readdirSync("./commands/");
 ["command"].forEach(handler => {
     require(`./handler/${handler}`)(bot);
 })
-["rule"].forEach(handler=>{
+/*["rule"].forEach(handler=>{
     require(`./handler/${handler}`)(bot)
-})
+})*/
 const moment = require('moment');
 const hb = require('hastebin-generator');
 var twitch = 'Hey, heres a link to ERG//s twitch channel! https://www.twitch.tv/supremeerg'
