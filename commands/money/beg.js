@@ -8,7 +8,7 @@ module.exports = {
     category: 'money',
     perms: 'Send Messages',
     run: async (bot, message, args) => {
-        const newBeg = (Math.random() * 2500);
+        const newBeg = (Math.random() * 1500);
         //**Recovery servant just gave 
         moneys.findOne({ User: message.author.id }, async (err, data) => {
             if (err) console.log(err)
