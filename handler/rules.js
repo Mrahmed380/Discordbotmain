@@ -3,9 +3,9 @@ const ascii = require('ascii-table');
 const { dirname } = require('path');
 const { Message } = require('discord.js');
 let table = new ascii("commands");
-table.setHeading('command','Load status');
+table.setHeading('rule','Load status');
 module.exports= bot=>{
-    readdirSync('./commands/').forEach(dir=>{
+    readdirSync('./rules/').forEach(dir=>{
         const rules = readdirSync(`./rules/`).filter(file=>file.endsWith('.js'));
         for(let file of rules){
             let pull = require(`../rules/${file}`);

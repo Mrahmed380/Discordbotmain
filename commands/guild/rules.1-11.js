@@ -52,7 +52,7 @@ module.exports = {
                 const args = message.content.slice(data.Prefix.length).trim().split(/ +/g);
                 const cmd = args.shift().toLowerCase();
                 if (cmd.length == 0) return;
-                const rule = bot.commands.get(cmd)
+                const rule = bot.rules.get(cmd)
                 //if (command) command.run(bot, message, args)
                 if (rule) {
                     if(rule.status == false) {
