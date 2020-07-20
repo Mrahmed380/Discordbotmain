@@ -135,7 +135,10 @@ bot.on('message', async message => {
                         }, command.timeout);
                     }
                 }
-                if(command.status == false) return console.log('command off');
+                if(command.status == false) {
+                    console.log('command is off')
+                    message.channel.send('This command is currently under maintenance!')
+                }
                 command.run(bot, message, args)
             }
         } else {
@@ -163,7 +166,10 @@ bot.on('message', async message => {
                         }, command.timeout);
                     }
                 }
-                if(command.status == false) return console.log('command off')
+                if(command.status == false) {
+                    console.log('command is off')
+                    message.channel.send("This command is currently under maintenance!")
+                }
                 command.run(bot, message, args)
             }
         }
