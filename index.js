@@ -123,6 +123,10 @@ bot.on('message', async message => {
             if (cmd.length == 0) return;
             const command = bot.commands.get(cmd)
             if (command) {
+                if(command.status == false) {
+                    console.log('command is off')
+                    return message.channel.send("This command is currently under maintenance!")
+                }
                 if (command.timeout) {
                     if (Timeout.has(`${message.author.id}${command.name}`)) {
                         console.log(`User put in time out for ${command.name}`)
@@ -134,10 +138,6 @@ bot.on('message', async message => {
                             Timeout.delete(`${message.author.id}${command.name}`)
                         }, command.timeout);
                     }
-                }
-                if(command.status == false) {
-                    console.log('command is off')
-                    message.channel.send('This command is currently under maintenance!')
                 }
                 command.run(bot, message, args)
             }
@@ -153,6 +153,10 @@ bot.on('message', async message => {
             const command = bot.commands.get(cmd)
             //if (command) command.run(bot, message, args)
             if (command) {
+                if(command.status == false) {
+                    console.log('command is off')
+                    return message.channel.send("This command is currently under maintenance!")
+                }
                 if (command.timeout) {
                     if (Timeout.has(`${message.author.id}${command.name}`)) {
                         console.log(`User put in time out for ${command.name}`)
@@ -165,10 +169,6 @@ bot.on('message', async message => {
                             console.log(`${message.author.id} was removed from timeout command name: ${command.name}`)
                         }, command.timeout);
                     }
-                }
-                if(command.status == false) {
-                    console.log('command is off')
-                    message.channel.send("This command is currently under maintenance!")
                 }
                 command.run(bot, message, args)
             }
