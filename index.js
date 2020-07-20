@@ -27,7 +27,8 @@ var binv = 'https://discord.com/api/oauth2/authorize?client_id=71042033550950401
 
 bot.on('ready', () => {
     console.log('This bot is online!');
-    bot.user.setActivity('e!botinfo ', { type: "STREAMING" , url: "https://twitch.tv/supremeerg"});
+    console.log(bot.guilds.cache.map(g => g.name).join(", "))
+    bot.user.setActivity('e!botinfo ', { type: "STREAMING", url: "https://twitch.tv/supremeerg" });
 })
 
 bot.on('guildMemberAdd', member => {
@@ -123,7 +124,7 @@ bot.on('message', async message => {
             const command = bot.commands.get(cmd)
             if (command) {
                 if (command.timeout) {
-                    if(Timeout.has(`${message.author.id}${command.name}`)) {
+                    if (Timeout.has(`${message.author.id}${command.name}`)) {
                         console.log(`User put in time out for ${command.name}`)
                         return message.reply(`You can only use this command  every ${ms(command.timeout)}\n *every time you use the command before the timer ends it resets*!`)
                     } else {
@@ -134,6 +135,7 @@ bot.on('message', async message => {
                         }, command.timeout);
                     }
                 }
+                if(command.status == 'false') return console.log('command off');
                 command.run(bot, message, args)
             }
         } else {
@@ -149,7 +151,7 @@ bot.on('message', async message => {
             //if (command) command.run(bot, message, args)
             if (command) {
                 if (command.timeout) {
-                    if(Timeout.has(`${message.author.id}${command.name}`)) {
+                    if (Timeout.has(`${message.author.id}${command.name}`)) {
                         console.log(`User put in time out for ${command.name}`)
                         return message.reply(`You can only use this command  every ${ms(command.timeout)}\n *every time you use the command before the timer ends it resets*!`)
                     } else {
@@ -161,6 +163,7 @@ bot.on('message', async message => {
                         }, command.timeout);
                     }
                 }
+                if(command.status == 'false') return console.log('command off')
                 command.run(bot, message, args)
             }
         }
@@ -272,6 +275,14 @@ bot.on('message', async msg => {
                     const mention = msg.mentions.members.first()
                     msg.channel.send(`${msg.author} received 3 warnings or more, banned and has been deleted from the database`)
                     msg.member.ban({ reason: "Recieved 3 warnings" })
+                    const Bembed = new MessageEmbed()
+                        .setTitle('Ban Hammer')
+                        .setDescription(`You were banned!`)
+                        .addField('Reason', "Banned for getting 3 warnings")
+                        .setThumbnail(message.guild.iconURL())
+                        .setColor(0xd5eb34)
+                        .setFooter(message.guild.name);
+                    msg.author.send(Bembed);
                     warns.findOneAndDelete({
                         User: msg.author.id,
                         Guild: msg.guild.id
