@@ -5,5 +5,4 @@ module.exports = async (bot, message, args) => {
         .setDescription('1. No backstage Recruiting = Instant ban')
         .setFooter('DM mods and admins for rule suggestions')
     message.channel.send(embed)
-    console.log('working?')
 }
