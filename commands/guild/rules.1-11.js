@@ -1,7 +1,6 @@
 const { MessageEmbed } = require('discord.js')
 const fs = require('fs')
 //const rules = require('../../rules/')
-bot.categories = fs.readdirSync("../../rules");
 module.exports = {
     timeout: 5000,
     status: true,
