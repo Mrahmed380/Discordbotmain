@@ -31,7 +31,7 @@ module.exports = {
                 //data.inventory[0].insertOne({item: 0})
                 //data.inventory.update({ item:1}).then(console.log('put in data'))
                 data.update(
-                    { $add: { item: 1} }
+                    { $addToSet: { item: 1} }
                 )
                 data.save()
                 console.log('saving data...')
