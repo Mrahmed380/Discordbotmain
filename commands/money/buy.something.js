@@ -30,7 +30,7 @@ module.exports = {
                 data.Purchases = newPurchaseAdd
                 //data.inventory[0].insertOne({item: 0})
                 //data.inventory.update({ item:1}).then(console.log('put in data'))
-                db.data.inventory.update(
+                data.update.update(
                     { $push: { item: 1} }
                 )
                 data.save()
