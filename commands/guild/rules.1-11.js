@@ -10,8 +10,8 @@ module.exports = {
     category: 'guild',
     perms: 'Send Messages',
     run: async (bot, message, args) => {
-        let rule = args[0]
-        if(!rule) return message.channel.send('You did not give a rule number so here is the full page!\nhttps://hastebin.com/vofoceqoji.coffeescript')
+        let rulenum = args[0]
+        if(!rulenum) return message.channel.send('You did not give a rule number so here is the full page!\nhttps://hastebin.com/vofoceqoji.coffeescript')
         const prefix = require('./models/config')
         prefix.findOne({ Guild: message.guild.id }, async (err, data) => {
             if (!data) {
