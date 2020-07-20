@@ -1,7 +1,6 @@
 const { MessageEmbed } = require('discord.js')
 const moneys = require('../../models/money')
 module.exports = {
-    status: false,
     name: 'beg',
     description: 'Gives a random amount of money',
     usage: 'beg',

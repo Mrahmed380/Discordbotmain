@@ -1,6 +1,7 @@
 const { Client, MessageEmbed } = require('discord.js');
 const servers = require('../../models/export')
 module.exports = {
+    status: false,
     name: 'getexport',
     description: 'Shows all the server info',
     category: 'utilities',
