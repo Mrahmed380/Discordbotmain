@@ -3,7 +3,7 @@ const fs = require('fs')
 //const rules = require('../../rules/')
 module.exports = {
     timeout: 5000,
-    status: false,
+    status: true,
     name: 'rules',
     descriptions: 'Shows a rule of choice for members',
     category: 'guild',
