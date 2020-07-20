@@ -2,9 +2,8 @@ const { MessageEmbed, Message } = require('discord.js')
 const fs = require('fs')
 //const rules = require('../../rules/')
 module.exports = {
-    timeout: 5000,
     status: true,
-    name: ['rules', 'rule'],
+    name: 'rule',
     descriptions: 'Shows a rule of choice for members',
     category: 'guild',
     perms: 'Send Messages',
