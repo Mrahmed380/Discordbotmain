@@ -4,7 +4,7 @@ const shop = require('../../models/money')
 const money = require('../../models/money')
 const { db } = require('../../models/money')
 module.exports = {
-    status: true,
+    status: false,
     name: 'buy',
     description: 'buy something or else',
     usage: 'buy <item>',
