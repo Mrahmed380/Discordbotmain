@@ -4,7 +4,7 @@ const fs = require('fs')
 module.exports = {
     timeout: 5000,
     status: true,
-    name: 'rules',
+    name: ['rules', 'rule'],
     descriptions: 'Shows a rule of choice for members',
     category: 'guild',
     perms: 'Send Messages',
