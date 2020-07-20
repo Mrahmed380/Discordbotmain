@@ -10,7 +10,7 @@ module.exports = {
     perms: 'Send Messages',
     run: async (bot, message, args) => {
         let rulenum = args[0]
-        let choice = 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 || 10;
+        let choice = "1" || "2" || "3" || "4" || "5" || "6" || "7" || "8" || "9" || "10";
         if (!rulenum) return message.channel.send('You did not give a rule number so here is the full page!\nhttps://hastebin.com/mumehimuwa.coffeescript')
         if(rulenum !== choice) return message.channel.send('That isnt a rule :(')
         if (rulenum == 1) {
