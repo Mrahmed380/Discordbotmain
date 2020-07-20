@@ -285,9 +285,9 @@ bot.on('message', async msg => {
                         .setTitle('Ban Hammer')
                         .setDescription(`You were banned!`)
                         .addField('Reason', "Banned for getting 3 warnings")
-                        .setThumbnail(message.guild.iconURL())
+                        .setThumbnail(msg.guild.iconURL())
                         .setColor(0xd5eb34)
-                        .setFooter(message.guild.name);
+                        .setFooter(msg.guild.name);
                     msg.author.send(Bembed);
                     warns.findOneAndDelete({
                         User: msg.author.id,
