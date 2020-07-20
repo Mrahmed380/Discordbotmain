@@ -28,7 +28,7 @@ module.exports = {
                 let newPurchaseAdd = parseInt(nowpurchase) + parseInt(1)
                 data.Purchases = newPurchaseAdd
                 //data.inventory[0].insertOne({item: 0})
-                data.inventory[0].updateObjects.insertOne({ item: 1})
+                data.inventory.updateObjects.insertOne({ item: 1})
                 data.save()
                 console.log('saving data...')
                 console.log("data was saved")
