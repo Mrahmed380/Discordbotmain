@@ -191,38 +191,40 @@ bot.on('message', async message => {
             if (cmd.length == 0) return;
             const command = bot.commands.get(cmd)
             //if (command) command.run(bot, message, args)
-            if (message.content.startsWith(aliases)) {
-                console.log(aliases)
-                console.log(command.aliases)
-                console.log(command.alt)
-            }
-            /*if (message.content.startsWith(command.aliases)) {
-                console.log(aliases)
-                console.log(command.aliases)
-                console.log(command.alt)
-            }*/
-            if (command.status == false) {
-                console.log('command is off')
-                return message.channel.send("This command is currently under maintenance!")
-            }
-            if (command.dm == false && message.channel.type == 'dm') {
-                console.log('command is guild only')
-                return message.channel.send('This command is only available in a server!!')
-            }
-            if (command.timeout) {
-                if (Timeout.has(`${message.author.id}${command.name}`)) {
-                    console.log(`User put in time out for ${command.name}`)
-                    return message.reply(`You can only use this command  every ${ms(command.timeout)}\n *every time you use the command before the timer ends it resets*!`)
-                } else {
-                    console.log("put in time out")
-                    Timeout.add(`${message.author.id}${command.name}`)
-                    setTimeout(() => {
-                        Timeout.delete(`${message.author.id}${command.name}`)
-                        console.log(`${message.author.id} was removed from timeout command name: ${command.name}`)
-                    }, command.timeout);
+            if (command) {
+                if (message.content.startsWith(aliases)) {
+                    console.log(aliases)
+                    console.log(command.aliases)
+                    console.log(command.alt)
                 }
+                if (message.content.startsWith(command.aliases)) {
+                    console.log(aliases)
+                    console.log(command.aliases)
+                    console.log(command.alt)
+                }
+                if (command.status == false) {
+                    console.log('command is off')
+                    return message.channel.send("This command is currently under maintenance!")
+                }
+                if (command.dm == false && message.channel.type == 'dm') {
+                    console.log('command is guild only')
+                    return message.channel.send('This command is only available in a server!!')
+                }
+                if (command.timeout) {
+                    if (Timeout.has(`${message.author.id}${command.name}`)) {
+                        console.log(`User put in time out for ${command.name}`)
+                        return message.reply(`You can only use this command  every ${ms(command.timeout)}\n *every time you use the command before the timer ends it resets*!`)
+                    } else {
+                        console.log("put in time out")
+                        Timeout.add(`${message.author.id}${command.name}`)
+                        setTimeout(() => {
+                            Timeout.delete(`${message.author.id}${command.name}`)
+                            console.log(`${message.author.id} was removed from timeout command name: ${command.name}`)
+                        }, command.timeout);
+                    }
+                }
+                command.run(bot, message, args)
             }
-            command.run(bot, message, args)
         }
     })
 });
