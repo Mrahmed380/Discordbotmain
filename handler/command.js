@@ -15,8 +15,12 @@ module.exports= bot=>{
             } else {
                 table.addRow(file,`failed missing a help.name or help.name is not a string`)
                 continue;
-            } if(pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach(alias => bot.aliases.set(alias, pull.name))
-        }
+            } if(pull.aliases) {
+                bot.aliases.set(pull.aliases, pull)
+                table.addRow(file, pull.name)
+                //pull.aliases.forEach(alias => bot.aliases.set(alias, pull.name))
+            }
+            }
     });
     console.log(table.toString());
 }
