@@ -221,7 +221,7 @@ bot.on('message', async message => {
                 command.run(bot, message, args)
                 if (command.aliases) {
                     console.log(`${data.Prefix}${command.aliases}`)
-                    command.run(bot, message, args)
+                    //command.run(bot, message, args)
                 }
             }
         }
