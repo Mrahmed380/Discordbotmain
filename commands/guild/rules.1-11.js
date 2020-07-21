@@ -1,10 +1,9 @@
 const { MessageEmbed, Message } = require('discord.js')
-const fs = require('fs')
-//const rules = require('../../rules/')
 module.exports = {
     status: true,
     name: 'rule',
-    descriptions: 'Shows a rule of choice for members',
+    description: 'Shows a rule of choice for members',
+    usage: 'rule [1-10]',
     category: 'guild',
     perms: 'Send Messages',
     run: async (bot, message, args) => {
@@ -12,7 +11,7 @@ module.exports = {
         if (!rulenum) return message.channel.send('You did not give a rule number so here is the full page!\nhttps://hastebin.com/mumehimuwa.coffeescript')
         if(isNaN(rulenum)) return message.channel.send('That isnt even a number ***`Paid goofy`***')
         if(rulenum >= 11) return message.channel.send('That is not a rule :(')
-        if(rulenum < 1) return message.channel.send('how can this server have a rule number below 0 :()')
+        if(rulenum < 1) return message.channel.send('how can this server have a rule number below 1 :()')
         if (rulenum == 1) {
             let embed = new MessageEmbed()
                 .setTitle('Rule 1')

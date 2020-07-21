@@ -335,12 +335,6 @@ bot.on('message', async msg => {
             msg.reply('Always up to no good... dont tell anyone I gave you these. ' + CACC + '  Now dont expect them all to work.')
             msg.channel.send('More accounts will be linked soon...')
             break;
-        case 'inv':
-            if (msg.channel.id === '697343291825455131') {
-                await msg.delete();
-            }
-            msg.channel.send('@everyone Make sure you invite your friends. We give *FREE*  recoverys every milestone!')
-            break;
         case 'serverjoin':
             msg.reply(server)
             break;
