@@ -192,13 +192,7 @@ bot.on('message', async message => {
             const command = bot.commands.get(cmd)
             //if (command) command.run(bot, message, args)
             if (command) {
-                if (message.content.startsWith(aliases)) {
-                    console.log(aliases)
-                    console.log(command.aliases)
-                    console.log(command.alt)
-                }
-                if (message.content.startsWith(command.aliases)) {
-                    console.log(aliases)
+                if (message.content.startsWith(command.aliases) || message.content.startsWith(command.name)) {
                     console.log(command.aliases)
                     console.log(command.alt)
                 }
