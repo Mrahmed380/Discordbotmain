@@ -193,10 +193,6 @@ bot.on('message', async message => {
             //if (command) command.run(bot, message, args)
 
             if (command) {
-                if (message.content.startsWith(command.aliases)) {
-                    console.log(command.aliases)
-                    console.log(command.alt)
-                }
                 if (command.status == false) {
                     console.log('command is off')
                     return message.channel.send("This command is currently under maintenance!")
@@ -219,7 +215,7 @@ bot.on('message', async message => {
                     }
                 }
                 command.run(bot, message, args)
-                if (command.aliases) {
+                if (message.content.startsWith(command.aliases)) {
                     console.log(`${data.Prefix}${command.aliases}`)
                     //command.run(bot, message, args)
                 }
