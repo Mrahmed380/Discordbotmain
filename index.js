@@ -216,7 +216,7 @@ bot.on('message', async message => {
                 command.run(bot, message, args)
             }
         }
-    })
+    }).catch(err => console.log('Not in guild'))
 })
 
 
