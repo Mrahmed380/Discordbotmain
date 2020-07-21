@@ -2,6 +2,7 @@ const { MessageEmbed, Message } = require('discord.js')
 module.exports = {
     status: true,
     name: 'rule',
+    dm: false,
     description: 'Shows a rule of choice for members',
     usage: 'rule [1-10]',
     category: 'guild',

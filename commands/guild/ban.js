@@ -2,6 +2,7 @@ const { CLient, MessageEmbed } = require('discord.js');
 const { category } = require('./ban');
 module.exports = {
     name: 'ban',
+    dm: false,
     category: 'guild',
     description: 'Bans any mentioned user',
     usage: 'e!ban <@user>',

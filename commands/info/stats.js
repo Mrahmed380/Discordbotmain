@@ -34,7 +34,7 @@ module.exports = {
                 .addField('Total Members', guild.members.cache.filter(member => !member.user.bot).size)
                 .addField('Total Bots', guild.members.cache.filter(member => member.user.bot).size)
                 .addField('Total Channels', guild.channels.cache.size)
-                .addField('Boost', `${message.guild.premiumTier}\n${message.guild.premiumSubscriptionCount}`)
+                .addField('Boost', `Server boost tier: ${message.guild.premiumTier}\nServer boosts: ${message.guild.premiumSubscriptionCount}`)
                 .setDescription(`${guild.roles.cache.map(role => role.toString()).join(' ')}`);
             message.channel.send(GSembed);
 

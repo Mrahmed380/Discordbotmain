@@ -8,6 +8,7 @@ module.exports={
     name: 'warn',
     description: 'Warns a user',
     category: 'guild',
+    dm: false,
     usage: 'e!warn <user> <reason>',
     perms: 'Moderator role',
     run: async(bot,message,args)=>{

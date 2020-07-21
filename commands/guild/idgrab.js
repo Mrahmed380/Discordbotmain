@@ -2,6 +2,7 @@ const { Client , MessageEmbed  } = require('discord.js');
 const config = require('../../config.json')
 module.exports={
     name: 'idgrab',
+    dm: false,
     category: 'guild',
     description: 'resolves a users id',
     usage: 'e!idgrab <user>',

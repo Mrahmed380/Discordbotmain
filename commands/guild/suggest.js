@@ -4,6 +4,7 @@ module.exports = {
     description: 'Makes a suggestion for moderators or admins to consider',
     usage: 'suggest <Your suggestion>',
     perms: 'Send Messages',
+    dm: false,
     timeout: 600000,
     category: 'guild',
     run: async (bot, message, args) => {

@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 module.exports={
     name: 'warns',
     category: 'guild',
+    dm: false,
     description: 'Shows how many warns a user has',
     usage: 'e!warns <@user>',
     perms: 'Send Messages',

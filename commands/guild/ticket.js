@@ -1,6 +1,7 @@
 const { Client , MessageEmbed } = require('discord.js')
 module.exports={
     name: 'ticket',
+    dm: false,
     description: 'Creates a support ticket',
     category: 'guild',
     usage: 'ticket',
