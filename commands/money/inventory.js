@@ -1,7 +1,7 @@
 const moneys = require('../../models/money')
 const { MessageEmbed } = require('discord.js')
 module.exports = {
-    status: false,
+    status: true,
     name: 'inventory',
     description: 'Shows what items you have in your inventory',
     usage: 'inventory [user]',
