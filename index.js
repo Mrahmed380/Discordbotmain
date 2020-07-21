@@ -191,11 +191,7 @@ bot.on('message', async message => {
             if (cmd.length == 0) return;
             const command = bot.commands.get(cmd)
             //if (command) command.run(bot, message, args)
-            let aliases = bot.commands.get(command.aliases)
-            if (aliases) {
-                console.log(command.aliases)
-                console.log('working')
-            }
+            
             if (command) {
                 if (message.content.startsWith(command.aliases)) {
                     console.log(command.aliases)
@@ -223,6 +219,9 @@ bot.on('message', async message => {
                     }
                 }
                 command.run(bot, message, args)
+                if(command.aliases) {
+                    console.log(`${data.prefix}${command.aliases}`)
+                }
             }
         }
     })
