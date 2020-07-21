@@ -213,6 +213,9 @@ bot.on('message', async message => {
                         }, command.timeout);
                     }
                 }
+                if(command.alt && message.content.startsWith(`${data.prefix.length}command.alt`)){
+                    command.run(bot, message, args)
+                }
                 command.run(bot, message, args)
             }
         }
