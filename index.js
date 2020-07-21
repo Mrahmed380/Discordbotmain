@@ -196,11 +196,11 @@ bot.on('message', async message => {
                 console.log(command.aliases)
                 console.log(command.alt)
             }
-            if (message.content.startsWith(command.aliases)) {
+            /*if (message.content.startsWith(command.aliases)) {
                 console.log(aliases)
                 console.log(command.aliases)
                 console.log(command.alt)
-            }
+            }*/
             if (command.status == false) {
                 console.log('command is off')
                 return message.channel.send("This command is currently under maintenance!")
