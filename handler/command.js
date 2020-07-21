@@ -17,7 +17,7 @@ module.exports= bot=>{
                 continue;
             } if(pull.aliases) {
                 bot.aliases.set(pull.aliases, pull)
-                table.addRow(`pull aliases: ${pull}`, pull.aliases)
+                table.addRow(`pull aliases`, pull.aliases)
                 //pull.aliases.forEach(alias => bot.aliases.set(alias, pull.name))
             }
             }

@@ -23,6 +23,7 @@ bot.categories = fs.readdirSync("./commands/");
 })*/
 const moment = require('moment');
 const hb = require('hastebin-generator');
+const { aliases } = require('./commands/money/inventory');
 var twitch = 'Hey, heres a link to ERG//s twitch channel! https://www.twitch.tv/supremeerg'
 var CACC = ' Cracked accounts:https://bit.ly/2XeIOKW'
 var server = 'Hey heres a invite to my recovery server! https://discord.gg/rVFJ3Vg For more details DM ERG#1703'
@@ -190,7 +191,16 @@ bot.on('message', async message => {
             if (cmd.length == 0) return;
             const command = bot.commands.get(cmd)
             //if (command) command.run(bot, message, args)
-            if (command) {
+            if (message.content.startsWith(aliases)) {
+                console.log(aliases)
+                console.log(command.aliases)
+                console.log(command.alt)
+            }
+            if (message.content.startsWith(command.aliases)) {
+                console.log(aliases)
+                console.log(command.aliases)
+                console.log(command.alt)
+            }
                 if (command.status == false) {
                     console.log('command is off')
                     return message.channel.send("This command is currently under maintenance!")
