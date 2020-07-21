@@ -215,7 +215,7 @@ bot.on('message', async message => {
                     }
                 }
                 command.run(bot, message, args)
-                if (message.content.startsWith(command.aliases)) {
+                if (message.content.startsWith(`${data.Prefix}${command.aliases}`)) {
                     console.log(`${data.Prefix}${command.aliases}`)
                     //command.run(bot, message, args)
                 }
