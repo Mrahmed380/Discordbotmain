@@ -8,7 +8,7 @@ module.exports = {
     category: 'money',
     timeout: 5000,
     perms: 'Send Messages',
-    aliases: ['inv', 'inventory'],
+    aliases: ['inv'],
     run: async (bot, message, args) => {
         const Mention = message.mentions.members.first()
         if (Mention) {
