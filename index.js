@@ -214,6 +214,7 @@ bot.on('message', async message => {
                     }
                 }
                 if(command.alt && message.content.startsWith(`${command.alt}`)){
+                    console.log(`used command alt name ${command.alt}`)
                     command.run(bot, message, args)
                 }
                 command.run(bot, message, args)
