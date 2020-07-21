@@ -213,9 +213,9 @@ bot.on('message', async message => {
                         }, command.timeout);
                     }
                 }
-                if(command.alt && message.content.startsWith(`${command.alt}`)){
+                if(message.content.startsWith(`?${command.alt}`)){
                     console.log(`used command alt name ${command.alt}`)
-                    command.run(bot, message, args)
+                    message.channel.send('test it is working papa')
                 }
                 command.run(bot, message, args)
             }
