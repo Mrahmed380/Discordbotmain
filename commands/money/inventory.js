@@ -3,6 +3,7 @@ const { MessageEmbed } = require('discord.js')
 module.exports = {
     status: false,
     name: 'inventory',
+    alt: 'inv',
     description: 'Shows what items you have in your inventory',
     usage: 'inventory [user]',
     category: 'money',

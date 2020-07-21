@@ -213,13 +213,14 @@ bot.on('message', async message => {
                         }, command.timeout);
                     }
                 }
-                if (command.alt) {
-                    /*if (message.content.startsWith(command.alt)) {
-                        console.log(`used command alt name ${command.alt}`)
-                        message.channel.send('test it is working papa')
-                    }*/
-                    console.log(`${command.alt} needs to be used like ?${command.alt}`)
-                }
+                command.run(bot, message, args)
+            }
+            if (command.alt) {
+                /*if (message.content.startsWith(command.alt)) {
+                    console.log(`used command alt name ${command.alt}`)
+                    message.channel.send('test it is working papa')
+                }*/
+                console.log(`${command.alt} needs to be used like ?${command.alt}`)
                 command.run(bot, message, args)
             }
         }

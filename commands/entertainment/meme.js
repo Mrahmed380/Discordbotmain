@@ -2,7 +2,6 @@ const { Client , MessageEmbed } = require('discord.js');
 const api = require('imageapi.js')
 module.exports={
     name: 'meme',
-    alt: 'hush',
     description: 'Sends random reddit memes',
     category: 'entertainment',
     usage: 'meme',
