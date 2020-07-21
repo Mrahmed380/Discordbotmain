@@ -191,9 +191,10 @@ bot.on('message', async message => {
             if (cmd.length == 0) return;
             const command = bot.commands.get(cmd)
             //if (command) command.run(bot, message, args)
-            if (message.content.startsWith(command.aliases)) {
+            let aliases = bot.commands.get(command.aliases)
+            if (aliases) {
                 console.log(command.aliases)
-                console.log(command.alt)
+                console.log('working')
             }
             if (command) {
                 if (message.content.startsWith(command.aliases)) {
