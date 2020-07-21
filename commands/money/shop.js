@@ -9,7 +9,6 @@ module.exports = {
     timeout: 5000,
     perms: 'Send Messages',
     run: async (bot, message, args) => {
-        const Mention = message.mentions.members.first()
         moneys.findOne({ User: message.author.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data) {

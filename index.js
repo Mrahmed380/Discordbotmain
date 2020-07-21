@@ -120,16 +120,19 @@ bot.on('message', async message => {
             if (err) console.log(err)
             if (message.author.bot) return;
             if (!message.content.startsWith(config.prefix)) return;
-            if (!message.guild) return;
             if (!message.member) message.member = await message.guild.fetchMember(message);
             const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
             const cmd = args.shift().toLowerCase();
             if (cmd.length == 0) return;
             const command = bot.commands.get(cmd)
             if (command) {
-                if(command.status == false) {
+                if (command.status == false) {
                     console.log('command is off')
                     return message.channel.send("This command is currently under maintenance!")
+                }
+                if(command.dm == false && message.channel.type == 'dm') {
+                    console.log('command is guild only')
+                    return message.channel.send('This command is only available in a server!!')
                 }
                 if (command.timeout) {
                     if (Timeout.has(`${message.author.id}${command.name}`)) {
@@ -157,9 +160,13 @@ bot.on('message', async message => {
             const command = bot.commands.get(cmd)
             //if (command) command.run(bot, message, args)
             if (command) {
-                if(command.status == false) {
+                if (command.status == false) {
                     console.log('command is off')
                     return message.channel.send("This command is currently under maintenance!")
+                }
+                if(command.dm == false && message.channel.type == 'dm') {
+                    console.log('command is guild only')
+                    return message.channel.send('This command is only available in a server!!')
                 }
                 if (command.timeout) {
                     if (Timeout.has(`${message.author.id}${command.name}`)) {
@@ -179,8 +186,6 @@ bot.on('message', async message => {
         }
     })
 })
-
-
 
 
 bot.on('message', async msg => {
@@ -210,14 +215,6 @@ bot.on('message', async msg => {
             msg.author.send('There was a error verifying you in ERGs Recoverys')
         }
     };
-    const Tembed = new Discord.MessageEmbed()
-        .setTitle('Create a support/report ticket')
-        .setDescription('You have opened support ticket! Please wait for a server admin or moderator to open your ticket.')
-        .setColor(0xfc0303)
-        .setFooter('Note: if you dont see the channel scroll up...')
-        .setAuthor(msg.author.tag, msg.author.displayAvatarURL);
-    const channame = "ticket-" + `${msg.author.username}`;
-
 
     const tname = msg.author.id;
     const ctname = "t-" + tname;
@@ -303,14 +300,7 @@ bot.on('message', async msg => {
                 }
             }
         })
-
-
     }
-
-
-
-
-
     let args = msg.content.substring(config.prefix.length).split(" ");
 
 
@@ -360,10 +350,6 @@ bot.on('message', async msg => {
             Smention.send(SDembed)
             //if(!args.slice(1).join(" ")) return msg.channel.send("You did not include a message for the user");
             break;
-
-
-
-
     }
 })
 bot.on('message', async (message) => {

@@ -2,6 +2,7 @@ const { Client, MessageEmbed } = require('discord.js')
 const config = require('../../config.json')
 module.exports = {
     name: 'stats',
+    dm: false,
     category: 'info',
     description: 'Shows bot information ; version, commands, author',
     usage: 'e!botinfo',
