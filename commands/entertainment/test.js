@@ -1,6 +1,6 @@
 const married = require('../../models/marry')
 module.exports = {
-    divorce: 'divorce',
+    name: 'divorce',
     description: 'divorce some random bum',
     usage: 'divorce',
     dm: false,
