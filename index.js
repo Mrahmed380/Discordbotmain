@@ -135,7 +135,7 @@ bot.on('message', async message => {
             }
             if (command.timeout) {
                 let cooldown = used.get((message.author.id),(command.name))
-                let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm'], round: true})
+                let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true})
                 if (cooldown) {
                     console.log(`User is in timeout ${used.values}, ${used.size}, ${used.keys.name}, ${used.keys.toString.name}`)
                     console.log(command.name)
@@ -173,7 +173,7 @@ bot.on('message', async message => {
                 }
                 if (command.timeout) {
                     let cooldown = used.get((message.author.id),(command.name))
-                    let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm'], round: true})
+                    let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true})
                     if (cooldown) {
                         console.log(`User is in timeout ${used.values}, ${used.size}, ${used.keys.name}, ${used.keys.toString.name}`)
                         console.log(command.name)
