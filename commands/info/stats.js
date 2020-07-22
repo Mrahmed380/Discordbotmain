@@ -19,10 +19,9 @@ module.exports = {
                 .setThumbnail(memberM.user.displayAvatarURL({ dynamic: true }))
                 .addField('Created on', memberM.user.createdAt.toLocaleString(), true)
                 .addField('Joined Server on', memberM.joinedAt.toLocaleString(), true)
-                .addField('Activity', memberM.presence.activities[0])
+                .addField('Activity', memberM.presence.activities[0].state)
                 .addField('Player is Kickable', memberM.kickable, false)
                 .addField('Player is Banable', memberM.bannable, false)
-                .addField('Prescence', memberM.presence.status, false)
                 .setDescription(`${memberM.roles.cache.map(role => role.toString()).join(' ')}`)
             message.channel.send(STembed);
             if(memberM.presence.status !== 'dnd') {
