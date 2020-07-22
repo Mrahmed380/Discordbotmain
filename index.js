@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://SupremeERG:Ethang0508@supremeerg-tcd25.mongodb.net/Data?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
 });
