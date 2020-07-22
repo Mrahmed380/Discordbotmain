@@ -16,6 +16,7 @@ module.exports = {
                 console.log(`${message.author.username} has no coins to gamble`)
             } else {
                 if(amt > data.Money) return message.channel.send(`You dont even have this many coins you can only gamble $${data.Money}`)
+                message.channel.send('***`test good job you just gambled :)`***')
             }
         }
     }
