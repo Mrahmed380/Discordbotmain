@@ -209,7 +209,7 @@ bot.on('message', async message => {
                     return message.channel.send('This command is only available in a server!!')
                 }
                 if (command.timeout) {
-                    let cooldown = used.get(message.author.id,command.name)
+                    let cooldown = used.get((message.author.id),(command.name))
                     let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm'], round: true})
                     if (cooldown) {
                         console.log(`User is in timeout ${command.name}`)
