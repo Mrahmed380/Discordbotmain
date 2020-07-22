@@ -31,7 +31,7 @@ var binv = 'https://discord.com/api/oauth2/authorize?client_id=71042033550950401
 
 
 bot.on('ready', () => {
-    console.log('This bot is online!');
+    console.log(`${bot.user.username} is online!`);
     bot.user.setActivity('e!botinfo ', { type: "STREAMING", url: "https://twitch.tv/supremeerg" });
 })
 
