@@ -16,7 +16,7 @@ module.exports = {
             const memberM = message.mentions.members.first();
             const STembed = new MessageEmbed()
                 .setAuthor(`${memberM.user.tag} (${memberM.id})`, memberM.user.displayAvatarURL())
-                .setThumbnail(memberM.user.displayAvatarURL())
+                .setThumbnail(memberM.user.displayAvatarURL({ dynamic: true }))
                 .addField('Created on', memberM.user.createdAt.toLocaleString(), true)
                 .addField('Joined Server on', memberM.joinedAt, true)
                 .addField('Player is Kickable', memberM.kickable, false)

@@ -8,7 +8,7 @@ module.exports = {
     perms: 'Send Messages',
     run: async (bot, message, args) => {
         const ID = message.content.slice(7);
-        if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You dont have permission to unban people!')
+        if (!message.member.roles.cache.has('713914961285349397')) return message.channel.send('You dont have permission to unban people!')
         else {
             const ID = args[0]
             if(!ID) return message.channel.send("***Give me the fucking id or else***")
