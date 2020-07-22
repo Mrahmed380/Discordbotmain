@@ -34,7 +34,7 @@ module.exports = {
         } else {
             const { guild } = message;
             const GSembed = new MessageEmbed()
-                .setAuthor(`${guild.name} (${guild.id})`, guild.iconURL({ dyname: true }))
+                .setAuthor(`${guild.name} (${guild.id})`, guild.iconURL({ dynamic: true }))
                 .setThumbnail(guild.iconURL())
                 .addField('Created on', guild.createdAt.toLocaleString(), true)
                 .addField('Guild Owner', guild.owner.user.tag)
