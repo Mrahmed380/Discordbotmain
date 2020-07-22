@@ -22,7 +22,9 @@ module.exports = {
                 .addField('Player is Kickable', memberM.kickable, false)
                 .addField('Player is Banable', memberM.bannable, false)
                 .setDescription(`${memberM.roles.cache.map(role => role.toString()).join(' ')}`)
-            if (memberM.presence.activities[0]) {
+            if (memberM.presence.activities[0].state === null) {
+                STembed.addField('Status', "None")
+            } else {
                 STembed.addField('Status', memberM.presence.activities[0].state)
             }
             if(memberM.nickname == null) {
