@@ -4,11 +4,11 @@ module.exports = {
     name: 'beg',
     description: 'Gives a random amount of money',
     usage: 'beg',
-    timeout: 300000,
+    timeout: 25000,
     category: 'money',
     perms: 'Send Messages',
     run: async (bot, message, args) => {
-        const newBeg = (Math.random() * 1500);
+        const newBeg = (Math.random() * 600);
         //**Recovery servant just gave 
         moneys.findOne({ User: message.author.id }, async (err, data) => {
             if (err) console.log(err)

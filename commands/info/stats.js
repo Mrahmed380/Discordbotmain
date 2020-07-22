@@ -25,6 +25,11 @@ module.exports = {
             if (memberM.presence.activities[0]) {
                 STembed.addField('Status', memberM.presence.activities[0].state)
             }
+            if(memberM.nickname == null) {
+                STembed.addField('Nickname', "None")
+            } else {
+                STembed.addField('Nickname', memberM.nickname)
+            }
             if (memberM.presence.status !== 'dnd') {
                 STembed.addField('Presence', capitalizeFirstLetter(memberM.presence.status))
             } else {
