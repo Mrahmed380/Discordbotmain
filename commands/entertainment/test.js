@@ -9,8 +9,9 @@ module.exports = {
 
     run: async (client, message, args) => {
         const mention = message.mentions.members.first();
-        const filter = m => m.author.id === message.author.id || m.id === mention.id;
+        const filter = m => m.author.id === mention.id;
         if(!mention) return message.channel.send('Who do you want to marry ' + message.author.username + '?')
+        message.channel.send(`${mention} do you take ${message.author} as your husband? "i do" to accept and "i dont" to decline`)
         const answer = 'i do' || 'i dont';
         message.channel.awaitMessages(filter, {
             max: 1,
@@ -29,6 +30,7 @@ module.exports = {
                         user2: mention.id
                     });
                     newmarriage.save();
+                    message.channel.send(`**You just married ${mention}\nAnd you will have no kids :)`)
                 }
                 else {
                     console.log(data);
