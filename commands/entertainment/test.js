@@ -9,6 +9,7 @@ module.exports = {
 
     run: async (client, message, args) => {
         const mention = message.mentions.members.first();
+        const filter = m => m.author.id === message.author.id || m.id === mention.id;
         if(!mention) return message.channel.send('Who do you want to marry ' + message.author.username + '?')
         const answer = 'i do' || 'i dont';
         message.channel.awaitMessages(filter, {
