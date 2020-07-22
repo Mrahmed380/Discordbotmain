@@ -23,10 +23,10 @@ module.exports = {
                 .addField('Player is Kickable', memberM.kickable, false)
                 .addField('Player is Banable', memberM.bannable, false)
                 .setDescription(`${memberM.roles.cache.map(role => role.toString()).join(' ')}`)
+                if(memberM.presence.status !== 'dnd') {
+                    STembed.addField('Status', memberM.presence.status)
+                } else { STembed.addField('Status', "Do not Disturb")}
             message.channel.send(STembed);
-            if(memberM.presence.status !== 'dnd') {
-                STembed.addField('Status', memberM.presence.status)
-            } else { STembed.addField('Status', "Do not Disturb")}
         } else {
             const { guild } = message;
             const GSembed = new MessageEmbed()
