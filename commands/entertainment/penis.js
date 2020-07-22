@@ -5,6 +5,7 @@ module.exports={
     description: 'shows how big a user\'s dick is',
     usage: 'penis [@user]',
     perms: 'Send Messages',
+    timeout: 3000,
     run: async (bot,message,args)=>{
         let peen = [
             "8=D",
