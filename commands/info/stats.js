@@ -35,7 +35,7 @@ module.exports = {
             const { guild } = message;
             const GSembed = new MessageEmbed()
                 .setAuthor(`${guild.name} (${guild.id})`, guild.iconURL({ dynamic: true }))
-                .setThumbnail(guild.iconURL())
+                .setThumbnail(guild.iconURL({ dynamic: true }))
                 .addField('Created on', guild.createdAt.toLocaleString(), true)
                 .addField('Guild Owner', guild.owner.user.tag)
                 .addField('Total Members', guild.members.cache.filter(member => !member.user.bot).size)
