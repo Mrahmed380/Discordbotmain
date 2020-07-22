@@ -25,11 +25,6 @@ module.exports = bot => {
                 //pull.aliases.forEach(alias => bot.aliases.set(alias, pull.name))
             }
         }
+        console.log(table.toString());
     });
-    if (message.content.includes(command.aliases)) {
-        command.run(bot, message, args)
-        console.log(command.aliases)
-    }
-    console.log(table.toString());
 }
-
