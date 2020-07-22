@@ -23,9 +23,14 @@ module.exports = {
                 .addField('Player is Kickable', memberM.kickable, false)
                 .addField('Player is Banable', memberM.bannable, false)
                 .setDescription(`${memberM.roles.cache.map(role => role.toString()).join(' ')}`)
-                if(memberM.presence.status !== 'dnd') {
-                    STembed.addField('Status', memberM.presence.status)
-                } else { STembed.addField('Status', "Do not Disturb")}
+            if (memberM.presence.activities[0].state) {
+                STembed.addField('Activity', memberM.presence.activities[0].state)
+            }
+            if (memberM.presence.status !== 'dnd') {
+                STembed.addField('Status', capitalizeFirstLetter(memberM.presence.status))
+            } else {
+                STembed.addField('Status', "Do not Disturb")
+            }
             message.channel.send(STembed);
         } else {
             const { guild } = message;
