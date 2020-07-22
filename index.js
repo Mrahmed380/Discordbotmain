@@ -214,7 +214,7 @@ bot.on('message', async message => {
                     let cooldown = used.get(`${message.author.id}${command.name}`)
                     let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true})
                     if (cooldown) {
-                        console.log(`User is in timeout ${used.values.toString}, ${used.size}, ${used.keys.name}, ${used.keys.toString.length}, ${used.forEach.name}, ${used.entries}`)
+                        console.log(`User is in timeout ${command.name}`)
                         console.log(command.name)
                         return message.reply(`You need to wait ${remaining}!`)
                     } else {
