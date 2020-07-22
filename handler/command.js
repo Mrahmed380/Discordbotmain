@@ -2,6 +2,7 @@ const { readdirSync } = require('fs');
 const ascii = require('ascii-table');
 const { dirname } = require('path');
 const { Message } = require('discord.js');
+const { aliases } = require('../commands/money/inventory');
 let table = new ascii("commands");
 table.setHeading('command', 'Load status');
 module.exports = bot => {
@@ -15,12 +16,8 @@ module.exports = bot => {
             } else {
                 table.addRow(file, `failed missing a help.name or help.name is not a string`)
                 continue;
-            } if (pull.aliases) {
-                bot.aliases.set(pull.aliases, pull)
-                table.addRow(`pull aliases`, pull.aliases)
-                //pull.aliases.forEach(alias => bot.aliases.set(alias, pull.name))
-            }
+            } if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach(alias => bot.aliases.set(alias, pull.name))
         }
-        console.log(table.toString());
     });
+    console.log(table.toString());
 }
