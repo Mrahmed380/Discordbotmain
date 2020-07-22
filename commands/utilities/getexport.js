@@ -3,6 +3,7 @@ const servers = require('../../models/export')
 module.exports = {
     status: false,
     name: 'getexport',
+    dm: false,
     description: 'Shows all the server info',
     category: 'utilities',
     usage: 'getexport',

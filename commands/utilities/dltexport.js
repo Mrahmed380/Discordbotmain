@@ -3,6 +3,7 @@ const servers = require('../../models/export')
 module.exports = {
     status: false,
     name: 'dltexport',
+    dm: false,
     description: 'Deletes the server info out of database',
     category: 'utilities',
     usage: 'dltexport',

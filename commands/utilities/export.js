@@ -6,6 +6,7 @@ dformat = [d.getMonth()+1,
        d.getFullYear()].join('/')+' ';
 module.exports = {
     status: false,
+    dm: false,
     name: 'export',
     description: 'Exports all the server info to a document',
     category: 'utilities',

@@ -5,6 +5,7 @@ module.exports = {
     name: 'prefix',
     description: 'Changes the bot prefix',
     usage: `prefix`,
+    dm: false,
     category: 'utilities',
     timeout: 45000,
     perms: `Send Messages`,
