@@ -6,7 +6,6 @@ module.exports = {
     description: 'Shows the shop',
     usage: 'shop',
     category: 'money',
-    timeout: 5000,
     perms: 'Send Messages',
     run: async (bot, message, args) => {
         moneys.findOne({ User: message.author.id }, async (err, data) => {

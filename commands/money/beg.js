@@ -4,7 +4,7 @@ module.exports = {
     name: 'beg',
     description: 'Gives a random amount of money',
     usage: 'beg',
-    timeout: 600000,
+    timeout: 300000,
     category: 'money',
     perms: 'Send Messages',
     run: async (bot, message, args) => {
@@ -30,9 +30,9 @@ module.exports = {
                 newMoney.save()
                 console.log(`New money created Could not console log for dumb reason idk`)
                 const embed = new MessageEmbed()
-                .setTitle('Coins')
-                .setDescription(`**Recovery Servant just gave you $${Math.round(newBeg)}**`)
-                .setColor('RANDOM')
+                    .setTitle('Coins')
+                    .setDescription(`**Recovery Servant just gave you $${Math.round(newBeg)}**`)
+                    .setColor('RANDOM')
                 message.channel.send(embed)
             } else {
                 console.log(data)

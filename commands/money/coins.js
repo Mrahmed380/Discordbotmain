@@ -5,7 +5,6 @@ module.exports = {
     description: 'Shows how many coins you have',
     usage: 'coins [user]',
     category: 'money',
-    timeout: 5000,
     perms: 'Send Messages',
     run: async (bot, message, args) => {
         const Mention = message.mentions.members.first()
