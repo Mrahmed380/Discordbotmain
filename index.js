@@ -221,7 +221,7 @@ bot.on('message', async message => {
                         console.log("put in time out")
                         used.set(`${message.author.id}${command.name}`, Date.now() + command.timeout)
                         setTimeout(() => {
-                            used.delete((message.author.id),(command.name))
+                            used.delete(`${message.author.id}${command.name}`)
                             console.log('deleted out of timeout')
                         }, command.timeout);
                     }
