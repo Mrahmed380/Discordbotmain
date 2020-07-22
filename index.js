@@ -139,7 +139,7 @@ bot.on('message', async message => {
                 if (cooldown) {
                     console.log(`User is in timeout ${used.values}, ${used.size}, ${used.keys.name}, ${used.keys.toString.name}`)
                     console.log(command.name)
-                    return message.reply(`You need to wait ${remaining}!`)
+                    return message.reply(`you need to wait ***\`${remaining}!\`***`)
                 } else {
                     console.log("put in time out")
                     used.set(message.author.id, Date.now() + command.timeout,command.name)
@@ -177,7 +177,7 @@ bot.on('message', async message => {
                     if (cooldown) {
                         console.log(`User is in timeout ${used.values}, ${used.size}, ${used.keys.name}, ${used.keys.toString.name}`)
                         console.log(command.name)
-                        return message.reply(`You need to wait ${remaining}!`)
+                        return message.reply(`you need to wait ***\`${remaining}!\`***`)
                     } else {
                         console.log("put in time out")
                         used.set(message.author.id, Date.now() + command.timeout,command.name)
@@ -216,7 +216,7 @@ bot.on('message', async message => {
                     if (cooldown) {
                         console.log(`User is in timeout ${command.name}`)
                         console.log(command.name)
-                        return message.reply(`You need to wait ${remaining}!`)
+                        return message.reply(`you need to wait ***\`${remaining}!\`***`)
                     } else {
                         console.log("put in time out")
                         used.set(`${message.author.id}${command.name}`, Date.now() + command.timeout)
