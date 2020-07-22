@@ -214,9 +214,10 @@ bot.on('message', async message => {
                         message.reply(`You need to wait ${remaining}!`)
                     } else {
                         console.log("put in time out")
-                        used.set(message.author.id, Date.now() + 1000 * 60 * 60 * 24,command.name)
+                        used.set(message.author.id, Date.now() + command.timeout,command.name)
                         setTimeout(() => {
                             used.delete((message.author.id),(command.name))
+                            console.log('deleted out of timeout')
                         }, command.timeout);
                     }
                 }
