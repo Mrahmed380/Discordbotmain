@@ -3,6 +3,7 @@ mongoose.connect(process.env.MONGODB_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
 });
+mongoose.connection.once('Connection', console.log('connected to mongodb'))
 const config = require('./config.json')
 const Discord = require('discord.js');
 const bot = new Discord.Client();
