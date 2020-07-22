@@ -1,6 +1,5 @@
 const ms = require('ms')
 const moneys = require('../../models/money')
-let cd = 8.64e+7;
 const { MessageEmbed } = require('discord.js')
 module.exports = {
     name: 'daily',
@@ -8,7 +7,7 @@ module.exports = {
     usage: 'daily',
     category: 'money',
     dm: false,
-    timeout: cd,
+    timeout: 8.64e+7,
     perms: 'Send Messages',
     run: async (bot, message, args) => {
         moneys.findOne({ User: message.author.id }, async (err, data) => {
