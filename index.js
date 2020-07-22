@@ -3,9 +3,9 @@ mongoose.connect(process.env.MONGODB_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
 });
-mongoose.connection.once('open',function(){
+mongoose.connection.once('open', function () {
     console.log('connected to mongodb')
-}).on('error',function(){
+}).on('error', function () {
     console.log("couldnt connect to mongodb")
 });
 const config = require('./config.json')
@@ -28,7 +28,6 @@ bot.categories = fs.readdirSync("./commands/");
 })*/
 const moment = require('moment');
 const hb = require('hastebin-generator');
-const { aliases } = require('./commands/money/inventory');
 var twitch = 'Hey, heres a link to ERG//s twitch channel! https://www.twitch.tv/supremeerg'
 var CACC = ' Cracked accounts:https://bit.ly/2XeIOKW'
 var server = 'Hey heres a invite to my recovery server! https://discord.gg/rVFJ3Vg For more details DM ERG#1703'
@@ -140,7 +139,7 @@ bot.on('message', async message => {
             }
             if (command.timeout) {
                 let cooldown = used.get(`${message.author.id}${command.name}`)
-                let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true})
+                let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true })
                 if (cooldown) {
                     console.log(`User is in timeout ${command.name}`)
                     console.log(command.name)
@@ -178,7 +177,7 @@ bot.on('message', async message => {
                 }
                 if (command.timeout) {
                     let cooldown = used.get(`${message.author.id}${command.name}`)
-                    let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true})
+                    let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true })
                     if (cooldown) {
                         console.log(`User is in timeout ${command.name}`)
                         console.log(command.name)
@@ -217,7 +216,7 @@ bot.on('message', async message => {
                 }
                 if (command.timeout) {
                     let cooldown = used.get(`${message.author.id}${command.name}`)
-                    let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true})
+                    let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true })
                     if (cooldown) {
                         console.log(`User is in timeout ${command.name}`)
                         console.log(command.name)
