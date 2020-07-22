@@ -1,6 +1,7 @@
 const ms = require('ms')
 const moneys = require('../../models/money')
 let cd = 8.64e+7;
+const { MessageEmbed } = require('discord.js')
 module.exports = {
     name: 'daily',
     description: 'Gives 1000 every 24 hrs',
