@@ -138,7 +138,7 @@ bot.on('message', async message => {
                 let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm'], round: true})
                 if (cooldown) {
                     console.log(`User is in timeout ${command.name}`)
-                    return message.reply(`You need to wait ${remaining}!`)
+                    message.reply(`You need to wait ${remaining}!`)
                 } else {
                     console.log("put in time out")
                     used.set(`${message.author.id}, ${Date.now() + 1000 * 60 * 60 * 24},${command.name}`)
@@ -170,14 +170,16 @@ bot.on('message', async message => {
                     return message.channel.send('This command is only available in a server!!')
                 }
                 if (command.timeout) {
-                    if (Timeout.has(`${message.author.id}${command.name}`)) {
-                        console.log(`User put in time out for ${command.name}`)
-                        return message.reply(`You can only use this command  every ${ms(command.timeout)}\n *every time you use the command before the timer ends it resets*!`)
+                    let cooldown = used.get(`${message.author.id}${command.name}`)
+                    let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm'], round: true})
+                    if (cooldown) {
+                        console.log(`User is in timeout ${command.name}`)
+                        message.reply(`You need to wait ${remaining}!`)
                     } else {
                         console.log("put in time out")
-                        Timeout.add(`${message.author.id}${command.name}`)
+                        used.set(`${message.author.id}, ${Date.now() + 1000 * 60 * 60 * 24},${command.name}`)
                         setTimeout(() => {
-                            Timeout.delete(`${message.author.id}${command.name}`)
+                            used.delete((message.author.id),(command.name))
                         }, command.timeout);
                     }
                 }
@@ -205,15 +207,16 @@ bot.on('message', async message => {
                     return message.channel.send('This command is only available in a server!!')
                 }
                 if (command.timeout) {
-                    if (Timeout.has(`${message.author.id}${command.name}`)) {
-                        console.log(`User put in time out for ${command.name}`)
-                        return message.reply(`You can only use this command  every ${ms(command.timeout)}\n *every time you use the command before the timer ends it resets*!`)
+                    let cooldown = used.get(`${message.author.id}${command.name}`)
+                    let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm'], round: true})
+                    if (cooldown) {
+                        console.log(`User is in timeout ${command.name}`)
+                        message.reply(`You need to wait ${remaining}!`)
                     } else {
                         console.log("put in time out")
-                        Timeout.add(`${message.author.id}${command.name}`)
+                        used.set(`${message.author.id}, ${Date.now() + 1000 * 60 * 60 * 24},${command.name}`)
                         setTimeout(() => {
-                            Timeout.delete(`${message.author.id}${command.name}`)
-                            console.log(`${message.author.id} was removed from timeout command name: ${command.name}`)
+                            used.delete((message.author.id),(command.name))
                         }, command.timeout);
                     }
                 }
