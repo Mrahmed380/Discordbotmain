@@ -4,10 +4,6 @@ const { dirname } = require('path');
 const { Message } = require('discord.js');
 let table = new ascii("commands");
 table.setHeading('command', 'Load status');
-const args = message.content.slice(data.Prefix.length).trim().split(/ +/g);
-const cmd = args.shift().toLowerCase();
-if (cmd.length == 0) return;
-const command = bot.commands.get(cmd)
 module.exports = bot => {
     readdirSync('./commands/').forEach(dir => {
         const commands = readdirSync(`./commands/${dir}/`).filter(file => file.endsWith('.js'));
