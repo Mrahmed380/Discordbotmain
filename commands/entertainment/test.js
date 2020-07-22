@@ -10,19 +10,19 @@ module.exports = {
     run: async (client, message, args) => {
         const mention = message.mentions.members.first();
         const filter = m => m.author.id === mention.id;
-        if(!mention) return message.channel.send('Who do you want to marry ' + message.author.username + '?')
+        if (!mention) return message.channel.send('Who do you want to marry ' + message.author.username + '?')
         message.channel.send(`${mention} do you take ${message.author} as your husband? "i do" to accept and "i dont" to decline`)
         const answer = 'i do' || 'i dont';
-        message.channel.awaitMessages(filter, {
-            max: 1,
-            time: 10000
-        }).then(collected => {
-            if (collected.first().content === "i dont") return message.channel.send('ok canceled')
-            if (collected.first().content !== answer) return message.channel.send('thats not one of the options ***goofy fucking goober***')
-            if (collected.first().content == "i do") message.channel.send('Ok starting the server cannon...').then(r => r.delete({ timeout: 5000 }))
-            married.findOne({ User: message.author.id }, async (err, data) => {
-                if (err) console.log(err);
-                if (!data) {
+        married.findOne({ User: message.author.id }, async (err, data) => {
+            if (err) console.log(err);
+            if (!data) {
+                message.channel.awaitMessages(filter, {
+                    max: 1,
+                    time: 10000
+                }).then(collected => {
+                    if (collected.first().content === "i dont") return message.channel.send('ok canceled')
+                    if (collected.first().content !== answer) return message.channel.send('thats not one of the options ***goofy fucking goober***')
+                    if (collected.first().content == "i do") message.channel.send('Ok yall married now get the fuck on wit yo raggedy ass...')
                     const newmarriage = new married({
                         couple: `${message.author} + ${Mention}`,
                         adopted: 'Lonely',
@@ -30,19 +30,20 @@ module.exports = {
                         user2: mention.id
                     });
                     newmarriage.save();
+                    console.log('ok')
                     message.channel.send(`**You just married ${mention}\nAnd you will have no kids :)`)
-                }
-                else {
-                    console.log(data);
+                })
+            }
+            else {
+                console.log(data);
 
-                    const WWembed = new MessageEmbed()
-                        .setTitle('r')
-                        .setDescription('d')
-                        .setColor('d');
-                    message.channel.send(WWembed);
-                }
-            });
+                const WWembed = new MessageEmbed()
+                    .setTitle('r')
+                    .setDescription('d')
+                    .setColor('d');
+                message.channel.send(WWembed);
+            }
+        });
 
-        })
     }
 }
