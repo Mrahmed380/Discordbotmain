@@ -11,11 +11,11 @@ module.exports = {
         const mention = message.mentions.members.first();
         const filter = m => m.author.id === mention.id;
         if (!mention) return message.channel.send('Who do you want to marry ' + message.author.username + '?')
-        message.channel.send(`${mention} do you take ${message.author} as your husband? "i do" to accept and "i dont" to decline`)
         const answer = 'i do' || 'i dont';
         married.findOne({ user: message.author.id }, async (err, data) => {
             if (err) console.log(err);
             if (!data) {
+                message.channel.send(`${mention} do you take ${message.author} as your husband? "i do" to accept and "i dont" to decline`)
                 message.channel.awaitMessages(filter, {
                     max: 1,
                     time: 10000
