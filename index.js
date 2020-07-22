@@ -313,6 +313,7 @@ bot.on('message', async msg => {
                     .setThumbnail(msg.author.displayAvatarURL())
                     .setFooter("Warning " + Math.floor(Math.random() * 0 + 1) + "/3");
                 msg.channel.send(SWembed)
+                console.log(msg)
             } else {
                 const SWembed = new Discord.MessageEmbed()
                     .setTitle('Racial slurs are not allowed!')
@@ -327,6 +328,7 @@ bot.on('message', async msg => {
                 })
                 data.save()
                 console.log(data.Warns)
+                console.log(msg)
                 if (data.Warns.length >= 3) {
                     const mention = msg.mentions.members.first()
                     msg.channel.send(`${msg.author} received 3 warnings or more, banned and has been deleted from the database`)
