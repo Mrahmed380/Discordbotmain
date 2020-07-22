@@ -18,7 +18,7 @@ module.exports = {
                 .setAuthor(`${memberM.user.tag} (${memberM.id})`, memberM.user.displayAvatarURL())
                 .setThumbnail(memberM.user.displayAvatarURL({ dynamic: true }))
                 .addField('Created on', memberM.user.createdAt.toLocaleString(), true)
-                .addField('Joined Server on', memberM.joinedAt, true)
+                .addField('Joined Server on', memberM.joinedAt.toLocaleString(), true)
                 .addField('Player is Kickable', memberM.kickable, false)
                 .addField('Player is Banable', memberM.bannable, false)
                 .addField('Prescence', memberM.presence.status, false)
