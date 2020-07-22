@@ -15,6 +15,7 @@
     "common-tags": "^1.8.0",
     "discord.js": "^12.2.0",
     "hastebin-generator": "^1.1.4",
+    "humanize-duration": "^3.23.1",
     "imageapi.js": "^1.0.4",
     "moment": "^2.27.0",
     "mongoose": "^5.9.20",
