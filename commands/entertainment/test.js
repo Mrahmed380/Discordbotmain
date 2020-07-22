@@ -13,18 +13,18 @@ module.exports = {
         if (!mention) return message.channel.send('Who do you want to marry ' + message.author.username + '?')
         message.channel.send(`${mention} do you take ${message.author} as your husband? "i do" to accept and "i dont" to decline`)
         const answer = 'i do' || 'i dont';
-        married.findOne({ User: message.author.id }, async (err, data) => {
+        married.findOne({ user: message.author.id }, async (err, data) => {
             if (err) console.log(err);
             if (!data) {
                 message.channel.awaitMessages(filter, {
                     max: 1,
                     time: 10000
                 }).then(collected => {
-                    if (collected.first().content === "i dont") return message.channel.send('ok canceled')
+                    if (collected.first().content === "i dont") return message.channel.send('ok canceled').catch(err => message.channel.send('ok since you dont want to answer i cancelled have a good weekend :)'))
                     if (collected.first().content !== answer) return message.channel.send('thats not one of the options ***goofy fucking goober***')
                     if (collected.first().content == "i do") message.channel.send('Ok yall married now get the fuck on wit yo raggedy ass...')
                     const newmarriage = new married({
-                        couple: `${message.author} + ${mention}`,
+                        couple: `${message.author.id} + ${mention.id}`,
                         adopted: 'Lonely',
                         user: message.author.id,
                         user2: mention.id
@@ -36,11 +36,7 @@ module.exports = {
             }
             else {
                 console.log(data);
-
-                const WWembed = new MessageEmbed()
-                    .setTitle('r')
-                    .setDescription('d')
-                    .setColor('d');
+                message.channel.send('bruh you already married :(')
                 message.channel.send(WWembed);
             }
         });
