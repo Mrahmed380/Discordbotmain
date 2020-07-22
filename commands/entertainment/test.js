@@ -24,7 +24,7 @@ module.exports = {
                     if (collected.first().content !== answer) return message.channel.send('thats not one of the options ***goofy fucking goober***')
                     if (collected.first().content == "i do") message.channel.send('Ok yall married now get the fuck on wit yo raggedy ass...')
                     const newmarriage = new married({
-                        couple: `${message.author} + ${Mention}`,
+                        couple: `${message.author} + ${mention}`,
                         adopted: 'Lonely',
                         user: message.author.id,
                         user2: mention.id
