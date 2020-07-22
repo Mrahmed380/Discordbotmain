@@ -134,10 +134,11 @@ bot.on('message', async message => {
                 return message.channel.send('This command is only available in a server!!')
             }
             if (command.timeout) {
-                let cooldown = used.get(message.author.id,command.name)
+                let cooldown = used.get((message.author.id),(command.name))
                 let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm'], round: true})
                 if (cooldown) {
-                    console.log(`User is in timeout ${command.name}`)
+                    console.log(`User is in timeout ${used}`)
+                    console.log(command.name)
                     return message.reply(`You need to wait ${remaining}!`)
                 } else {
                     console.log("put in time out")
@@ -171,10 +172,11 @@ bot.on('message', async message => {
                     return message.channel.send('This command is only available in a server!!')
                 }
                 if (command.timeout) {
-                    let cooldown = used.get(message.author.id,command.name)
+                    let cooldown = used.get((message.author.id),(command.name))
                     let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm'], round: true})
                     if (cooldown) {
-                        console.log(`User is in timeout ${command.name}`)
+                        console.log(`User is in timeout ${used}`)
+                        console.log(command.name)
                         return message.reply(`You need to wait ${remaining}!`)
                     } else {
                         console.log("put in time out")
@@ -212,7 +214,8 @@ bot.on('message', async message => {
                     let cooldown = used.get((message.author.id),(command.name))
                     let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm'], round: true})
                     if (cooldown) {
-                        console.log(`User is in timeout ${command.name}`)
+                        console.log(`User is in timeout ${used}`)
+                        console.log(command.name)
                         return message.reply(`You need to wait ${remaining}!`)
                     } else {
                         console.log("put in time out")
