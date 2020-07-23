@@ -66,7 +66,7 @@ module.exports = {
                 })
                 data.passive = Switch;
                 data.save();
-                message.channel.send(data.passive)
+                message.channel.send(`Your new setting: ${data.passive}`)
             }
         })
     }
