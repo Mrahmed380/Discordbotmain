@@ -17,7 +17,7 @@ module.exports = {
                 message.channel.send("You have no coins or a bank account use the coin command to make a coin account!")
                 console.log(`${message.author.username} has no coins to gamble`)
             } else {
-                if(amt !== Math.floor(amt)) return message.channels.send('You can only gamble whole numbers');
+                if(amt !== Math.floor(amt)) return message.channel.send('You can only gamble whole numbers');
                 let chances = ["win", "lose"]
                 const pick = chances[Math.floor(Math.random() * chances)];
                 let newMoney = Math.random() * amt;
