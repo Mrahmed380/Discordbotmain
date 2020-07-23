@@ -26,12 +26,12 @@ module.exports = {
                     data.Money -= newMoney
                     data.save();
                     console.log(`${pick} - ${newMoney}`)
+                    message.channel.send(`You tryed to finesse but ended up losing and getting your ass beat at a casino causing you to lose ***\`${newMoney}\`***, you now have ***\`${data.Money}\`***`)
                 } else {
-                    const oldMon = data.Money;
                     data.Money += newMoney;
                     data.save();
                     console.log(`${pick} - ${newMoney}`)
-                    message.channel.send(`Congradulations you won ${newMoney}, you now have ${data.Money}`)
+                    message.channel.send(`Congradulations you won ***\`${newMoney}\`***, you now have ***\`${data.Money}\`***`)
                 } 
                 console.log(data)
             }
