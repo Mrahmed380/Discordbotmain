@@ -7,7 +7,7 @@ module.exports = {
     perms: 'Send Messages',
     category: 'money',
     dm: true,
-    timeout: 3.6e+6,
+    //timeout: 3.6e+6,
     run: async (bot, message, args) => {
         let settings = new MessageEmbed()
             .setTitle("Available settings")
