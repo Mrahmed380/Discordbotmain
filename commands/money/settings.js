@@ -25,6 +25,7 @@ module.exports = {
             if (!data) {
                 if (sett == "passive" && Switch == "true") {
                     let newSetting = new money({
+                        User: message.author.id,
                         Money: 0,
                         Purchases: 0,
                         inventory: {
@@ -36,13 +37,13 @@ module.exports = {
                             PremiumRecovery: 150000,
                         },
                         passive: true,
-                        User: message.author.id,
                     })
                     newSetting.save()
                     //console.log(data)
                     //message.channel.send(data.passive)
                 } else if(sett == "passive" && Switch == "false") {
                     let newSettings = new money({
+                        User: message.author.id,
                         Money: 0,
                         Purchases: 0,
                         inventory: {
@@ -54,7 +55,6 @@ module.exports = {
                             PremiumRecovery: 150000,
                         },
                         passive: false,
-                        User: message.author.id,
                     })
                     newSettings.save()
                 }

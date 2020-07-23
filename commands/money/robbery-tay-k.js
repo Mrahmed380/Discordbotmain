@@ -15,7 +15,7 @@ module.exports = {
             if (!data || data.Money <= 300) {
                 message.channel.send(`${mention.user.username} is broke why would you rob a broke person :(`)
             } else {
-                if(data.passive == true) return message.channel.send(`${mention.user.username} is in passive mode!`)
+                if(data.passive == "true") return message.channel.send(`${mention.user.username} is in passive mode!`)
                 let chances = ["win", "lose"]
                 const pick = chances[Math.floor(Math.random() * (chances.length))];
                 let newMoney = Math.round(Math.random() * data.Money);
