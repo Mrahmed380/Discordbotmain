@@ -1,7 +1,7 @@
 const money = require('../../models/money');
 const { MessageEmbed } = require('discord.js');
 module.exports = {
-    name: 'MySettings',
+    name: 'mysettings',
     description: 'shows settings',
     usage: 'MySettings',
     perms: 'Send Messages',
