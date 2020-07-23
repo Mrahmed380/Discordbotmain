@@ -22,7 +22,7 @@ module.exports = {
                 if (amt > data.Money) return message.channel.send(`You dont even have this many coins you can only gamble $${data.Money}`)
                 let chances = ["win", "lose"]
                 const pick = chances[Math.floor(Math.random() * (chances.length))];
-                let newMoney = Math.round(Math.random() * amt);
+                let newMoney = Math.round(Math.random() * amt + 2);
                 if(pick == "lose") {
                     data.Money -= newMoney
                     data.save();
