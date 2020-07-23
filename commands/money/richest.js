@@ -13,8 +13,7 @@ module.exports = {
         //fetch all the members id
         money.find({ Guild: message.guild.id }, async (err, data) => {
             message.channel.send(data.Money)
-        }).sort(
-            ['Money', 'descending']).exec((err, res) => {
+        }).sort(['Money', 'descending']).exec((err, res) => {
                 if (err) console.log(err)
                 let rankEmbed = new Discord.MessageEmbed()
                     .setTitle(`${message.guild.name} Richest Users`);
@@ -34,6 +33,7 @@ module.exports = {
                         rankEmbed.addField(`${i + 1}. @${message.guild.members.cache.get(elem.User).user.tag}`, `${elem.Mone}`);
                     }
                 }
+                message.channel.send(rankEmbed)
             })
     }
 }
