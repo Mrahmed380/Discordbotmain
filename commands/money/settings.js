@@ -1,5 +1,6 @@
 const money = require('../../models/money');
 const { MessageEmbed } = require('discord.js');
+const { db } = require('../../models/money');
 module.exports = {
     name: 'settings',
     description: 'set preferences for the coins system',
@@ -60,6 +61,9 @@ module.exports = {
                 }
             } else {
                 console.log(data)
+                data.update({
+                    passive: Switch
+                })
                 data.passive = Switch;
                 data.save();
                 message.channel.send(data.passive)
