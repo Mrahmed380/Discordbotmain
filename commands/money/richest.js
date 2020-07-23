@@ -13,8 +13,8 @@ module.exports = {
         money.findOne({ User: memIDs }, async (err, data) =>{
             if(err) console.log(err)
             if(!data) return console.log("no data this is not how you fetch");
-            var formattedMsgs = data.Money.map(m => `${m},then`)
-            console.log(formattedMsgs);
+            var formattedMsgs = data.Money.map(m => `${m},`)
+            //console.log(formattedMsgs);
         })
     }
 }
