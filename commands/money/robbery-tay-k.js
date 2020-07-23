@@ -39,7 +39,7 @@ module.exports = {
                         if(!dat) return message.channel.send('Imagine robbing someone wit no money :( *like its not the whole poing*')
                         dat.Money += newMoney;
                         dat.save();
-                        message.channel.send(`You tryed to rob ${mention.username} but ended up getting caught you paid him ***\`$${newMoney}\`***, you now have ***\`$${dat.Money}\`***`)
+                        message.channel.send(`You rob ${mention.username} and got ***\`$${newMoney}\`***, you now have ***\`$${dat.Money}\`***`)
                         console.log(dat)
                     })
                 }
