@@ -1,6 +1,6 @@
 const money = require('../../models/money');
 module.exports = {
-    //name: 'rich',
+    name: 'rich',
     description: '`Try` to rob a user',
     usage: 'rob <@user>',
     category: 'money',
