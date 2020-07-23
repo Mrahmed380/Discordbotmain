@@ -28,10 +28,7 @@ module.exports = {
                 rankEmbed.addField('There are not any members in the database', '\u200b');
             }*/
             if (res.Money < 10) {
-                for (let i = 0; i < 10; i++) {
-                    let elem = res[i];
-                    rankEmbed.addField(`${i + 1}. @${message.guild.members.cache.get(elem.User).user.tag}`, `${elem.Mone}`);
-                }
+                rankEmbed.addField(`@${message.guild.members.cache.get(elem.User).user.tag}'s Money`, `${elem.Money}`);
             }
             message.channel.send(rankEmbed)
         })
