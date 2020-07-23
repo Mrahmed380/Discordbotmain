@@ -18,7 +18,8 @@ module.exports = {
         if (!sett) return message.channel.send('Usage: settings <settingName> <true/false>');
         if (!Switch) return message.channel.send('Usage: settings <settingName> <true/false>')
         if (sett !== setting) return message.channel.send(settings);
-        if(Switch !== "false" || "true") return message.channel.send('Settings must be false or true')
+        //if(Switch !== "false" || "true") return message.channel.send('Settings must be false or true')
+        console.log(message.content)
         money.findOne({ User: message.author.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data) {
