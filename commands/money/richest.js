@@ -15,7 +15,7 @@ module.exports = {
             ['Money', 'descending']
         ]).exec((err, res) => {
             if (err) console.log(err)
-            let rankEmbed = new Discord.MessageEmbed()
+            let rankEmbed = new MessageEmbed()
                 .setTitle(`${message.guild.name} Richest Users`);
 
             let newRes = [];
