@@ -36,6 +36,7 @@ module.exports = {
                             PremiumRecovery: 150000,
                         },
                         passive: true,
+                        User: message.author.id,
                     })
                     newSetting.save()
                     //console.log(data)
@@ -53,6 +54,7 @@ module.exports = {
                             PremiumRecovery: 150000,
                         },
                         passive: false,
+                        User: message.author.id,
                     })
                     newSettings.save()
                 }
