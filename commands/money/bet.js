@@ -9,10 +9,6 @@ module.exports = {
     run: async (bot, message, args) => {
         let amt = args.slice(0).join(" ")
         if (!amt) return message.channel.send("You need to specify the amount of coins you want to gamble!")
-        /*if(amt == "max") {
-            amt = Math.Money
-        }*/
-        //if (isNaN(amt) || amt !== "max") return message.channel.send('That is not a number *are you trying to gamble a sentence?*')
         if(amt < 100) return message.channel.send('You have to gamble atleast 100 coins!')
         console.log(amt)
         moneys.findOne({ User: message.author.id }, async (err, data) => {
@@ -21,6 +17,10 @@ module.exports = {
                 message.channel.send("You have no coins or a bank account use the coin command to make a coin account!")
                 console.log(`${message.author.username} has no coins to gamble`)
             } else {
+                if(amt == "max") {
+                    amt = data.Money
+                }
+                if (isNaN(amt) || amt !== "max") return message.channel.send('That is not a number *are you trying to gamble a sentence?*')
                 if(data.Money == 0) return message.channel.send(`You dont even have coins`)
                 if (amt > data.Money) return message.channel.send(`You dont even have this many coins you can only gamble $${data.Money}`)
                 let chances = ["win", "lose"]
