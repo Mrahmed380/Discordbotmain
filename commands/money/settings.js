@@ -5,6 +5,7 @@ module.exports = {
     description: 'set preferences for the coins system',
     usage: 'settings <setting> <true/false>',
     perms: 'Send Messages',
+    category: 'money',
     dm: true,
     timeout: 3.6e+6,
     run: async (bot, message, args) => {
