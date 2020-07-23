@@ -6,7 +6,7 @@ module.exports = {
     usage: 'rob <@user>',
     category: 'money',
     dm: false,
-    timeout: 12000,
+    timeout: 5000,
     perms: 'Send Messages',
     run: async (bot, message, args) => {
         const memIDs = message.guild.members.fetch(mem => mem.id);
