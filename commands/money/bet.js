@@ -17,10 +17,11 @@ module.exports = {
                 message.channel.send("You have no coins or a bank account use the coin command to make a coin account!")
                 console.log(`${message.author.username} has no coins to gamble`)
             } else {
-                //if(amt !== Math.floor(amt)) return message.channel.send('You can only gamble whole numbers');
+                if(data.Money == 0) return message.channel.send(`You dont even have coins`)
+                if (amt > data.Money) return message.channel.send(`You dont even have this many coins you can only gamble $${data.Money}`)
                 let chances = ["win", "lose"]
-                const pick = chances[Math.floor(Math.random() * chances)];
-                let newMoney = Math.random() * amt;
+                const pick = chances[Math.floor(Math.random() * (chances.length))];
+                let newMoney = Math.round(Math.random() * amt);
                 if(pick == "lose") {
                     data.Money -= newMoney
                     data.save();
@@ -33,9 +34,6 @@ module.exports = {
                     message.channel.send(`Congradulations you won ${newMoney}, you now have ${data.Money}`)
                 } 
                 console.log(data)
-                if(data.Money == 0) return message.channel.send(`You dont even have coins`)
-                if (amt > data.Money) return message.channel.send(`You dont even have this many coins you can only gamble $${data.Money}`)
-                message.channel.send('***`test good job you just gambled :)`***')
             }
         }
         )
