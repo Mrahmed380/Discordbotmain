@@ -31,6 +31,7 @@ module.exports = {
                 if (err) console.log(err)
                 if (!data) {
                     let newMoney = new moneys({
+                        Guild: message.guild.id,
                         User: message.author.id,
                         Money: 0,
                         Purchases: 0,

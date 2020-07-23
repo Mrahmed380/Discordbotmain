@@ -14,6 +14,8 @@ module.exports = {
             if (err) console.log(err)
             if (!data) {
                 let newCoin = new moneys({
+                    Guild: message.guild.id,
+                    User: message.author.id,
                     Money: 1000,
                     Purchases: 0,
                     inventory: {
@@ -21,6 +23,8 @@ module.exports = {
                     },
                     passive: false,
                 })
+                newCoin.save();
+                message.channel.send("You just gained 1000 coins come back in 24 hours!")
             } else {
                 console.log(data)
                 let oldMone = data.Money;

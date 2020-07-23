@@ -8,7 +8,7 @@ module.exports = {
     perms: 'Send Messages',
     category: 'money',
     dm: true,
-    //timeout: 3.6e+6,
+    timeout: 900000,
     run: async (bot, message, args) => {
         let settings = new MessageEmbed()
             .setTitle("Available settings")
@@ -21,11 +21,12 @@ module.exports = {
         if (sett !== setting) return message.channel.send(settings);
         //if(Switch !== "false" || "true") return message.channel.send('Settings must be false or true')
         console.log(message.content)
-        money.findOne({ User: message.author.id }, async (err, data) => {
+        money.find({ User: message.author.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data) {
                 if (sett == "passive" && Switch == "true") {
                     let newSetting = new money({
+                        Guild: message.guild.id,
                         User: message.author.id,
                         Money: 0,
                         Purchases: 0,
@@ -39,16 +40,12 @@ module.exports = {
                     //message.channel.send(data.passive)
                 } else if(sett == "passive" && Switch == "false") {
                     let newSettings = new money({
+                        Guild: message.guild.id,
                         User: message.author.id,
                         Money: 0,
                         Purchases: 0,
                         inventory: {
                             CoinCard: 0
-                        },
-                        shop: {
-                            BasicRecovery: 75000,
-                            StandardRecovery: 100000,
-                            PremiumRecovery: 150000,
                         },
                         passive: false,
                     })

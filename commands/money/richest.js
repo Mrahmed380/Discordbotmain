@@ -1,4 +1,5 @@
 const money = require('../../models/money');
+const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'rich',
     description: '`Try` to rob a user',
@@ -10,11 +11,11 @@ module.exports = {
     run: async (bot, message, args) => {
         const memIDs = message.guild.members.fetch(mem => mem.id);
         //fetch all the members id
-        money.findOne({ User: memIDs }, async (err, data) =>{
-            if(err) console.log("error")
-            if(!data) return console.log("no data this is not how you fetch");
-            var formattedMsgs = data.Money.map(m => `${m},`)
-            //console.log(formattedMsgs);
-        })
+        money.find({ Guild: message.guild.id }, async (err, data) =>{
+            const embed = new MessageEmbed()
+            .setTitle("Coins")
+            .setDescription('uhh no clue')
+            message.channel.send(data.Money)
+        }).sort(data.Money, 'descending')
     }
 }
