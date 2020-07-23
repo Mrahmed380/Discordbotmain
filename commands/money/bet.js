@@ -17,26 +17,19 @@ module.exports = {
                 message.channel.send("You have no coins or a bank account use the coin command to make a coin account!")
                 console.log(`${message.author.username} has no coins to gamble`)
             } else {
-                if (amt == "max") {
-                    amt = data.Money
-                }
-                //if (isNaN(amt) || amt !== "max") return message.channel.send('That is not a number *are you trying to gamble a sentence?*')
+                if (isNaN(amt)) return message.channel.send('That is not a number *are you trying to gamble a sentence?*')
                 if (data.Money == 0) return message.channel.send(`You dont even have coins`)
                 if (amt > data.Money) return message.channel.send(`You dont even have this many coins you can only gamble $${data.Money}`)
                 let chances = ["win", "lose"]
                 const pick = chances[Math.floor(Math.random() * (chances.length))];
                 let newMoney = Math.round(Math.random() * amt + 2);
                 if (pick == "lose") {
-                    data.Money -= newMoney
+                    data.Money -= newMoney;
                     data.save();
                     console.log(`${pick} - ${newMoney}`)
                     message.channel.send(`You tryed to finesse but ended up losing and getting your ass beat at a casino causing you to lose ***\`$${newMoney}\`***, you now have ***\`$${data.Money}\`***`)
                 } else {
-                    data.Money += (newMoney).catch(err => {
-                        console.log(err)
-                        message.channel.send('You did not give a valid number you can only choose a number above 99 or *`max`*')
-                    }
-                    );
+                    data.Money += newMoney;
                     data.save();
                     console.log(`${pick} - ${newMoney}`)
                     message.channel.send(`Congratulations you won ***\`$${newMoney}\`***, you now have ***\`$${data.Money}\`***`)
