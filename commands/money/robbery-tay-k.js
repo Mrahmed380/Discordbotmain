@@ -13,7 +13,7 @@ module.exports = {
         money.findOne({ User: mention.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data || data.Money <= 300) {
-                message.channel.send(`${mention.username} is broke why would you rob a broke person :(`)
+                message.channel.send(`${mention.user.username} is broke why would you rob a broke person :(`)
             } else {
                 let chances = ["win", "lose"]
                 const pick = chances[Math.floor(Math.random() * (chances.length))];
