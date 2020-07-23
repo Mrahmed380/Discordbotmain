@@ -22,7 +22,7 @@ module.exports = {
                 if (elem.Money != 0) newRes.push(elem);
             
             res = newRes;
-            rankEmbed.addField(`${message.guild.members.cache.get(elem.User).user.tag}'s Money`, `${elem.Money}`);
+            rankEmbed.addField(`<@${elem.User}>'s Money`, `${elem.Money}`);
             message.channel.send(rankEmbed)
             });
         })
