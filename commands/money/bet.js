@@ -20,7 +20,7 @@ module.exports = {
                 if(amt == "max") {
                     amt = data.Money
                 }
-                if (isNaN(amt) || amt !== "max") return message.channel.send('That is not a number *are you trying to gamble a sentence?*')
+                //if (isNaN(amt) || amt !== "max") return message.channel.send('That is not a number *are you trying to gamble a sentence?*')
                 if(data.Money == 0) return message.channel.send(`You dont even have coins`)
                 if (amt > data.Money) return message.channel.send(`You dont even have this many coins you can only gamble $${data.Money}`)
                 let chances = ["win", "lose"]
