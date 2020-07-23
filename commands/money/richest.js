@@ -24,10 +24,10 @@ module.exports = {
             });
             res = newRes;
 
-            if (res.length == 0) {
+            /*if (res.length == 0) {
                 rankEmbed.addField('There are not any members in the database', '\u200b');
-            }
-            else if (res.Money < 10) {
+            }*/
+            if (res.Money < 10) {
                 for (let i = 0; i < 10; i++) {
                     let elem = res[i];
                     rankEmbed.addField(`${i + 1}. @${message.guild.members.cache.get(elem.User).user.tag}`, `${elem.Mone}`);
