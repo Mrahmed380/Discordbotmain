@@ -32,7 +32,7 @@ module.exports = {
                     console.log(`${pick} - ${newMoney}`)
                     message.channel.send(`You tryed to finesse but ended up losing and getting your ass beat at a casino causing you to lose ***\`$${newMoney}\`***, you now have ***\`$${data.Money}\`***`)
                 } else {
-                    data.Money += newMoney.catch(err => {
+                    data.Money += (newMoney).catch(err => {
                         console.log(err)
                         message.channel.send('You did not give a valid number you can only choose a number above 99 or *`max`*')
                     }
