@@ -1,6 +1,6 @@
 const moneys = require('../../models/money')
 module.exports = {
-    name: 'bet',
+    name: 'gamble',
     description: "bet a specific amout of money",
     category: 'money',
     usage: 'bet <amt>',
