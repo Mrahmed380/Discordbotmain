@@ -16,13 +16,14 @@ module.exports = {
         ]).exec((err, res) => {
             if (err) console.log(err)
             let rankEmbed = new MessageEmbed()
-                .setTitle(`${message.guild.name} Richest Users`);
+                .setTitle(`${message.guild.name} Richest Users`)
+                .setColor('RANDOM')
             let newRes = [];
             res.forEach(elem => {
                 if (elem.Money != 0) newRes.push(elem);
             
             res = newRes;
-            rankEmbed.addField(`<@${elem.User}>'s Money`, `${elem.Money}`);
+            rankEmbed.addField(`<@${message.guild.members.get(elem.User).user.username}>'s Money`, `>$${elem.Money}`);
             message.channel.send(rankEmbed)
             });
         })
