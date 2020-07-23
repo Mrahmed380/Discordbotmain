@@ -1,6 +1,6 @@
 const moneys = require('../../models/money')
 module.exports = {
-    name: 'bet',
+    name: 'gamble',
     description: "bet a specific amout of money",
     category: 'money',
     usage: 'bet <amt>',
@@ -10,6 +10,7 @@ module.exports = {
         let amt = args.slice(0).join(" ")
         if (!amt) return message.channel.send("You need to specify the amount of coins you want to gamble!")
         if (isNaN(amt)) return message.channel.send('That is not a number *are you trying to gamble a sentence?*')
+        if(amt < 100) return message.channel.send('You have to gamble atleast 100 coins!')
         console.log(amt)
         moneys.findOne({ User: message.author.id }, async (err, data) => {
             if (err) console.log(err)
