@@ -12,7 +12,7 @@ module.exports = {
         /*if(amt == "max") {
             amt = Math.Money
         }*/
-        if (isNaN(amt) || amt !== "max") return message.channel.send('That is not a number *are you trying to gamble a sentence?*')
+        //if (isNaN(amt) || amt !== "max") return message.channel.send('That is not a number *are you trying to gamble a sentence?*')
         if(amt < 100) return message.channel.send('You have to gamble atleast 100 coins!')
         console.log(amt)
         moneys.findOne({ User: message.author.id }, async (err, data) => {
