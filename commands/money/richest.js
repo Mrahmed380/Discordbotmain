@@ -14,7 +14,7 @@ module.exports = {
         money.find({ Guild: message.guild.id }, async (err, data) => {
             message.channel.send(data.Money)
         }).sort(
-            [Money, 'descending']).exec((err, res) => {
+            ['Money', 'descending']).exec((err, res) => {
                 if (err) console.log(err)
                 let rankEmbed = new Discord.MessageEmbed()
                     .setTitle(`${message.guild.name} Richest Users`);
