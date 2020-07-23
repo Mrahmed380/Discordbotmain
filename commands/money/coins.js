@@ -39,7 +39,8 @@ module.exports = {
                             StandardRecovery: 100000,
                             PremiumRecovery: 150000,
                             PlatinumRecovery: 200000,
-                        }
+                        },
+                        passive: false,
                     })
                     newMoney.save()
                     console.log(`New money created Could not console log for dumb reason idk`)

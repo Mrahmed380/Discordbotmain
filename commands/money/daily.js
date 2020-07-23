@@ -24,6 +24,7 @@ module.exports = {
                         StandardRecovery: 100000,
                         PremiumRecovery: 150000,
                     },
+                    passive: false,
                 })
             } else {
                 console.log(data)

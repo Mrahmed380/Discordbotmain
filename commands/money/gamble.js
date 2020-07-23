@@ -3,7 +3,7 @@ module.exports = {
     name: 'gamble',
     description: "bet a specific amout of money",
     category: 'money',
-    usage: 'bet <amt>',
+    usage: 'gamble <amt>',
     dm: false,
     perms: "Send Messages",
     run: async (bot, message, args) => {
