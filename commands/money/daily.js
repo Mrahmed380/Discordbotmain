@@ -19,11 +19,6 @@ module.exports = {
                     inventory: {
                         CoinCard: 0
                     },
-                    shop: {
-                        BasicRecovery: 75000,
-                        StandardRecovery: 100000,
-                        PremiumRecovery: 150000,
-                    },
                     passive: false,
                 })
             } else {
