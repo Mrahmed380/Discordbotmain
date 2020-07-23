@@ -11,7 +11,9 @@ module.exports = {
     run: async (bot, message, args) => {
         const memIDs = message.guild.members.fetch(mem => mem.id);
         //fetch all the members id
-        money.find({ Guild: message.guild.id, }).sort(['Money', 'descending']).exec((err, res) => {
+        money.find({ Guild: message.guild.id, }).sort([
+            ['Money', 'descending']
+        ]).exec((err, res) => {
             if (err) console.log(err)
             let rankEmbed = new Discord.MessageEmbed()
                 .setTitle(`${message.guild.name} Richest Users`);
