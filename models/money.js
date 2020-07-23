@@ -5,5 +5,6 @@ const Schema = new mongoose.Schema({
     User: String,
     inventory: Object,
     shop: Object,
+    passive: String,
 })
 module.exports = mongoose.model("coins", Schema)
