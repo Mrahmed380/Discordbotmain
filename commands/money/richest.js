@@ -23,9 +23,9 @@ module.exports = {
                 if (elem.Money != 0) newRes.push(elem);
             
             res = newRes;
-            console.log(res)
-            console.log(res.User)
-            console.log(elem.User);
+            //console.log(res)
+            console.log(`res arrow function ${res.User}`)
+            console.log(`elem arrow function ${elem.User}`);
             //rankEmbed.addField(`<@${message.guild.members.cache.get(elem.User).user.username}>'s Money`, `>$${elem.Money}`);
             message.channel.send(rankEmbed)
             });
