@@ -27,7 +27,7 @@ module.exports = {
                     console.log(`${pick} - ${newMoney}`)
                 } else {
                     const oldMon = data.Money;
-                    parseInt(oldMon) += parseInt(newMoney);
+                    oldMon += newMoney;
                     data.save();
                     console.log(`${pick} - ${newMoney}`)
                     message.channel.send(`Congradulations you won ${newMoney}, you now have ${data.Money}`)
