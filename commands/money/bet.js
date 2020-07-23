@@ -9,7 +9,10 @@ module.exports = {
     run: async (bot, message, args) => {
         let amt = args.slice(0).join(" ")
         if (!amt) return message.channel.send("You need to specify the amount of coins you want to gamble!")
-        if (isNaN(amt)) return message.channel.send('That is not a number *are you trying to gamble a sentence?*')
+        if(amt == "max") {
+            amt = Math.Money
+        }
+        if (isNaN(amt) || amt == "max") return message.channel.send('That is not a number *are you trying to gamble a sentence?*')
         if(amt < 100) return message.channel.send('You have to gamble atleast 100 coins!')
         console.log(amt)
         moneys.findOne({ User: message.author.id }, async (err, data) => {
