@@ -25,7 +25,7 @@ module.exports = {
             if (!data) {
                 if (sett == "passive" && Switch == "true") {
                     let newSetting = new money({
-                        Money: 1000,
+                        Money: 0,
                         Purchases: 0,
                         inventory: {
                             CoinCard: 0
@@ -38,13 +38,29 @@ module.exports = {
                         passive: true,
                     })
                     newSetting.save()
-                    console.log(data)
-                    message.channel.send(data.passive)
-                } else {
-                    console.log("no data")
+                    //console.log(data)
+                    //message.channel.send(data.passive)
+                } else if(sett == "passive" && Switch == "false") {
+                    let newSettings = new money({
+                        Money: 0,
+                        Purchases: 0,
+                        inventory: {
+                            CoinCard: 0
+                        },
+                        shop: {
+                            BasicRecovery: 75000,
+                            StandardRecovery: 100000,
+                            PremiumRecovery: 150000,
+                        },
+                        passive: false,
+                    })
+                    newSettings.save()
                 }
             } else {
                 console.log(data)
+                data.passive = Switch;
+                data.save();
+                message.channel.send(data.passive)
             }
         })
     }
