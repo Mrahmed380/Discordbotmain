@@ -5,7 +5,7 @@ module.exports = {
     usage: 'rob <@user>',
     category: 'money',
     dm: false,
-    timeout: 12000,
+    timeout: 120000,
     perms: 'Send Messages',
     run: async (bot, message, args) => {
         const mention = message.mentions.members.first();
@@ -15,7 +15,10 @@ module.exports = {
             if (!data || data.Money <= 300) {
                 message.channel.send(`${mention.user.username} is broke why would you rob a broke person :(`)
             } else {
-                if(data.passive == "true") return message.channel.send(`${mention.user.username} is in passive mode!`)
+                money.findOne({ User: message.author.id }, async (err, dat) => {
+                    if(dat.passive == "true") return message.channel.send('You are in passive mode you cannot rob people')
+                })
+                if (data.passive == "true") return message.channel.send(`${mention.user.username} is in passive mode!`)
                 let chances = ["win", "lose"]
                 const pick = chances[Math.floor(Math.random() * (chances.length))];
                 let newMoney = Math.round(Math.random() * data.Money);
@@ -25,7 +28,7 @@ module.exports = {
                     console.log(`${pick} - ${newMoney}`)
                     money.findOne({ User: message.author.id }, async (err, dat) => {
                         if (err) console.log(err)
-                        if(!dat) return message.channel.send('Imagine robbing someone wit no money :( *like its not the whole poing*')
+                        if (!dat) return message.channel.send('Imagine robbing someone wit no money :( *like its not the whole poing*')
                         dat.Money -= newMoney;
                         dat.save();
                         message.channel.send(`You tryed to rob ${mention.user.username} but ended up getting caught you paid him ***\`$${newMoney}\`***, you now have ***\`$${dat.Money}\`***`)
@@ -37,7 +40,7 @@ module.exports = {
                     console.log(`${pick} - ${newMoney}`)
                     money.findOne({ User: message.author.id }, async (err, dat) => {
                         if (err) console.log(err)
-                        if(!dat) return message.channel.send('Imagine robbing someone wit no money :( *like its not the whole poing*')
+                        if (!dat) return message.channel.send('Imagine robbing someone wit no money :( *like its not the whole poing*')
                         dat.Money += newMoney;
                         dat.save();
                         message.channel.send(`You robbed ${mention.user.username} and got ***\`$${newMoney}\`***, you now have ***\`$${dat.Money}\`***`)
