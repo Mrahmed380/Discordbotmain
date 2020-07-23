@@ -10,7 +10,7 @@ module.exports = {
     run: async (bot, message, args) => {
         const mention = message.mentions.members.first();
         if (!mention) return message.channel.send("You need to mention the person you want to steal from")
-        money.findOne({ User: Mention.id }, async (err, data) => {
+        money.findOne({ User: mention.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data || data.Money <= 300) {
                 message.channel.send(`${mention.username} is broke why would you rob a broke person :(`)
