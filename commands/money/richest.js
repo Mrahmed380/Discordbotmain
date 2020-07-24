@@ -25,7 +25,7 @@ module.exports = {
             res = newRes;
             //console.log(res)
             console.log(`${elem.User}`);
-            rankEmbed.setDescription(`${elem.Money.map(e => `\`$${e}\`~~${message.guild.members.cache.get(elem.User).user.tag}`).join("\n")}`);
+            rankEmbed.setDescription(`${(elem.Money).map(e => `\`$${e}\`~~${message.guild.members.cache.get(elem.User).user.tag}`).join("\n")}`);
             message.channel.send(rankEmbed)
             });
         })
