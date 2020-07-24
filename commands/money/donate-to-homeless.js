@@ -8,6 +8,7 @@ module.exports = {
     perms: "Send Messages",
     run: async (bot, message, args) => {
         let person = ["Johnny Dang", "Patricia", "Mia khalifa", "Charli Damelio", "Pennywise", "<@719890899517046866>", "Avatar Aang"]
+        let personPick = person[Math.floor(Math.random() * (person.length))];
         let amt = args.slice(0).join(" ")
         if (!amt) return message.channel.send("You need to specify the amount of coins you want to give!")
         if (isNaN(amt)) return message.channel.send('??!!')
@@ -28,7 +29,7 @@ module.exports = {
                     data.Money -= newMoney
                     data.save();
                     console.log(`${pick} - ${newMoney}`)
-                    message.channel.send(`${person} was thankful for the money!`)
+                    message.channel.send(`${personPick} was thankful for the money!`)
                 } else {
                     data.Money += newMoney;
                     data.save();
