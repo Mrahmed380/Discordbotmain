@@ -28,6 +28,7 @@ module.exports = {
             console.log(`elem arrow function ${elem.User}`);
             //rankEmbed.addField(`<@${message.guild.members.cache.get(elem.User).user.username}>'s Money`, `>$${elem.Money}`);
             message.channel.send(rankEmbed)
+            message.channel.send(message.guild.members.cache.get(elem.User).user.username)
             });
         })
     }
