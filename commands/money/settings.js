@@ -21,7 +21,7 @@ module.exports = {
         if (sett !== setting) return message.channel.send(settings);
         //if(Switch !== "false" || "true") return message.channel.send('Settings must be false or true')
         console.log(message.content)
-        money.find({ User: message.author.id }, async (err, data) => {
+        money.findOne({ User: message.author.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data) {
                 if (sett == "passive" && Switch == "true") {
@@ -53,9 +53,9 @@ module.exports = {
                 }
             } else {
                 console.log(data)
-                //data.update({
-                //    passive: Switch
-                //})
+                data.update({
+                    passive: Switch
+                })
                 data.passive = Switch;
                 data.save();
                 message.channel.send(`Your new setting: ${data.passive}`)
