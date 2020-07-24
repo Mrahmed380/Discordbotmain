@@ -24,6 +24,7 @@ module.exports={
                 const xpembed = new MessageEmbed()
                 .setTitle(`${message.author.tag}'s Level and XP`)
                 .setDescription(`XP - ${data.xp}\nLevel - ${data.level} `)
+                .setColor(`PURPLE`)
                 message.channel.send(xpembed);
             }
         })
