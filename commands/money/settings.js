@@ -53,9 +53,9 @@ module.exports = {
                 }
             } else {
                 console.log(data)
-                data.update({
-                    passive: Switch
-                })
+                //data.update({
+                //    passive: Switch
+                //})
                 data.passive = Switch;
                 data.save();
                 message.channel.send(`Your new setting: ${data.passive}`)
