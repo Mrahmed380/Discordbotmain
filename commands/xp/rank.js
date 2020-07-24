@@ -2,11 +2,11 @@ const xp = require('../../models/xp');
 const { model } = require('mongoose');
 const { MessageEmbed } = require('discord.js');
 module.exports={
-    name: 'xp',
+    name: 'rank',
     description: 'shows xp',
     status: false,
     dm: true,
-    usage: "xp",
+    usage: "rank",
     category: 'xp',
     run: async(bot,message,args)=>{
         xp.findOne({ User: message.author.id }, async (err, data) => {
@@ -24,6 +24,7 @@ module.exports={
                 const xpembed = new MessageEmbed()
                 .setTitle(`${message.author.tag}'s Level and XP`)
                 .setDescription(`XP - ${data.save.xp}\nLevel - ${data.level} `)
+                message.channel.send(xpembed);
             }
         })
     }
