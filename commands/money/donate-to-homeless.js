@@ -26,7 +26,7 @@ module.exports = {
                 const pick = chances[Math.floor(Math.random() * (chances.length))];
                 let newMoney = Math.round(Math.random() * amt * 5);
                 let RoundCoins = Math.ceil(newMoney / 100);
-                let RoundedCoins = Math.round(RoundedCoins * 100);
+                let RoundedCoins = Math.round(RoundCoins * 100);
                 if (pick == "win") {
                     data.Money += RoundedCoins
                     data.save();
