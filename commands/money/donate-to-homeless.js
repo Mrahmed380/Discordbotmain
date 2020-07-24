@@ -31,7 +31,7 @@ module.exports = {
                     console.log(`${pick} - ${newMoney}`)
                     message.channel.send(`It turns out the person you just gave money was a random youtuber doing a social experiment and gave you $${newMoney}!`)
                 } else {
-                    data.Money -= newMoney;
+                    data.Money -= amt;
                     data.save();
                     console.log(`${pick} - ${newMoney}`)
                     message.channel.send(`${personPick} was thankful for the money!`)
