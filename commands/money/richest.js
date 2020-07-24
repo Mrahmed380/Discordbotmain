@@ -20,8 +20,8 @@ module.exports = {
             res.forEach(elem => {
                 if (elem.Money != 0) newRes.push(elem);
             
-            //res = newRes;
-            //console.log(res)
+            res = newRes;
+            console.log(res)
             console.log(`${elem.User}`);
             rankEmbed.setDescription(`${(res).map(e => `\`$${elem.Money}\` -- <@${elem.User}>`).join("\n")}`);
             message.channel.send(rankEmbed)
