@@ -9,8 +9,6 @@ module.exports = {
     timeout: 5000,
     perms: 'Send Messages',
     run: async (bot, message, args) => {
-        const memIDs = message.guild.members.fetch(mem => mem.id);
-        //fetch all the members id
         money.find({ Guild: message.guild.id, }).sort([
             ['Money', 'descending']
         ]).exec((err, res) => {
@@ -25,7 +23,7 @@ module.exports = {
             res = newRes;
             //console.log(res)
             console.log(`${elem.User}`);
-            rankEmbed.setDescription(`${(elem.Money).map(e => `\`$${e}\`~~${message.guild.members.cache.get(elem.User).user.tag}`).join("\n")}`);
+            rankEmbed.setDescription(`${(elem.User).map(e => `\`$${e}\`~~${message.guild.members.cache.get(elem.User).user.tag}`).join("\n")}`);
             message.channel.send(rankEmbed)
             });
         })
