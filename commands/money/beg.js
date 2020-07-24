@@ -8,7 +8,7 @@ module.exports = {
     category: 'money',
     perms: 'Send Messages',
     run: async (bot, message, args) => {
-        const newBeg = (Math.random() * 600);
+        const newBeg = Math.round(Math.random() * 600);
         //**Recovery servant just gave 
         moneys.findOne({ User: message.author.id }, async (err, data) => {
             if (err) console.log(err)
@@ -16,7 +16,7 @@ module.exports = {
                 let newMoney = new moneys({
                     Guild: message.guild.id,
                     User: message.author.id,
-                    Money: Math.round(newBeg),
+                    Money: newBeg,
                     Purchases: 0,
                     inventory: {
                         CoinCard: 0
@@ -27,7 +27,7 @@ module.exports = {
                 console.log(`New money created Could not console log for dumb reason idk`)
                 const embed = new MessageEmbed()
                     .setTitle('Coins')
-                    .setDescription(`**Recovery Servant just gave you $${Math.round(newBeg)}**`)
+                    .setDescription(`**Recovery Servant just gave you $${(newBeg)}**`)
                     .setColor('RANDOM')
                 message.channel.send(embed)
             } else {
@@ -38,7 +38,7 @@ module.exports = {
                 data.save()
                 const WWembed = new MessageEmbed()
                     .setTitle('Coins')
-                    .setDescription(`**Recovery Servant just gave you $${Math.round(newBeg)}!**`)
+                    .setDescription(`**Recovery Servant just gave you $${(newBeg)}!**`)
                     .setColor('RANDOM')
                 message.channel.send(WWembed)
             }
