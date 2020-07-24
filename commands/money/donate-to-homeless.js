@@ -22,19 +22,19 @@ module.exports = {
             } else {
                 if(data.Money == 0) return message.channel.send(`You dont even have coins`)
                 if (amt > data.Money) return message.channel.send(`You dont even have this many coins you can only give $${data.Money}`)
-                let chances = ["win", "lose"]
+                let chances = ["win", "lose", ";ajf", "other", "ok"];
                 const pick = chances[Math.floor(Math.random() * (chances.length))];
-                let newMoney = Math.round(Math.random() * amt * 2);
-                if(pick == "lose") {
-                    data.Money -= newMoney
-                    data.save();
-                    console.log(`${pick} - ${newMoney}`)
-                    message.channel.send(`${personPick} was thankful for the money!`)
-                } else {
-                    data.Money += newMoney;
+                let newMoney = Math.round(Math.random() * amt * 5);
+                if(pick == "win") {
+                    data.Money += newMoney
                     data.save();
                     console.log(`${pick} - ${newMoney}`)
                     message.channel.send(`It turns out the person you just gave money was a random youtuber doing a social experiment and gave you $${newMoney}!`)
+                } else {
+                    data.Money -= newMoney;
+                    data.save();
+                    console.log(`${pick} - ${newMoney}`)
+                    message.channel.send(`${personPick} was thankful for the money!`)
                 } 
                 console.log(data)
             }
