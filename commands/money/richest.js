@@ -24,11 +24,9 @@ module.exports = {
             
             res = newRes;
             //console.log(res)
-            console.log(`res arrow function ${res.User}`)
-            console.log(`elem arrow function ${elem.User}`);
-            //rankEmbed.addField(`<@${message.guild.members.cache.get(elem.User).user.username}>'s Money`, `>$${elem.Money}`);
+            console.log(`${elem.User}`);
+            rankEmbed.setDescription(`${elem.Money.map(e => `\`$${e}\`~~${message.guild.members.cache.get(elem.User).user.tag}`).join("\n")}`);
             message.channel.send(rankEmbed)
-            message.channel.send(message.guild.members.cache.get(elem.User).user.username)
             });
         })
     }
