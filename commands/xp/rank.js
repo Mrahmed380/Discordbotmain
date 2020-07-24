@@ -23,7 +23,7 @@ module.exports={
                 //let newXp = parseInt()
                 const xpembed = new MessageEmbed()
                 .setTitle(`${message.author.tag}'s Level and XP`)
-                .setDescription(`XP - ${data.save.xp}\nLevel - ${data.level} `)
+                .setDescription(`XP - ${data.xp}\nLevel - ${data.level} `)
                 message.channel.send(xpembed);
             }
         })
