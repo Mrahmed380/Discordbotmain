@@ -7,7 +7,7 @@ module.exports = {
     dm: false,
     perms: "Send Messages",
     run: async (bot, message, args) => {
-        let person = ["Johnny Dang", "Patricia", "Mia khalifa", "Charli Damelio", "Pennywise", "<@719890899517046866>", "Avatar Aang"]
+        let person = ["Johnny Dang", "Patricia", "Mia khalifa", "Charli Damelio", "Pennywise", "<@719890899517046866>", "Avatar Aang", "Your ex", "Your step sis", "The owner of Papa's Pizzaria"]
         let personPick = person[Math.floor(Math.random() * (person.length))];
         let amt = args.slice(0).join(" ")
         if (!amt) return message.channel.send("You need to specify the amount of coins you want to give!")
