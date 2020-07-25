@@ -16,8 +16,8 @@ module.exports = {
                 if (erro) console.log(err)
                 if (err) console.log(err);
                 if (!data || data.Money == 0) return message.channel.send("you have no money💀");
-                if(data.passive == true) return message.channel.send('You are in passive! You can not use commands that can harm other users.')
-                if(!dat || dat.Money == 0 || dat.passive == true) return message.channel.send('This user is either in passive mode or has no money!');
+                if(data.passive == "true") return message.channel.send('You are in passive! You can not use commands that can harm other users.')
+                if(!dat || dat.Money == 0 || dat.passive == "true") return message.channel.send('This user is either in passive mode or has no money!');
                 let amt = Math.round(Math.random() * dat.Money);
                 let lose$ = Math.floor(data.Money / 4 * 3)
                 let chances = ["win", "dad", "pad", "lose"]
