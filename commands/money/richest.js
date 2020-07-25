@@ -15,10 +15,11 @@ module.exports = {
             ['Money', 'descending']
         ]).exec((err, res) => {
             if (err) console.log(err)
+            console.log(res)
             let rankEmbed = new MessageEmbed()
                 .setTitle(`${message.guild.name} Richest Users`)
                 .setColor('RANDOM')
-            if (res.Money != 0) rankEmbed.addField(`${res.Money}, <@${res.User}>`)
+            if (res.Money != 0) rankEmbed.addField(`${res.Money}`, `<@${res.User}>`)
             //rankEmbed.setDescription();
             message.channel.send(rankEmbed)
         })
