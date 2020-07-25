@@ -7,6 +7,7 @@ module.exports = {
     dm: false,
     timeout: 600000,
     category: 'guild',
+    aliases: ['suggestion', 'sgt'],
     run: async (bot, message, args) => {
         let mssArgs = args.slice(1).join(" ");
         const DMembed = new MessageEmbed()
