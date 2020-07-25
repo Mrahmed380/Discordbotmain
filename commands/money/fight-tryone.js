@@ -24,10 +24,11 @@ module.exports = {
                 const pick = chances[Math.floor(Math.random() * (chances.length))];
                 if (pick == "lose") {
                     message.channel.send(`You tried to run ${mention.user.username}'s pocket's but realize he got that ***blicky icky*** on him and take 2 shots to the chest and as you \`crawl\` away he takes your wallet with $${lose$} 🤡`);
-                    console.log(`user lost ${data.Money} - ${lose$}`);
+                    console.log(`user lost ${data.Money} - ${lose$}  user win ${data.Money} + ${lose$};`);
                     data.Money -= lose$;
                     dat.Money += lose$;
                     data.save();
+                    dat.save();
                     console.log(data);
                 } else {
                     message.channel.send(`You randomly decide to hit ${mention.user.username} with that mink mink and have him *or her* folded and as he folds like oragami you quickly run his pockets grabbing **$${amt}**\n***\`Black Air Force Activity\`***`)
