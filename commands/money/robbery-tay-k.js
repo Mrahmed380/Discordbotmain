@@ -7,6 +7,7 @@ module.exports = {
     dm: false,
     timeout: 120000,
     perms: 'Send Messages',
+    aliases: ['steal'],
     run: async (bot, message, args) => {
         const mention = message.mentions.members.first();
         if (!mention) return message.channel.send("You need to mention the person you want to steal from")

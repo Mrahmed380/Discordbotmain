@@ -5,7 +5,7 @@ module.exports = {
     description: 'Shows the shop',
     usage: 'shop',
     category: 'money',
-    aliases: ['item shop', 'store'],
+    aliases: ['store'],
     perms: 'Send Messages',
     run: async (bot, message, args) => {
         shop.findOne({ place: message.guild.id }, async (err, data) => {
