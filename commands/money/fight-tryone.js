@@ -10,14 +10,14 @@ module.exports = {
     aliases: ['fold'],
     run: async (bot, message, args) => {
         let mention = message.mentions.members.first();
-        if(!mention) return message.channel.send('You need to mention you want to fight!');
+        if (!mention) return message.channel.send('You need to mention you want to fight!');
         money.findOne({ User: message.author.id }, async (err, data) => {
             money.findOne({ User: mention.id }, async (erro, dat) => {
                 if (erro) console.log(err)
                 if (err) console.log(err);
-                if (!data || data.Money == 0) return message.channel.send("you have no money💀");
-                if(data.passive == "true") return message.channel.send('You are in passive! You can not use commands that can harm other users.')
-                if(!dat || dat.Money == 0 || dat.passive == "true") return message.channel.send('This user is either in passive mode or has no money!');
+                if (!data || data.Money == 0 || data.Money < 10) return message.channel.send("you have no money💀");
+                if (data.passive == "true") return message.channel.send('You are in passive! You can not use commands that can harm other users.')
+                if (!dat || dat.Money == 0 || dat.passive == "true" || dat.Money < 0) return message.channel.send('This user is either in passive mode or has no money!');
                 let amt = Math.round(Math.random() * dat.Money);
                 let lose$ = Math.floor(data.Money / 4 * 3)
                 let chances = ["win", "dad", "pad", "lose"]
