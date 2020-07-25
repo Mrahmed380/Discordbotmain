@@ -11,6 +11,7 @@ module.exports = {
     run: async (bot, message, args) => {
         let mention = message.mentions.members.first();
         if (!mention) return message.channel.send('You need to mention you want to fight!');
+        if(mention.id == message.author.id) return message.channel.send('How are you that suicidal that you would fold your self <:jessicabackup:718440636935831572>')
         money.findOne({ User: message.author.id }, async (err, data) => {
             money.findOne({ User: mention.id }, async (erro, dat) => {
                 if (erro) console.log(err)

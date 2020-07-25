@@ -12,6 +12,7 @@ module.exports = {
         const mention = message.mentions.members.first();
         if (!mention) return message.channel.send("You need to mention the person you want to steal from")
         if (mention.id == '658597649699831823') return message.channel.send(`Why would you try to rob ERG?`)
+        if(mention.id == message.author.id) return message.channel.send('<:jessicabackup:718440636935831572>')
         money.findOne({ User: message.author.id }, async (err, dat) => {
             money.findOne({ User: mention.id }, async (err, data) => {
                 if (err) console.log(err)
