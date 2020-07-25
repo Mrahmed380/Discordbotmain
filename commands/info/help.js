@@ -38,6 +38,6 @@ function getCMD(bot,message,input){
     if(cmd.aliases) info += `${CMDembed.addField(`\nAliases`,`${cmd.aliases.map(a=>`\`${a}\``).join(", ")}`)}`;
     if(cmd.usage) info += `\n**Usage**: ${cmd.usage}`; CMDembed.setFooter(`Syntax: <> = required, [] = optional`);
     if(cmd.perms) info += `\n**Required Permissions** : ${cmd.perms}`
-    if(cmd.timeout) info += CMDembed.addField(`Timeout`, `\`${cmd.timeout}\``);
+    if(cmd.timeout) info += CMDembed.addField(`Timeout`, `\`${ms(cmd.timeout)}\``);
     message.channel.send(CMDembed)
 }
