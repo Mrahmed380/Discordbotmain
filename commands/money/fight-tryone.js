@@ -26,8 +26,8 @@ module.exports = {
                 console.log(data);
             } else {
                 message.channel.send(`You randomly decide to hit ${fightpick} with that mink mink and have him folded and as he folds like oragami you quickly run his pockets grabbing **$${amt}**\n***\`Black Air Force Activity\`***`)
-                data.Money += amt;
                 console.log(`user win ${data.Money} + ${amt}`)
+                data.Money += amt;
                 data.save();
                 console.log(data.Money)
             }
