@@ -3,7 +3,7 @@ module.exports = {
     name: 'fight',
     description: 'Fight a random person  ',
     category: 'money',
-    timeout: 45000,
+    timeout: 15000,
     dm: true,
     usage: 'fight',
     perms: 'Send Messages',
@@ -16,7 +16,7 @@ module.exports = {
             let lose$ = Math.floor(data.Money / 4 * 3)
             let chances = ["win", "dad", "pad", "lose"]
             const pick = chances[Math.floor(Math.random() * (chances.length))];
-            let fighters = ["Hakeem", "Tyrone", "Louis", "JJ", "Djay", "Aaron", "Jamal", "Zion"]
+            let fighters = ["Hakeem", "Tyrone", "JJ", "Djay", "Aaron", "Jamal", "Zion"]
             const fightpick = fighters[Math.floor(Math.random() * (fighters.length))];
             if (pick == "lose") {
                 message.channel.send(`You tried to run ${fightpick}'s pocket's but realize he got that ***blicky icky*** on him and take 2 shots to the chest and as you \`crawl\` away he takes your wallet with $${lose$} 🤡`);
