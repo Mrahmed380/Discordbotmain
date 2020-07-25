@@ -203,7 +203,7 @@ bot.on('message', async message => {
             const cmd = args.shift().toLowerCase();
             if (cmd.length == 0) return;
             const command = bot.commands.get(cmd)
-            if(!command) command= bot.commands.get(bot.aliases.get(cmd));
+            if(!command) command = bot.commands.get(bot.aliases.get(cmd));
             if (command) {
                 if (command.status == false) {
                     console.log('command is off')
