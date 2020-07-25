@@ -127,7 +127,7 @@ bot.on('message', async message => {
         const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
         const cmd = args.shift().toLowerCase();
         if (cmd.length == 0) return;
-        const command = bot.commands.get(cmd)
+        let command = bot.commands.get(cmd)
         if (command) {
             if (command.status == false) {
                 console.log('command is off')
