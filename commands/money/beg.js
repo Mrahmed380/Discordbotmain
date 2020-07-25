@@ -7,6 +7,7 @@ module.exports = {
     timeout: 25000,
     category: 'money',
     perms: 'Send Messages',
+    aliases: ['ask'],
     run: async (bot, message, args) => {
         const newBeg = Math.round(Math.random() * 600);
         //**Recovery servant just gave 

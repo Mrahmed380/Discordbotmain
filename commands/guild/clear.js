@@ -6,6 +6,7 @@ module.exports={
     description: 'Deletes specific amount of messages `Messages can only be deleted within 14 days`',
     usage: 'clear <amt of msgs>',
     perms: 'Administrator',
+    aliases: ['purge'],
     run: async(bot,message,args)=>{
         message.delete();
         if(!message.member.hasPermission("ADMINISTRATOR")) {

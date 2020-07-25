@@ -7,6 +7,7 @@ module.exports = {
     usage: 'rule [1-10]',
     category: 'guild',
     perms: 'Send Messages',
+    aliases: ['rules'],
     run: async (bot, message, args) => {
         let rulenum = args[0]
         if (!rulenum) return message.channel.send('You did not give a rule number so here is the full page!\nhttps://hastebin.com/mumehimuwa.coffeescript')

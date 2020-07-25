@@ -5,6 +5,7 @@ module.exports = {
     category: 'money',
     usage: 'donate <amt>',
     dm: false,
+    aliases: ['dono', 'don'],
     perms: "Send Messages",
     run: async (bot, message, args) => {
         let person = ["Johnny Dang", "Patricia", "Mia khalifa", "Charli Damelio", "Pennywise", "<@719890899517046866>", "Avatar Aang", "Your ex", "Your step sis", "The owner of Papa's Pizzaria"]

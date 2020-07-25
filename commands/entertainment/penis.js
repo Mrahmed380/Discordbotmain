@@ -6,6 +6,7 @@ module.exports={
     usage: 'penis [@user]',
     perms: 'Send Messages',
     timeout: 3000,
+    aliases: ['peen', 'dick'],
     run: async (bot,message,args)=>{
         let peen = [
             "8=D",

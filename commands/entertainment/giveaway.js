@@ -6,6 +6,7 @@ dformat = [d.getMonth()+1,
        d.getFullYear()].join('/')+' ';
 module.exports={
     name: 'giveaway',
+    aliases: ['ga'],
     category: 'entertainment',
     description: 'creates a custom giveaway',
     usage: 'giveaway <time> <channel> <prize>',

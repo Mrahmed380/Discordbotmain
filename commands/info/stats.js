@@ -7,6 +7,7 @@ module.exports = {
     description: 'Shows bot information ; version, commands, author',
     usage: 'e!botinfo',
     perms: 'Send Messages',
+    aliases: ['user'],
     run: async (bot, message, args) => {
         const argss = message.content.split(' ');
         console.log(args);
