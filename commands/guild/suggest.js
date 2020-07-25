@@ -10,6 +10,7 @@ module.exports = {
     aliases: ['suggestion', 'sgt'],
     run: async (bot, message, args) => {
         let mssArgs = args.slice(1).join(" ");
+        if(!mssArgs) return message.channel.send('You need to add a suggestion')
         const DMembed = new MessageEmbed()
             .setTitle('Suggestion')
             .addField('Suggestion Info', 'Your suggestion has been submitted! In order for your suggestion to be accepted it must have more ✅ votes and then checked by a mod or admin.')
