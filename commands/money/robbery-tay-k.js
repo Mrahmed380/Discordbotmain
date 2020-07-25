@@ -38,7 +38,7 @@ module.exports = {
                             dat.save()
                             return message.channel.send(`You tryed to rob ${mention.user.username} but he caught you and had his goons jump you and take ***\`all\`*** your money, you now have ***\`$${dat.Money}\`***`)
                         } else {
-                            message.channel.send(`You tryed to rob ${mention.user.username} but ended up getting caught you paid him ***\`$${yourNewmoney}\`***, you now have ***\`$${dat.Money}\`***`)
+                            message.channel.send(`You tryed to rob ${mention.user.username} but ended up getting caught you paid them ***\`$${yourNewmoney}\`***, you now have ***\`$${dat.Money}\`***`)
                             console.log(dat)
                         }
                     } else {

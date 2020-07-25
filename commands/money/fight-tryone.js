@@ -1,7 +1,7 @@
 const money = require('../../models/money');
 module.exports = {
     name: 'fight',
-    description: 'Fight a random person and fold them for there money ',
+    description: 'Fight a random person and hope they dont fold you for half your money ',
     category: 'money',
     timeout: 15000,
     dm: true,

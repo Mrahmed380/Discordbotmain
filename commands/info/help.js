@@ -1,6 +1,7 @@
 const { Client , MessageEmbed } = require('discord.js');
 const { category } = require('./help.js');
 const { stripIndent, stripIndents } = require('common-tags');
+const ms = require('ms');
 module.exports={
     name: 'help',
     category: 'info',
@@ -37,5 +38,6 @@ function getCMD(bot,message,input){
     if(cmd.aliases) info += `${CMDembed.addField(`\nAliases`,`${cmd.aliases.map(a=>`\`${a}\``).join(", ")}`)}`;
     if(cmd.usage) info += `\n**Usage**: ${cmd.usage}`; CMDembed.setFooter(`Syntax: <> = required, [] = optional`);
     if(cmd.perms) info += `\n**Required Permissions** : ${cmd.perms}`
+    if(cmd.timeout) info += CMDembed.addField(`Timeout`, ms(cmd.timeout));
     message.channel.send(CMDembed)
 }
