@@ -1,5 +1,6 @@
 const { Client, MessageEmbed } = require('discord.js')
 const config = require('../../config.json')
+const money = require('../../models/money');
 module.exports = {
     name: 'stats',
     dm: false,
@@ -23,14 +24,22 @@ module.exports = {
                 .addField('Player is Kickable', memberM.kickable, false)
                 .addField('Player is Banable', memberM.bannable, false)
                 .setDescription(`${memberM.roles.cache.map(role => role.toString()).join(' ')}`)
+            money.findOne({ User: memberM.id }, async (err, data) => {
+                if(err) console.log(err);
+                if (!data) {
+                    STembed.addField(`Coins: $0`)
+                } else {
+                    STembed.addField(`Coins: ${data.Money}`)
+                }
+            })
             if (memberM.presence.activities[0]) {
-                if(memberM.presence.activities[0].state !== null) {
+                if (memberM.presence.activities[0].state !== null) {
                     STembed.addField('Status', memberM.presence.activities[0].state)
                 } else {
                     STembed.addField('Status', "None")
                 }
             }
-            if(memberM.nickname == null) {
+            if (memberM.nickname == null) {
                 STembed.addField('Nickname', "None")
             } else {
                 STembed.addField('Nickname', memberM.nickname)

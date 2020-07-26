@@ -1,7 +1,7 @@
 const money = require('../../models/money');
 module.exports = {
     name: 'heist',
-    status: true,
+    status: false,
     aliases: ['bankrob'],
     usage: 'heist',
     description: 'Rob a bank and get up to $100000',
