@@ -25,7 +25,7 @@ module.exports = {
                 if (amt > data.Money) return message.channel.send(`You dont even have this many coins you can only give $${data.Money}`)
                 let chances = ["win", "lose", ";ajf", "other", "ok"];
                 const pick = chances[Math.floor(Math.random() * (chances.length))];
-                let newMoney = Math.round(Math.random() * amt * 5);
+                let newMoney = Math.round(amt * 3);
                 let RoundCoins = Math.ceil(newMoney / 100);
                 let RoundedCoins = Math.round(RoundCoins * 100);
                 if (pick == "win") {

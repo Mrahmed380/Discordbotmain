@@ -9,7 +9,7 @@ module.exports = {
     category: 'guild',
     aliases: ['suggestion', 'sgt'],
     run: async (bot, message, args) => {
-        let mssArgs = args.slice(1).join(" ");
+        let mssArgs = args.slice(0).join(" ");
         if(!mssArgs) return message.channel.send('You need to add a suggestion')
         const DMembed = new MessageEmbed()
             .setTitle('Suggestion')
