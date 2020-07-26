@@ -1,7 +1,7 @@
 const money = require('../../models/money');
 module.exports = {
     name: 'heist',
-    status: false,
+    status: true,
     aliases: ['bankrob'],
     usage: 'heist',
     description: 'Rob a bank and get up to $100000',
@@ -27,7 +27,7 @@ module.exports = {
                         let DivAmt = Math.round(amt / msg.reactions.cache.size);
                         data.Money += DivAmt;
                         data.save()
-                        console.log(winner.id + "the const" + winner)
+                        console.log(winner.id + "the const" + wins)
                     }, 30000);
                 }, 30000);
             })
