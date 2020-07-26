@@ -34,7 +34,7 @@ module.exports = {
                         }).then(collected => {
                             const answer = 'get';
                             if(collected.first().content !== "afdsfw2") message.channel.send(`You just collected ${DivAmt}`) //wake up and start
-                            money.findOne({ User: collected.author.id }, async(err,dat)=>{
+                            money.findOne({ User: collected.first().author.id }, async(err,dat)=>{
                                 if(err) console.log(err)
                                 console.log(dat)
                             })
