@@ -6,6 +6,7 @@ module.exports = {
     category: 'info',
     usage: 'sc <user>',
     perms: 'Send Messages',
+    aliases: ['socialclub', 'gamertag', 'r*', 'rockstar'],
     run: async (bot,message,args) => {
         let Mention = message.mentions.members.first();
         if (!Mention) return message.channel.send("So you going to tell me who you want to find?")

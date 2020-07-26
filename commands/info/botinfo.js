@@ -6,6 +6,7 @@ module.exports={
     description: 'Shows bot information ; version, commands, author',
     usage: 'e!botinfo',
     perms: 'Send Messages',
+    aliases: ['info'],
     run: async(bot,message,args)=>{
         const INFOembed = new MessageEmbed()
             .setTitle('All Commands + Bot info')
