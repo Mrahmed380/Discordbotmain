@@ -13,6 +13,7 @@ module.exports = {
             if (err) console.log(err)
             if (!data || data.Money < 1000) return message.channel.send("You need to pay $10000 to start a heist you dont have this money yet!")
             message.channel.send(`heist from ${message.author} react to enter`).then(msg => {
+                const filt = m => msg.reactions.cache.get("718678524101132288").users.cache.filter(u => !u.bot);
                 msg.react("718678524101132288")
                 msg.reactions.cache.get("718678524101132288")
                 setTimeout(() => {
@@ -23,11 +24,21 @@ module.exports = {
                     setTimeout(() => {
                         console.log(wins);
                         let amt = Math.random(10000)
-                        
-                        let DivAmt = Math.round(amt / msg.reactions.cache.size);
+                        message.channel.send('Send any message to collect the money from the heist')
+                        let DivAmt = Math.round(amt / msg.reactions.cache.size - 1);
                         data.Money += DivAmt;
                         data.save()
-                        console.log(winner.id + "the const" + wins)
+                        message.channel.awaitMessages(filt, {
+                            max: 1,
+                            time: 60000
+                        }).then(collected => {
+                            const answer = 'get';
+                            if(collected.first().content !== "afdsfw2") message.channel.send(`You just collected ${DivAmt}`) //wake up and start
+                            money.findOne({ User: collected.author.id }, async(err,dat)=>{
+                                if(err) console.log(err)
+                                console.log(dat)
+                            })
+                        }).catch(err => {console.log(err); message.channel.send("you never replied so you didnt get your check")});
                     }, 30000);
                 }, 30000);
             })
