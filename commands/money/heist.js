@@ -13,7 +13,7 @@ module.exports={
             if(err) console.log(err)
             if(!data || data.money == 0) return message.channel.send("You need to pay $10000 to start a heist you dont have this money yet!")
             message.channel.send(`heist from ${message.author} react to enter`).then(msg => {
-                msg.react("<:RecoveryIsEmo:718678524101132288>")
+                msg.react("718678524101132288")
             })
         })
     }
