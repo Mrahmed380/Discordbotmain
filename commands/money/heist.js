@@ -18,7 +18,7 @@ module.exports = {
                 setTimeout(() => {
                     //if (msg.reactions.cache.size < 3) return message.channel.send('less than 2 people reacted so the heist was canceled you must wait another hour until you start another heist!')
                     let winner = msg.reactions.cache.get("718678524101132288").users.cache.filter(u => !u.bot)
-                    let wins = winner.map(user => `${user.user.tag}, `);
+                    let wins = winner.map(user => `${user.tag}, `);
                     message.channel.send(`Users in the heist ${wins} wait 30 seconds while I calculate the results...`).then(r => r.delete({ timeout: 30000 }))
                     setTimeout(() => {
                         console.log(wins);
