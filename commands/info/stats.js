@@ -27,9 +27,9 @@ module.exports = {
             money.findOne({ User: memberM.id }, async (err, data) => {
                 if(err) console.log(err);
                 if (!data) {
-                    STembed.addField(`Coins: $0`)
+                    STembed.setFooter(`Coins: $0`)
                 } else {
-                    STembed.addField(`Coins: ${data.Money}`)
+                    STembed.setFooter(`Coins: ${data.Money}`)
                 }
             })
             if (memberM.presence.activities[0]) {
