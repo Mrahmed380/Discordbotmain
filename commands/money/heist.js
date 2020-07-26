@@ -27,6 +27,7 @@ module.exports = {
                         let DivAmt = Math.round(amt / msg.reactions.cache.size);
                         data.Money += DivAmt;
                         data.save()
+                        console.log(winner.id + "the const" + winner)
                     }, 30000);
                 }, 30000);
             })
