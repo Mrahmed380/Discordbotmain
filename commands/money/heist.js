@@ -18,6 +18,8 @@ module.exports={
                 setTimeout(() => {
                     if(msg.reactions.cache.size<=2) return message.channel.send('no one reacted heist was canceled you must wait another hour until you start another heist!')
                     let winner = msg.reactions.cache.get("718678524101132288").users.cache.filter(u=>!u.bot)
+                    let wins = winner.map(user => (`${user}, `).join("\n"));
+                    message.channel.send(wins)
                 }, 30000);
             })
         })
