@@ -24,12 +24,15 @@ module.exports = {
                 .addField('Player is Kickable', memberM.kickable, false)
                 .addField('Player is Banable', memberM.bannable, false)
                 .setDescription(`${memberM.roles.cache.map(role => role.toString()).join(' ')}`)
+
             money.findOne({ User: memberM.id }, async (err, data) => {
-                if(err) console.log(err);
+                if (err) console.log(err);
                 if (!data) {
+                    console.log('nothing');
                     STembed.setFooter(`Coins: $0`)
                 } else {
                     STembed.setFooter(`Coins: ${data.Money}`)
+                    console.log(data)
                 }
             })
             if (memberM.presence.activities[0]) {
