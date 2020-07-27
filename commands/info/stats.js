@@ -29,9 +29,10 @@ module.exports = {
                 if (err) console.log(err);
                 if (!data) {
                     console.log('nothing');
-                    STembed.setFooter(`Coins: $0`)
+                    message.channel.send('coins: 0')
+                    //STembed.setFooter(`Coins: $0`)
                 } else {
-                    STembed.setFooter(`Coins: ${data.Money}`)
+                    message.channel.send(data.Money)
                     console.log(data)
                 }
             })
