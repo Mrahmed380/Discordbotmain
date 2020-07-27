@@ -10,13 +10,13 @@ module.exports = {
     perms: 'Send Messages',
     aliases: ['user'],
     run: async (bot, message, args) => {
+        const memberM = message.mentions.members.first();
         const argss = message.content.split(' ');
         console.log(args);
         if (argss.length > 2) {
             message.channel.send('Incorrect Usage: e!stats | e!stats @User | e!stats self');
         } else if (argss.length === 2) {
             money.findOne({ User: memberM.id }, async (err, data) => {
-            const memberM = message.mentions.members.first();
             const STembed = new MessageEmbed()
                 .setAuthor(`${memberM.user.tag} (${memberM.id})`, memberM.user.displayAvatarURL())
                 .setThumbnail(memberM.user.displayAvatarURL({ dynamic: true }))
