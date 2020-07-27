@@ -32,7 +32,7 @@ module.exports = {
                     console.log('saving data...')
                     console.log("data was saved")
                     console.log(data)
-                    data.updateOne({
+                    data.update({
                         inventory:{
                             Item: item
                         }
