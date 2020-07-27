@@ -1,7 +1,7 @@
 const money = require('../../models/money');
 module.exports = {
     name: 'heist',
-    status: true,
+    status: false,
     aliases: ['bankrob'],
     usage: 'heist',
     description: 'Rob a bank and get up to $100000',
@@ -23,9 +23,9 @@ module.exports = {
                     message.channel.send(`Users in the heist ${wins} wait 30 seconds while I calculate the results...`).then(r => r.delete({ timeout: 30000 }))
                     setTimeout(() => {
                         console.log(wins);
-                        let amt = Math.random(10000)
+                        let amt = Math.random(100000)
                         message.channel.send('Send any message to collect the money from the heist')
-                        let DivAmt = Math.round(amt / msg.reactions.cache.size - 1);
+                        let DivAmt = Math.round(amt / (msg.reactions.cache.size - 1));
                         data.Money += DivAmt;
                         data.save()
                         message.channel.awaitMessages(filt, {
@@ -34,10 +34,7 @@ module.exports = {
                         }).then(collected => {
                             const answer = 'get';
                             if(collected.first().content !== "afdsfw2") message.channel.send(`You just collected ${DivAmt}`) //wake up and start
-                            money.findOne({ User: collected.first().author.id }, async(err,dat)=>{
-                                if(err) console.log(err)
-                                console.log(dat)
-                            })
+                            
                         }).catch(err => {console.log(err); message.channel.send("you never replied so you didnt get your check")});
                     }, 30000);
                 }, 30000);
