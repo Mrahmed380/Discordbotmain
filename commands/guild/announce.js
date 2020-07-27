@@ -3,7 +3,6 @@ module.exports={
     usage: 'say <channel> <message>',
     description: 'Announce a specific mesage',
     aliases: ['announce', 'yell'],
-    timeout: 30000,
     perms: 'Admin',
     run: async(bot,message,args)=>{
         const admin = message.guild.roles.cache.find(r => r.name === 'Admin');
