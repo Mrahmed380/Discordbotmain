@@ -32,7 +32,8 @@ module.exports = {
                     console.log("data was saved")
                     console.log(data)
                     data.inventory = {
-                        Item: item
+                        Item: item,
+                        Item: `\n\n${Object.keys(data.inventory).map(e => `${data.inventory[e]}`).join("\n")}`
                     }
                     data.save();
                     const WWembed = new MessageEmbed()
