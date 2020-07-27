@@ -1,6 +1,7 @@
 const moneys = require('../../models/money')
 const { MessageEmbed } = require('discord.js')
 const shop = require('../../models/shop')
+const { db } = require('../../models/money')
 module.exports = {
     status: false,
     name: 'buy',
@@ -31,6 +32,9 @@ module.exports = {
                     console.log('saving data...')
                     console.log("data was saved")
                     console.log(data)
+                    db.coins.findOne({ User: message.author.id }, async (err,dat) =>{
+                        console.log(dat)
+                    })
                     const WWembed = new MessageEmbed()
                         .setTitle(`Shop`)
                         .setDescription(`you just bought ${item}!\nYou now have $${data.Money} and ${data.Purchases} purchases`)
