@@ -24,33 +24,33 @@ module.exports = {
                 .addField('Player is Kickable', memberM.kickable, false)
                 .addField('Player is Banable', memberM.bannable, false)
                 .setDescription(`${memberM.roles.cache.map(role => role.toString()).join(' ')}`)
-
+                .setColor('RANDOM');
             money.findOne({ User: memberM.id }, async (err, data) => {
                 if (err) console.log(err);
                 if (!data) {
                     console.log('nothing');
-                    STembed.setFooter(`Coins: $0`)
+                    STembed.addField(`Coins: $0`);
                 } else {
-                    console.log(data)
-                    STembed.setFooter(`Coins: ${data.Money}`)
+                    console.log(data);
+                    STembed.addField(`Coins: $${data.Money}`);
                 }
             })
             if (memberM.presence.activities[0]) {
                 if (memberM.presence.activities[0].state !== null) {
-                    STembed.addField('Status', memberM.presence.activities[0].state)
+                    STembed.addField('Status', memberM.presence.activities[0].state);
                 } else {
-                    STembed.addField('Status', "None")
-                }
-            }
+                    STembed.addField('Status', "None");
+                };
+            };
             if (memberM.nickname == null) {
-                STembed.addField('Nickname', "None")
+                STembed.addField('Nickname', "None");
             } else {
-                STembed.addField('Nickname', memberM.nickname)
+                STembed.addField('Nickname', memberM.nickname);
             }
             if (memberM.presence.status !== 'dnd') {
-                STembed.addField('Presence', capitalizeFirstLetter(memberM.presence.status))
+                STembed.addField('Presence', capitalizeFirstLetter(memberM.presence.status));
             } else {
-                STembed.addField('Presence', "Do not Disturb")
+                STembed.addField('Presence', "Do not Disturb");
             }
             message.channel.send(STembed);
         } else {
@@ -64,7 +64,8 @@ module.exports = {
                 .addField('Total Bots', guild.members.cache.filter(member => member.user.bot).size)
                 .addField('Total Channels', guild.channels.cache.size)
                 .addField('Boost', `Server boost tier: ${message.guild.premiumTier}\nServer boosts: ${message.guild.premiumSubscriptionCount}`)
-                .setDescription(`${guild.roles.cache.map(role => role.toString()).join(' ')}`);
+                .setDescription(`${guild.roles.cache.map(role => role.toString()).join(' ')}`)
+                .setColor('RADNOM');
             message.channel.send(GSembed);
 
         }
