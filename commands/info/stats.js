@@ -52,7 +52,7 @@ module.exports = {
                     STembed.addField('Presence', "Do not Disturb");
                 }
                 message.channel.send(STembed);
-            })
+            }).catch(err => {console.log(err); message.channel.send('That is not a user in the server')})
         } else {
             const { guild } = message;
             const GSembed = new MessageEmbed()
