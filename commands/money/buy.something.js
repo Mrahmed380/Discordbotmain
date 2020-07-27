@@ -32,7 +32,7 @@ module.exports = {
                     console.log('saving data...')
                     console.log("data was saved")
                     console.log(data)
-                    db.coins.findOne({ User: message.author.id }, async (err,dat) =>{
+                    db.findOne({ User: message.author.id }, async (err,dat) =>{
                         console.log(dat)
                     })
                     const WWembed = new MessageEmbed()
