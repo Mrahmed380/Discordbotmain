@@ -32,11 +32,12 @@ module.exports = {
                     console.log('saving data...')
                     console.log("data was saved")
                     console.log(data)
-                    data.update({
+                    data.updateOne({
                         inventory:{
                             Item: item
                         }
                     })
+                    data.save();
                     const WWembed = new MessageEmbed()
                         .setTitle(`Shop`)
                         .setDescription(`you just bought ${item}!\nYou now have $${data.Money} and ${data.Purchases} purchases`)
