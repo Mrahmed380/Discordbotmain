@@ -1,6 +1,6 @@
 module.exports = {
     name: "changelog",
-    aliases: ['changes', 'log', 'updates', 'update'],
+    aliases: ['changes', 'log', 'updates', 'update', 'github', 'updatelog'],
     description: 'Get a log of last 5 bot updates',
     usage: 'changelog',
     category: 'info',
@@ -20,7 +20,6 @@ module.exports = {
             let info = res;
 
             const embed = new Discord.MessageEmbed()
-                .setAuthor(info[0].committer.login, info[0].committer.avatar_url, info[0].committer.html_url)
                 .setTitle(`My last few updates`);
             for (let i = 0; i < 5; i++) {
                 embed.addField(`\u200b`, `${info[i].commit.message}`);
