@@ -7,6 +7,7 @@ module.exports = {
     usage: 'settings <setting> <true/false>',
     perms: 'Send Messages',
     category: 'money',
+    aliases: ['set', 'setting', 'sett'],
     dm: true,
     timeout: 900000,
     run: async (bot, message, args) => {

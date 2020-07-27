@@ -20,6 +20,7 @@ module.exports = {
                         .setTitle('Coins')
                         .setDescription(`${Mention} has $${data.Money} coins!`)
                         .setColor('RANDOM')
+                        if(data.Money == 1) WWembed.setDescription(`${Mention} has $1 coin!`)
                     message.channel.send(WWembed)
                 }
             }
@@ -51,7 +52,8 @@ module.exports = {
                         .setTitle('Coins')
                         .setDescription(`You have $${data.Money} coins!\nUse the shop command for things you can spend your money on!`)
                         .setColor('RANDOM')
-                        .setFooter(`Use the redeem command if you havent already...`)
+                        .setFooter(`Use the redeem command if you havent already...`);
+                        if(data.Money == 1) WWembed.setDescription(`You have $1 coin!\nUse the shop command for things you can spend you money on`)
                     message.channel.send(WWembed)
                 }
             }
