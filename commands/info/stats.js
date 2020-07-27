@@ -29,13 +29,12 @@ module.exports = {
                 if (err) console.log(err);
                 if (!data) {
                     console.log('nothing');
-                    STembed.addField(`Coins: $0`);
+                    STembed.addField(`Coins`, '$0');
                 } else {
                     console.log(data);
-                    STembed.addField(`Coins: $${data.Money}`);
+                    STembed.addField(`Coins`, `$${data.Money}`);
                 }
-
-                /*if (memberM.presence.activities[0]) {
+                if (memberM.presence.activities[0]) {
                     if (memberM.presence.activities[0].state !== null) {
                         STembed.addField('Status', memberM.presence.activities[0].state);
                     } else {
@@ -51,7 +50,7 @@ module.exports = {
                     STembed.addField('Presence', capitalizeFirstLetter(memberM.presence.status));
                 } else {
                     STembed.addField('Presence', "Do not Disturb");
-                }*/
+                }
                 message.channel.send(STembed);
             })
         } else {
