@@ -17,15 +17,15 @@ module.exports = {
             message.channel.send('Incorrect Usage: e!stats | e!stats @User | e!stats self');
         } else if (argss.length === 2) {
             money.findOne({ User: memberM.id }, async (err, data) => {
-            const STembed = new MessageEmbed()
-                .setAuthor(`${memberM.user.tag} (${memberM.id})`, memberM.user.displayAvatarURL())
-                .setThumbnail(memberM.user.displayAvatarURL({ dynamic: true }))
-                .addField('Created on', memberM.user.createdAt.toLocaleString(), true)
-                .addField('Joined Server on', memberM.joinedAt.toLocaleString(), true)
-                .addField('Player is Kickable', memberM.kickable, false)
-                .addField('Player is Banable', memberM.bannable, false)
-                .setDescription(`${memberM.roles.cache.map(role => role.toString()).join(' ')}`)
-                .setColor('RANDOM');
+                const STembed = new MessageEmbed()
+                    .setAuthor(`${memberM.user.tag} (${memberM.id})`, memberM.user.displayAvatarURL())
+                    .setThumbnail(memberM.user.displayAvatarURL({ dynamic: true }))
+                    .addField('Created on', memberM.user.createdAt.toLocaleString(), true)
+                    .addField('Joined Server on', memberM.joinedAt.toLocaleString(), true)
+                    .addField('Player is Kickable', memberM.kickable, false)
+                    .addField('Player is Banable', memberM.bannable, false)
+                    .setDescription(`${memberM.roles.cache.map(role => role.toString()).join(' ')}`)
+                    .setColor('RANDOM');
                 if (err) console.log(err);
                 if (!data) {
                     console.log('nothing');
@@ -34,25 +34,26 @@ module.exports = {
                     console.log(data);
                     STembed.addField(`Coins: $${data.Money}`);
                 }
-            })
-            /*if (memberM.presence.activities[0]) {
-                if (memberM.presence.activities[0].state !== null) {
-                    STembed.addField('Status', memberM.presence.activities[0].state);
-                } else {
-                    STembed.addField('Status', "None");
+
+                /*if (memberM.presence.activities[0]) {
+                    if (memberM.presence.activities[0].state !== null) {
+                        STembed.addField('Status', memberM.presence.activities[0].state);
+                    } else {
+                        STembed.addField('Status', "None");
+                    };
                 };
-            };
-            if (memberM.nickname == null) {
-                STembed.addField('Nickname', "None");
-            } else {
-                STembed.addField('Nickname', memberM.nickname);
-            }
-            if (memberM.presence.status !== 'dnd') {
-                STembed.addField('Presence', capitalizeFirstLetter(memberM.presence.status));
-            } else {
-                STembed.addField('Presence', "Do not Disturb");
-            }*/
-            message.channel.send(STembed);
+                if (memberM.nickname == null) {
+                    STembed.addField('Nickname', "None");
+                } else {
+                    STembed.addField('Nickname', memberM.nickname);
+                }
+                if (memberM.presence.status !== 'dnd') {
+                    STembed.addField('Presence', capitalizeFirstLetter(memberM.presence.status));
+                } else {
+                    STembed.addField('Presence', "Do not Disturb");
+                }*/
+                message.channel.send(STembed);
+            })
         } else {
             const { guild } = message;
             const GSembed = new MessageEmbed()
