@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js')
 const shop = require('../../models/shop')
 const { db } = require('../../models/money')
 module.exports = {
-    status: false,
+    status: true,
     name: 'buy',
     description: 'buy something or else',
     usage: 'buy <item>',
