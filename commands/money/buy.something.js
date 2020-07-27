@@ -28,7 +28,6 @@ module.exports = {
                     let nowpurchase = data.Purchases;
                     let newPurchaseAdd = parseInt(nowpurchase) + parseInt(1)
                     data.Purchases = newPurchaseAdd;
-                    data.save()
                     console.log('saving data...')
                     console.log("data was saved")
                     console.log(data)
