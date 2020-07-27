@@ -33,7 +33,6 @@ module.exports = {
                     console.log(data)
                     data.inventory = {
                         Item: item,
-                        Item: `${Object.keys(data.inventory).map(e => `${data.inventory[e]}`)}`
                     }
                     data.save();
                     const WWembed = new MessageEmbed()
