@@ -29,11 +29,10 @@ module.exports = {
                 if (err) console.log(err);
                 if (!data) {
                     console.log('nothing');
-                    message.channel.send('coins: 0')
-                    //STembed.setFooter(`Coins: $0`)
+                    STembed.setFooter(`Coins: $0`)
                 } else {
-                    message.channel.send(data.Money)
                     console.log(data)
+                    STembed.setFooter(`Coins: ${data.Money}`)
                 }
             })
             if (memberM.presence.activities[0]) {
