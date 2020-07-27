@@ -31,12 +31,7 @@ module.exports = {
                     console.log('saving data...')
                     console.log("data was saved")
                     console.log(data)
-                    data.update({
-                        inventory:{
-                            Item: item
-                        }
-                    })
-                    data.inventory += {
+                    data.inventory = {
                         Item: item
                     }
                     data.save();
