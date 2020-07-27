@@ -32,8 +32,8 @@ module.exports = {
                     console.log('saving data...')
                     console.log("data was saved")
                     console.log(data)
-                    db.findOne({ User: message.author.id }, async (err,dat) =>{
-                        console.log(dat)
+                    data.inventory.update({
+                        Item: item
                     })
                     const WWembed = new MessageEmbed()
                         .setTitle(`Shop`)
