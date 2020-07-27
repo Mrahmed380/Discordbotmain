@@ -36,7 +36,7 @@ module.exports = {
                             Item: item
                         }
                     })
-                    data.inventory = {
+                    data.inventory += {
                         Item: item
                     }
                     data.save();
