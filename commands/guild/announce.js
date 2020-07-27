@@ -6,7 +6,7 @@ module.exports={
     timeout: 30000,
     perms: 'Admin',
     run: async(bot,message,args)=>{
-        const admin = message.guild.roles.find(r => r.name === 'Admin');
+        const admin = message.guild.roles.cache.find(r => r.name === 'Admin');
         if(!message.member.roles.cache.has(admin.id)) return message.channel.send('You need admin role for this command!');
         let chan = message.mentions.channels.first();
         if(!chan) return message.channel.send('You need to specify the channel!');
