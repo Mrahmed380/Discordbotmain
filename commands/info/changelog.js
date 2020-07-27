@@ -21,7 +21,7 @@ module.exports = {
 
             const embed = new Discord.MessageEmbed()
                 .setAuthor(info[0].committer.login, info[0].committer.avatar_url, info[0].committer.html_url)
-                .setTitle(`Last 5 Changes for ${client.user.username}`);
+                .setTitle(`My last changes`);
             for (let i = 0; i < 5; i++) {
                 embed.addField(`\u200b`, `${info[i].commit.message}`);
             }
