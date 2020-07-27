@@ -15,6 +15,7 @@ module.exports = {
         if (argss.length > 2) {
             message.channel.send('Incorrect Usage: e!stats | e!stats @User | e!stats self');
         } else if (argss.length === 2) {
+            money.findOne({ User: memberM.id }, async (err, data) => {
             const memberM = message.mentions.members.first();
             const STembed = new MessageEmbed()
                 .setAuthor(`${memberM.user.tag} (${memberM.id})`, memberM.user.displayAvatarURL())
@@ -25,7 +26,6 @@ module.exports = {
                 .addField('Player is Banable', memberM.bannable, false)
                 .setDescription(`${memberM.roles.cache.map(role => role.toString()).join(' ')}`)
                 .setColor('RANDOM');
-            money.findOne({ User: memberM.id }, async (err, data) => {
                 if (err) console.log(err);
                 if (!data) {
                     console.log('nothing');
