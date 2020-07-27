@@ -23,7 +23,7 @@ module.exports = {
                 .setTitle(`My last few updates`);
             for (let i = 0; i < 5; i++) {
                 embed.addField(`\u200b`, `${info[i].commit.message}`);
-                embed.setColor('RANDOM');
+                embed.setColor(0xd0f53d);
             }
 
             message.channel.send({ embed });
