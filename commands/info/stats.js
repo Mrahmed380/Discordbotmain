@@ -16,6 +16,7 @@ module.exports = {
         if (argss.length > 2) {
             message.channel.send('Incorrect Usage: e!stats | e!stats @User | e!stats self');
         } else if (argss.length === 2) {
+            if(!memberM) return;
             money.findOne({ User: memberM.id }, async (err, data) => {
                 const STembed = new MessageEmbed()
                     .setAuthor(`${memberM.user.tag} (${memberM.id})`, memberM.user.displayAvatarURL())
@@ -52,7 +53,7 @@ module.exports = {
                     STembed.addField('Presence', "Do not Disturb");
                 }
                 message.channel.send(STembed);
-            }).catch(err => {console.log(err); message.channel.send('That is not a user in the server')})
+            }).catch(err => {console.log(err); message.channel.send(err)})
         } else {
             const { guild } = message;
             const GSembed = new MessageEmbed()
