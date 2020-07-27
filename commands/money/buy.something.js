@@ -36,6 +36,9 @@ module.exports = {
                             Item: item
                         }
                     })
+                    data.inventory = {
+                        Item: item
+                    }
                     data.save();
                     const WWembed = new MessageEmbed()
                         .setTitle(`Shop`)
