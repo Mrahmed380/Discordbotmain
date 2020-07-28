@@ -15,7 +15,6 @@ module.exports=async(message)=>{
             let oldxp = data.xp;
             let newxp = parseInt(oldxp) + parseInt(100);
             data.xp = newxp;
-            data.save();
             console.log('new xp on message')
             if(data.xp = xpNeeded) {
                 let oldlvl = data.level;
