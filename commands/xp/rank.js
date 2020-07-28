@@ -21,6 +21,7 @@ module.exports={
                 newLevel.save();
                 message.channel.send('You are level 0 and have no xp')
             } else {
+                let xpNeeded = data.level * 50 + 500
                 //let newXp = parseInt()
                 const xpembed = new MessageEmbed()
                 .setTitle(`${message.author.tag}'s Level and XP`)
