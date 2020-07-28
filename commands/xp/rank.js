@@ -9,8 +9,8 @@ module.exports={
     usage: "rank",
     category: 'xp',
     run: async(bot,message,args)=>{
-        let xpNeeded = data.level * 500 + 500
         xp.findOne({ User: message.author.id }, async (err, data) => {
+            let xpNeeded = data.level * 500 + 500
             if(err) console.log(err);
             if(!data) {
                 let newLevel = new xp({
