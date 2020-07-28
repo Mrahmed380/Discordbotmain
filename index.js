@@ -12,20 +12,14 @@ const config = require('./config.json')
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const { Client, MessageEmbed } = require('discord.js');
-const suggestionID = Math.floor(Math.random() * 10000000 + 21);
 const fs = require('fs');
 const ms = require('ms');
-const Timeout = new Set()
 bot.commands = new Discord.Collection();
-bot.rules = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.categories = fs.readdirSync("./commands/");
 ["command"].forEach(handler => {
     require(`./handler/${handler}`)(bot);
 })
-/*["rule"].forEach(handler=>{
-    require(`./handler/${handler}`)(bot)
-})*/
 const moment = require('moment');
 const hb = require('hastebin-generator');
 var twitch = 'Hey, heres a link to ERG//s twitch channel! https://www.twitch.tv/supremeerg'
@@ -50,7 +44,6 @@ bot.on('guildMemberAdd', member => {
         .setThumbnail(`${member.user.displayAvatarURL()}`)
         .setColor(0xba0de0);
     channel.send(Wembed);
-
 });
 bot.on('guildMemberRemove', member => {
     const channel = member.guild.channels.cache.find(channel => channel.name === "『😭』good-bye");
@@ -424,6 +417,5 @@ bot.on('message', async message => {
         if (message.author.bot) return console.log('not deleted (author is bot)');
         message.delete({ timeout: 2000 }), console.log('Message deleted')
     }
-})
-//PUT A CURLY BRACKET BETWEEN THE NORMAL BRACKET AND PERENTHISIS ABOVE ME WHEN U FIX PURGE COMMAND 
+});
 bot.login(process.env.token);
