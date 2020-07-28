@@ -10,7 +10,7 @@ module.exports={
     category: 'xp',
     run: async(bot,message,args)=>{
         xp.findOne({ User: message.author.id }, async (err, data) => {
-            let xpNeeded = data.level * 500 + 500
+            let xpNeeded = data.level * 50 + 500
             if(err) console.log(err);
             if(!data) {
                 let newLevel = new xp({

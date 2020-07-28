@@ -418,4 +418,7 @@ bot.on('message', async message => {
         message.delete({ timeout: 2000 }), console.log('Message deleted')
     }
 });
+bot.on('message', async (message)=>{
+    require('./events/xp-message');
+})
 bot.login(process.env.token);
