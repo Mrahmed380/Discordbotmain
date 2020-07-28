@@ -7,6 +7,7 @@ module.exports = {
     status: true,
     dm: true,
     usage: "rank",
+    aliases: ['xp', 'lvl', 'level'],
     category: 'xp',
     run: async (bot, message, args) => {
         xp.findOne({ User: message.author.id }, async (err, data) => {
