@@ -15,7 +15,7 @@ module.exports = async (message) => {
             let xpNeeded = data.level * 500 * 2;
             let oldxp = data.xp;
             let calculus = parseInt(xpNeeded) - parseInt(oldxp)
-            let newxp = parseInt(500) + parseInt(calculus);
+            let newxp = parseInt(xpNeeded) + parseInt(calculus);
             console.log(`(xpneeded)${xpNeeded} - (oldxp)${oldxp} = (calculus)${calculus}`);
             console.log(`(calcus)${oldxp} + (calculus)${calculus} = (newex)${newxp}`)
             data.xp = newxp;
