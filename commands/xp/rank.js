@@ -23,7 +23,7 @@ module.exports = {
                         .setTitle(`${message.author.tag}'s Level and XP`)
                         .setDescription(`XP - ${data.xp}\nLevel - ${data.level}\nXP needed until next level - ${parseInt(xpNeeded) - parseInt(data.xp)} `)
                         .setColor(`PURPLE`)
-                    message.channel.send(xpembed);
+                    message.channel.send(xpembed).then(msg => msg.edit(xpembed.setDescription('dj;ajfdl;')));
                 }, 500);
             }
         })
