@@ -16,7 +16,7 @@ module.exports = {
                 console.log('data created');
                 message.channel.send('You are level 0 and have no xp')
             } else {
-                let xpNeeded = data.level * 500 + 90 - 17;
+                let xpNeeded = data.level * 500 * 300;
                 let oldxp = data.xp;
                 let calculus = Math.floor(xpNeeded / data.level - 200);
                 let newxp = parseInt(data.xp) + parseInt(calculus);
