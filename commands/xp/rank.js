@@ -13,12 +13,7 @@ module.exports={
             //let xpNeeded = data.level * 50 + 500
             if(err) console.log(err);
             if(!data) {
-                let newLevel = new xp({
-                    User: message.author.id,
-                    xp: 0,
-                    level: 1,
-                })
-                newLevel.save();
+                console.log('data created');
                 message.channel.send('You are level 0 and have no xp')
             } else {
                 let xpNeeded = data.level * 50 + 500
