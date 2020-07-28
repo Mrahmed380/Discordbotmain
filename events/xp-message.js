@@ -20,6 +20,7 @@ module.exports=async(message)=>{
             if(data.xp = xpNeeded) {
                 let oldlvl = data.level;
                 data.level = parseInt(oldlvl) + parseInt(1);
+                data.save();
             }
         }
     })

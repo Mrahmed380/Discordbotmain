@@ -419,6 +419,6 @@ bot.on('message', async message => {
     }
 });
 bot.on('message', async (message)=>{
-    require('./events/xp-message');
+    require('./events/xp-message')(message);
 })
 bot.login(process.env.token);
