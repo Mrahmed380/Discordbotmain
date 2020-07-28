@@ -18,7 +18,7 @@ module.exports = {
             } else {
                 let xpNeeded = data.level * 500 * 300;
                 let oldxp = data.xp;
-                let calculus = Math.floor(xpNeeded / data.level - 200);
+                let calculus = Math.floor(xpNeeded / data.level / data.level);
                 let newxp = parseInt(data.xp) + parseInt(calculus);
                 const xpembed = new MessageEmbed()
                     .setTitle(`${message.author.tag}'s Level and XP`)
