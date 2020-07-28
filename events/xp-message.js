@@ -21,7 +21,7 @@ module.exports=async(message)=>{
                 let oldlvl = data.level;
                 data.level = parseInt(oldlvl) + parseInt(1);
                 data.save();
-            }
+            }else {console.log('not the level');}
         }
     })
 }

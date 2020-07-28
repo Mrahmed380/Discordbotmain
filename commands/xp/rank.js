@@ -24,7 +24,7 @@ module.exports={
                 //let newXp = parseInt()
                 const xpembed = new MessageEmbed()
                 .setTitle(`${message.author.tag}'s Level and XP`)
-                .setDescription(`XP - ${data.xp}\nLevel - ${data.level}\nXP needed until next level - ${parseInt(data.xp) - parseInt(xpNeeded)} `)
+                .setDescription(`XP - ${data.xp}\nLevel - ${data.level}\nXP needed until next level - ${parseInt(xpNeeded) - parseInt(data.xp)} `)
                 .setColor(`PURPLE`)
                 message.channel.send(xpembed);
             }
