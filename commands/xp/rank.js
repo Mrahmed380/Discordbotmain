@@ -18,13 +18,12 @@ module.exports = {
             } else {
                 let xpNeeded = data.level * 500 + 90 - 17;
                 //let newXp = parseInt()
-                setTimeout(() => {
-                    const xpembed = new MessageEmbed()
-                        .setTitle(`${message.author.tag}'s Level and XP`)
-                        .setDescription(`XP - ${data.xp}\nLevel - ${data.level}\nXP needed until next level - ${parseInt(xpNeeded) - parseInt(data.xp)} `)
-                        .setColor(`PURPLE`)
-                    message.channel.send(xpembed).then(msg => msg.edit(xpembed.setDescription('dj;ajfdl;')));
-                }, 500);
+                const xpembed = new MessageEmbed()
+                    .setTitle(`${message.author.tag}'s Level and XP`)
+                    .setDescription(`calculating...`)
+                    .setColor(`PURPLE`)
+                message.channel.send(xpembed).then(msg => msg.edit(xpembed.setDescription(`XP - ${data.xp}\nLevel - ${data.level}\nXP needed until next level - ${parseInt(xpNeeded) - parseInt(data.xp)} `)));
+
             }
         })
     }
