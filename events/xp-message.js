@@ -16,6 +16,8 @@ module.exports = async (message) => {
             let oldxp = data.xp;
             let calculus = parseInt(xpNeeded) - parseInt(oldxp)
             let newxp = parseInt(oldxp) + parseInt(calculus);
+            console.log(`${xpNeeded} - ${oldxp} = ${calculus}`);
+            console.log(`${oldxp} + ${calculus} = ${newxp}`)
             data.xp = newxp;
             if (data.xp >= xpNeeded) {
                 const lvl = data.level;
