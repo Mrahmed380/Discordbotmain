@@ -1,6 +1,7 @@
 module.exports=async(message)=>{
     const xp = require('../models/xp');
     xp.findOne({ User: message.author.id }, async (err, data) => {
+        if(message.author.id == '710420335509504012') return;
         if(err) console.log(err);
         if(!data) {
             let newLevel = new xp({
@@ -19,8 +20,8 @@ module.exports=async(message)=>{
             if(data.xp = xpNeeded) {
                 let oldlvl = data.level;
                 data.level = parseInt(oldlvl) + parseInt(1);
-                data.save();
             }else {console.log('not the level');}
+            data.save();
         }
     })
 }
