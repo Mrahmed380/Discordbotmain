@@ -14,7 +14,7 @@ module.exports = async (message) => {
         } else {
             let xpNeeded = data.level * 500 * 300;
             let oldxp = data.xp;
-            let calculus = Math.floor(xpNeeded / data.level / data.level);
+            let calculus = Math.floor(xpNeeded / data.level / 100);
             console.log(`${data.level} * 500 * 300 = ${xpNeeded}`);
             let newxp = parseInt(oldxp) + parseInt(calculus);
             console.log(`${oldxp} + ${calculus} = ${newxp}`)
