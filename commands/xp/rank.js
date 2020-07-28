@@ -19,10 +19,10 @@ module.exports = {
                 let xpNeeded = data.level * 500 + 90 - 17;
                 let oldxp = data.xp;
                 let calculus = Math.floor(xpNeeded / data.level - 200);
-                let newxp = parseInt(oldxp) + parseInt(calculus);
+                let newxp = parseInt(data.xp) + parseInt(calculus)
                 const xpembed = new MessageEmbed()
                     .setTitle(`${message.author.tag}'s Level and XP`)
-                    .setDescription(`XP - ${parseInt(data.xp) + parseInt(calculus)}\nLevel - ${data.level}\nXP needed until next level - ${parseInt(xpNeeded) - parseInt(parseInt(data.xp) + parseInt(calculus))} `)
+                    .setDescription(`XP - ${parseInt(data.xp) + parseInt(calculus)}\nLevel - ${data.level}\nXP needed until next level - ${xpNeeded - newxp} `)
                     .setColor(`PURPLE`)
                 message.channel.send(xpembed);
             }
