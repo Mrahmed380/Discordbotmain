@@ -17,12 +17,14 @@ module.exports = {
                 message.channel.send('You are level 0 and have no xp')
             } else {
                 let xpNeeded = data.level * 500 + 90 - 17;
-                //let newXp = parseInt()
+                let oldxp = data.xp;
+                let calculus = Math.floor(xpNeeded / data.level - 200);
+                let newxp = parseInt(oldxp) + parseInt(calculus);
                 const xpembed = new MessageEmbed()
                     .setTitle(`${message.author.tag}'s Level and XP`)
                     .setDescription(`calculating...`)
                     .setColor(`PURPLE`)
-                message.channel.send(xpembed).then(msg => msg.edit(xpembed.setDescription(`XP - ${data.xp}\nLevel - ${data.level}\nXP needed until next level - ${parseInt(xpNeeded) - parseInt(data.xp)} `)));
+                message.channel.send(xpembed).then(msg => msg.edit(xpembed.setDescription(`XP - ${parseInt(data.xp) + parseInt(calculus)}\nLevel - ${data.level}\nXP needed until next level - ${parseInt(xpNeeded) - parseInt(parseInt(data.xp) + parseInt(calculus))} `)));
 
             }
         })
