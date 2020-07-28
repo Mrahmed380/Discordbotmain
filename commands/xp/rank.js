@@ -22,10 +22,9 @@ module.exports = {
                 let newxp = parseInt(oldxp) + parseInt(calculus);
                 const xpembed = new MessageEmbed()
                     .setTitle(`${message.author.tag}'s Level and XP`)
-                    .setDescription(`calculating...`)
+                    .setDescription(`XP - ${parseInt(data.xp) + parseInt(calculus)}\nLevel - ${data.level}\nXP needed until next level - ${parseInt(xpNeeded) - parseInt(parseInt(data.xp) + parseInt(calculus))} `)
                     .setColor(`PURPLE`)
-                message.channel.send(xpembed).then(msg => msg.edit(xpembed.setDescription(`XP - ${parseInt(data.xp) + parseInt(calculus)}\nLevel - ${data.level}\nXP needed until next level - ${parseInt(xpNeeded) - parseInt(parseInt(data.xp) + parseInt(calculus))} `)));
-
+                message.channel.send(xpembed);
             }
         })
     }
