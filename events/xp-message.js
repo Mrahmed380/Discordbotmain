@@ -17,7 +17,7 @@ module.exports = async (message) => {
             let newxp = parseInt(oldxp) + parseInt(100);
             data.xp = newxp;
             console.log('new xp on message')
-            if (data.xp == xpNeeded) {
+            if (data.xp >= xpNeeded) {
                 const lvl = data.level;
                 data.level = parseInt(lvl) + parseInt(1);
                 console.log('new level for ' + message.author.username)
