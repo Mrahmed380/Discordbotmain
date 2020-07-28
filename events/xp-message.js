@@ -12,12 +12,11 @@ module.exports = async (message) => {
             newLevel.save();
             //message.channel.send('You are level 0 and have no xp')
         } else {
-            let xpNeeded = data.level * 500 * 2;
+            let xpNeeded = data.level * 500 + 90 - 17;
             let oldxp = data.xp;
-            let calculus = parseInt(xpNeeded) - parseInt(oldxp)
-            let newxp = parseInt(xpNeeded) + parseInt(calculus);
-            console.log(`(xpneeded)${xpNeeded} - (oldxp)${oldxp} = (calculus)${calculus}`);
-            console.log(`(calcus)${oldxp} + (calculus)${calculus} = (newex)${newxp}`)
+            let calculus = Math.floor(xpNeeded / 500);
+            console.log(calculus);
+            let newxp = calculus;
             data.xp = newxp;
             if (data.xp >= xpNeeded) {
                 const lvl = data.level;
