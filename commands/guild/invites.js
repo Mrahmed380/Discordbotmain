@@ -25,7 +25,7 @@ module.exports = {
 
             for(const invite in inviteCounter){
                 const count = inviteCounter[invite]
-                replyText += `\n${invite} has invited ${count} members`
+                replyText += `\n${invite} has invited ${inviteCounter[uses]} members`
             }
             const embed = new MessageEmbed()
                 .setTitle('Invites')
