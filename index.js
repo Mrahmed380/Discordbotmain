@@ -121,7 +121,7 @@ bot.on('message', async message => {
         const cmd = args.shift().toLowerCase();
         if (cmd.length == 0) return;
         let command = bot.commands.get(cmd)
-        if(!command) command = bot.commands.get(bot.aliases.get(cmd));
+        if (!command) command = bot.commands.get(bot.aliases.get(cmd));
         if (command) {
             if (command.status == false) {
                 console.log('command is off')
@@ -160,7 +160,7 @@ bot.on('message', async message => {
             const cmd = args.shift().toLowerCase();
             if (cmd.length == 0) return;
             let command = bot.commands.get(cmd)
-            if(!command) command = bot.commands.get(bot.aliases.get(cmd));
+            if (!command) command = bot.commands.get(bot.aliases.get(cmd));
             if (command) {
                 if (command.status == false) {
                     console.log('command is off')
@@ -198,7 +198,7 @@ bot.on('message', async message => {
             const cmd = args.shift().toLowerCase();
             if (cmd.length == 0) return;
             let command = bot.commands.get(cmd)
-            if(!command) command = bot.commands.get(bot.aliases.get(cmd));
+            if (!command) command = bot.commands.get(bot.aliases.get(cmd));
             if (command) {
                 if (command.status == false) {
                     console.log('command is off')
@@ -418,8 +418,10 @@ bot.on('message', async message => {
         message.delete({ timeout: 2000 }), console.log('Message deleted')
     }
 });
-bot.on('message', async (message)=>{
+bot.on('message', async (message) => {
     require('./events/xp-message')(message);
 })
-bot.on('guildMemberAdd', async(bot)=>{require('./events/invites')(bot)})
+bot.on('guildMemberAdd', async (bot) => {
+    require('./events/invites')(bot)
+})
 bot.login(process.env.token);
