@@ -26,7 +26,7 @@ module.exports = {
                 message.guild.me.setNickname(`my prefix is "${data.Prefix}"`)
             } else {
                 const oldpre = data.Prefix
-                if(newpre == oldpre) return message.channel.send(`The prefix is already "${data.Prefix}"`)
+                if(newpre == oldpre) return message.channel.send(`The prefix is already \`${data.Prefix}\``)
                 data.Prefix = newpre
                 data.save()
                 console.log(data.Prefix)
