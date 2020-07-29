@@ -418,10 +418,45 @@ bot.on('message', async message => {
         message.delete({ timeout: 2000 }), console.log('Message deleted')
     }
 });
-bot.on('message', async (message) => {
-    require('./events/xp-message')(message);
-})
-bot.on('guildMemberAdd', async (bot) => {
-    require('./events/invites')(bot)
+bot.on('guildMemberAdd', async (member) => {
+    let invites = {}
+    const getInviteCounts = async (guild) => {
+        return await new Promise(resolve => {
+            guild.fetchInvites().then(invites => {
+                const inviteCounter = {}
+
+                invites.forEach(invite => {
+                    console.log(`INVITE: ${invite}`);
+                    const { uses, inviter } = invite
+                    const { username, discriminator } = inviter
+                    const name = `${username}#${discriminator}`
+
+                    inviteCounter[name] = (inviteCounter[name] || 0) + uses;
+                })
+                resolve(inviteCounter);
+            })
+        })
+    }
+    bot.guild.cache.forEach(async (guild) => {
+        invites[guild.id] = await getInviteCounts(guild)
+        console.log(`Invites: ${invites[guild.id]}`);
+    }).catch(err => console.log(err))
+
+
+        let chan = guild.channels.cache.find(c => c.name === '『🤘🏻』invites')
+        if(!chan) return console.log('channel doesnt exist')
+        const { guild } = member;
+        const invitesBefore = invites[guild.id]
+        const invitesAfter = await getInviteCounts(guild);
+        console.log(`BEFORE ${invitesBefore}`);
+        console.log(`AFTER ${invitesAfter}`);
+        for (const inviter in invitesAfter) {
+            if (invitesBefore[inviter] === invitesAfter[inviter] - 1) {
+                const count = invitesAfter[inviter]
+                chan.send(`${member} joined!, invited by ${inviter} (${count} total invites)`)
+                invites[guild.id] = invitesAfter;
+                return
+            }
+        }
 })
 bot.login(process.env.token);

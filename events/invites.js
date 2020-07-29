@@ -1,4 +1,4 @@
-module.exports = async (bot) => {
+/*module.exports = async (bot) => {
     let invites = {}
     const getInviteCounts = async (guild) => {
         return await new Promise(resolve => {
@@ -17,10 +17,10 @@ module.exports = async (bot) => {
             })
         })
     }
-    /*bot.guild.cache.forEach(async (guild) => {
+    bot.guild.cache.forEach(async (guild) => {
         invites[guild.id] = await getInviteCounts(guild)
         console.log(`Invites: ${invites[guild.id]}`);
-    }).catch(err => console.log(err))*/
+    }).catch(err => console.log(err))
 
     bot.on('guildMemberAdd',async (member) => {
         let chan = guild.channels.cache.find(c => c.name === '『🤘🏻』invites')
@@ -39,4 +39,4 @@ module.exports = async (bot) => {
             }
         }
     }).catch(err => console.log(err))
-}
+}*/
