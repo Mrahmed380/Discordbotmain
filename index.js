@@ -435,6 +435,7 @@ bot.on('message', async message => {
     }
 });
 bot.on('guildMemberAdd', async (member) => {
+    const invites = {}
     member.guild.fetchInvites().then(guildInvites => {
         // This is the *existing* invites for the guild.
         const ei = invites[member.guild.id];
