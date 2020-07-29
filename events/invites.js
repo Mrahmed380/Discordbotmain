@@ -17,7 +17,7 @@ module.exports = async (bot) => {
             })
         })
     }
-    bot.guilds.cache.forEach(async (guild) => {
+    bot.guilds.forEach(async (guild) => {
         invites[guild.id] = await getInviteCounts(guild)
         console.log(`Invites: ${invites[guild.id]}`);
     })
