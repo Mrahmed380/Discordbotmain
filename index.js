@@ -44,6 +44,7 @@ bot.on('guildMemberAdd', member => {
         .setThumbnail(`${member.user.displayAvatarURL()}`)
         .setColor(0xba0de0);
     channel.send(Wembed);
+    require('./events/invites')(bot);
 });
 bot.on('guildMemberRemove', member => {
     const channel = member.guild.channels.cache.find(channel => channel.name === "『😭』good-bye");
