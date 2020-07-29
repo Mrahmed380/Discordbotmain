@@ -419,10 +419,9 @@ bot.on('message', async message => {
     }
 });
 bot.on('guildMemberAdd', async (member) => {
-
+    const invites = {};
     // To compare, we need to load the current invite list.
     member.guild.fetchInvites().then(guildInvites => {
-        const invites = {};
 
 
         // Load all invites for all guilds and save them to the cache.
