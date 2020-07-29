@@ -23,6 +23,7 @@ module.exports = async (bot) => {
 
     bot.on('guildMemberADd',async (member) => {
         let chan = guild.channels.cache.find(c => c.name === '『🤘🏻』invites')
+        if(!chan) return console.log('channel doesnt exist')
         const { guild } = member;
         const invitesBefore = invites[guild.id]
         const invitesAfter = await getInviteCounts(guild);
