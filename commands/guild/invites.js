@@ -32,7 +32,8 @@ module.exports = {
                 .setDescription(`${replyText}`)
                 .setColor('RANDOM')
                 .setFooter('Invites for ' + message.guild.name)
-                if(replyText == '') embed.setDescription('Could not fetch the server invites!')
+                if(replyText == '') embed.setDescription('Could not fetch the server invites!\nThere might not be any invites')
+                if(replyText == `${invite} has invited 0 members`) embed.setDescription('There are no invites!')
             message.channel.send(embed)
         })
     }
