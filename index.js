@@ -437,7 +437,7 @@ bot.on('guildMemberAdd', async (member) => {
             })
         })
     }
-    bot.guild.cache.forEach(async (guild) => {
+    bot.guilds.cache.forEach(async (guild) => {
         invites[guild.id] = await getInviteCounts(guild)
         console.log(`Invites: ${invites[guild.id]}`);
     }).catch(err => console.log(err))
