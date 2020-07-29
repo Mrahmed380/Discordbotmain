@@ -21,7 +21,7 @@ module.exports = {
                 const name = `${username}#${discriminator}`;
                 inviteCounter[name] = (inviteCounter[name] || 0) + uses;
             })
-            let replyText = 'Invites:'
+            let replyText = ''
 
             for (const invite in inviteCounter) {
                 const count = inviteCounter[invite]
@@ -32,6 +32,7 @@ module.exports = {
                 .setDescription(`${replyText}`)
                 .setColor('RANDOM')
                 .setFooter('Invites for ' + message.guild.name)
+                if(replyText == '') embed.setDescription('Could not fetch the server invites!')
             message.channel.send(embed)
         })
     }
