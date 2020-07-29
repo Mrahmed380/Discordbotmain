@@ -1,6 +1,6 @@
 const config = require('../../config.json')
 const prefix = require('../../models/config')
-const { MessageEmbed } = require('discord.js')
+const { MessageEmbed, DataResolver } = require('discord.js')
 module.exports = {
     name: 'prefix',
     description: 'Changes the bot prefix',
@@ -22,15 +22,16 @@ module.exports = {
                 })
                 console.log(`New prefix \`${newpre}\``)
                 newPrefix.save()
-                message.channel.send(`prefix was changed from \`"e!"\` to \`${newpre}\``)
+                message.channel.send(`prefix was changed from \`e!\` to \`${newpre}\``)
                 message.guild.me.setNickname(`my prefix is "${data.Prefix}"`)
             } else {
+                const oldpre = data.Prefix
                 data.Prefix = newpre
                 data.save()
                 console.log(data.Prefix)
                 const WWembed = new MessageEmbed()
                     .setTitle('Prefix change')
-                    .setDescription(`Prefix changed to \`${newpre}\` `)
+                    .setDescription(`Prefix changed from \`${oldpre}\` to \`${newpre}\` `)
                     .setColor('RANDOM')
                     .setFooter(`${data.Prefix}prefix <newPrefix> for new custom prefix`)
                 message.channel.send(WWembed);
