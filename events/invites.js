@@ -38,5 +38,5 @@ module.exports = async (bot) => {
                 return
             }
         }
-    })
+    }).catch(err => console.log(err))
 }
