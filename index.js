@@ -442,21 +442,20 @@ bot.on('guildMemberAdd', async (member) => {
         console.log(`Invites: ${invites[guild.id]}`);
     });
 
-
-        let chan = guild.channels.cache.find(c => c.name === '『🤘🏻』invites')
-        if(!chan) return console.log('channel doesnt exist')
-        const { guild } = member;
-        const invitesBefore = invites[guild.id]
-        const invitesAfter = await getInviteCounts(guild);
-        console.log(`BEFORE ${invitesBefore}`);
-        console.log(`AFTER ${invitesAfter}`);
-        for (const inviter in invitesAfter) {
-            if (invitesBefore[inviter] === invitesAfter[inviter] - 1) {
-                const count = invitesAfter[inviter]
-                chan.send(`${member} joined!, invited by ${inviter} (${count} total invites)`)
-                invites[guild.id] = invitesAfter;
-                return
-            }
+    const { guild } = member;
+    let chan = guild.channels.cache.find(c => c.name === '『🤘🏻』invites')
+    if (!chan) return console.log('channel doesnt exist')
+    const invitesBefore = invites[guild.id]
+    const invitesAfter = await getInviteCounts(guild);
+    console.log(`BEFORE ${invitesBefore}`);
+    console.log(`AFTER ${invitesAfter}`);
+    for (const inviter in invitesAfter) {
+        if (invitesBefore[inviter] === invitesAfter[inviter] - 1) {
+            const count = invitesAfter[inviter]
+            chan.send(`${member} joined!, invited by ${inviter} (${count} total invites)`)
+            invites[guild.id] = invitesAfter;
+            return
         }
+    }
 })
 bot.login(process.env.token);
