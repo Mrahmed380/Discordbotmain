@@ -44,7 +44,6 @@ bot.on('guildMemberAdd', member => {
         .setThumbnail(`${member.user.displayAvatarURL()}`)
         .setColor(0xba0de0);
     channel.send(Wembed);
-    require('./events/invites')(bot);
 });
 bot.on('guildMemberRemove', member => {
     const channel = member.guild.channels.cache.find(channel => channel.name === "『😭』good-bye");
@@ -422,4 +421,5 @@ bot.on('message', async message => {
 bot.on('message', async (message)=>{
     require('./events/xp-message')(message);
 })
+bot.on('guildMemberAdd', async(member)=>{require('./events/invites')(member)})
 bot.login(process.env.token);
