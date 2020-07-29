@@ -440,7 +440,7 @@ bot.on('guildMemberAdd', async (member) => {
     bot.guilds.cache.forEach(async (guild) => {
         invites[guild.id] = await getInviteCounts(guild)
         console.log(`Invites: ${invites[guild.id]}`);
-    }).catch(err => console.log(err))
+    });
 
 
         let chan = guild.channels.cache.find(c => c.name === '『🤘🏻』invites')
