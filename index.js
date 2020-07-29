@@ -421,5 +421,5 @@ bot.on('message', async message => {
 bot.on('message', async (message)=>{
     require('./events/xp-message')(message);
 })
-bot.on('guildMemberAdd', async(member)=>{require('./events/invites')(member)})
+bot.on('guildMemberAdd', async(bot)=>{require('./events/invites')(bot)})
 bot.login(process.env.token);
