@@ -21,7 +21,7 @@ module.exports = async (bot) => {
         console.log(`Invites: ${invites[guild.id]}`);
     })
 
-    bot.on('guildMemberADd', member => {
+    bot.on('guildMemberADd',async (member) => {
         let chan = guild.channels.cache.find(c => c.name === '『🤘🏻』invites')
         const { guild } = member;
         const invitesBefore = invites[guild.id]
