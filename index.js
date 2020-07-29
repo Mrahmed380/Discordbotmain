@@ -419,43 +419,23 @@ bot.on('message', async message => {
     }
 });
 bot.on('guildMemberAdd', async (member) => {
-    let invites = {}
-    const getInviteCounts = async (guild) => {
-        return await new Promise(resolve => {
-            guild.fetchInvites().then(invites => {
-                const inviteCounter = {}
 
-                invites.forEach(invite => {
-                    console.log(`INVITE: ${invite}`);
-                    const { uses, inviter } = invite
-                    const { username, discriminator } = inviter
-                    const name = `${username}#${discriminator}`
-
-                    inviteCounter[name] = (inviteCounter[name] || 0) + uses;
-                })
-                resolve(inviteCounter);
-            })
-        })
-    }
-    bot.guilds.cache.forEach(async (guild) => {
-        invites[guild.id] = await getInviteCounts(guild)
-        console.log(`Invites: ${invites[guild.id]}`);
+    // To compare, we need to load the current invite list.
+    member.guild.fetchInvites().then(guildInvites => {
+        // This is the *existing* invites for the guild.
+        const ei = invites[member.guild.id];
+        // Update the cached invites for the guild.
+        invites[member.guild.id] = guildInvites;
+        // Look through the invites, find the one for which the uses went up.
+        const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+        // This is just to simplify the message being sent below (inviter doesn't have a tag property)
+        const inviter = bot.users.get(invite.inviter.id);
+        // Get the log channel (change to your liking)
+        const logChannel = member.guild.channels.find(channel => channel.name === "『🤘🏻』new-clients");
+        // A real basic message with the information we need. 
+        logChannel.send(`${member.user.tag} joined using invite code ${invite.code} from ${inviter.tag}. Invite was used ${invite.uses} times since its creation.`);
     });
 
-    const { guild } = member;
-    let chan = guild.channels.cache.find(c => c.name === '『🤘🏻』invites')
-    if (!chan) return console.log('channel doesnt exist')
-    const invitesBefore = invites[guild.id]
-    const invitesAfter = await getInviteCounts(guild);
-    console.log(`BEFORE ${invitesBefore}`);
-    console.log(`AFTER ${invitesAfter}`);
-    for (const inviter in invitesAfter) {
-        if (invitesBefore[inviter] === invitesAfter[inviter] - 1) {
-            const count = invitesAfter[inviter]
-            chan.send(`${member} joined!, invited by ${inviter} (${count} total invites)`)
-            invites[guild.id] = invitesAfter;
-            return
-        }
-    }
+
 })
 bot.login(process.env.token);
