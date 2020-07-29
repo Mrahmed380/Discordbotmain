@@ -27,7 +27,8 @@ var CACC = ' Cracked accounts:https://bit.ly/2XeIOKW'
 var server = 'Hey heres a invite to my recovery server! https://discord.gg/rVFJ3Vg For more details DM ERG#1703'
 var binv = 'https://discord.com/api/oauth2/authorize?client_id=710420335509504012&permissions=8&scope=bot'
 
-
+const guildInvites = new Map();
+bot.on('inviteCreate', async invite => guildInvites.set(invite.guild.id, await invite.guild.fetchInvites()));
 bot.on('ready', () => {
     console.log(`${bot.user.username} is online!`);
     bot.user.setActivity('e!botinfo ', { type: "STREAMING", url: "https://twitch.tv/supremeerg" });
@@ -434,22 +435,21 @@ bot.on('message', async message => {
         message.delete({ timeout: 2000 }), console.log('Message deleted')
     }
 });
-bot.on('guildMemberAdd', async (member) => {
-    const invites = {}
-    member.guild.fetchInvites().then(guildInvites => {
-        // This is the *existing* invites for the guild.
-        const ei = invites[member.guild.id];
-        // Update the cached invites for the guild.
-        invites[member.guild.id] = guildInvites;
-        // Look through the invites, find the one for which the uses went up.
-        const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-        // This is just to simplify the message being sent below (inviter doesn't have a tag property)
-        const inviter = bot.users.get(invite.inviter.id);
-        // Get the log channel (change to your liking)
-        const logChannel = member.guild.channels.find(channel => channel.name === "『🤘🏻』new-clients");
-        // A real basic message with the information we need. 
-        logChannel.send(`${member.user.tag} joined using invite code ${invite.code} from ${inviter.tag}. Invite was used ${invite.uses} times since its creation.`);
-    });
+bot.on('guildMemberAdd', async member => {
+    const cachedInvites = guildInvites.get(member.guild.id);
+    const newInvites = await member.guild.fetchInvites();
+    guildInvites.set(member.guild.id, newInvites);
+    try{
+        const usedInvite = newInvites.find(inv => cachedInvites.get(inv.code).uses < inv.uses);
+        const embed = new Discord.MessageEmbed()
+        .setDescription(`${member.user.tag} just joined! Invited by ${usedInvite.inviter.tag}\nNumber of uses: ${usedInvite.uses}`)
+        .setTimestamp()
+        .setTitle(`New invite used`);
+        const logchannel = member.guild.channels.cache.find(c => c.id === '697343291825455130');
+        if(logchannel) {
+            logchannel.send(embed).catch(err => console.log(err));
+        }
+    }catch(err) {console.log(err)}
 });
 
 
