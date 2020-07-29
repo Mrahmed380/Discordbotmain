@@ -23,7 +23,7 @@ module.exports = {
                 console.log(`New prefix \`${newpre}\``)
                 newPrefix.save()
                 message.channel.send(`prefix was changed from \`"e!"\` to \`${newpre}\``)
-                bot.user.setUsername(`my prefix is "${data.Prefix}"`)
+                message.guild.me.setNickname(`my prefix is "${data.Prefix}"`)
             } else {
                 data.Prefix = newpre
                 data.save()
@@ -34,7 +34,7 @@ module.exports = {
                     .setColor('RANDOM')
                     .setFooter(`${data.Prefix}prefix <newPrefix> for new custom prefix`)
                 message.channel.send(WWembed);
-                bot.user.setUsername(`my prefix is "${data.Prefix}"`)
+                message.guild.me.setNickname(`my prefix is "${data.Prefix}"`)
             }
         }
 
