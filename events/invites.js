@@ -13,6 +13,7 @@ module.exports = async (bot) => {
 
                     inviteCounter[name] = (inviteCounter[name] || 0) + uses;
                 })
+                resolve(inviteCounter);
             })
         })
     }
