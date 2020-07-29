@@ -1,6 +1,6 @@
 module.exports = {
     name: "changelog",
-    aliases: ['changes', 'log', 'updates', 'update', 'github', 'updatelog'],
+    aliases: ['changes', 'log', 'updates', 'update', 'updatelog'],
     description: 'Get a log of last 5 bot updates',
     usage: 'changelog',
     category: 'info',
