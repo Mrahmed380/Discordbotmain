@@ -19,13 +19,13 @@ module.exports = {
                 const { uses, inviter } = invite;
                 const { username, discriminator } = inviter;
                 const name = `${username}#${discriminator}`;
-                inviteCounter[name] = (inviteCounter[name]) + uses;
+                inviteCounter[name] = (inviteCounter[name] || 0) + uses;
             })
             let replyText = 'Invites:'
 
-            for(const invite in inviteCounter){
+            for (const invite in inviteCounter) {
                 const count = inviteCounter[invite]
-                replyText += `\n${invite} has invited ${inviteCounter[uses]} members`
+                replyText += `\n${invite} has invited ${count} members`
             }
             const embed = new MessageEmbed()
                 .setTitle('Invites')
