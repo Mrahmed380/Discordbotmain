@@ -5,6 +5,7 @@ module.exports={
     name: 'warns',
     category: 'guild',
     dm: false,
+    aliases: ['warnings'],
     description: 'Shows how many warns a user has',
     usage: 'e!warns <@user>',
     perms: 'Send Messages',

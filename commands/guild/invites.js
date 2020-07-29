@@ -2,11 +2,12 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: 'invites',
-    aliases: ['invite'],
+    aliases: ['invite', 'invitations'],
     description: 'Fetch the guild invites',
     category: 'guild',
     perms: 'Send Messages',
     dm: false,
+
     usage: 'invites',
     run: async (bot, message, args) => {
         const { guild } = message;
