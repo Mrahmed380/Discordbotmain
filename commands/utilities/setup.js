@@ -22,7 +22,7 @@ module.exports = {
                         deny: ['SEND_MESSAGES', 'VIEW_CHANNEL'],
                     },
                     {
-                        id: guild.channels.cache.get('730608207067742310').id,
+                        id: guild.roles.cache.get('730608207067742310').id,
                         allow: ['VIEW_CHANNEL'],
                     }
                 ],
@@ -42,7 +42,7 @@ module.exports = {
                         deny: ['SEND_MESSAGES', 'VIEW_CHANNEL'],
                     },
                     {
-                        id: guild.channels.cache.get('730608207067742310').id,
+                        id: guild.roles.cache.get('730608207067742310').id,
                         allow: ['VIEW_CHANNEL'],
                     }
                 ],
@@ -62,7 +62,7 @@ module.exports = {
                         deny: ['SEND_MESSAGES', 'VIEW_CHANNEL'],
                     },
                     {
-                        id: guild.channels.cache.get('730608207067742310').id,
+                        id: guild.roles.cache.get('730608207067742310').id,
                         allow: ['VIEW_CHANNEL'],
                     }
                 ],
