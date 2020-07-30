@@ -270,7 +270,7 @@ bot.on('message', async msg => {
                 .setTitle('Verification')
                 .addField('Succesful Verification', `${msg.author}` + ' has succesfully verified!')
                 .setColor(0x824673);
-            bot.channels.cache.get('723153779297615953').send(VCHember);
+            bot.channels.cache.find(c => c.name === 'verifylog').send(VCHember);
         } else {
             msg.author.send('There was a error verifying you in ERGs Recoverys')
         }
