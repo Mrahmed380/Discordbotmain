@@ -4,6 +4,7 @@ module.exports = {
     status: false,
     name: 'getexport',
     dm: false,
+    args: false,
     description: 'Shows all the server info',
     category: 'utilities',
     usage: 'getexport',

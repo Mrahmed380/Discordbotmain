@@ -7,6 +7,7 @@ module.exports = {
     usage: 'setup',
     dm: false,
     status: true,
+    args: false,
     run: async (bot, message, args) => {
         if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You need admin to do this!")
         const { guild } = message;
