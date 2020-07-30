@@ -225,7 +225,6 @@ bot.on('message', async message => {
                     console.log('command is guild only')
                     return message.channel.send('This command is only available in a server!!')
                 }
-                if(command.args == false && args[0] || args[1] ) {message.channel.send('This command does not need any arguments!'); return console.log('args should not be in this cmd')}
                 if (command.timeout) {
                     let cooldown = used.get(`${message.author.id}${command.name}`)
                     let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true })
