@@ -8,6 +8,7 @@ module.exports = {
     dm: false,
     status: true,
     run: async (bot, message, args) => {
+        if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You need admin to do this!")
         const { guild } = message;
         if (guild.channels.cache.find(c => c.name === 'mutelog')) {
             console.log('channel exists with the name "mutelog"');
@@ -18,8 +19,12 @@ module.exports = {
                 permissionOverwrites: [
                     {
                         id: message.guild.id,
-                        deny: ['SEND_MESSAGES'],
+                        deny: ['SEND_MESSAGES', 'VIEW_CHANNEL'],
                     },
+                    {
+                        id: guild.channels.cache.get('730608207067742310').id,
+                        allow: ['VIEW_CHANNEL'],
+                    }
                 ],
             })
             console.log('mutelog was created')
@@ -34,8 +39,12 @@ module.exports = {
                 permissionOverwrites: [
                     {
                         id: message.guild.id,
-                        deny: ['SEND_MESSAGES'],
+                        deny: ['SEND_MESSAGES', 'VIEW_CHANNEL'],
                     },
+                    {
+                        id: guild.channels.cache.get('730608207067742310').id,
+                        allow: ['VIEW_CHANNEL'],
+                    }
                 ],
             })
             console.log("archive log was created")
@@ -50,12 +59,36 @@ module.exports = {
                 permissionOverwrites: [
                     {
                         id: message.guild.id,
-                        deny: ['SEND_MESSAGES'],
+                        deny: ['SEND_MESSAGES', 'VIEW_CHANNEL'],
                     },
+                    {
+                        id: guild.channels.cache.get('730608207067742310').id,
+                        allow: ['VIEW_CHANNEL'],
+                    }
                 ],
             })
             console.log("verify log was created")
             message.channel.send("verifylog was created").then(msg => msg.react("✅"));
+        }
+        if (guild.roles.cache.find(r => r.name === 'Muted')) {
+            console.log('role exists with the name "Muted"');
+            message.channel.send('Muted already exists so it wasnt created').then(msg => msg.react("❌"))
+        } else {
+            guild.roles.create('Muted', {
+                color: 'GREEN'
+            })
+            console.log("archive log was created")
+            message.channel.send("Moderator was created was created").then(msg => msg.react("✅"));
+        }
+        if (guild.roles.cache.find(r => r.name === 'Moderator')) {
+            console.log('role exists with the name "Moderator"');
+            message.channel.send('Moderator already exists so it wasnt created').then(msg => msg.react("❌"))
+        } else {
+            guild.roles.create('Moderator', {
+                color: 'GREEN'
+            })
+            console.log("Moderator was created")
+            message.channel.send("Moderator role was created").then(msg => msg.react("✅"));
         }
     }
 }
