@@ -8,7 +8,7 @@ module.exports = {
     dm: false,
     status: true,
     run: async (bot, message, args) => {
-        if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You need admin to do this!")
+        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You need admin to do this!")
         const { guild } = message;
         if (guild.channels.cache.find(c => c.name === 'mutelog')) {
             console.log('channel exists with the name "mutelog"');
@@ -75,10 +75,11 @@ module.exports = {
             message.channel.send('Muted already exists so it wasnt created').then(msg => msg.react("❌"))
         } else {
             guild.roles.create({
-                color: 'GREEN',
-                name: "Muted",
-                reason: "setup command",
-                mention: true
+                data: {
+                    name: 'Muted',
+                    color: 'GREEN',
+                    mentionable: true,
+                }
             })
             console.log("archive log was created")
             message.channel.send("Moderator was created was created").then(msg => msg.react("✅"));
@@ -88,10 +89,11 @@ module.exports = {
             message.channel.send('Moderator already exists so it wasnt created').then(msg => msg.react("❌"))
         } else {
             guild.roles.create('Moderator', {
-                color: 'GREEN',
-                mentionable: true,
-                name: "Moderator",
-                reason: "setup command"
+                data: {
+                    name: 'Moderator',
+                    color: 'BLUE',
+                    mentionable: true,
+                }
             })
             console.log("Moderator was created")
             message.channel.send("Moderator role was created").then(msg => msg.react("✅"));
