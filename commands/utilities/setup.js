@@ -74,13 +74,14 @@ module.exports = {
             console.log('role exists with the name "Muted"');
             message.channel.send('Muted already exists so it wasnt created').then(msg => msg.react("❌"))
         } else {
-            guild.roles.create({
+            const mod = {
                 data: {
                     name: 'Muted',
                     color: 'GREEN',
                     mentionable: true,
                 }
-            })
+            }
+            guild.roles.create(mod)
             console.log("archive log was created")
             message.channel.send("Moderator was created was created").then(msg => msg.react("✅"));
         }
@@ -88,13 +89,14 @@ module.exports = {
             console.log('role exists with the name "Moderator"');
             message.channel.send('Moderator already exists so it wasnt created').then(msg => msg.react("❌"))
         } else {
-            guild.roles.create('Moderator', {
+            const mut = {
                 data: {
                     name: 'Moderator',
                     color: 'BLUE',
                     mentionable: true,
                 }
-            })
+            }
+            guild.roles.create(mut)
             console.log("Moderator was created")
             message.channel.send("Moderator role was created").then(msg => msg.react("✅"));
         }
