@@ -78,8 +78,8 @@ module.exports = {
                 }
             }
             guild.roles.create(mod)
-            console.log("archive log was created")
-            message.channel.send("Moderator was created was created").then(msg => msg.react("✅"));
+            console.log("muted role was created")
+            message.channel.send("Muted was created was created").then(msg => msg.react("✅"));
         }
         if (guild.roles.cache.find(r => r.name === 'Moderator')) {
             console.log('role exists with the name "Moderator"');
