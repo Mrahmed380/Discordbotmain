@@ -9,7 +9,7 @@ module.exports = {
     status: true,
     run: async (bot, message, args) => {
         const { guild } = message;
-        if (guild.parents.cache.find(c => c.name === 'mutelog')) {
+        if (guild.parent.cache.find(c => c.name === 'mutelog')) {
             console.log('channel exists with the name "mutelog"');
             message.channel.send('Mutelog already exists so it wasnt created').then(msg => msg.reactd("❌"))
         } else {
