@@ -2,8 +2,8 @@ const { MessaeEmbed, GuildMember, Collection } = require('discord.js')
 module.exports={
     name: 'muted',
     desription: 'Shows all muted users',
-    usage: 'zmuted',
-    category: 'guild',
+    usage: 'muted',
+    category: 'moderation',
     perms: 'Send Messages',
     run: async (bot,message,args)=>{
         const hb = require('hastebin-generator')

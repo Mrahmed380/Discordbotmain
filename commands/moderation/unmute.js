@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js')
 module.exports={
     name: 'unmute',
     description: 'unmutes a user',
-    category: 'guild',
+    category: 'moderation',
     usage: 'zunmute <@user>',
     perms: 'Moderator role',
     run: async(bot,message,args)=>{

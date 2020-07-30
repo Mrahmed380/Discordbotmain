@@ -7,7 +7,7 @@ dformat = [d.getMonth()+1,
 module.exports={
     name: 'warn',
     description: 'Warns a user',
-    category: 'guild',
+    category: 'moderation',
     dm: false,
     usage: 'e!warn <user> <reason>',
     perms: 'Moderator role',

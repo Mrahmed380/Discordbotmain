@@ -3,8 +3,8 @@ const ms = require('ms');
 module.exports={
     name: 'mute',
     description: 'mutes a user a user',
-    usage: 'zmute <@user> <time (in minutes)>',
-    category: 'guild',
+    usage: 'mute <@user> <time (in minutes)>',
+    category: 'moderation',
     perms: 'Moderator role',
     run: async(bot,message,args)=>{
         const chan = message.guild.channels.cache.find(channel => channel.name === 'mutelog')

@@ -1,7 +1,7 @@
 const { Client, MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'unban',
-    category: 'guild',
+    category: 'moderation',
     dm: false,
     description: 'unbans anyone whos ID is listed',
     usage: 'unban <usersID>',

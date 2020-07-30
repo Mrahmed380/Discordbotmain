@@ -3,9 +3,9 @@ const { category } = require('./ban');
 module.exports = {
     name: 'ban',
     dm: false,
-    category: 'guild',
+    category: 'moderation',
     description: 'Bans any mentioned user',
-    usage: 'e!ban <@user>',
+    usage: 'ban <@user>',
     perms: 'Administrator',
     run: async (bot, message, args) => {
         const banID = message.content.slice(6)

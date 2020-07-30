@@ -3,7 +3,7 @@ const { Client , MessageEmbed } = require('discord.js')
 const mongoose = require('mongoose')
 module.exports={
     name: 'warns',
-    category: 'guild',
+    category: 'moderation',
     dm: false,
     aliases: ['warnings'],
     description: 'Shows how many warns a user has',
