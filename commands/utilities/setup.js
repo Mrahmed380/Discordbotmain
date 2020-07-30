@@ -18,12 +18,12 @@ module.exports = {
                 type: 'text',
                 permissionOverwrites: [
                     {
-                        id: message.guild.id,
+                        id: guild.id,
                         deny: ['SEND_MESSAGES', 'VIEW_CHANNEL'],
                     },
                     {
                         id: guild.roles.cache.get('730608207067742310').id,
-                        allow: ['VIEW_CHANNEL'],
+                        allow: ['VIEW_CHANNEL','VIEW_MESSAGE_HISTORY'],
                     }
                 ],
             })
@@ -38,13 +38,9 @@ module.exports = {
                 type: 'text',
                 permissionOverwrites: [
                     {
-                        id: message.guild.id,
+                        id: guild.id,
                         deny: ['SEND_MESSAGES', 'VIEW_CHANNEL'],
                     },
-                    {
-                        id: guild.roles.cache.get('730608207067742310').id,
-                        allow: ['VIEW_CHANNEL'],
-                    }
                 ],
             })
             console.log("archive log was created")
@@ -58,12 +54,12 @@ module.exports = {
                 type: 'text',
                 permissionOverwrites: [
                     {
-                        id: message.guild.id,
+                        id: guild.id,
                         deny: ['SEND_MESSAGES', 'VIEW_CHANNEL'],
                     },
                     {
                         id: guild.roles.cache.get('730608207067742310').id,
-                        allow: ['VIEW_CHANNEL'],
+                        allow: ['VIEW_CHANNEL','VIEW_MESSAGE_HISTORY'],
                     }
                 ],
             })
