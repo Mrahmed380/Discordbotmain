@@ -1,9 +1,9 @@
 const { MessageEmbed } = require("discord.js")
-
+const snipes = new Map();
 module.exports = async (message) => {
     try {
-        const snipes = bot.snipes.get(message.channel.id) || [];
-        snipes.unshift({
+        const snipesMap = bot.snipes.get(message.channel.id) || [];
+        snipesMap.unshift({
             content: message.content,
             author: message.author,
             image: message.attachments.first() ? message.attachments.first().proxyURL : null,
