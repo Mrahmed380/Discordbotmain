@@ -29,7 +29,7 @@ module.exports = {
                         const get = reactors.get(`${winner}`);
                         console.log(winner)
                         console.log(reactors);
-                        if(!get)
+                        if(!get) return message.channel.send("no")
                         let amt = Math.random(100000)
                         message.channel.send('Send any message to collect the money from the heist')
                         let DivAmt = Math.round(amt / (msg.reactions.cache.size - 1));
