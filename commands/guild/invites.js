@@ -7,7 +7,6 @@ module.exports = {
     category: 'guild',
     perms: 'Send Messages',
     dm: false,
-
     usage: 'invites',
     run: async (bot, message, args) => {
         const { guild } = message;
@@ -32,7 +31,7 @@ module.exports = {
                 .setTitle('Invites')
                 .setDescription(`${replyText}`)
                 .setColor('RANDOM')
-                .setFooter('Invites for ' + message.guild.name)
+                .setFooter('Invites for ' + guild.name)
                 if(replyText == '') embed.setDescription('Could not fetch the server invites!\nThere might not be any invites')
             message.channel.send(embed)
         })

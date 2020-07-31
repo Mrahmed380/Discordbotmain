@@ -9,7 +9,7 @@ module.exports = {
     usage: "rank",
     aliases: ['xp', 'lvl', 'level'],
     category: 'xp',
-    args: false,
+    perms: "Send Messages",
     run: async (bot, message, args) => {
         xp.findOne({ User: message.author.id }, async (err, data) => {
             //let xpNeeded = data.level * 50 + 500

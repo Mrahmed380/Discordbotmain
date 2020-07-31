@@ -228,26 +228,7 @@ bot.on('message', async msg => {
         } else {
             msg.author.send('There was a error verifying you in ERGs Recoverys')
         }
-    };
-
-    const tname = msg.author.id;
-    const ctname = "t-" + tname;
-    if (msg.author.bot) return;
-    let regex = new RegExp(/(t-[0-9]+)/);
-    let channelName = msg.channel.name;
-
-    if (msg.content.toLowerCase().startsWith("e!cticket") && regex.test(channelName) && msg.member.roles.cache.has('730608207067742310')) {
-        console.log("Delete Channel");
-        msg.channel.delete().then(console.log('Ticket closed and channel deleted'))
-        msg.guild.owner.send('Your clients ticket was closed hopefully this helped them!😊')
-        const fetchedmessages = await msg.channel.messages.fetch({ limit: 100 })
-        var formattedMsgs = fetchedmessages.map(m => `[${moment(m.createdAt).format()}] ${m.author.tag}: ${m.content}\n`)
-        hb(formattedMsgs.join(""), 'js').then(r => {
-            msg.author.send(`Succesfully closed ticket and archived messages: ${r} - chat transcript`)
-        }).catch(e => {
-            if (e) return msg.channel.send('There was a error archiving the messages!')
-        })
-    };
+    }
 
 
 
@@ -280,9 +261,6 @@ bot.on('message', async msg => {
         case 'cracked':
             msg.reply('Always up to no good... dont tell anyone I gave you these. ' + CACC + '  Now dont expect them all to work.')
             msg.channel.send('More accounts will be linked soon...')
-            break;
-        case 'serverjoin':
-            msg.reply(server)
             break;
         case 'botinv':
             msg.channel.send(binv)

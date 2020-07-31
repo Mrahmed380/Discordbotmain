@@ -5,7 +5,7 @@ const hb = require('hastebin-generator');
 module.exports={
     name: 'archive',
     description: 'logs a number of messages to a channel',
-    usage: 'zarchive <# of msgs>',
+    usage: 'archive <# of msgs>',
     category: 'guild',
     perms: 'Moderator role',
     run: async (bot,message,args)=>{
