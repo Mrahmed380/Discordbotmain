@@ -11,7 +11,7 @@ module.exports = {
     run: async (bot, message, args) => {
         let mssArgs = args.slice(0).join(" ");
         const sgstID = Math.floor(Math.random() * 10000000 + 5);
-        if(!mssArgs) return message.channel.send('You need to add a suggestion')
+        if (!mssArgs) return message.channel.send('You need to add a suggestion')
         const DMembed = new MessageEmbed()
             .setTitle('Suggestion')
             .addField('Suggestion Info', 'Your suggestion has been submitted! In order for your suggestion to be accepted it must have more ✅ votes and then checked by a mod or admin.')
@@ -25,8 +25,8 @@ module.exports = {
             .addField('Suggestion', mssArgs)
             .addField('suggestion ID', sgstID)
             .setFooter('Please wait while a moderator or admin rejects or accepts your suggestion. (note check your DMs.)')
-            
-            bot.idMap.set(`${message.author.id}${sgstID}`);
+
+        bot.idMap.set(`${message.author.id}${sgstID}`);
         message.channel.send(sembed).then(messageReaction => {
             messageReaction.react("✅")
             messageReaction.react("❌")
