@@ -15,9 +15,9 @@ module.exports = {
         let idgrab = bot.idMap.get(`${mention.id}${id}`);
         if (idgrab) {
             message.channel.send("sending dm...");
-            mention.send("dm").catch(err => {
+            mention.send(`Your suggestion was rejected!\nSuggestion ID: ${id}`).catch(err => {
                 console.log(err);
-                message.channel.send("I could not send a message to " + mention);
+                message.channel.send(`I could not send a message to ${mention}`);
             });
             console.log(`approved users suggest with the id ${id}`)
         } else { message.channel.send('That is not a valid id!'); console.log(id); console.log(bot.idMap) }
