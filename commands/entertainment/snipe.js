@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports={
     name: "snipe",
-    descripton: "snipe a message",
+    description: "snipe a message",
     usage: "snipe [number]",
     category: "entertainment",
     perms: "Send Messages",
