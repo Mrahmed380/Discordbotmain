@@ -25,7 +25,7 @@ module.exports = {
             .addField('Suggestion', mssArgs)
             .addField('suggestion ID', sgstID)
             .setFooter('Please wait while a moderator or admin rejects or accepts your suggestion. (note check your DMs.)');
-        bot.idMap.set(`${message.author.id}${sgstID}`)
+        bot.idMap.set(`${message.author.id}${sgstID}`, "suggestion")
         console.log(bot.idMap)
         message.channel.send(sembed).then(messageReaction => {
             messageReaction.react("✅")
