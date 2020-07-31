@@ -12,10 +12,10 @@ module.exports = {
         money.findOne({ User: message.author.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data || data.Money < 10000) return message.channel.send("You need to pay $10000 to start a heist you dont have this money yet!")
-            message.channel.send(`heist from ${message.author} react to enter\n**YOU HAVE 30 SECONDS`).then(msg => {
-                const filt = msg.reactions.cache.get("718678524101132288").users.cache.filter(u => !u.bot);
+            message.channel.send(`heist from ${message.author} react to enter\n**YOU HAVE 30 SECONDS**`).then(msg => {
                 msg.react("718678524101132288")
-                msg.reactions.cache.get("718678524101132288")
+                const filt = msg.reactions.cache.get("718678524101132288").users.cache.filter(u => !u.bot);
+                msg.reactions.cache.get("718678524101132288");
                 setTimeout(() => {
                     let reactors = new Map();
                     //if (msg.reactions.cache.size < 3) return message.channel.send('less than 2 people reacted so the heist was canceled you must wait another hour until you start another heist!')
