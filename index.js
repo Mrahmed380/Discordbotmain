@@ -253,7 +253,7 @@ bot.on('message', async msg => {
 
 
 
-    const swearwords = ['nigga', 'nigger', 'Nigga', 'n i g g a', 'NIGGA', 'n i g g e r']``
+    const swearwords = ['nigga', 'nigger', 'Nigga', 'n i g g a', 'NIGGA', 'n i g g e r'];
     if (swearwords.some(word => msg.content.includes(word))) {
         require('./events/random/nword')(msg);
     }
