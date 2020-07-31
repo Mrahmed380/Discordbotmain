@@ -11,7 +11,7 @@ module.exports={
         const { guild} = message;
         let chan = guild.channels.cache.find(c => c.name === "『💸』𝗣𝗿𝗶𝗰𝗲𝘀");
         if(!chan) return console.log("no channel")
-        message.channel.send(`All recoverys are $3-$20\nFull page and more info ~ https://gtarecov.herokuapp.com/backgroundSites/shop.html ***or*** go to ${chan}`);
+        message.channel.send(`All recoverys are $3-$20\nFull page and more info ~ https://gtarecov.herokuapp.com/backgroundSites/shop.html ***or***  go to ${chan}`);
         console.log("link given");
     }
 
