@@ -12,7 +12,7 @@ module.exports = {
         money.findOne({ User: message.author.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data || data.Money < 10000) return message.channel.send("You need to pay $10000 to start a heist you dont have this money yet!")
-            message.channel.send(`heist from ${message.author} react to enter\n**YOU HAVE 30 SECONDS**`).then(msg => {
+            message.channel.send(`heist from ${message.author} react to enter\n**YOU HAVE 30 SECONDS**`).then(async msg => {
                 msg.react("718678524101132288")
                 setTimeout(() => {
                     let reactors = new Map();
