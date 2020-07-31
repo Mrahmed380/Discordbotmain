@@ -16,7 +16,7 @@ module.exports={
         .setDescription(msg.content)
         .setFooter(`Date: ${msg.date} | ${args[0]||1}/${snipes.length}`)
         .setColor(0xff3b5f)
-        if(msg.attachment) embed.setImage(msg.attachment);
+        if(msg.image) embed.setImage(msg.image);
         message.channel.send(embed);
         console.log('sniped')
     }
