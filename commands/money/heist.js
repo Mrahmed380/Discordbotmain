@@ -1,7 +1,7 @@
 const money = require('../../models/money');
 module.exports = {
     name: 'heist',
-    status: true,
+    status: false,
     aliases: ['bankrob'],
     usage: 'heist',
     description: 'Rob a bank and get up to $100000',
@@ -26,7 +26,7 @@ module.exports = {
                         const filt = msg.reactions.cache.get("718678524101132288").users.cache.filter(u => !u.bot);
                         console.log(wins);
                         console.log(reactors);
-                        const get = reactors.get(`${message.guild.members.cache.get(wins).user.id}`);
+                        const get = reactors.get(`${message.guild.members.cache.get(wins).user.id}`); // this is the error cut the id out of map
                         if(!get) return message.channel.send("no")
                         let amt = Math.random(100000)
                         message.channel.send('Send any message to collect the money from the heist')
