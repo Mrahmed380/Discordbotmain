@@ -6,7 +6,7 @@ module.exports={
     category: 'guild',
     perms: "Moderator role or Admin role",
     run: async(bot,message,args)=>{
-        const id = args.slice(2).join(" ");
+        const id = args.slice(1).join(" ");
         const mention = message.mentions.members.first();
         if(!mention) return message.channel.send("You need to mention the user you want to approve of");
         if(!id) return message.channel.send('You need to include the id of the suggestion!');
