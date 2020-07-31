@@ -1,4 +1,5 @@
-const hb = require('hastebin-generator')
+const hb = require('hastebin-generator');
+const moment = require('moment');
 module.exports = {
     name: 'cticket',
     description: 'close a ticket',
@@ -21,7 +22,7 @@ module.exports = {
             hb(formattedMsgs.join(""), 'js').then(r => {
                 message.author.send(`Succesfully closed ticket and archived messages: ${r} - chat transcript`)
             }).catch(e => {
-                if (e) return msg.channel.send('There was a error archiving the messages!')
+                if (e) return message.channel.send('There was a error archiving the messages!')
             })
         };
     }
