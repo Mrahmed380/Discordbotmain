@@ -23,7 +23,7 @@ module.exports = async (message) => {
             if (!chan) return;
             chan.send(embed);
             console.log('Message deleted, but was captured and logged in #archivelog')
-        })
+        }).catch(err => console.log(err));
     } else {
         const embed = new MessageEmbed()
             .setTitle('Deleted message from ' + message.author.id)
