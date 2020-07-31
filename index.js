@@ -16,6 +16,7 @@ const fs = require('fs');
 const ms = require('ms');
 bot.commands = new Discord.Collection();
 bot.snipes = new Discord.Collection();
+bot.idMap = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.categories = fs.readdirSync("./commands/");
 ["command"].forEach(handler => {
@@ -252,7 +253,7 @@ bot.on('message', async msg => {
 
 
 
-    
+    const swearwords = ['nigga', 'nigger', 'Nigga', 'n i g g a', 'NIGGA', 'n i g g e r']``
     if (swearwords.some(word => msg.content.includes(word))) {
         require('./events/random/nword')(msg);
     }
