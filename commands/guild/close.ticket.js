@@ -1,3 +1,4 @@
+const hb = require('hastebin-generator')
 module.exports = {
     name: 'cticket',
     description: 'close a ticket',
