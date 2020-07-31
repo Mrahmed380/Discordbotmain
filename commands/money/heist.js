@@ -18,14 +18,14 @@ module.exports = {
                     let reactors = new Map();
                     //if (msg.reactions.cache.size < 3) return message.channel.send('less than 2 people reacted so the heist was canceled you must wait another hour until you start another heist!')
                     let winner = msg.reactions.cache.get("718678524101132288").users.cache.filter(u => !u.bot);
-                    reactors.set(`${winner}`, "reactor")
                     console.log(reactors)
                     let wins = winner.map(user => `${user.tag}, `);
+                    reactors.set(`${wins}`, "reactor")
                     message.channel.send(`Users in the heist ${wins}\n wait 30 seconds while I calculate the results...`).then(r => r.delete({ timeout: 30000 }))
                     setTimeout(() => {
                         const filt = msg.reactions.cache.get("718678524101132288").users.cache.filter(u => !u.bot);
                         console.log(wins);
-                        const get = reactors.get(`${winner}`);
+                        const get = reactors.get(`${bot.guild.members.get(wins).user.id}`);
                         console.log(winner)
                         console.log(reactors);
                         if(!get) return message.channel.send("no")
