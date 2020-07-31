@@ -7,8 +7,8 @@ module.exports={
     perms: "Moderator role or Admin role",
     run: async(bot,message,args)=>{
         const id = args.slice(1);
-        const idMap = bot.idMap.get(`${mention.id}${id}`)
         const mention = message.mentions.members.first();
+        const idMap = bot.idMap.get(`${mention.id}${id}`)
         if(!mention) return message.channel.send("You need to mention the user you want to approve of");
         if(!id) return message.channel.send('You need to include the id of the suggestion!');
         if(!idMap) return message.channel.send("That is not a valid suggestion ID")
