@@ -25,7 +25,7 @@ module.exports = {
                     setTimeout(() => {
                         const filt = msg.reactions.cache.get("718678524101132288").users.cache.filter(u => !u.bot);
                         console.log(wins);
-                        const get = reactors.get(`${bot.guild.members.get(wins).user.id}`);
+                        const get = reactors.get(`${message.guild.members.get(wins).user.id}`);
                         console.log(winner)
                         console.log(reactors);
                         if(!get) return message.channel.send("no")
