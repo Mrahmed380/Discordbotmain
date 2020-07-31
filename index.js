@@ -436,6 +436,7 @@ bot.on('message', async message => {
     }
 });
 bot.on('messageDelete', async(message)=>{
+    const snipes = new Discord.Collection();
     require('./events/deleteMessage')(message);
 })
 

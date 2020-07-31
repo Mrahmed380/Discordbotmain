@@ -1,5 +1,4 @@
 const { MessageEmbed } = require("discord.js")
-const snipes = new Map();
 module.exports = async (message) => {
     try {
         const snipesMap = bot.snipes.get(message.channel.id) || [];
