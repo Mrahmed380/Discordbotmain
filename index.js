@@ -435,23 +435,9 @@ bot.on('message', async message => {
         message.delete({ timeout: 2000 }), console.log('Message deleted')
     }
 });
-/*bot.on('guildMemberAdd', async member => {
-    const cachedInvites = guildInvites.get(member.guild.id);
-    const newInvites = await member.guild.fetchInvites();
-    guildInvites.set(member.guild.id, newInvites);
-    try {
-        if (!member.guild.id === '697343291825455123') return console.log('trash')
-        const usedInvite = newInvites.find(inv => cachedInvites.get(inv.code).uses < inv.uses);
-        const embed = new Discord.MessageEmbed()
-            .setDescription(`${member.user.tag} just joined! Invited by ${usedInvite.inviter.tag}\nNumber of uses: ${usedInvite.uses}`)
-            .setTimestamp()
-            .setTitle(`New invite used`);
-        const logchannel = member.guild.channels.cache.find(c => c.id === '697343291825455130');
-        if (logchannel) {
-            logchannel.send(embed).catch(err => console.log(err));
-        }
-    } catch (err) { console.log(err) }
-});*/
+bot.on('messageDelete', async(message)=>{
+    require('./events/deleteMessage')(message);
+})
 
 
 
