@@ -23,7 +23,7 @@ module.exports = {
                     let wins = winner.map(user => `${user.tag}, `);
                     message.channel.send(`Users in the heist ${wins}\n wait 30 seconds while I calculate the results...`).then(r => r.delete({ timeout: 30000 }))
                     setTimeout(() => {
-                        const filt = await msg.reactions.cache.get("718678524101132288").users.cache.filter(u => !u.bot);
+                        const filt = msg.reactions.cache.get("718678524101132288").users.cache.filter(u => !u.bot);
                         console.log(wins);
                         const get = reactors.get(`${winner}`);
                         console.log(winner)
