@@ -15,6 +15,7 @@ module.exports={
         .setAuthor(msg.author.tag, msg.author.displayAvatarURL({dynamic: true}))
         .setDescription(msg.content)
         .setFooter(`Date: ${msg.date} | ${args[0]||1}/${snipes.length}`)
+        .setColor('PINK')
         if(msg.attatchment) embed.setDescription(msg.attatchment);
         message.channel.send(embed);
         console.log('sniped')
