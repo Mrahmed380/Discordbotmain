@@ -16,8 +16,7 @@ module.exports={
         .setDescription(msg.content)
         .setFooter(`Date: ${msg.date} | ${args[0]||1}/${snipes.length}`)
         .setColor(0xff3b5f)
-        if(msg.content === "" & !msg.attatchment) return message.channel.send('That is not a valid snipe')
-        if(msg.attatchment) embed.setDescription(msg.attatchment);
+        if(msg.attachment) embed.setDescription(msg.attachment);
         message.channel.send(embed);
         console.log('sniped')
     }
