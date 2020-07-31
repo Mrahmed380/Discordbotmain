@@ -5,6 +5,7 @@ const ms = require('ms');
 module.exports = {
     name: 'help',
     category: 'info',
+    aliases:['command','commands','cmd','cmds'],
     description: 'Shows you how to use a command and what it does!',
     usage: 'help [command]',
     perms: 'Send Messages',
