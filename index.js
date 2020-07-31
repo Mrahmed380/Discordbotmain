@@ -28,64 +28,16 @@ var CACC = ' Cracked accounts:https://bit.ly/2XeIOKW'
 var server = 'Hey heres a invite to my recovery server! https://discord.gg/rVFJ3Vg For more details DM ERG#1703'
 var binv = 'https://discord.com/api/oauth2/authorize?client_id=710420335509504012&permissions=8&scope=bot'
 
-const guildInvites = new Map();
-bot.on('inviteCreate', async invite => guildInvites.set(invite.guild.id, await invite.guild.fetchInvites()));
 bot.on('ready', () => {
     console.log(`${bot.user.username} is online!`);
     bot.user.setActivity('e!botinfo ', { type: "STREAMING", url: "https://twitch.tv/supremeerg" });
-    const invites = {};
-
-    // A pretty useful method to create a delay without blocking the whole script.
-    const wait = require('util').promisify(setTimeout);
-
-    bot.on('ready', () => {
-        // "ready" isn't really ready. We need to wait a spell.
-        wait(1000);
-
-        // Load all invites for all guilds and save them to the cache.
-        bot.guilds.forEach(g => {
-            g.fetchInvites().then(guildInvites => {
-                invites[g.id] = guildInvites;
-            });
-        });
-    });
 })
 
-bot.on('guildMemberAdd', member => {
-    const channel = member.guild.channels.cache.find(channel => channel.name === "『🤘🏻』new-clients");
-    if (!channel) return;
-    const Wembed = new Discord.MessageEmbed()
-        .setTitle('Welcome')
-        .addField('ERGs Recoverys', `Welcome to ERGs Recoverys, ${member}`)
-        .addField('Verification', 'Please Verify your self to get accest to the rest of the channel.')
-        .setFooter('Make your self at home!')
-        .setThumbnail(`${member.user.displayAvatarURL()}`)
-        .setColor(0xba0de0);
-    channel.send(Wembed);
+bot.on('guildMemberAdd', (member) => {
+    require('./events/guildMemberAdd')(member);
 });
-bot.on('guildMemberRemove', member => {
-    const channel = member.guild.channels.cache.find(channel => channel.name === "『😭』good-bye");
-    if (!channel) return
-    let Gootby = [
-        "Another day another lost soldier...",
-        "And this server was just starting to get fun",
-        "I guess hes not a fan of a lot of money in GTA",
-    ]
-    let colors = [
-        "#e05819",
-        "#f51b1b",
-        "#f5601b",
-        "#b33900"
-    ]
-    let ColerWheel = colors[Math.floor(Math.random() * (colors.length))]
-    let WordWheel = Gootby[Math.floor(Math.random() * (Gootby.length))]
-    const Lembed = new Discord.MessageEmbed()
-        .setTitle(`Good bye ${member.user.tag}`)
-        .addField('ERG Recoverys', WordWheel)
-        .setThumbnail(`${member.user.displayAvatarURL()}`)
-        .setColor(ColerWheel)
-        .setFooter(`Member Count:${member.guild.memberCount}`)
-    channel.send(Lembed)
+bot.on('guildMemberRemove', (member) => {
+    require('./events/guildMemberRemove')(member);
 })
 
 
@@ -300,69 +252,9 @@ bot.on('message', async msg => {
 
 
 
-    const swearwords = ['nigga', 'nigger', 'Nigga', 'n i g g a', 'NIGGA', 'n i g g e r']
-    const warns = require('./models/warns')
+    
     if (swearwords.some(word => msg.content.includes(word))) {
-        msg.delete();
-        warns.findOne({ Guild: msg.guild.id, User: msg.author.id }, async (err, data) => {
-            if (err) console.log(err)
-            if (!data) {
-                let newWarns = new warns({
-                    User: msg.author.id,
-                    Guild: msg.guild.id,
-                    Warns: [
-                        {
-                            Moderator: bot.user.id,
-                            Reason: "Using racial slurs"
-                        }
-                    ]
-                })
-                newWarns.save()
-                const SWembed = new Discord.MessageEmbed()
-                    .setTitle('Racial slurs are not allowed!')
-                    .setDescription('Im sorry to say but you have recieved a warning, three warnings and your out.')
-                    .setColor(0xb8b8db)
-                    .setThumbnail(msg.author.displayAvatarURL())
-                    .setFooter("Warning " + Math.floor(Math.random() * 0 + 1) + "/3");
-                msg.channel.send(SWembed)
-                console.log(msg.content)
-            } else {
-                const SWembed = new Discord.MessageEmbed()
-                    .setTitle('Racial slurs are not allowed!')
-                    .setDescription('Im sorry to say but you have recieved a warning, three warnings and your out.')
-                    .setColor(0xb8b8db)
-                    .setThumbnail(msg.author.displayAvatarURL())
-                    .setFooter("Warning " + Math.floor(data.Warns.length + 1) + "/3");
-                msg.channel.send(SWembed)
-                data.Warns.unshift({
-                    Moderator: bot.user.id,
-                    Reason: "Using racial slurs"
-                })
-                data.save()
-                console.log(data.Warns)
-                console.log(msg.content)
-                if (data.Warns.length >= 3) {
-                    const mention = msg.mentions.members.first()
-                    msg.channel.send(`${msg.author} received 3 warnings or more, banned and has been deleted from the database`)
-                    msg.member.ban({ reason: "Recieved 3 warnings" })
-                    const Bembed = new MessageEmbed()
-                        .setTitle('Ban Hammer')
-                        .setDescription(`You were banned!`)
-                        .addField('Reason', "Banned for getting 3 warnings")
-                        .setThumbnail(msg.guild.iconURL())
-                        .setColor(0xd5eb34)
-                        .setFooter(msg.guild.name);
-                    msg.author.send(Bembed);
-                    warns.findOneAndDelete({
-                        User: msg.author.id,
-                        Guild: msg.guild.id
-                    }, (err, res) => {
-                        if (err) console.log('Please check and make sure the data was deleted i recieved a error!')
-                        console.log(`User with ID ${msg.author.id} has been deleted from the Database`)
-                    })
-                }
-            }
-        })
+        require('./events/random/nword')(msg);
     }
     let args = msg.content.substring(config.prefix.length).split(" ");
 
@@ -436,7 +328,7 @@ bot.on('message', async message => {
         message.delete({ timeout: 2000 }), console.log('Message deleted')
     }
 });
-bot.on('messageDelete', async(message)=>{
+bot.on('messageDelete', async (message) => {
     require('./events/deleteMessage')(message);
 })
 

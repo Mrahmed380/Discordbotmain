@@ -10,6 +10,8 @@ module.exports = {
     aliases: ['suggestion', 'sgt'],
     run: async (bot, message, args) => {
         let mssArgs = args.slice(0).join(" ");
+        const idMap = new Map();
+        const sgstID = Math.floor(Math.random() * 10000000 + 5);
         if(!mssArgs) return message.channel.send('You need to add a suggestion')
         const DMembed = new MessageEmbed()
             .setTitle('Suggestion')
@@ -22,8 +24,9 @@ module.exports = {
             .addField('New Suggestion from:', message.author.tag)
             .setColor(0x119e32)
             .addField('Suggestion', mssArgs)
-            .addField('suggestion ID', Math.floor(Math.random() * 10000000 + 5))
+            .addField('suggestion ID', sgstID)
             .setFooter('Please wait while a moderator or admin rejects or accepts your suggestion. (note check your DMs.)')
+            idMap.set(`${message.author.id}${sgstID}`)
         message.channel.send(sembed).then(messageReaction => {
             messageReaction.react("✅")
             messageReaction.react("❌")
