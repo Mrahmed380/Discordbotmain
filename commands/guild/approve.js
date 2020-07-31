@@ -18,6 +18,6 @@ module.exports = {
                 message.channel.send("I could not send a message to " + mention);
             });
             console.log(`approved users suggest with the id ${id}`)
-        } else { message.channel.send('That is not a valid id!'); console.log(id) }
+        } else { message.channel.send('That is not a valid id!'); console.log(id); console.log(bot.idMap) }
     }
 }

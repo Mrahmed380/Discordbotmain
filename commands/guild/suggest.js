@@ -24,12 +24,11 @@ module.exports = {
             .setColor(0x119e32)
             .addField('Suggestion', mssArgs)
             .addField('suggestion ID', sgstID)
-            .setFooter('Please wait while a moderator or admin rejects or accepts your suggestion. (note check your DMs.)')
-
-        bot.idMap.set(`${message.author.id}${sgstID}`);
+            .setFooter('Please wait while a moderator or admin rejects or accepts your suggestion. (note check your DMs.)');
+        bot.idMap.set(`${message.author.id}${sgstID}`).then(console.log("set"));
         message.channel.send(sembed).then(messageReaction => {
             messageReaction.react("✅")
             messageReaction.react("❌")
-        })
+        });
     }
 }
