@@ -1,17 +1,16 @@
 module.exports = {
     name: 'approve',
     dm: false,
-    description: "Approve a users suggestion!",
-    usage: "approve <user> <suggestionID>",
+    description: "Reject a users suggestion!",
+    usage: "reject <user> <suggestionID>",
     category: 'guild',
     perms: "Moderator role",
     run: async (bot, message, args) => {
         const mod = message.guild.roles.cache.find(r => r.name === "Moderator");
-        const admin = message.guild.roles.cache.find(r => r.name === "Admin");
         if (!message.member.roles.cache.has(mod.id)) return message.channel.send("you cannot use this command!")
         const id = args.slice(1).join(" ");
         const mention = message.mentions.members.first();
-        if (!mention) return message.channel.send("You need to mention the user you want to approve of");
+        if (!mention) return message.channel.send("You need to mention the user you want to reject of");
         if (!id) return message.channel.send('You need to include the id of the suggestion!');
         let idgrab = bot.idMap.get(`${mention.id}${id}`);
         if (idgrab) {
