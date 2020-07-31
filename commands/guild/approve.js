@@ -10,7 +10,7 @@ module.exports={
         const mention = message.mentions.members.first();
         if(!mention) return message.channel.send("You need to mention the user you want to approve of");
         if(!id) return message.channel.send('You need to include the id of the suggestion!');
-        const idMap = bot.idMap.get(`${mention.id}${id}`)
+        const idMap = bot.idMap.get(mention.id,id) || []
         if(!idMap) return message.channel.send("That is not a valid suggestion ID")
         message.channel.send("sending dm...");
         mention.send("dm").catch(err => {
