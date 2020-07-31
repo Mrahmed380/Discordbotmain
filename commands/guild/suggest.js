@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js')
+const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'suggest',
     description: 'Makes a suggestion for moderators or admins to consider',
@@ -25,12 +25,8 @@ module.exports = {
             .addField('Suggestion', mssArgs)
             .addField('suggestion ID', sgstID)
             .setFooter('Please wait while a moderator or admin rejects or accepts your suggestion. (note check your DMs.)')
-            const snipes = message.client.idMap.get(message.author.id) || [];
-            snipes.unshift({
-                id: sgstID,
-                author: message.author.id
-            })
-            message.client.idMap.set(message.author.id, snipes)
+            
+            bot.idMap.set(`${message.author.id}${sgstID}`);
         message.channel.send(sembed).then(messageReaction => {
             messageReaction.react("✅")
             messageReaction.react("❌")
