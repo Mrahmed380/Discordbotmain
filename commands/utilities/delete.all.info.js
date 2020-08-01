@@ -16,7 +16,7 @@ module.exports = {
         message.channel.awaitMessages(filter, {
             max: 1,
             time: 10000
-        }).then(collected => {
+        }).then(async collected => {
             const answer = 'confirm' || 'cancel'
             if (collected.first().content == "cancel") return message.channel.send("Ok I cancelled!");
             if (collected.first().content !== answer) return message.channel.send("That was not a valid answer so I stopped the operation");
