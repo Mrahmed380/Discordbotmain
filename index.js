@@ -124,89 +124,91 @@ bot.on('message', async message => {
     }
     prefix.findOne({ Guild: message.guild.id }, async (err, data) => {
         if (!data) {
-            serverconfig.findOne({ cmd: { disable: command.name } }, async (err, data) => {
-                if (data) return message.channel.send("This command is disabled in this server!")
-                if (err) console.log(err)
-                if (message.author.bot) return;
-                if (!message.content.startsWith(config.prefix)) return;
-                if (!message.member) message.member = await message.guild.fetchMember(message);
-                const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-                const cmd = args.shift().toLowerCase();
-                if (cmd.length == 0) return;
-                let command = bot.commands.get(cmd)
-                if (!command) command = bot.commands.get(bot.aliases.get(cmd));
-                if (command) {
-                    if (command.status == false) {
-                        console.log('command is off')
-                        return message.channel.send("This command is currently under maintenance!")
-                    }
-                    if (command.dm == false && message.channel.type == 'dm') {
-                        console.log('command is guild only')
-                        return message.channel.send('This command is only available in a server!!')
-                    }
-                    if (command.timeout) {
-                        let cooldown = used.get(`${message.author.id}${command.name}`)
-                        let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true })
-                        if (cooldown) {
-                            console.log(`User is in timeout ${command.name}`)
-                            console.log(command.name)
-                            return message.reply(`you need to wait ***\`${remaining}!\`***`)
-                        } else {
-                            console.log("put in time out")
-                            used.set(`${message.author.id}${command.name}`, Date.now() + command.timeout)
-                            setTimeout(() => {
-                                used.delete(`${message.author.id}${command.name}`)
-                                console.log(`deleted out of timeout for ${command.name} after ${ms(command.timeout)}`)
-                            }, command.timeout);
-                        }
-                    }
-                    command.run(bot, message, args)
+            if (data) return message.channel.send("This command is disabled in this server!")
+            if (err) console.log(err)
+            if (message.author.bot) return;
+            if (!message.content.startsWith(config.prefix)) return;
+            if (!message.member) message.member = await message.guild.fetchMember(message);
+            const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+            const cmd = args.shift().toLowerCase();
+            if (cmd.length == 0) return;
+            let command = bot.commands.get(cmd)
+            if (!command) command = bot.commands.get(bot.aliases.get(cmd));
+            if (command) {
+                if (command.status == false) {
+                    console.log('command is off')
+                    return message.channel.send("This command is currently under maintenance!")
                 }
-            })
+                if (command.dm == false && message.channel.type == 'dm') {
+                    console.log('command is guild only')
+                    return message.channel.send('This command is only available in a server!!')
+                }
+                if (command.timeout) {
+                    let cooldown = used.get(`${message.author.id}${command.name}`)
+                    let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true })
+                    if (cooldown) {
+                        console.log(`User is in timeout ${command.name}`)
+                        console.log(command.name)
+                        return message.reply(`you need to wait ***\`${remaining}!\`***`)
+                    } else {
+                        console.log("put in time out")
+                        used.set(`${message.author.id}${command.name}`, Date.now() + command.timeout)
+                        setTimeout(() => {
+                            used.delete(`${message.author.id}${command.name}`)
+                            console.log(`deleted out of timeout for ${command.name} after ${ms(command.timeout)}`)
+                        }, command.timeout);
+                    }
+                }
+                serverconfig.findOne({ cmd: { disable: command.name } }, async (err, data) => {
+                    if (data) return message.channel.send("This command is off!")
+                    command.run(bot, message, args)
+                })
+            }
         } else {
             if (err) console.log(err)
             if (message.author.bot) return;
-            serverconfig.findOne({ cmd: { disable: command.name } }, async (err, data) => {
-                if (data) return message.channel.send("This command is disabled in this server!")
-                if (!message.content.startsWith(data.Prefix)) return;
-                if (!message.guild) return;
-                if (!message.member) message.member = await message.guild.fetchMember(message);
-                const args = message.content.slice(data.Prefix.length).trim().split(/ +/g);
-                const cmd = args.shift().toLowerCase();
-                if (cmd.length == 0) return;
-                let command = bot.commands.get(cmd)
-                if (!command) command = bot.commands.get(bot.aliases.get(cmd));
-                if (command) {
-                    if (command.status == false) {
-                        console.log('command is off')
-                        return message.channel.send("This command is currently under maintenance!")
-                    }
-                    if (command.dm == false && message.channel.type == 'dm') {
-                        console.log('command is guild only')
-                        return message.channel.send('This command is only available in a server!!')
-                    }
-                    if (command.timeout) {
-                        let cooldown = used.get(`${message.author.id}${command.name}`)
-                        let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true })
-                        if (cooldown) {
-                            console.log(`User is in timeout ${command.name}`)
-                            console.log(command.name)
-                            return message.reply(`you need to wait ***\`${remaining}!\`***`)
-                        } else {
-                            console.log("put in time out")
-                            used.set(`${message.author.id}${command.name}`, Date.now() + command.timeout)
-                            setTimeout(() => {
-                                used.delete(`${message.author.id}${command.name}`)
-                                console.log(`deleted out of timeout for ${command.name} after ${ms(command.timeout)}`)
-                            }, command.timeout);
-                        }
-                    }
-                    command.run(bot, message, args)
+            if (!message.content.startsWith(data.Prefix)) return;
+            if (!message.guild) return;
+            if (!message.member) message.member = await message.guild.fetchMember(message);
+            const args = message.content.slice(data.Prefix.length).trim().split(/ +/g);
+            const cmd = args.shift().toLowerCase();
+            if (cmd.length == 0) return;
+            let command = bot.commands.get(cmd)
+            if (!command) command = bot.commands.get(bot.aliases.get(cmd));
+            if (command) {
+                if (command.status == false) {
+                    console.log('command is off')
+                    return message.channel.send("This command is currently under maintenance!")
                 }
-            })
+                if (command.dm == false && message.channel.type == 'dm') {
+                    console.log('command is guild only')
+                    return message.channel.send('This command is only available in a server!!')
+                }
+                if (command.timeout) {
+                    let cooldown = used.get(`${message.author.id}${command.name}`)
+                    let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true })
+                    if (cooldown) {
+                        console.log(`User is in timeout ${command.name}`)
+                        console.log(command.name)
+                        return message.reply(`you need to wait ***\`${remaining}!\`***`)
+                    } else {
+                        console.log("put in time out")
+                        used.set(`${message.author.id}${command.name}`, Date.now() + command.timeout)
+                        setTimeout(() => {
+                            used.delete(`${message.author.id}${command.name}`)
+                            console.log(`deleted out of timeout for ${command.name} after ${ms(command.timeout)}`)
+                        }, command.timeout);
+                    }
+                }
+                serverconfig.findOne({ cmd: { disable: command.name } }, async (err, data) => {
+                    if (data) return message.channel.send('This command is disabled!')
+                    command.run(bot, message, args)
+                })
+            }
+
         }
     })
-});
+})
 
 
 bot.on('message', async msg => {
