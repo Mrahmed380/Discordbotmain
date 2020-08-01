@@ -28,7 +28,7 @@ module.exports = {
                 if (message.content.includes(":")) {
                     const str = newpre
                     const res = str.replace(":", " ");
-                    console.log(res)
+                    console.log(`"${res}"`)
                     /*const oldpre = data.Prefix
                     if (newpre == oldpre) return message.channel.send(`The prefix is already \`${data.Prefix}\``)
                     data.Prefix = newpre
