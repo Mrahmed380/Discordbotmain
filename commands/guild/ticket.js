@@ -37,7 +37,7 @@ module.exports = {
 
 
             ]
-        }).then(m=>m.send(`Support ticket created by ${message.author}!\nChat transcript will be created after this ticket is deleted.`).pin());
+        }).then(m=>m.send(`Support ticket created by ${message.author}!\nChat transcript will be created after this ticket is deleted.`).then(msg=>msg.pin()));
         console.log('ticket created.')
         const Tembed = new MessageEmbed()
             .setTitle('Support ticket')

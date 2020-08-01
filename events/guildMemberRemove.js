@@ -14,7 +14,7 @@ module.exports=async(member)=>{
     ]
     let ColerWheel = colors[Math.floor(Math.random() * (colors.length))]
     let WordWheel = Gootby[Math.floor(Math.random() * (Gootby.length))]
-    const Lembed = new Discord.MessageEmbed()
+    const Lembed = new MessageEmbed()
         .setTitle(`Good bye ${member.user.tag}`)
         .addField('ERG Recoverys', WordWheel)
         .setThumbnail(`${member.user.displayAvatarURL()}`)
