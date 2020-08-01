@@ -1,5 +1,6 @@
-const { MessageEmbed } = require('discord.js')
-const shop = require('../../models/shop')
+const { MessageEmbed } = require('discord.js');
+const shop = require('../../models/shop');
+const fs = require("fs");
 module.exports = {
     name: 'shop',
     description: 'Shows the shop',
@@ -29,6 +30,16 @@ module.exports = {
                     .setDescription(`\n\n${Object.keys(data.shop).map(e => `\`${e}\`: ${data.shop[e]} Coins`).join("\n")}`)
                     .setColor('RANDOM')
                 message.channel.send(WWembed)
+                let obj = {
+                    shop: {
+                        item: message.content
+                    }
+                };
+                fs.exists('testwrite.json', function (err,data){
+                    if(err)console.log(err);
+                    let json = JSON.stringify(obj);
+                    fs.writeFile('testwrite.json', json);
+                })
             }
         }
         )
