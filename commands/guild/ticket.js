@@ -38,6 +38,7 @@ module.exports = {
 
             ]
         })
+        if(tickchan) await tickchan.send(m => m.pin(`support ticket created by ${message.author}!\nChat transcript will be created after this ticket is deleted.`))
         console.log('ticket created.')
         const Tembed = new MessageEmbed()
             .setTitle('Support ticket')
