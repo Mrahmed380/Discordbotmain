@@ -30,13 +30,6 @@ module.exports = {
                     .setDescription(`\n\n${Object.keys(data.shop).map(e => `\`${e}\`: ${data.shop[e]} Coins`).join("\n")}`)
                     .setColor('RANDOM')
                 message.channel.send(WWembed)
-                let obj = {
-                    shop: {
-                        item: message.content
-                    }
-                };
-                let json = JSON.stringify(obj);
-                fs.writeFile('testwrite.json', json);
             }
         }
         )
