@@ -23,7 +23,7 @@ module.exports = {
                 console.log(`New prefix \`${newpre}\``)
                 newPrefix.save()
                 message.channel.send(`prefix was changed from \`e!\` to \`${newpre}\``)
-                message.guild.me.setNickname(`my prefix is "${data.Prefix}"`)
+                message.guild.me.setNickname(`my prefix is "${newpre}"`)
             } else {
                 if (message.content.includes(":")) {
                     const str = newpre
