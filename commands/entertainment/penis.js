@@ -28,7 +28,7 @@ module.exports={
         .setTitle(`Penis tracker 2000`)
         .setColor('RANDOM')
         .setDescription(`${Mention}\'s peen size\n**${dickwheel}**`)
-        .setFooter('His snap chat is "Crip- ERG IUseMints" if you want his nudes');
+        .setFooter('His snap chat is "Crip- ERG IUseMints" if you uhh...');
         if(Mention) return message.channel.send(mdembed)
         const ddembed = new MessageEmbed()
         .setTitle(`${message.author.tag}\'s peen`)
