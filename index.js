@@ -83,7 +83,6 @@ bot.on('message', (message) => {
 const used = new Map();
 const Duration = require('humanize-duration');
 bot.on('message', async message => {
-    const serverconfig = require('./models/server.config');
     const prefix = require('./models/config')
     if (message.channel.type == 'dm') {
         if (message.author.bot) return;
