@@ -25,9 +25,12 @@ module.exports = {
                 newDisable.save();
                 message.channel.send(`${args[0]} was disabled!`)
             } else{
+                if(data.cmd == {
+                    disable: args[0]
+                }) return message.channel.send("This command is already disabled!")
                 data.cmd.unshift({
                     disable: args[0]
-                })
+                });
                 message.channel.send(`${args[0]} was disabled!`)
             }
         })
