@@ -123,7 +123,6 @@ bot.on('message', async message => {
     }
     prefix.findOne({ Guild: message.guild.id }, async (err, data) => {
         if (!data) {
-            if (data) return message.channel.send("This command is disabled in this server!")
             if (err) console.log(err)
             if (message.author.bot) return;
             if (!message.content.startsWith(config.prefix)) return;
@@ -198,7 +197,6 @@ bot.on('message', async message => {
                         }, command.timeout);
                     }
                 }
-                if (data) return message.channel.send('This command is disabled!')
                 command.run(bot, message, args)
             }
 
