@@ -22,6 +22,8 @@ module.exports = {
         ]
         let question = args.slice(0).join(" ");
         if (!question) return message.channel.send("You need to include a question!");
+        if(question == "?") return message.channel.send("Just cause there is a question mark doesnt mean its a question!");
+        if(question.length <= 5) return message.channel.send("You question should have more than 5 characters!")
         let ranan = answers[Math.floor(Math.random() * (answers.length))];
         const embed = new MessageEmbed()
             .setTitle("8ball")
