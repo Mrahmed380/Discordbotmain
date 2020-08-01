@@ -159,10 +159,9 @@ bot.on('message', async message => {
                         }, command.timeout);
                     }
                 }
-                serverconfig.findOne({ cmd: { disable: command.name } }, async (err, data) => {
-                    if (data) return message.channel.send("This command is off!")
-                    command.run(bot, message, args)
-                })
+                if (data) return message.channel.send("This command is off!")
+                command.run(bot, message, args)
+
             }
         } else {
             if (err) console.log(err)
@@ -200,10 +199,8 @@ bot.on('message', async message => {
                         }, command.timeout);
                     }
                 }
-                serverconfig.findOne({ cmd: { disable: command.name } }, async (err, data) => {
-                    if (data) return message.channel.send('This command is disabled!')
-                    command.run(bot, message, args)
-                })
+                if (data) return message.channel.send('This command is disabled!')
+                command.run(bot, message, args)
             }
 
         }
