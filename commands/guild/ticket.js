@@ -14,6 +14,7 @@ module.exports = {
             .setFooter('Scroll up if you dont see the ticket channel')
         const tname = message.author.id;
         const ctname = "t-" + tname;
+        const tickchan = message.guild.channels.cache.find(ch => ch.name == ctname);
         if (message.guild.channels.cache.find(ch => ch.name == ctname)) return message.channel.send('You alredy have a ticket open, go to your ticket channel and use the cticket command to close your current ticket!')
         message.guild.channels.create(ctname, {
             type: 'text',
@@ -41,7 +42,7 @@ module.exports = {
 
 
             ]
-        }).then(m=>m.send(`Support ticket created by ${message.author}!\nChat transcript will be created after this ticket is deleted.`).then(msg=>msg.pin().then(Tembed.setDescription(`You have created a support ticket!\n${tickchan}`))));
+        }).then(m => m.send(`Support ticket created by ${message.author}!\nChat transcript will be created after this ticket is deleted.`).then(msg => msg.pin().then(Tembed.setDescription(`You have created a support ticket!\n${tickchan}`))));
         console.log('ticket created.')
         message.channel.send(Tembed);
 
