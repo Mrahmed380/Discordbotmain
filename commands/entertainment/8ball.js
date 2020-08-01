@@ -28,5 +28,6 @@ module.exports = {
             .setDescription(`Question: ${question}\nAnswer **${ranan}**`)
             .setColor("YELLOW")
             .setFooter("100% accurate fortunes")
+            message.channel.send(embed);
     }
 }
