@@ -35,11 +35,8 @@ module.exports = {
                         item: message.content
                     }
                 };
-                fs.exists('testwrite.json', function (err,data){
-                    if(err)console.log(err);
-                    let json = JSON.stringify(obj);
-                    fs.writeFile('testwrite.json', json);
-                })
+                let json = JSON.stringify(obj);
+                fs.writeFile('testwrite.json', json);
             }
         }
         )
