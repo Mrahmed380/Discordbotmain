@@ -3,7 +3,7 @@ const XPdb = require("../../models/xp");
 const GTAdb = require("../../models/gta");
 module.exports={
     name:'delete_all_info',
-    aliases: ['duserinfo', 'deleteinfo','DLAI'],
+    aliases: ['duserinfo', 'deleteinfo','dai'],
     description: "delete all info out of DB including coins, XP and GTA username",
     usage: "delet_all_info",
     perms: 'Send Messages',
