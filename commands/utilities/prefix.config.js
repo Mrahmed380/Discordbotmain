@@ -27,6 +27,7 @@ module.exports = {
             } else {
                 if (message.content.includes(":")) {
                     const str = newpre
+                    if(str === ":") return message.channel.send('You prefix needs to contain at least 1 character!')
                     const res = str.replace(":", " ");
                     console.log(`"${res}"`)
                     const oldpre = data.Prefix
