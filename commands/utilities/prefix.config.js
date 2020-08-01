@@ -4,7 +4,7 @@ const { MessageEmbed, DataResolver } = require('discord.js')
 module.exports = {
     name: 'prefix',
     description: 'Changes the bot prefix',
-    usage: `prefix`,
+    usage: `prefix <new Prefix> (use ":" to represent a space in a new prefix)`,
     dm: false,
     category: 'utilities',
     timeout: 45000,
@@ -29,20 +29,32 @@ module.exports = {
                     const str = newpre
                     const res = str.replace(":", " ");
                     console.log(`"${res}"`)
-                    /*const oldpre = data.Prefix
-                    if (newpre == oldpre) return message.channel.send(`The prefix is already \`${data.Prefix}\``)
-                    data.Prefix = newpre
-                    data.save()*/
+                    const oldpre = data.Prefix
+                    if (res == oldpre) return message.channel.send(`The prefix is already \`${data.Prefix}\``)
+                    data.Prefix = res;
+                    data.save()
+                    console.log(`new prefix = "${data.Prefix}"`)
+                    const resembed = new MessageEmbed()
+                        .setTitle('Prefix change')
+                        .setDescription(`Prefix changed from \`${oldpre}\` to \`${res}\` `)
+                        .setColor('RANDOM')
+                        .setFooter(`${data.Prefix}prefix <newPrefix> for new custom prefix`)
+                    message.channel.send(resembed);
+                    message.guild.me.setNickname(`my prefix is "${data.Prefix}"`)
+                } else {
+                    const oldpre = data.Prefix;
+                    if (newpre == oldpre) return message.channel.send(`The prefix is already \`${data.Prefix}\``);
+                    data.Prefix = newpre;
+                    data.save();
+                    console.log(`new prefix = "${data.Prefix}"`)
+                    const WWembed = new MessageEmbed()
+                        .setTitle('Prefix change')
+                        .setDescription(`Prefix changed from \`${oldpre}\` to \`${newpre}\` `)
+                        .setColor('RANDOM')
+                        .setFooter(`${data.Prefix}prefix <newPrefix> for new custom prefix`)
+                    message.channel.send(WWembed);
+                    message.guild.me.setNickname(`my prefix is "${data.Prefix}"`)
                 }
-                const oldpre = data.Prefix
-                console.log(data.Prefix)
-                const WWembed = new MessageEmbed()
-                    .setTitle('Prefix change')
-                    .setDescription(`Prefix changed from \`${oldpre}\` to \`${newpre}\` `)
-                    .setColor('RANDOM')
-                    .setFooter(`${data.Prefix}prefix <newPrefix> for new custom prefix`)
-                message.channel.send(WWembed);
-                message.guild.me.setNickname(`my prefix is "${data.Prefix}"`)
             }
         }
         )
