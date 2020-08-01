@@ -32,6 +32,7 @@ module.exports = {
                     disable: args[0]
                 });
                 message.channel.send(`${args[0]} was disabled!`)
+                console.log(data)
             }
         })
     }
