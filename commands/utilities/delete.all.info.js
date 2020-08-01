@@ -35,7 +35,6 @@ module.exports = {
                 if (!data) message.channel.send("GTA data does not exist");
                 if (data) data.deleteOne().then(message.channel.send("GTA data deleted"));
             })
-            await message.channel.send("All data was deleted!")
         })
     }
 }
