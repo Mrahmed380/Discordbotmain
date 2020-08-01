@@ -37,15 +37,14 @@ module.exports = {
 
 
             ]
-        })
-        if(tickchan) await tickchan.send(m => m.pin(`support ticket created by ${message.author}!\nChat transcript will be created after this ticket is deleted.`))
+        }).then(m=>m.pin(`Support ticket created by ${message.author}!\nChat transcript will be created after this ticket is deleted.`));
         console.log('ticket created.')
         const Tembed = new MessageEmbed()
             .setTitle('Support ticket')
-            .setDescription('You have created a support ticket!') //+ `<#${tickchan.id}>`)
+            .setDescription('You have created a support ticket!')
             .setColor('RANDOM')
             .setFooter('Scroll up if you dont see the ticket channel')
-        message.channel.send(Tembed)
+        message.channel.send(Tembed);
 
     }
 }
