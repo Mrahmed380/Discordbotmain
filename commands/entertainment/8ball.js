@@ -14,7 +14,6 @@ module.exports = {
             "No",
             "Hell the fuck no",
             "Fa sho",
-            "No❤️",
             "Maybe",
             "I hope not",
             "Definitely",
@@ -27,7 +26,7 @@ module.exports = {
         let ranan = answers[Math.floor(Math.random() * (answers.length))];
         const embed = new MessageEmbed()
             .setTitle("8ball")
-            .setDescription(`Question: ${question}\nAnswer **${ranan}**`)
+            .setDescription(`Question: ${question}\nAnswer: **${ranan}**`)
             .setColor("YELLOW")
             .setFooter("100% accurate fortunes")
             message.channel.send(embed);
