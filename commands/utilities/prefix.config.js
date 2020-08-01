@@ -25,10 +25,16 @@ module.exports = {
                 message.channel.send(`prefix was changed from \`e!\` to \`${newpre}\``)
                 message.guild.me.setNickname(`my prefix is "${data.Prefix}"`)
             } else {
+                if (message.content.includes(":")) {
+                    const str = newpre
+                    const res = str.replace(":", " ");
+                    console.log(res)
+                    /*const oldpre = data.Prefix
+                    if (newpre == oldpre) return message.channel.send(`The prefix is already \`${data.Prefix}\``)
+                    data.Prefix = newpre
+                    data.save()*/
+                }
                 const oldpre = data.Prefix
-                if (newpre == oldpre) return message.channel.send(`The prefix is already \`${data.Prefix}\``)
-                data.Prefix = newpre
-                data.save()
                 console.log(data.Prefix)
                 const WWembed = new MessageEmbed()
                     .setTitle('Prefix change')
