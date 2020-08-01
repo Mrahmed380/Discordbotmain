@@ -39,7 +39,7 @@ module.exports = {
             ]
         }).then(m => m.send(`Support ticket created by ${message.author}!\nChat transcript will be created after this ticket is deleted.`).then(msg => msg.pin()));
         console.log('ticket created.')
-        if(message.guild.channls.cache.find(ch => ch.name == ctname)) {
+        if(message.guild.channels.cache.find(ch => ch.name == ctname)) {
             const Tembed = new MessageEmbed()
             .setTitle('Support ticket')
             .setDescription(`You have created a support ticket!\n<#${tickchan.id}>`)
