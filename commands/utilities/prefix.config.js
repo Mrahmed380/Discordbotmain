@@ -16,14 +16,33 @@ module.exports = {
         prefix.findOne({ Guild: message.guild.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data) {
-                let newPrefix = new prefix({
-                    Guild: message.guild.id,
-                    Prefix: newpre
-                })
-                console.log(`New prefix \`${newpre}\``)
-                newPrefix.save()
-                message.channel.send(`prefix was changed from \`e!\` to \`${newpre}\``)
-                message.guild.me.setNickname(`my prefix is "${newpre}"`)
+                if (message.content.includes(":")) {
+                    const str = newpre
+                    if(str === ":") return message.channel.send('You prefix needs to contain at least 1 character!')
+                    const res = str.replace(":", " ");
+                    let newPrefix = new prefix({
+                        Guild: message.guild.id,
+                        Prefix: res
+                    })
+                    newPrefix.save()
+                    console.log(`new prefix = "${res}"`)
+                    const resembed = new MessageEmbed()
+                        .setTitle('Prefix change')
+                        .setDescription(`Prefix changed from \`e!\` to \`${res}\` `)
+                        .setColor('RANDOM')
+                        .setFooter(`${res}prefix <newPrefix> for new custom prefix`)
+                    message.channel.send(resembed);
+                    message.guild.me.setNickname(`my prefix is "${res}"`)
+                } else {
+                    let newPrefix = new prefix({
+                        Guild: message.guild.id,
+                        Prefix: newpre
+                    })
+                    console.log(`New prefix \`${newpre}\``)
+                    newPrefix.save()
+                    message.channel.send(`prefix was changed from \`e!\` to \`${newpre}\``)
+                    message.guild.me.setNickname(`my prefix is "${newpre}"`)
+                }
             } else {
                 if (message.content.includes(":")) {
                     const str = newpre
