@@ -11,12 +11,12 @@ module.exports = {
         const pick2 = ["rock", "paper", "scissors"]
             const results = pick[Math.floor(Math.floor() * (pick.length))]
             const results2 = pick2[Math.floor(Math.random() * (pick2.length))]
-            winner = ``
+            let winner = ``
             const person = message.author;
             const person2 = message.mentions.members.first();
             console.log(`results = ${results} and ${results2}`)
             if (!person2) return message.channel.send("You need to mention the person you want to play with");
-            if(results = "rock" && results2 == "paper") winner = `${person2.user.username}`;
+            if(results == "rock" && results2 == "paper") winner = `${person2.user.username}`;
             if(results == "paper" && results2 == "rock") winner = `${person.username}`;
             //if(results[2] && results2[1]) winner = `${person.username}`;
             //if(results[1] && results2[2]) winner = `${person2.user.username}`;
