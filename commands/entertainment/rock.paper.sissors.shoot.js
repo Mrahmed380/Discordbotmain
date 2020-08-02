@@ -26,6 +26,8 @@ module.exports = {
         if (results == "paper" && results2 == "rock") winner = `${person.username}`;
         if (results == "scissors" && results2 == "paper") winner = `${person.username}`;
         if (results == "paper" && results2 == "scissors") winner = `${person2.user.username}`;
+        if(results == "scissors" && results2 == "rock") winner = `${person2.user.username}`
+        if(results == "rock" && results2 == "scissors") winner = `${person.username}`
         embed.setDescription(`${person} chose ${results} and ${person2} chose ${results2}\n${winner} won!`)
         if (results2 == results) embed.setDescription(`${person.tag} tied with ${person2.user.tag}`);
         message.channel.send(embed)
