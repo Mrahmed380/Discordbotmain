@@ -1,3 +1,4 @@
+const { MessageEmbed } = require("discord.js");
 module.exports = async (member) => {
     const channel = member.guild.channels.cache.find(channel => channel.name === "『🤘🏻』new-clients");
     if (!channel) return;
