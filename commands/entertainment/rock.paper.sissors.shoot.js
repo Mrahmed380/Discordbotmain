@@ -20,8 +20,8 @@ module.exports = {
         const person = message.author;
         const person2 = message.mentions.members.first();
         embed.setFooter(`${person.username} vs ${person2.user.username}`)
-        console.log(`results = ${results} and ${results2}`)
         if (!person2) return message.channel.send("You need to mention the person you want to play with");
+        embed.setFooter(`${person.username} vs ${person2.user.username}`)
         if (results == "rock" && results2 == "paper") winner = `${person2.user.username}`;
         if (results == "paper" && results2 == "rock") winner = `${person.username}`;
         if (results == "scissors" && results2 == "paper") winner = `${person.username}`;
