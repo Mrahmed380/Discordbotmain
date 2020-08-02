@@ -46,7 +46,7 @@ module.exports = {
             } else {
                 if (message.content.includes(":")) {
                     const str = newpre
-                    const numberOfMatches = (str.match(/:/gu) ?? []).length;
+                    const numberOfMatches = (str.match(/:/gu) || []).length;
                     if(str === ":") return message.channel.send('You prefix needs to contain at least 1 character!')
                     if(numberOfMatches > 1) return message.channel.send("You can only put one space in a prefix!");
                     const res = str.replace(":", " ");
