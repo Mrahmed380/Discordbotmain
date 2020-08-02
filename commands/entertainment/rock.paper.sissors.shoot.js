@@ -23,13 +23,13 @@ module.exports = {
         if (person2.id == message.author.id) {
             if (results == "rock" && results2 == "paper") winner = `${bot.user.username}`;
             if (results == "paper" && results2 == "rock") winner = `${person.username}`;
-            if (results == "scissors" && results2 == "paper") winner = `${person.user.username}`;
+            if (results == "scissors" && results2 == "paper") winner = `${person.username}`;
             if (results == "paper" && results2 == "scissors") winner = `${bot.user.username}`;
             if (results == "scissors" && results2 == "rock") winner = `${bot.user.username}`
             if (results == "rock" && results2 == "scissors") winner = `${person.username}`;
             embed.setFooter(`${person.username} vs ${bot.user.username}`)
             embed.setDescription(`${person} chose ${results} and ${bot.user} chose ${results2}\n${winner} won!`)
-            if (results2 == results) embed.setDescription(`${person} tied with ${bot}`);
+            if (results2 == results) embed.setDescription(`${person} tied with ${bot.user}`);
             return message.channel.send(embed)
         }
         if (results == "rock" && results2 == "paper") winner = `${person2.user.username}`;
