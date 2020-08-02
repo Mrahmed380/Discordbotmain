@@ -1,3 +1,5 @@
+const { MessageEmbed } = require("discord.js")
+
 module.exports = {
     name: "rps",
     category: "entertainment",
@@ -9,6 +11,10 @@ module.exports = {
     run: async (bot, message, args) => {
         const pick = ["rock", "paper", "scissors"]
         const pick2 = ["rock", "paper", "scissors"]
+        const embed = new MessageEmbed()
+        .setColor("RANDOM")
+        .setTitle("Rock Paper Scissors")
+        .setFooter(`${person} vs ${person2}`)
             const results = pick[Math.floor(Math.random() * (pick.length))]
             const results2 = pick2[Math.floor(Math.random() * (pick2.length))]
             let winner = ``
@@ -18,9 +24,10 @@ module.exports = {
             if (!person2) return message.channel.send("You need to mention the person you want to play with");
             if(results == "rock" && results2 == "paper") winner = `${person2.user.username}`;
             if(results == "paper" && results2 == "rock") winner = `${person.username}`;
-            //if(results[2] && results2[1]) winner = `${person.username}`;
-            //if(results[1] && results2[2]) winner = `${person2.user.username}`;
-            if(results2 == results) winner = `You tied with ${person2.user.username}!`;
-            message.channel.send(`${person.tag} vs ${person2.user.tag}\n${person.tag} chose ${results} and ${person2} chose ${results2}\n${winner} won!`)
+            if(results == "scissors" && results2 == "paper") winner = `${person.username}`;
+            if(results == "paper" && results2 == "scissors") winner = `${person2.user.username}`;
+            embed.setDescription(`${person} chose ${results} and ${person2} chose ${results2}\n${winner} won!`)
+            if(results2 == results) embed.setDescription(`You tied with ${person2.user.username}`);
+            message.channel.send(embed)
   }
 }
