@@ -300,11 +300,12 @@ bot.on('message', async (message) => {
     }
 
 })
-bot.on('message', async message => {
+bot.on('message', async (message) => {
     if (message.channel.id === '702601747843252295') {
         if (message.author.bot) return console.log('not deleted (author is bot)');
         message.delete({ timeout: 2000 }), console.log('Message deleted')
     }
+    require('./events/xp-message')(message)
 });
 bot.on('messageDelete', async (message) => {
     require('./events/deleteMessage')(message);
