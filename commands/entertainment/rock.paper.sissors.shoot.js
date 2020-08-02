@@ -4,14 +4,15 @@ module.exports = {
     description: "Play rock paper shoot against a user!",
     usage: "rps <user>",
     dm: true,
-    status: false,
+    status: true,
     perms: "Send Messages",
     run: async (bot, message, args) => {
             const results = ["rock", "paper", "scissors"]
             const results2 = ["rock", "paper", "scissors"]
             let winner = ``
-            let person = message.author;
-            let person2 = message.mentions.members.first();
+            const person = message.author;
+            const person2 = message.mentions.members.first();
+            console.log(`${results[0]}, ${results[1]}, ${results[2]}`)
             if (!person2) return message.channel.send("You need to mention the person you want to play with");
             if(results[0] && results2[1]) winner = `${person2.user.username}`;
             if(results[1] && results2[0]) winner = `${person.username}`;
