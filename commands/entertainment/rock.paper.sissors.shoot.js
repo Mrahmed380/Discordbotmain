@@ -14,7 +14,6 @@ module.exports = {
         const embed = new MessageEmbed()
             .setColor("RANDOM")
             .setTitle("Rock Paper Scissors")
-            .setFooter(`${person} vs ${person2}`)
         const results = pick[Math.floor(Math.random() * (pick.length))]
         const results2 = pick2[Math.floor(Math.random() * (pick2.length))]
         let winner = ``
