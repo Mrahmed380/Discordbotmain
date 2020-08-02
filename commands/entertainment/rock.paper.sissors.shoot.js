@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js")
+const { MessageEmbed, BroadcastDispatcher } = require("discord.js")
 module.exports = {
     name: "rps",
     category: "entertainment",
@@ -22,16 +22,15 @@ module.exports = {
         embed.setFooter(`${person.username} vs ${person2.user.username}`)
         if (person2.id == message.author.id) {
             message.channel.send("You cannot play your self, so I will play with you :)");
-            person2 == bot
-            if (results == "rock" && results2 == "paper") winner = `${person2.user.username}`;
+            if (results == "rock" && results2 == "paper") winner = `${bot.user.username}`;
             if (results == "paper" && results2 == "rock") winner = `${person.username}`;
             if (results == "scissors" && results2 == "paper") winner = `${person.username}`;
-            if (results == "paper" && results2 == "scissors") winner = `${person2.user.username}`;
-            if (results == "scissors" && results2 == "rock") winner = `${person2.user.username}`
+            if (results == "paper" && results2 == "scissors") winner = `${bot.user.username}`;
+            if (results == "scissors" && results2 == "rock") winner = `${bot.username}`
             if (results == "rock" && results2 == "scissors") winner = `${person.username}`;
-            embed.setFooter(`${person.username} vs ${person2.user.username}`)
-            embed.setDescription(`${person} chose ${results} and ${person2} chose ${results2}\n${winner} won!`)
-            if (results2 == results) embed.setDescription(`${person} tied with ${person2}`);
+            embed.setFooter(`${person.username} vs ${bot.user.username}`)
+            embed.setDescription(`${person} chose ${results} and $${bot} chose ${results2}\n${winner} won!`)
+            if (results2 == results) embed.setDescription(`${person} tied with ${bot}`);
             return message.channel.send(embed)
         }
         if (results == "rock" && results2 == "paper") winner = `${person2.user.username}`;
