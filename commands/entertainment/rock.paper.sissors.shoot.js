@@ -18,7 +18,7 @@ module.exports = {
         let winner = ``
         let person = message.author;
         let person2 = message.mentions.members.first();
-        if (!person2) return message.channel.send("You need to mention the person you want to play with");
+        if (!person2) return message.channel.send("You need to mention the person you want to play with. You can mention your self if you want to play with me!");
         embed.setFooter(`${person.username} vs ${person2.user.username}`)
         if (person2.id == message.author.id) {
             message.channel.send("You cannot play your self, so I will play with you :)");
