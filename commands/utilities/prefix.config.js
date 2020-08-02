@@ -1,4 +1,3 @@
-const config = require('../../config.json')
 const prefix = require('../../models/config')
 const { MessageEmbed, DataResolver } = require('discord.js')
 module.exports = {
