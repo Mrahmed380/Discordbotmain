@@ -14,7 +14,7 @@ module.exports = {
             let winner = ``
             const person = message.author;
             const person2 = message.mentions.members.first();
-            console.log(`${results[0]}, ${results[1]}, ${results[2]}`)
+            console.log(`results = ${results1} and ${results2}`)
             if (!person2) return message.channel.send("You need to mention the person you want to play with");
             if(results[0] && results2[1]) winner = `${person2.user.username}`;
             if(results[1] && results2[0]) winner = `${person.username}`;
