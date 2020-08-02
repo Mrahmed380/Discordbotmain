@@ -31,9 +31,9 @@ module.exports = {
                     console.log('saving data...')
                     console.log("data was saved")
                     console.log(data)
-                    data.inventory = {
+                    data.inventory.push({
                         Item: item,
-                    }
+                    })
                     data.save();
                     const WWembed = new MessageEmbed()
                         .setTitle(`Shop`)
