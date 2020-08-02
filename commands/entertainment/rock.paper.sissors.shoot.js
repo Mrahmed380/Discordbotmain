@@ -29,7 +29,7 @@ module.exports = {
             if (results == "scissors" && results2 == "rock") winner = `${bot.username}`
             if (results == "rock" && results2 == "scissors") winner = `${person.username}`;
             embed.setFooter(`${person.username} vs ${bot.user.username}`)
-            embed.setDescription(`${person} chose ${results} and $${bot} chose ${results2}\n${winner} won!`)
+            embed.setDescription(`${person} chose ${results} and ${bot.user} chose ${results2}\n${winner} won!`)
             if (results2 == results) embed.setDescription(`${person} tied with ${bot}`);
             return message.channel.send(embed)
         }
