@@ -157,7 +157,6 @@ bot.on('message', async message => {
                         }, command.timeout);
                     }
                 }
-                if (data) return message.channel.send("This command is off!")
                 command.run(bot, message, args)
 
             }
