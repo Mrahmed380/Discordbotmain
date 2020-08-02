@@ -19,7 +19,7 @@ module.exports = {
         let winner = ``
         const person = message.author;
         const person2 = message.mentions.members.first();
-        embed.setFooter(`${person} vs ${person2}`)
+        embed.setFooter(`${person.username} vs ${person2.user.username}`)
         console.log(`results = ${results} and ${results2}`)
         if (!person2) return message.channel.send("You need to mention the person you want to play with");
         if (results == "rock" && results2 == "paper") winner = `${person2.user.username}`;
@@ -29,7 +29,7 @@ module.exports = {
         if(results == "scissors" && results2 == "rock") winner = `${person2.user.username}`
         if(results == "rock" && results2 == "scissors") winner = `${person.username}`
         embed.setDescription(`${person} chose ${results} and ${person2} chose ${results2}\n${winner} won!`)
-        if (results2 == results) embed.setDescription(`${person.tag} tied with ${person2.user.tag}`);
+        if (results2 == results) embed.setDescription(`${person} tied with ${person2}`);
         message.channel.send(embed)
     }
 }
