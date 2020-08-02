@@ -17,7 +17,7 @@ module.exports={
         .setTitle(`${message.author.username}'s imagination`)
         .setDescription(`imagine ${img}`)
         .setColor("ORANGE")
-        .setAuthor(message.author.displayAvatarURL({dynamic: true}))
+        .setAuthor(message.author.username, message.author.displayAvatarURL({dynamic: true}))
         .setFooter(`${message.author.username} is going to have a stroke from imagining`)
         message.channel.send(embed)
     }
