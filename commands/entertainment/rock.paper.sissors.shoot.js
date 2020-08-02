@@ -18,8 +18,8 @@ module.exports = {
         const results2 = pick2[Math.floor(Math.random() * (pick2.length))]
         let winner = ``
         const person = message.author;
-        embed.setFooter(`${person} vs ${person2}`)
         const person2 = message.mentions.members.first();
+        embed.setFooter(`${person} vs ${person2}`)
         console.log(`results = ${results} and ${results2}`)
         if (!person2) return message.channel.send("You need to mention the person you want to play with");
         if (results == "rock" && results2 == "paper") winner = `${person2.user.username}`;
