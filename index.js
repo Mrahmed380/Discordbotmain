@@ -106,8 +106,7 @@ bot.on('message', async message => {
                 let cooldown = used.get(`${message.author.id}${command.name}`)
                 let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true })
                 if (cooldown) {
-                    console.log(`User is in timeout ${command.name}`)
-                    console.log(command.name)
+                    console.log(`User is in timeout ${command.name} for ${ms(command.timeout)}`)
                     return message.reply(`you need to wait ***\`${remaining}!\`***`)
                 } else {
                     console.log("put in time out")
@@ -145,8 +144,7 @@ bot.on('message', async message => {
                     let cooldown = used.get(`${message.author.id}${command.name}`)
                     let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true })
                     if (cooldown) {
-                        console.log(`User is in timeout ${command.name}`)
-                        console.log(command.name)
+                        console.log(`User is in timeout ${command.name} for ${ms(command.timeout)}`)
                         return message.reply(`you need to wait ***\`${remaining}!\`***`)
                     } else {
                         console.log("put in time out")
@@ -184,8 +182,7 @@ bot.on('message', async message => {
                     let cooldown = used.get(`${message.author.id}${command.name}`)
                     let remaining = Duration(cooldown - Date.now(), { units: ['h', 'm', 's', 'ms'], round: true })
                     if (cooldown) {
-                        console.log(`User is in timeout ${command.name}`)
-                        console.log(command.name)
+                        console.log(`User is in timeout ${command.name} for ${ms(command.timeout)}`)
                         return message.reply(`you need to wait ***\`${remaining}!\`***`)
                     } else {
                         console.log("put in time out")
