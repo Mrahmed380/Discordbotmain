@@ -1,5 +1,4 @@
 const { MessageEmbed } = require("discord.js")
-
 module.exports = {
     name: "rps",
     category: "entertainment",
@@ -17,17 +16,30 @@ module.exports = {
         const results = pick[Math.floor(Math.random() * (pick.length))]
         const results2 = pick2[Math.floor(Math.random() * (pick2.length))]
         let winner = ``
-        const person = message.author;
-        const person2 = message.mentions.members.first();
-        embed.setFooter(`${person.username} vs ${person2.user.username}`)
+        let person = message.author;
+        let person2 = message.mentions.members.first();
         if (!person2) return message.channel.send("You need to mention the person you want to play with");
         embed.setFooter(`${person.username} vs ${person2.user.username}`)
+        if (person2.id == message.author.id) {
+            message.channel.send("You cannot play your self, so I will play with you :)");
+            person2 == bot
+            if (results == "rock" && results2 == "paper") winner = `${person2.user.username}`;
+            if (results == "paper" && results2 == "rock") winner = `${person.username}`;
+            if (results == "scissors" && results2 == "paper") winner = `${person.username}`;
+            if (results == "paper" && results2 == "scissors") winner = `${person2.user.username}`;
+            if (results == "scissors" && results2 == "rock") winner = `${person2.user.username}`
+            if (results == "rock" && results2 == "scissors") winner = `${person.username}`;
+            embed.setFooter(`${person.username} vs ${person2.user.username}`)
+            embed.setDescription(`${person} chose ${results} and ${person2} chose ${results2}\n${winner} won!`)
+            if (results2 == results) embed.setDescription(`${person} tied with ${person2}`);
+            return message.channel.send(embed)
+        }
         if (results == "rock" && results2 == "paper") winner = `${person2.user.username}`;
         if (results == "paper" && results2 == "rock") winner = `${person.username}`;
         if (results == "scissors" && results2 == "paper") winner = `${person.username}`;
         if (results == "paper" && results2 == "scissors") winner = `${person2.user.username}`;
-        if(results == "scissors" && results2 == "rock") winner = `${person2.user.username}`
-        if(results == "rock" && results2 == "scissors") winner = `${person.username}`
+        if (results == "scissors" && results2 == "rock") winner = `${person2.user.username}`
+        if (results == "rock" && results2 == "scissors") winner = `${person.username}`
         embed.setDescription(`${person} chose ${results} and ${person2} chose ${results2}\n${winner} won!`)
         if (results2 == results) embed.setDescription(`${person} tied with ${person2}`);
         message.channel.send(embed)
