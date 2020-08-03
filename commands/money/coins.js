@@ -20,7 +20,7 @@ module.exports = {
                         .setTitle('Coins')
                         .setDescription(`${Mention} has $${data.Money} coins!`)
                         .setColor('RANDOM')
-                        if(data.Money == 1) WWembed.setDescription(`${Mention} has $1 coin!`)
+                    if (data.Money == 1) WWembed.setDescription(`${Mention} has $1 coin!`)
                     message.channel.send(WWembed)
                 }
             }
@@ -34,12 +34,12 @@ module.exports = {
                         User: message.author.id,
                         Money: 0,
                         Purchases: 0,
-                        inventory:[ {
+                        inventory: {
                             Placeholder: true
-                        }],
+                        },
                         passive: false,
                     }
-                )
+                    )
                     newMoney.save()
                     console.log(`New money created Could not console log for dumb reason idk`)
                     const embed = new MessageEmbed()
@@ -54,7 +54,7 @@ module.exports = {
                         .setDescription(`You have $${data.Money} coins!\nUse the shop command for things you can spend your money on!`)
                         .setColor('RANDOM')
                         .setFooter(`Use the redeem command if you havent already...`);
-                        if(data.Money == 1) WWembed.setDescription(`You have $1 coin!\nUse the shop command for things you can spend you money on`)
+                    if (data.Money == 1) WWembed.setDescription(`You have $1 coin!\nUse the shop command for things you can spend you money on`)
                     message.channel.send(WWembed)
                 }
             }

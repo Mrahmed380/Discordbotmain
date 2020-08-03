@@ -31,7 +31,7 @@ module.exports = {
                     console.log('saving data...')
                     console.log("data was saved")
                     console.log(data)
-                    data.inventory.unshift({
+                    data.inventory = ({
                         Item: item,
                     })
                     data.save();
