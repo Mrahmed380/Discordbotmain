@@ -32,7 +32,7 @@ module.exports = {
                     .setDescription(`**Recovery Servant just gave you $${(newBeg)}**`)
                     .setColor('RANDOM')
                 message.channel.send(embed)
-                if(data.notis == "false") {console.log('can not send notification')} else message.author.send(`I just gave you $${newBeg}`)
+                message.author.send(`I just gave you $${newBeg}`)
             } else {
                 console.log(data)
                 let moneyamt = data.Money
