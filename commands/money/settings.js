@@ -1,7 +1,5 @@
 const money = require('../../models/money');
 const { MessageEmbed } = require('discord.js');
-const { db } = require('../../models/money');
-const { set } = require('mongoose');
 module.exports = {
     name: 'settings',
     description: 'set preferences for the coins system',
