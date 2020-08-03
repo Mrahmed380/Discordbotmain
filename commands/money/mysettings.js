@@ -21,8 +21,8 @@ module.exports = {
                     inventory: {
                         CoinCard: 0
                     },
-                    //passive: false,
-                    notifications: true,
+                    passive: false,
+                    notis: true,
                 })
                 newSetting.save()
                 //console.log(data)
