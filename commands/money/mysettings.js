@@ -21,6 +21,7 @@ module.exports = {
                     inventory: {
                         CoinCard: 0
                     },
+                    passive: false,
                     notis: true
                 })
                 newSetting.save()
