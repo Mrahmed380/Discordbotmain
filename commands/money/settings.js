@@ -52,7 +52,21 @@ module.exports = {
                         notis: Switch,
                     })
                     newSettings.save()
-                    if (data.notis == "false") { console.log('can not send notification') } else message.author.send(`You just changed ${sett} to ${Switch}`)
+                    message.author.send(`You just changed ${sett} to ${Switch}`)
+                } else if(sett == "notis") {
+                    let newSettings = new money({
+                        Guild: message.guild.id,
+                        User: message.author.id,
+                        Money: 0,
+                        Purchases: 0,
+                        inventory: {
+                            CoinCard: 0
+                        },
+                        passive: false,
+                        notis: Switch,
+                    })
+                    newSettings.save()
+                    message.author.send(`You just changed ${sett} to ${Switch}`)
                 }
             } else {
                 if (sett == "passive") data.passive = Switch;
