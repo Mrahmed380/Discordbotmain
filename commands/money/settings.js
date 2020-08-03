@@ -14,7 +14,7 @@ module.exports = {
     run: async (bot, message, args) => {
         let settings = new MessageEmbed()
             .setTitle("Available settings")
-            .setDescription(`Passive mode: true/false || Users can not rob you in while you are in passive mode`)
+            .setDescription(`Passive mode: true/false || Users can not rob you in while you are in passive mode\nNotifications: true/false`)
         let sett = args[0];
         let Switch = args.slice(1).join(" ");
         let setting = "passive" || "Passive" || "notifications" || "Notifications";
