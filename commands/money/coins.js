@@ -38,7 +38,7 @@ module.exports = {
                             Placeholder: true
                         },
                         passive: false,
-                        notifications: true,
+                        notis: true,
                     }
                     )
                     newMoney.save()

@@ -49,6 +49,7 @@ module.exports = {
                     .setColor('RANDOM')
                     .setFooter(`Use coins command for your coins!`)
                 message.channel.send(WWembed)
+                if(data.notis == "false") {console.log('can not send notification')} else Mention.send(`${message.author.tag} gave you $${amt} you now have ${data.Money}`)
             }
         }
         )

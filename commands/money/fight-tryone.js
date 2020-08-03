@@ -40,6 +40,7 @@ module.exports = {
                     dat.save()
                     console.log(data.Money);
                     console.log(dat.Money);
+                    if(data.notis == "false") {console.log('can not send notification')} else mention.send(`${message.author.tag} robbed you and got $${amt}`)
                 }
             })
         })

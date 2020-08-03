@@ -40,6 +40,7 @@ module.exports = {
                         } else {
                             message.channel.send(`You tryed to rob ${mention.user.username} but ended up getting caught you paid them ***\`$${yourNewmoney}\`***, you now have ***\`$${dat.Money}\`***`)
                             console.log(dat)
+                            if(data.notis == "false") {console.log('can not send notification')} else mention.send(`${message.author.tag} tryed to rob you but you caught him and got paid $${yourNewmoney}`)
                         }
                     } else {
                         data.Money -= newMoney;
@@ -51,6 +52,7 @@ module.exports = {
                         dat.save();
                         message.channel.send(`You robbed ${mention.user.username} and got ***\`$${newMoney}\`***, you now have ***\`$${dat.Money}\`***`)
                         console.log(dat)
+                        if(data.notis == "false") {console.log('can not send notification')} else mention.send(`${message.author.tag} robbed you and got $${newMoney}`)
 
                     }
                     console.log(data)

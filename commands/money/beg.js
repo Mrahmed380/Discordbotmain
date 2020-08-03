@@ -23,7 +23,7 @@ module.exports = {
                         CoinCard: 0
                     },
                     passive: false,
-                    notifications: true,
+                    notis: true,
                 })
                 newMoney.save()
                 console.log(`New money created Could not console log for dumb reason idk`)
@@ -32,6 +32,7 @@ module.exports = {
                     .setDescription(`**Recovery Servant just gave you $${(newBeg)}**`)
                     .setColor('RANDOM')
                 message.channel.send(embed)
+                if(data.notis == "false") {console.log('can not send notification')} else mention.send(`I just gave you $${newBeg}`)
             } else {
                 console.log(data)
                 let moneyamt = data.Money
@@ -43,6 +44,7 @@ module.exports = {
                     .setDescription(`**Recovery Servant just gave you $${(newBeg)}!**`)
                     .setColor('RANDOM')
                 message.channel.send(WWembed)
+                if(data.notis == "false") {console.log('can not send notification')} else mention.send(`I just gave you $${newBeg}`)
             }
         }
         )

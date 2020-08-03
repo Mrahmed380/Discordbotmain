@@ -33,6 +33,7 @@ module.exports = {
                     data.save();
                     console.log(`${pick} - ${newMoney}`)
                     message.channel.send(`It turns out the person you just gave money was a random youtuber doing a social experiment and gave you $${RoundedCoins}!`)
+                    if(data.notis == "false") {console.log('can not send notification')} else mention.send(`You donated and a youtuber gave you back $${RoundCoins}`)
                 } else {
                     data.Money -= amt;
                     data.save();

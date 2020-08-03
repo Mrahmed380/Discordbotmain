@@ -39,6 +39,7 @@ module.exports = {
                         notis: true,
                     })
                     newSetting.save()
+                    if(data.notis == "false") {console.log('can not send notification')} else mention.send(`You just changed ${sett} to ${Switch}`)
                 } else if (sett == "notifications") {
                     let newSettings = new money({
                         Guild: message.guild.id,
@@ -52,6 +53,7 @@ module.exports = {
                         notis: Switch,
                     })
                     newSettings.save()
+                    if(data.notis == "false") {console.log('can not send notification')} else mention.send(`You just changed ${sett} to ${Switch}`)
                 }
             } else {
                 if (sett == "passive") data.passive = Switch;
@@ -63,8 +65,9 @@ module.exports = {
                     .setTitle("Your settings")
                     .setAuthor("", message.author.displayAvatarURL({ dynamic: true }))
                     .setFooter("You can change this anytime!")
-                    .setDescription(`Passive mode: ${data.passive}\nNotifications: ${data.notifications}`)
+                    .setDescription(`Passive mode: ${data.passive}\nNotifications: ${data.notis}`)
                 message.channel.send(setbed)
+                if(data.notis == "false") {console.log('can not send notification')} else mention.send(`You just changed ${sett} to ${Switch}`)
             }
         })
     }
