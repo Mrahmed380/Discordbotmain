@@ -24,14 +24,13 @@ module.exports = {
                     notis: true
                 })
                 newSetting.save()
-                //console.log(data)
-                //message.channel.send(data.passive)
+                console.log(data)
                 message.channel.send('I couldnt find you in the database to I created your coins and set the setting: "passive" to false, notifications to true')
             } else {
                 console.log(data)
                 let settings = new MessageEmbed()
                     .setTitle(`${message.author.username}'s settings`)
-                    .setDescription(`Passive mode: ${data.passive}\nNotifications: ${data.notifications}\nYou can use the settings command to change your settings anytime!`)
+                    .setDescription(`Passive mode: ${data.passive}\nNotifications: ${data.notis}\nYou can use the settings command to change your settings anytime!`)
                     .setColor('RANDOM');
                 message.channel.send(settings)
             }

@@ -36,7 +36,7 @@ module.exports = {
                             CoinCard: 0
                         },
                         passive: Switch,
-                        notifications: true,
+                        notis: true,
                     })
                     newSetting.save()
                 } else if (sett == "notifications") {
@@ -49,22 +49,22 @@ module.exports = {
                             CoinCard: 0
                         },
                         passive: false,
-                        notifications: Switch,
+                        notis: Switch,
                     })
                     newSettings.save()
                 }
             } else {
-                console.log(data)
                 if (sett == "passive") data.passive = Switch;
-                if (sett == "notifications") data.notifications = Switch;
+                if (sett == "notifications") data.notis = Switch;
                 data.save();
+                console.log(data)
                 const setbed = new MessageEmbed()
                     .setColor('RED')
                     .setTitle("Your settings")
                     .setAuthor("", message.author.displayAvatarURL({ dynamic: true }))
                     .setFooter("You can change this anytime!")
                     .setDescription(`Passive mode: ${data.passive}\nNotifications: ${data.notifications}`)
-                message.channel.send(embed)
+                message.channel.send(setbed)
             }
         })
     }
