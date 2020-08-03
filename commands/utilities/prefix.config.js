@@ -49,7 +49,7 @@ module.exports = {
                     const str = newpre
                     const numberOfMatches = (str.match(/:/gu) || []).length;
                     let test = (/porn/.test(str))
-                    console.log(test);
+                    if(test == false) return message.channel.send("You cannot have words like these in your prefix!")
                     if(str === ":") return message.channel.send('You prefix needs to contain at least 1 character!')
                     if(numberOfMatches > 1) return message.channel.send("You can only put one space in a prefix!");
                     const res = str.replace(":", " ");
