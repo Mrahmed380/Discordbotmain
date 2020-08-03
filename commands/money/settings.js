@@ -71,6 +71,7 @@ module.exports = {
             } else {
                 if (sett == "passive") {data.passive = Switch;}
                 if (sett == "notifications") {data.notis = Switch;}
+                if(sett == "notis") {data.notis = Switch;}
                 data.save();
                 console.log(data)
                 const setbed = new MessageEmbed()
