@@ -18,7 +18,7 @@ module.exports = {
         let sett = args[0];
         let Switch = args.slice(1).join(" ");
         let setting = "passive" || "Passive" || "notifications" || "Notifications";
-        if (!sett) return message.channel.send('Usage: settings <settingName> <true/false>');
+        if (!sett) return message.channel.send('Usage: settings <settingName> <true/false>'); console.log(sett)
         if (!Switch) return message.channel.send('Usage: settings <settingName> <true/false>')
         if (sett !== setting) return message.channel.send(settings);
         //if(Switch !== "false" || "true") return message.channel.send('Settings must be false or true')
