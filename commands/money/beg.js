@@ -23,6 +23,7 @@ module.exports = {
                         CoinCard: 0
                     },
                     passive: false,
+                    notifications: true,
                 })
                 newMoney.save()
                 console.log(`New money created Could not console log for dumb reason idk`)

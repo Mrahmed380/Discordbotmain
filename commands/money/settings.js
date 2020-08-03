@@ -17,7 +17,7 @@ module.exports = {
             .setDescription(`Passive mode: true/false || Users can not rob you in while you are in passive mode`)
         let sett = args[0];
         let Switch = args.slice(1).join(" ");
-        let setting = "passive" || "Passive";
+        let setting = "passive" || "Passive" || "notifications" || "Notifications";
         if (!sett) return message.channel.send('Usage: settings <settingName> <true/false>');
         if (!Switch) return message.channel.send('Usage: settings <settingName> <true/false>')
         if (sett !== setting) return message.channel.send(settings);

@@ -22,6 +22,7 @@ module.exports = {
                         CoinCard: 0
                     },
                     passive: false,
+                    notifications: true,
                 })
                 newCoin.save();
                 message.channel.send("You just gained 1000 coins come back in 24 hours!")
