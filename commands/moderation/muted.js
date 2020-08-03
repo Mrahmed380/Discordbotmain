@@ -8,6 +8,7 @@ module.exports = {
     run: async (bot, message, args) => {
         const hb = require('hastebin-generator')
         const muterole = message.guild.roles.cache.find(r => r.name === 'Muted')
+        if(!muterole) return;
         var formattedMsgs = muterole.members.map(m => `${m.user.tag},\n`)
         hb(formattedMsgs.join(""), 'js').then(r => {
 

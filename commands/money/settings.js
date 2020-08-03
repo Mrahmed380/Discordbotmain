@@ -1,6 +1,7 @@
 const money = require('../../models/money');
 const { MessageEmbed } = require('discord.js');
 const { db } = require('../../models/money');
+const { set } = require('mongoose');
 module.exports = {
     name: 'settings',
     description: 'set preferences for the coins system',
@@ -25,7 +26,7 @@ module.exports = {
         money.findOne({ User: message.author.id }, async (err, data) => {
             if (err) console.log(err)
             if (!data) {
-                if (sett == "passive" && Switch == "true") {
+                if (sett == "passive") {
                     let newSetting = new money({
                         Guild: message.guild.id,
                         User: message.author.id,
@@ -34,12 +35,11 @@ module.exports = {
                         inventory: {
                             CoinCard: 0
                         },
-                        passive: true,
+                        passive: Switch,
+                        notifications: true,
                     })
                     newSetting.save()
-                    //console.log(data)
-                    //message.channel.send(data.passive)
-                } else if(sett == "passive" && Switch == "false") {
+                } else if (sett == "notifications") {
                     let newSettings = new money({
                         Guild: message.guild.id,
                         User: message.author.id,
@@ -49,17 +49,22 @@ module.exports = {
                             CoinCard: 0
                         },
                         passive: false,
+                        notifications: Switch,
                     })
                     newSettings.save()
                 }
             } else {
                 console.log(data)
-                data.update({
-                    passive: Switch
-                })
-                data.passive = Switch;
+                if (sett == "passive") data.passive = Switch;
+                if (sett == "notifications") data.notifications = Switch;
                 data.save();
-                message.channel.send(`Your new setting: ${data.passive}`)
+                const setbed = new MessageEmbed()
+                    .setColor('RED')
+                    .setTitle("Your settings")
+                    .setAuthor("", message.author.displayAvatarURL({ dynamic: true }))
+                    .setFooter("You can change this anytime!")
+                    .setDescription(`Passive mode: ${data.passive}\nNotifications: ${data.notifications}`)
+                message.channel.send(embed)
             }
         })
     }
