@@ -1,5 +1,6 @@
 const money = require('../../models/money');
 const { MessageEmbed } = require('discord.js');
+const { set } = require('mongoose');
 module.exports = {
     name: 'settings',
     description: 'set preferences for the coins system',
@@ -12,13 +13,13 @@ module.exports = {
     run: async (bot, message, args) => {
         let settings = new MessageEmbed()
             .setTitle("Available settings")
-            .setDescription(`Passive mode: true/false || Users can not rob you in while you are in passive mode\nNotifications: true/false || You will not be DM'ed from the bot if this option is false`)
+            .setDescription(`Passive mode: true/false > Users can not rob you in while you are in passive mode\nNotifications: true/false > You will not be DM'ed from the bot if this option is false`)
         let sett = args[0];
         let Switch = args.slice(1).join(" ");
         let setting = ["passive", "Passive", "notifications", "notis"];
         if (!sett) return message.channel.send('Usage: settings <settingName> <true/false>'); console.log(sett)
         if (!Switch) return message.channel.send('Usage: settings <settingName> <true/false>')
-        if (sett !== setting) return message.channel.send(settings);
+        if (!setting.indexOf(sett) > -1) return message.channel.send(settings);
         //if(Switch !== "false" || "true") return message.channel.send('Settings must be false or true')
         console.log(message.content)
         money.findOne({ User: message.author.id }, async (err, data) => {
