@@ -73,6 +73,8 @@ module.exports = {
                 } else {
                     const oldpre = data.Prefix;
                     if (newpre == oldpre) return message.channel.send(`The prefix is already \`${data.Prefix}\``);
+                    let test = (/porn/.test(str) || /cock/.test(str) || /dick/.test(str))
+                    if(test == true) return message.channel.send("You cannot have words like these in your prefix!")
                     data.Prefix = newpre;
                     data.save();
                     console.log(`new prefix = "${data.Prefix}"`)
