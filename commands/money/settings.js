@@ -69,8 +69,8 @@ module.exports = {
                     message.author.send(`You just changed ${sett} to ${Switch}`)
                 }
             } else {
-                if (sett == "passive") data.passive = Switch;
-                if (sett == "notifications") data.notis = Switch;
+                if (sett == "passive") {data.passive = Switch;}
+                if (sett == "notifications") {data.notis = Switch;}
                 data.save();
                 console.log(data)
                 const setbed = new MessageEmbed()
