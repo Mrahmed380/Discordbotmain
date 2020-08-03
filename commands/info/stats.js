@@ -5,13 +5,13 @@ module.exports = {
     name: 'stats',
     dm: false,
     category: 'info',
-    description: 'Shows bot information ; version, commands, author',
-    usage: 'e!botinfo',
+    description: 'Shows guild informatino or a users information',
+    usage: 'e!stats [user]',
     perms: 'Send Messages',
     aliases: ['user'],
     run: async (bot, message, args) => {
         const memberM = message.mentions.members.first();
-        const argss = message.content.split(' ');
+        const argss = message.content.split(' '); 
         console.log(args);
         if (argss.length > 2) {
             message.channel.send('Incorrect Usage: e!stats | e!stats @User | e!stats self');
@@ -37,7 +37,9 @@ module.exports = {
                 }
                 if (memberM.presence.activities[0]) {
                     if (memberM.presence.activities[0].state !== null) {
-                        STembed.addField('Status', memberM.presence.activities[0].state);
+                        let censored = args.match(/pornhub/) ?? args.match(/porn/);
+                        if(censored) {STembed.addField('Status', "Censored");} else{
+                        STembed.addField('Status', memberM.presence.activities[0].state);}
                     } else {
                         STembed.addField('Status', "None");
                     };
