@@ -37,7 +37,7 @@ module.exports = {
                 }
                 if (memberM.presence.activities[0]) {
                     if (memberM.presence.activities[0].state !== null) {
-                        let censored = args.match(/pornhub/) ?? args.match(/porn/);
+                        let censored = args.match(/pornhub/) || args.match(/porn/);
                         if(censored) {STembed.addField('Status', "Censored");} else{
                         STembed.addField('Status', memberM.presence.activities[0].state);}
                     } else {
