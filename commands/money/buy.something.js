@@ -40,7 +40,7 @@ module.exports = {
                         .setDescription(`you just bought ${item}!\nYou now have $${data.Money} and ${data.Purchases} purchases`)
                         .setColor('RANDOM')
                     message.channel.send(WWembed)
-                    if(data.notis == "false") {console.log('can not send notification')} else mention.send(`You just bought ${item} for ${dat.shop[item]}`)
+                    if(data.notis == "false") {console.log('can not send notification')} else message.author.send(`You just bought ${item} for ${dat.shop[item]}`)
                 })
             }
         }

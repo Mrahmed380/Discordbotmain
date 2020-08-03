@@ -26,7 +26,7 @@ module.exports = {
                 })
                 newCoin.save();
                 message.channel.send("You just gained 1000 coins come back in 24 hours!")
-                if(data.notis == "false") {console.log('can not send notification')} else mention.send(`You collected your daily reward of $1000`)
+                if(data.notis == "false") {console.log('can not send notification')} else message.author.send(`You collected your daily reward of $1000`)
             } else {
                 console.log(data)
                 let oldMone = data.Money;
@@ -38,7 +38,7 @@ module.exports = {
                     .setDescription(`You just collected your daily reward!\nYou now have $${data.Money} coins!`)
                     .setColor('RANDOM')
                 message.channel.send(WWembed)
-                if(data.notis == "false") {console.log('can not send notification')} else mention.send(`You collected your daily reward of $1000`)
+                if(data.notis == "false") {console.log('can not send notification')} else message.author.send(`You collected your daily reward of $1000`)
             }
         }
         )
