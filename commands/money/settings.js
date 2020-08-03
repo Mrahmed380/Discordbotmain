@@ -19,7 +19,7 @@ module.exports = {
         let setting = ["passive", "Passive", "notifications", "notis"];
         if (!sett) return message.channel.send('Usage: settings <settingName> <true/false>'); console.log(sett)
         if (!Switch) return message.channel.send('Usage: settings <settingName> <true/false>')
-        if (!setting.indexOf(sett) > -1) return message.channel.send(settings);
+        if (!setting.includes(sett)) return message.channel.send(settings);
         //if(Switch !== "false" || "true") return message.channel.send('Settings must be false or true')
         console.log(message.content)
         money.findOne({ User: message.author.id }, async (err, data) => {
