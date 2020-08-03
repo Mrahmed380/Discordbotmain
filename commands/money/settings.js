@@ -67,7 +67,7 @@ module.exports = {
                     .setFooter("You can change this anytime!")
                     .setDescription(`Passive mode: ${data.passive}\nNotifications: ${data.notis}`)
                 message.channel.send(setbed)
-                if(data.notis == "false") {console.log('can not send notification')} else mention.send(`You just changed ${sett} to ${Switch}`)
+                if(data.notis == "false") {console.log('can not send notification')} else message.author.send(`You just changed ${sett} to ${Switch}`)
             }
         })
     }
