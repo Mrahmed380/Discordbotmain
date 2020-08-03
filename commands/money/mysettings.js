@@ -21,7 +21,7 @@ module.exports = {
                     inventory: {
                         CoinCard: 0
                     },
-                    notis: true,
+                    notis: true
                 })
                 newSetting.save()
                 //console.log(data)
