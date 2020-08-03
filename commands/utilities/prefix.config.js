@@ -17,6 +17,8 @@ module.exports = {
             if (!data) {
                 if (message.content.includes(":")) {
                     const str = newpre
+                    let test = (/porn/.test(str) || /cock/.test(str) || /dick/.test(str))
+                    if(test == true) return message.channel.send("You cannot have words like these in your prefix!")
                     if(str === ":") return message.channel.send('You prefix needs to contain at least 1 character!')
                     const numberOfMatches = (str.match(/:/gu) || []).length;
                     if(numberOfMatches > 1) return message.channel.send("You can only put one space in a prefix!");
@@ -35,6 +37,8 @@ module.exports = {
                     message.channel.send(resembed);
                     message.guild.me.setNickname(`my prefix is "${res}"`)
                 } else {
+                    let test = (/porn/.test(str) || /cock/.test(str) || /dick/.test(str))
+                    if(test == true) return message.channel.send("You cannot have words like these in your prefix!")
                     let newPrefix = new prefix({
                         Guild: message.guild.id,
                         Prefix: newpre
