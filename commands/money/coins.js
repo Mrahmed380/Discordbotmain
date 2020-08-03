@@ -34,11 +34,12 @@ module.exports = {
                         User: message.author.id,
                         Money: 0,
                         Purchases: 0,
-                        inventory: {
-                            CoinCard: 0
-                        },
+                        inventory:[ {
+                            Placeholder: true
+                        }],
                         passive: false,
-                    })
+                    }
+                )
                     newMoney.save()
                     console.log(`New money created Could not console log for dumb reason idk`)
                     const embed = new MessageEmbed()
