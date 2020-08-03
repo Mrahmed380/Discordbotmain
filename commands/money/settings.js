@@ -17,7 +17,7 @@ module.exports = {
             .setDescription(`Passive mode: true/false || Users can not rob you in while you are in passive mode\nNotifications: true/false`)
         let sett = args[0];
         let Switch = args.slice(1).join(" ");
-        let setting = "passive" || "Passive" || "notifications" || "Notifications";
+        let setting = "passive" || "Passive" || "notifications" || "notis";
         if (!sett) return message.channel.send('Usage: settings <settingName> <true/false>'); console.log(sett)
         if (!Switch) return message.channel.send('Usage: settings <settingName> <true/false>')
         if (sett !== setting) return message.channel.send(settings);
@@ -39,7 +39,7 @@ module.exports = {
                         notis: true,
                     })
                     newSetting.save()
-                    if(data.notis == "false") {console.log('can not send notification')} else message.author.send(`You just changed ${sett} to ${Switch}`)
+                    message.author.send(`You just changed ${sett} to ${Switch}`)
                 } else if (sett == "notifications") {
                     let newSettings = new money({
                         Guild: message.guild.id,
@@ -53,7 +53,7 @@ module.exports = {
                         notis: Switch,
                     })
                     newSettings.save()
-                    if(data.notis == "false") {console.log('can not send notification')} else message.author.send(`You just changed ${sett} to ${Switch}`)
+                    if (data.notis == "false") { console.log('can not send notification') } else message.author.send(`You just changed ${sett} to ${Switch}`)
                 }
             } else {
                 if (sett == "passive") data.passive = Switch;
@@ -67,7 +67,7 @@ module.exports = {
                     .setFooter("You can change this anytime!")
                     .setDescription(`Passive mode: ${data.passive}\nNotifications: ${data.notis}`)
                 message.channel.send(setbed)
-                if(data.notis == "false") {console.log('can not send notification')} else message.author.send(`You just changed ${sett} to ${Switch}`)
+                if (data.notis == "false") { console.log('can not send notification') } else message.author.send(`You just changed ${sett} to ${Switch}`)
             }
         })
     }
